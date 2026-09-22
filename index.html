@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог сервисов — Силовые машины</title>
+<style>
+  :root{
+    --pm-navy-dark:#1a2a5e;
+    --pm-navy-blue:#2b4fa8;
+    --pm-teal:#0e7c7b;
+    --pm-teal-dark:#0a5f5e;
+    --pm-teal-light:#e6f4f3;
+    --pm-red-accent:#e63329;
+    --pm-text-dark:#1a1a2e;
+    --pm-bg-page:#f2f1ed;
+    --pm-white:#ffffff;
+    --pm-muted:#6b7280;
+    --pm-border:#e7e9f0;
+    --radius:16px;
+    --shadow-sm:0 1px 3px rgba(26,42,94,.08), 0 1px 2px rgba(26,42,94,.06);
+    --shadow-md:0 8px 24px rgba(26,42,94,.12);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Inter","Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--pm-bg-page);
+    color:var(--pm-text-dark);
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:28px 32px 80px;
+  }
+
+  /* ---------- Header ---------- */
+  header.top-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:32px;
+  }
+  .brand-block .brand-name{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--pm-teal-dark);
+    margin-bottom:6px;
+  }
+  .brand-block h1{
+    font-size:28px;
+    font-weight:700;
+    margin:0 0 6px;
+    color:var(--pm-navy-dark);
+  }
+  .brand-block .subtitle{
+    color:var(--pm-muted);
+    font-size:15px;
+    margin:0;
+  }
+
+  .header-right{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .search-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--pm-white);
+    border-radius:999px;
+    padding:11px 18px;
+    box-shadow:var(--shadow-sm);
+    min-width:280px;
+    border:1px solid transparent;
+    transition:box-shadow .2s ease, border-color .2s ease;
+  }
+  .search-box:focus-within{
+    border-color:var(--pm-teal);
+    box-shadow:var(--shadow-md);
+  }
+  .search-box svg{color:var(--pm-muted); flex-shrink:0;}
+  .search-box input{
+    border:none;
+    outline:none;
+    font-size:15px;
+    font-family:inherit;
+    color:var(--pm-text-dark);
+    width:100%;
+    background:transparent;
+  }
+  .search-box input::placeholder{color:#9aa1ad;}
+
+  .icon-btn{
+    width:44px;height:44px;
+    border-radius:50%;
+    background:var(--pm-white);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-sm);
+    cursor:pointer;
+    color:var(--pm-navy-dark);
+    border:none;
+    flex-shrink:0;
+    position:relative;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .icon-btn:hover{transform:translateY(-2px); box-shadow:var(--shadow-md);}
+  .icon-btn.avatar{
+    background:var(--pm-navy-dark);
+    color:#fff;
+  }
+  .notif-dot{
+    position:absolute;
+    top:9px;right:10px;
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--pm-red-accent);
+    border:2px solid var(--pm-white);
+  }
+
+  /* ---------- Section headings ---------- */
+  section.block{margin-bottom:40px;}
+  .block-title{
+    font-size:22px;
+    font-weight:700;
+    color:var(--pm-navy-dark);
+    margin:0 0 18px;
+  }
+
+  /* ---------- Stats panel ---------- */
+  .stats-panel{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+  }
+  .stat-card{
+    background:var(--pm-white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    padding:22px;
+    position:relative;
+    min-height:150px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .stat-card:hover{box-shadow:var(--shadow-md); transform:translateY(-2px);}
+  .stat-icon{
+    width:40px;height:40px;
+    border-radius:12px;
+    background:var(--pm-teal-light);
+    color:var(--pm-teal);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:14px;
+  }
+  .stat-value{
+    font-size:30px;
+    font-weight:700;
+    color:var(--pm-navy-dark);
+    line-height:1.1;
+  }
+  .stat-label{
+    color:var(--pm-muted);
+    font-size:14px;
+    margin-top:4px;
+  }
+  .stat-sparkline{margin-top:10px;}
+  .stat-sparkline svg{display:block; width:100%; height:40px;}
+
+  .stat-card.accent{
+    background:linear-gradient(135deg, var(--pm-navy-dark), var(--pm-teal));
+    color:#fff;
+    justify-content:space-between;
+  }
+  .stat-card.accent .stat-icon{
+    background:rgba(255,255,255,.16);
+    color:#fff;
+  }
+  .stat-card.accent .accent-title{
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .stat-card.accent .accent-text{
+    font-size:14px;
+    opacity:.85;
+    margin-bottom:14px;
+  }
+  .accent-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:14px;
+    font-weight:600;
+    color:#fff;
+    background:rgba(255,255,255,.14);
+    padding:8px 14px;
+    border-radius:999px;
+    width:fit-content;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .accent-link:hover{background:rgba(255,255,255,.26); transform:translateY(-1px);}
+  .accent-link .bounce{animation:bounceDown 1.6s ease-in-out infinite;}
+  @keyframes bounceDown{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(3px);}
+  }
+
+  /* ---------- Quick access tiles ---------- */
+  .tiles-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+  }
+  .tile{
+    background:var(--pm-white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    padding:20px 16px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+    transition:transform .2s ease, box-shadow .2s ease;
+    cursor:pointer;
+  }
+  .tile:hover{transform:translateY(-2px); box-shadow:var(--shadow-md);}
+  .tile-icon{
+    width:44px;height:44px;
+    border-radius:12px;
+    background:var(--pm-teal-light);
+    color:var(--pm-teal);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tile-name{
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--pm-text-dark);
+    line-height:1.35;
+  }
+
+  /* ---------- Role cards ---------- */
+  .roles-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .role-card{
+    background:var(--pm-white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    padding:26px 24px;
+    position:relative;
+    overflow:hidden;
+    border-top:4px solid var(--pm-teal);
+    display:flex;
+    flex-direction:column;
+    min-height:210px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .role-card:hover{transform:translateY(-2px); box-shadow:var(--shadow-md);}
+  .role-card:nth-child(2){border-top-color:var(--pm-navy-blue);}
+  .role-card:nth-child(3){border-top-color:var(--pm-navy-dark);}
+
+  .role-decor{
+    position:absolute;
+    top:-30px;right:-30px;
+    width:110px;height:110px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, var(--pm-teal-light), transparent 70%);
+    z-index:0;
+  }
+  .role-card:nth-child(2) .role-decor{
+    background:radial-gradient(circle at 35% 35%, rgba(43,79,168,.12), transparent 70%);
+  }
+  .role-card:nth-child(3) .role-decor{
+    background:radial-gradient(circle at 35% 35%, rgba(26,42,94,.12), transparent 70%);
+  }
+
+  .role-top{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    z-index:1;
+    position:relative;
+  }
+  .role-icon{
+    width:46px;height:46px;
+    border-radius:14px;
+    background:var(--pm-teal-light);
+    color:var(--pm-teal);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .role-card:nth-child(2) .role-icon{background:#eaf0fb; color:var(--pm-navy-blue);}
+  .role-card:nth-child(3) .role-icon{background:#e9ebf3; color:var(--pm-navy-dark);}
+
+  .ring{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:conic-gradient(var(--pm-teal) 0deg 250deg, var(--pm-border) 250deg 360deg);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .ring::after{
+    content:"";
+    width:26px;height:26px;
+    border-radius:50%;
+    background:var(--pm-white);
+  }
+
+  .role-card h3{
+    font-size:19px;
+    font-weight:700;
+    margin:16px 0 8px;
+    color:var(--pm-navy-dark);
+    z-index:1;
+    position:relative;
+  }
+  .role-card p{
+    font-size:14.5px;
+    color:var(--pm-muted);
+    margin:0 0 16px;
+    z-index:1;
+    position:relative;
+    flex-grow:1;
+  }
+  .role-cta{
+    font-size:14.5px;
+    font-weight:700;
+    color:var(--pm-teal-dark);
+    z-index:1;
+    position:relative;
+    width:fit-content;
+    transition:gap .2s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+  }
+  .role-card:nth-child(2) .role-cta{color:var(--pm-navy-blue);}
+  .role-card:nth-child(3) .role-cta{color:var(--pm-navy-dark);}
+  .role-cta:hover{gap:9px;}
+
+  /* ---------- Catalog / Accordion ---------- */
+  .catalog-hint{
+    color:var(--pm-muted);
+    font-size:14px;
+    margin:-10px 0 18px;
+  }
+  .accordion{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .accordion-section{
+    background:var(--pm-white);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-sm);
+    overflow:hidden;
+  }
+  .accordion-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:18px 22px;
+    cursor:pointer;
+    user-select:none;
+    background:var(--pm-white);
+    border:none;
+    width:100%;
+    text-align:left;
+    font-family:inherit;
+  }
+  .accordion-header:focus-visible{
+    outline:2px solid var(--pm-teal);
+    outline-offset:-2px;
+  }
+  .section-icon{
+    width:42px;height:42px;
+    border-radius:12px;
+    background:var(--pm-teal-light);
+    color:var(--pm-teal);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .accordion-header h3{
+    font-size:16.5px;
+    font-weight:700;
+    margin:0;
+    color:var(--pm-text-dark);
+    flex-grow:1;
+  }
+  .chev{
+    color:var(--pm-muted);
+    transition:transform .25s ease;
+    flex-shrink:0;
+  }
+  .accordion-section.open .chev{transform:rotate(180deg);}
+
+  .accordion-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .accordion-panel-inner{
+    background:#eceae4;
+    padding:22px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+  }
+  .group-title{
+    font-weight:700;
+    font-size:15px;
+    color:var(--pm-muted);
+    margin:0 0 10px;
+  }
+  .service-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .service-item a{
+    font-size:14.5px;
+    color:var(--pm-text-dark);
+    display:inline-block;
+    padding:2px 0;
+    border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .service-item a:hover{
+    color:var(--pm-teal-dark);
+    border-bottom-color:var(--pm-teal);
+  }
+
+  /* ---------- Tooltip ---------- */
+  #tooltip{
+    position:fixed;
+    z-index:1000;
+    background:var(--pm-navy-dark);
+    color:#fff;
+    font-size:13px;
+    padding:8px 14px;
+    border-radius:8px;
+    box-shadow:var(--shadow-md);
+    pointer-events:none;
+    opacity:0;
+    transform:translate(-50%,-8px);
+    transition:opacity .15s ease, transform .15s ease;
+    white-space:nowrap;
+  }
+  #tooltip.show{opacity:1; transform:translate(-50%,-16px);}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .stats-panel{grid-template-columns:repeat(2,1fr);}
+    .tiles-grid{grid-template-columns:repeat(3,1fr);}
+    .roles-grid{grid-template-columns:1fr;}
+    .accordion-panel-inner{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .wrap{padding:20px 16px 60px;}
+    .stats-panel{grid-template-columns:1fr;}
+    .tiles-grid{grid-template-columns:repeat(2,1fr);}
+    .header-right{width:100%;}
+    .search-box{min-width:0; flex-grow:1;}
+    .brand-block h1{font-size:24px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top-header">
+    <div class="brand-block">
+      <div class="brand-name">Силовые машины</div>
+      <h1>Каталог сервисов</h1>
+      <p class="subtitle">Все внутренние сервисы компании — в одном окне</p>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="globalSearch" type="text" placeholder="Поиск по каталогу сервисов…">
+      </div>
+      <button class="icon-btn" aria-label="Уведомления">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="icon-btn avatar" aria-label="Профиль">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Stats panel -->
+  <section class="block">
+    <div class="stats-panel">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" data-count="160" data-suffix="+">0</div>
+          <div class="stat-label">Сервисов в каталоге</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" data-count="8" data-suffix="">0</div>
+          <div class="stat-label">Разделов каталога</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 5"/><polyline points="14 5 21 5 21 12"/></svg>
+        </div>
+        <div>
+          <div class="stat-value" style="font-size:20px;">Заказ справок</div>
+          <div class="stat-label">Самый частый запрос</div>
+        </div>
+        <div class="stat-sparkline">
+          <svg viewBox="0 0 160 44" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0e7c7b" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#0e7c7b" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,34 L0,30 C14,26 22,10 36,14 C50,18 58,30 72,24 C86,18 96,4 110,8 C124,12 134,26 160,16 L160,34 Z" fill="url(#sparkFill)" stroke="none"/>
+            <path d="M0,30 C14,26 22,10 36,14 C50,18 58,30 72,24 C86,18 96,4 110,8 C124,12 134,26 160,16" fill="none" stroke="#0e7c7b" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="stat-card accent">
+        <div class="stat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div>
+          <div class="accent-title">Быстрый доступ</div>
+          <div class="accent-text">10 самых востребованных сервисов ниже</div>
+        </div>
+        <a class="accent-link" href="#quick-access">Смотреть <span class="bounce">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick access tiles -->
+  <section class="block" id="quick-access">
+    <h2 class="block-title">Быстрый доступ</h2>
+    <div class="tiles-grid" id="tilesGrid"></div>
+  </section>
+
+  <!-- Role cards -->
+  <section class="block">
+    <h2 class="block-title">Выберите свою роль</h2>
+    <div class="roles-grid" id="rolesGrid"></div>
+  </section>
+
+  <!-- Catalog accordion -->
+  <section class="block">
+    <h2 class="block-title">Полный каталог сервисов</h2>
+    <p class="catalog-hint">Ищите по названию сервиса в строке поиска вверху страницы — подходящие разделы раскроются автоматически.</p>
+    <div class="accordion" id="catalogAccordion"></div>
+  </section>
+
+</div>
+
+<div id="tooltip">Ссылка появится позже</div>
+
+<script>
+(function(){
+  "use strict";
+
+  const ICONS = {
+    filetext:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>',
+    wallet:'<rect x="2" y="6" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>',
+    sun:'<circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/>',
+    users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    laptop:'<rect x="2" y="4" width="20" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+    calendar:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+    pen:'<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+    checkcircle:'<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+    bookopen:'<path d="M2 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-7a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h8z"/>',
+    briefcase:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+    userplus:'<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="17" y1="11" x2="23" y2="11"/>',
+    award:'<circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/>',
+    hardhat:'<path d="M4 18a8 8 0 0 1 16 0"/><path d="M2 18h20"/><path d="M12 6v6"/><path d="M9 6a3 3 0 0 1 6 0"/>',
+    gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+    help:'<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+    factory:'<path d="M3 21V10l6 4v-4l6 4V6l6 5v10z"/><line x1="3" y1="21" x2="21" y2="21"/>',
+    heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/>',
+    star:'<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+    building:'<rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/>',
+    chevron:'<polyline points="6 9 12 15 18 9"/>'
+  };
+
+  function svg(key, w){
+    w = w || 22;
+    return '<svg width="'+w+'" height="'+w+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+ICONS[key]+'</svg>';
+  }
+
+  // ---------- Quick access tiles ----------
+  const tiles = [
+    {name:'Заказать справку', icon:'filetext'},
+    {name:'Зарплата и выплаты', icon:'wallet'},
+    {name:'Оформить отпуск', icon:'sun'},
+    {name:'Найти сотрудника', icon:'users'},
+    {name:'Заявка в ИТ', icon:'laptop'},
+    {name:'Забронировать переговорную', icon:'calendar'},
+    {name:'Подписать документ', icon:'pen'},
+    {name:'Согласовать документ', icon:'checkcircle'},
+    {name:'Обучение', icon:'bookopen'},
+    {name:'Оформить командировку', icon:'briefcase'}
+  ];
+  const tilesGrid = document.getElementById('tilesGrid');
+  tilesGrid.innerHTML = tiles.map(t =>
+    '<a class="tile" href="#">'+
+      '<div class="tile-icon">'+svg(t.icon,20)+'</div>'+
+      '<div class="tile-name">'+t.name+'</div>'+
+    '</a>'
+  ).join('');
+
+  // ---------- Role cards ----------
+  const roles = [
+    {
+      icon:'userplus',
+      title:'Я новый сотрудник',
+      text:'Адаптация, оформление документов и знакомство с компанией — все шаги первого месяца в одном месте.',
+      cta:'Пройти программу адаптации',
+      decor:'ring'
+    },
+    {
+      icon:'award',
+      title:'Я руководитель',
+      text:'Согласование документов, кадровые решения по команде, отчётность и управленческие сервисы.',
+      cta:'Открыть сервисы руководителя',
+      decor:'icon'
+    },
+    {
+      icon:'hardhat',
+      title:'Я работник цеха',
+      text:'Охрана труда, СИЗ, производственные системы и график смен — всё для работы на производстве.',
+      cta:'Перейти к сервисам цеха',
+      decor:'icon'
+    }
+  ];
+  const rolesGrid = document.getElementById('rolesGrid');
+  rolesGrid.innerHTML = roles.map(r =>
+    '<div class="role-card">'+
+      '<div class="role-decor"></div>'+
+      '<div class="role-top">'+
+        '<div class="role-icon">'+svg(r.icon,22)+'</div>'+
+        (r.decor === 'ring' ? '<div class="ring"></div>' : '')+
+      '</div>'+
+      '<h3>'+r.title+'</h3>'+
+      '<p>'+r.text+'</p>'+
+      '<a class="role-cta" href="#">'+r.cta+' <span>→</span></a>'+
+    '</div>'
+  ).join('');
+
+  // ---------- Catalog data ----------
+  const catalogData = [
+    { id:'hr', icon:'users', title:'Кадры, выплаты и документы', groups:[
+      {title:'Личное дело и документы', items:['Мой личный кабинет','Подписать кадровый документ (КЭДО)','Электронная трудовая книжка','Заказать справку','Мой HR-бизнес-партнёр']},
+      {title:'Отпуск, переводы, увольнение', items:['Оформить отпуск','Перевод на другую работу','Дистанционная работа','Увольнение','Исполнение дополнительных обязанностей']},
+      {title:'Выплаты и льготы', items:['Зарплата и выплаты','Как устроена оплата труда','Жилищная программа']},
+      {title:'Обязательные процедуры', items:['Пенсия и СНИЛС','Воинский учёт','Допуск к гостайне','Табельный учёт']},
+      {title:'Правила и трудовые отношения', items:['Дисциплина и ПВТР','Трудовые отношения','Договор ГПХ','Нормативные документы по кадрам','Профсоюз']},
+      {title:'Командировки и приём гостей', items:['Оформить командировку','Гостиницы и авиа: тревел-агент','Деловая виза и загранпаспорт','Московский офис','Приём делегаций','Приглашения и миграционный учёт']}
+    ]},
+    { id:'tools', icon:'gear', title:'Рабочие инструменты и системы', groups:[
+      {title:'Связь и коммуникации', items:['Почта Outlook','Synapse','Видеоконференции','Телефонный справочник','Услуги связи','Забронировать переговорную']},
+      {title:'Документы и формы', items:['Согласование документов (СЭД)','Все формы и заявки','Шаблоны документов','Шаблоны презентаций','Фотобанк','Фирменный стиль и логотип','Стенды/постеры/буклеты/сувениры']},
+      {title:'Данные и отчётность', items:['Отчётность Power BI','SAP (ERP/BW/HCM)','Управление лимитами','Торговые электронные площадки']},
+      {title:'Доступы и техника', items:['Каталог ИТ-услуг и прайс-лист','Дашборд по технике','СКИФ']}
+    ]},
+    { id:'help', icon:'help', title:'Помощь, обращения и идеи', groups:[
+      {title:'ИТ-поддержка', items:['Заявка в ИТ (Service Desk)','Каталог ИТ-услуг']},
+      {title:'Рабочее место и здание', items:['Заявка в АХО и ремонт помещений']},
+      {title:'Пропуск и безопасность', items:['Пропуск (получить/восстановить)','Телефоны экстренных служб','Действия в ЧС']},
+      {title:'Обращения и обратная связь', items:['Задать вопрос руководителю','Единое окно обращений','Комитет по этике','Противодействие коррупции']},
+      {title:'Идеи и улучшения', items:['Предложить улучшение','Сказать спасибо','Опросы и исследования']}
+    ]},
+    { id:'edu', icon:'bookopen', title:'Обучение и развитие', groups:[
+      {title:'Учебные платформы', items:['ЭнергоАкадемия (курсы и тесты)','Обучение и развитие','Записи вебинаров','Изучение иностранных языков','Повышение квалификации']},
+      {title:'Знания и библиотеки', items:['База знаний и Нейрон','Электронная библиотека','База знаний бизнес-системы']},
+      {title:'Оценка и карьера', items:['Аттестация','Диалог о целях','Кадровый резерв','Кадровый комитет','Конкурс Н.А.С. и аспирантура','Конкурс «Прорыв года»']},
+      {title:'Профессиональные сообщества', items:['Лекторий','Инженерный клуб','Центры экспертиз']}
+    ]},
+    { id:'prod', icon:'factory', title:'Производство, качество, охрана труда', groups:[
+      {title:'Производственные системы', items:['АРМ','Журнал производственного контроля','САПР КТИ','Система КТПП','ИС Метрология','СТО и МОЗ','Продажа неликвидов']},
+      {title:'Качество', items:['Вопросы качества на ПРП','Дашборд качества','Портал качества','Документация по качеству','Аудиты качества']},
+      {title:'Охрана труда и промбезопасность', items:['Охрана труда (главная)','СИЗ','Работы на высоте','Приложение СИЗ','Молнии','Видеоматериалы по ОТ','Документы по ОТ','Программа «Опора»']},
+      {title:'Бизнес-система (ЦРБС)', items:['Инструменты БС','Аудиты БС','Ключевые проекты БС']}
+    ]},
+    { id:'health', icon:'heart', title:'Здоровье и благополучие', groups:[
+      {title:'Медицина и ДМС', items:['ДМС для сотрудника','ДМС для близких','МСЧ','Фонд медицинской поддержки','Диспансеризация','Санаторно-курортное лечение','Донорство']},
+      {title:'Питание', items:['Столовые и меню']},
+      {title:'Отдых и спорт', items:['Отдых и путёвки','Детский отдых','Энергия спорта']},
+      {title:'Льготы и поддержка', items:['Best Benefits','Волонтёрство и благотворительность']}
+    ]},
+    { id:'life', icon:'star', title:'Жизнь компании', groups:[
+      {title:'Новости и медиа', items:['Новости компании','Telegram/MAX/ВК/YouTube','Энергопульс','Дайджест ИТ','КВН']},
+      {title:'События', items:['Мероприятия','Выставки и конференции','Дни рождения коллег','Поздравить партнёра']},
+      {title:'Признание', items:['Награды и признание']},
+      {title:'История и традиции', items:['Музеи ЛМЗ и Электросилы','Производственные экскурсии','Бессмертный полк']}
+    ]},
+    { id:'about', icon:'building', title:'О компании и правила', groups:[
+      {title:'О компании', items:['О компании','Миссия/видение/ценности','Руководители и помощники','Реквизиты']},
+      {title:'Справочник подразделений', items:['Структура компании','Справочник 24 подразделений','Вакансии','Приведи друга']},
+      {title:'Политики и регламенты', items:['Стандарт поведения','ИБ: правила','Персональные данные','Личная безопасность','Новости законодательства','Алкотестеры','Нотариальные услуги','Интеллектуальная собственность','Регламенты закупок','Уничтожение документов','Канцелярия']}
+    ]}
+  ];
+
+  const accordion = document.getElementById('catalogAccordion');
+  accordion.innerHTML = catalogData.map((section, sIdx) =>
+    '<div class="accordion-section" data-index="'+sIdx+'">'+
+      '<button class="accordion-header" aria-expanded="false">'+
+        '<div class="section-icon">'+svg(section.icon,20)+'</div>'+
+        '<h3>'+section.title+'</h3>'+
+        '<span class="chev">'+svg('chevron',18)+'</span>'+
+      '</button>'+
+      '<div class="accordion-panel">'+
+        '<div class="accordion-panel-inner">'+
+          section.groups.map(g =>
+            '<div class="group">'+
+              '<div class="group-title">'+g.title+'</div>'+
+              '<ul class="service-list">'+
+                g.items.map(item =>
+                  '<li class="service-item" data-search="'+item.toLowerCase()+'"><a href="#">'+item+'</a></li>'
+                ).join('')+
+              '</ul>'+
+            '</div>'
+          ).join('')+
+        '</div>'+
+      '</div>'+
+    '</div>'
+  ).join('');
+
+  // ---------- Accordion toggle ----------
+  const sections = Array.from(accordion.querySelectorAll('.accordion-section'));
+  sections.forEach(sectionEl => {
+    const header = sectionEl.querySelector('.accordion-header');
+    const panel = sectionEl.querySelector('.accordion-panel');
+    header.addEventListener('click', () => {
+      const isOpen = sectionEl.classList.contains('open');
+      if (isOpen){
+        sectionEl.classList.remove('open');
+        header.setAttribute('aria-expanded','false');
+        panel.style.maxHeight = '0px';
+      } else {
+        sectionEl.classList.add('open');
+        header.setAttribute('aria-expanded','true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // ---------- Live search filter ----------
+  const searchInput = document.getElementById('globalSearch');
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim().toLowerCase();
+    const hasQuery = query.length > 0;
+
+    sections.forEach(sectionEl => {
+      let sectionHasMatch = false;
+      sectionEl.querySelectorAll('.group').forEach(groupEl => {
+        let groupHasMatch = false;
+        groupEl.querySelectorAll('.service-item').forEach(itemEl => {
+          const match = !hasQuery || itemEl.dataset.search.indexOf(query) !== -1;
+          itemEl.style.display = match ? '' : 'none';
+          if (match) groupHasMatch = true;
+        });
+        groupEl.style.display = groupHasMatch ? '' : 'none';
+        if (groupHasMatch) sectionHasMatch = true;
+      });
+
+      sectionEl.style.display = sectionHasMatch ? '' : 'none';
+
+      const header = sectionEl.querySelector('.accordion-header');
+      const panel = sectionEl.querySelector('.accordion-panel');
+
+      if (hasQuery && sectionHasMatch){
+        sectionEl.classList.add('open');
+        header.setAttribute('aria-expanded','true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      } else if (!hasQuery){
+        sectionEl.classList.remove('open');
+        header.setAttribute('aria-expanded','false');
+        panel.style.maxHeight = '0px';
+      } else {
+        sectionEl.classList.remove('open');
+        panel.style.maxHeight = '0px';
+      }
+    });
+  });
+
+  // ---------- Tooltip on placeholder links ----------
+  const tooltip = document.getElementById('tooltip');
+  let tooltipTimer = null;
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href="#"]');
+    if (!link) return;
+    e.preventDefault();
+    const rect = link.getBoundingClientRect();
+    tooltip.style.left = (rect.left + rect.width/2) + 'px';
+    tooltip.style.top = rect.top + 'px';
+    tooltip.classList.add('show');
+    clearTimeout(tooltipTimer);
+    tooltipTimer = setTimeout(() => tooltip.classList.remove('show'), 1500);
+  });
+
+  // ---------- Counter animation ----------
+  function animateCounters(){
+    document.querySelectorAll('.stat-value[data-count]').forEach(el => {
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 900;
+      const start = performance.now();
+      function step(now){
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', animateCounters);
+  if (document.readyState === 'complete' || document.readyState === 'interactive') animateCounters();
+
+})();
+</script>
+</body>
+</html>
