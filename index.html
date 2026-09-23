@@ -186,11 +186,6 @@
     flex-direction:column;
     gap:4px;
   }
-  .dropdown-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:4px 14px;
-  }
   .dropdown-link{
     display:block;
     font-size:14.5px;
@@ -206,6 +201,116 @@
   #frequentDropdown{
     left:auto;
     right:0;
+  }
+
+  /* ---------- Popular-services accent tiles (inside "Популярные сервисы" dropdown) ---------- */
+  .pop-tile-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+  }
+  .pop-tile{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:linear-gradient(135deg, var(--pm-navy-dark), var(--pm-teal));
+    border:1px solid rgba(255,255,255,.15);
+    color:#fff;
+    font-weight:600;
+    font-size:13.5px;
+    line-height:1.3;
+    cursor:pointer;
+    transition:transform .2s ease, filter .2s ease;
+  }
+  .pop-tile::before{
+    content:"";
+    position:absolute;
+    top:-20px;
+    right:-20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,.1), transparent 70%);
+    pointer-events:none;
+  }
+  .pop-tile:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+  }
+  .pop-tile-icon{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .pop-tile-grid .qr-wrap{
+    display:block;
+  }
+
+  /* ---------- QR popup (pages without a real link yet) ---------- */
+  .qr-wrap{
+    position:relative;
+    display:inline-block;
+  }
+  .qr-trigger{
+    font-size:14.5px;
+    color:var(--pm-text-dark);
+    display:inline-block;
+    padding:2px 0;
+    border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+    cursor:pointer;
+  }
+  .qr-trigger:hover{
+    color:var(--pm-teal-dark);
+    border-bottom-color:var(--pm-teal);
+  }
+  .qr-popup{
+    position:absolute;
+    top:calc(100% + 10px);
+    left:50%;
+    transform:translate(-50%,-6px);
+    width:max-content;
+    max-width:calc(100vw - 32px);
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:16px;
+    box-shadow:var(--shadow-md);
+    padding:16px;
+    text-align:center;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .2s ease, transform .2s ease, visibility .2s;
+    pointer-events:none;
+    z-index:60;
+  }
+  .qr-wrap:hover .qr-popup,
+  .qr-wrap.open .qr-popup{
+    opacity:1;
+    visibility:visible;
+    transform:translate(-50%,0);
+    pointer-events:auto;
+  }
+  .qr-code svg{
+    display:block;
+    margin:0 auto;
+  }
+  .qr-caption{
+    font-size:12px;
+    color:var(--pm-muted);
+    margin-top:8px;
+    white-space:nowrap;
   }
 
   /* ---------- Catalog / Accordion ---------- */
@@ -345,6 +450,45 @@
   }
   #tooltip.show{opacity:1; transform:translate(-50%,-16px);}
 
+  /* ---------- Footer ---------- */
+  .site-footer{
+    border-top:1px solid var(--pm-border);
+    background:var(--pm-bg-page);
+    padding:40px 32px;
+  }
+  .footer-inner{
+    max-width:1280px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .footer-label{
+    color:var(--pm-muted);
+    font-size:14px;
+    font-weight:600;
+  }
+  .footer-social{
+    display:flex;
+    gap:12px;
+  }
+  .social-btn{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--pm-white);
+    color:var(--pm-teal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow-sm);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .social-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
+  }
+
   /* ---------- Responsive ---------- */
   @media (max-width:980px){
     .accordion-panel-inner{grid-template-columns:1fr;}
@@ -357,8 +501,9 @@
     .trigger-wrap{width:100%;}
     .accent-trigger{width:100%; justify-content:center;}
     .dropdown-panel{min-width:0; width:100%; left:0; right:0;}
-    .dropdown-grid{grid-template-columns:1fr;}
+    .pop-tile-grid{grid-template-columns:1fr;}
     .brand-block h1{font-size:24px;}
+    .site-footer{padding:32px 16px;}
   }
 </style>
 </head>
@@ -398,7 +543,7 @@
         </button>
         <div class="dropdown-panel" id="frequentDropdown">
           <div class="dropdown-title">Популярные сервисы</div>
-          <div class="dropdown-grid" id="frequentGrid"></div>
+          <div class="pop-tile-grid" id="frequentGrid"></div>
         </div>
       </div>
     </div>
@@ -412,6 +557,23 @@
   </section>
 
 </div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-label">Мы в соцсетях</span>
+    <div class="footer-social">
+      <a class="social-btn" href="https://t.me/sm_vkurse" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+      </a>
+      <a class="social-btn" href="https://vk.com/power.machines.company" target="_blank" rel="noopener" aria-label="VK">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="700" font-family="Arial, sans-serif">VK</text></svg>
+      </a>
+      <a class="social-btn" href="https://rutube.ru/channel/25273207/videos/" target="_blank" rel="noopener" aria-label="Rutube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="10 8.5 16 12 10 15.5 10 8.5" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
 
 <div id="tooltip">Ссылка появится позже</div>
 
@@ -429,7 +591,14 @@
     star:'<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
     building:'<rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><line x1="9" y1="18" x2="15" y2="18"/>',
     chevron:'<polyline points="6 9 12 15 18 9"/>',
-    trend:'<polyline points="3 17 9 11 13 15 21 5"/><polyline points="14 5 21 5 21 12"/>'
+    trend:'<polyline points="3 17 9 11 13 15 21 5"/><polyline points="14 5 21 5 21 12"/>',
+    file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>',
+    sun:'<circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/>',
+    briefcase:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+    badge:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="12" r="2"/><line x1="14" y1="10" x2="18" y2="10"/><line x1="14" y1="14" x2="18" y2="14"/>',
+    stack:'<path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>',
+    bulb:'<path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a6 6 0 0 0-4 10.472c.667.61 1 1.528 1 2.528h6c0-1 .333-1.918 1-2.528A6 6 0 0 0 12 2z"/>',
+    shield:'<path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/>'
   };
 
   function svg(key, w){
@@ -437,26 +606,333 @@
     return '<svg width="'+w+'" height="'+w+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+ICONS[key]+'</svg>';
   }
 
-  // ---------- Frequent services (shown inside catalog sections + "Часто ищут" dropdown) ----------
-  // Same 10 services as the former quick-access tiles, matched to their real catalog entries.
-  const FREQUENT_SERVICES = [
-    'Заказать справку',
-    'Зарплата и выплаты',
-    'Оформить отпуск',
-    'Телефонный справочник',
-    'Заявка в ИТ (Service Desk)',
-    'Забронировать переговорную',
-    'Подписать кадровый документ (КЭДО)',
-    'Согласование документов (СЭД)',
-    'Обучение и развитие',
-    'Оформить командировку'
+  // ---------- Catalog data ----------
+  // Each item is a [name, url] tuple. url is a real link, null (no link yet -> "#" + tooltip),
+  // or the literal string 'NOLINK' (no link exists at all -> QR popup instead of tooltip).
+  const catalogData = [
+    { id:'hr', icon:'users', title:'Кадры, выплаты и документы', groups:[
+      {title:'Личное дело и документы', items:[
+        ['Мой личный кабинет','https://lk.powerm.ru/redirect/redirect.jsp?url=https://lk-srv.powerm.ru/ui2/nwbc?sap-nwbc-node=root'],
+        ['Подписать кадровый документ (КЭДО)','https://hrl.powerm.ru/login'],
+        ['Электронная трудовая книжка','https://pmweb.powerm.ru/HR/Personal/Pages/eltk.aspx#/company'],
+        ['Заказать справку','https://pmweb.powerm.ru/DepCES/Pages/ZakazSpravok.aspx#/company'],
+        ['Библиотека документов','http://doclib.powerm.ru/default.aspx'],
+        ['Мой HR-бизнес-партнёр','https://pmweb.powerm.ru/HR/RecruitmentEls/Pages/HR-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D0%B5%D1%80%D1%8B.aspx#/company']
+      ]},
+      {title:'Отпуск, переводы, увольнение', items:[
+        ['Оформить отпуск','https://pmweb.powerm.ru/HR/Personal/Pages/Otpusk.aspx#/company'],
+        ['Перевод на другую работу','https://pmweb.powerm.ru/HR/Personal/Pages/Perevod.aspx#/company'],
+        ['Дистанционная работа','https://pmweb.powerm.ru/HR/Personal/Pages/distance.aspx#/company'],
+        ['Увольнение','https://pmweb.powerm.ru/HR/Personal/Pages/Uvolnenie.aspx#/company'],
+        ['Исполнение дополнительных обязанностей','https://pmweb.powerm.ru/HR/Personal/Pages/Ispolnenie-obyazannostey.aspx#/company']
+      ]},
+      {title:'Выплаты и льготы', items:[
+        ['Зарплата и выплаты','https://pmweb.powerm.ru/DepCES/Pages/%D0%97%D0%B0%D1%80%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82.aspx#/company'],
+        ['Как устроена оплата труда', null],
+        ['Жилищная программа','https://life.power-m.ru/comfort/housing/housing']
+      ]},
+      {title:'Обязательные процедуры', items:[
+        ['Пенсия и СНИЛС','https://pmweb.powerm.ru/HR/Personal/Pages/Pensiya.aspx#/company'],
+        ['Воинский учёт','https://pmweb.powerm.ru/HR/Personal/Pages/Voinskij-uchet.aspx#/company'],
+        ['Допуск к гостайне','https://pmweb.powerm.ru/HR/Personal/Pages/Gostaina.aspx#/company'],
+        ['Табельный учёт','https://pmweb.powerm.ru/HR/Personal/Pages/Tabelny-uchet.aspx#/company']
+      ]},
+      {title:'Правила и трудовые отношения', items:[
+        ['Дисциплина и ПВТР','https://pmweb.powerm.ru/HR/Personal/Pages/ASKUD.aspx#/company'],
+        ['Трудовые отношения', null],
+        ['Договор ГПХ','https://pmweb.powerm.ru/HR/Personal/Pages/GPX.aspx#/company'],
+        ['Нормативные документы по кадрам','https://pmweb.powerm.ru/HR/Personal/Pages/Normative-docs.aspx#/company'],
+        ['Профсоюз','https://pmweb.powerm.ru/Pages/Profsouzy.aspx#/company']
+      ]},
+      {title:'Командировки и приём гостей', items:[
+        ['Оформить командировку','https://pmweb.powerm.ru/BusinessTrip/Pages/Main.aspx#/company'],
+        ['Гостиницы и авиа: тревел-агент','https://pmweb.powerm.ru/BusinessTrip/Pages/%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B8%D0%BD%D0%B5%D0%BD%D1%82%20%D0%AD%D0%BA%D1%81%D0%BF%D1%80%D0%B5%D1%81%D1%81.aspx#/company'],
+        ['Деловая виза','https://pmweb.powerm.ru/BusinessTrip/Pages/Business_visa.aspx#/company'],
+        ['Загранпаспорт','https://pmweb.powerm.ru/BusinessTrip/Pages/Passports.aspx#/company'],
+        ['Московский офис', null],
+        ['Приём делегаций','https://pmweb.powerm.ru/ProtocolService/Pages/Delegations.aspx#/company'],
+        ['Приглашения в РФ','https://pmweb.powerm.ru/BusinessTrip/Pages/Invites.aspx#/company']
+      ]}
+    ]},
+    { id:'tools', icon:'gear', title:'Рабочие инструменты и системы', groups:[
+      {title:'Связь и коммуникации', items:[
+        ['Synapse','https://pmweb.powerm.ru/DepDit/Pages/Synapse.aspx#/company'],
+        ['Видеоконференции', null],
+        ['Телефонный справочник','https://pmweb.powerm.ru/SitePages/phonebook.aspx#/company'],
+        ['Услуги связи','https://pmweb.powerm.ru/DepDit/SrvTelecom/Pages/Tel.aspx#/company'],
+        ['Забронировать переговорную','https://pmweb.powerm.ru/DepDit/Pages/AVConf.aspx#/company'],
+        ['Миграционный учёт','https://pmweb.powerm.ru/BusinessTrip/Pages/%D0%9C%D0%B8%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9%D1%83%D1%87%D0%B5%D1%82.aspx#/company']
+      ]},
+      {title:'Документы и формы', items:[
+        ['Согласование документов (СЭД)','https://pmweb.powerm.ru/HR/Documents/Forms/AllItems.aspx?RootFolder=%2fHR%2fDocuments%2f%d0%a2%d0%b0%d0%b1%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d0%b9%20%d1%83%d1%87%d0%b5%d1%82%2f%d0%a1%d0%ad%d0%94&FolderCTID=0x012000BE2006A77C62F04488EF1759655B2B86#/company'],
+        ['Все формы и заявки', null],
+        ['Шаблоны документов','https://pmweb.powerm.ru/Pages/Templates.aspx#/company'],
+        ['Шаблоны презентаций','https://pmweb.powerm.ru/DepPublicRel/AdvSouvenirs/Pages/Presentations.aspx#/company'],
+        ['Фотобанк','https://pmweb.powerm.ru/DepPublicRel/AdvSouvenirs/Pages/Photobank.aspx#/company'],
+        ['Фирменный стиль и логотип','https://pmweb.powerm.ru/DepPublicRel/AdvSouvenirs/Pages/FStyle.aspx#/company'],
+        ['Стенды/постеры/буклеты/сувениры','https://pmweb.powerm.ru/DepPublicRel/AdvSouvenirs/Pages/Stands_and_Posters.aspx#/company']
+      ]},
+      {title:'Данные и отчётность', items:[
+        ['Отчётность Power BI','https://pmweb.powerm.ru/DepDit/Pages/PowerBI.aspx#/company'],
+        ['SAP (ERP/BW/HCM)', null],
+        ['Управление лимитами', null],
+        ['Торговые электронные площадки','https://pmweb.powerm.ru/Pages/Etp.aspx#/company']
+      ]},
+      {title:'Доступы и техника', items:[
+        ['Каталог ИТ-услуг и прайс-лист', null],
+        ['Дашборд по технике', null],
+        ['СКИФ','https://pmweb.powerm.ru/Security/Pages/skif.aspx#/company']
+      ]}
+    ]},
+    { id:'help', icon:'help', title:'Помощь, обращения и идеи', groups:[
+      {title:'ИТ-поддержка', items:[
+        ['Заявка в ИТ (Service Desk)','https://servicedesk.powerm.ru/Templates.do?module=serviceRequest'],
+        ['Каталог ИТ-услуг','https://servicedesk.powerm.ru/Templates.do?SkipNV2Filter=true&module=serviceRequest']
+      ]},
+      {title:'Рабочее место и здание', items:[
+        ['Заявка в АХО и ремонт помещений', null]
+      ]},
+      {title:'Пропуск и безопасность', items:[
+        ['Пропуск (получить/восстановить)','https://pmweb.powerm.ru/Security/Pages/Actions-in-case-of-lost-your-special-permit.aspx#/company'],
+        ['Телефоны экстренных служб','https://pmweb.powerm.ru/Security/Pages/emercom.aspx#/company'],
+        ['Действия в ЧС','https://pmweb.powerm.ru/Pages/ProtectionAndEmergency_.aspx#/company']
+      ]},
+      {title:'Обращения и обратная связь', items:[
+        ['Задать вопрос руководителю','https://pmweb.powerm.ru/PortalPages/home.aspx#/feedback/about'],
+        ['Единое окно обращений', null],
+        ['Комитет по этике','https://pmweb.powerm.ru/standart/Pages/Members.aspx#/company'],
+        ['Противодействие коррупции','https://pmweb.powerm.ru/Pages/%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-%D0%BA%D0%BE%D1%80%D1%80%D1%83%D0%BF%D1%86%D0%B8%D0%B8.aspx#/company']
+      ]},
+      {title:'Идеи и улучшения', items:[
+        ['Предложить идею','http://pmspapp7/sites/crbs/fi/SitePages/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F.aspx'],
+        ['Сказать спасибо','https://pmweb.powerm.ru/DepCES/Pages/Thanks.aspx#/InplviewHashda30af62-a0a5-4a9d-8645-1fe7fba8b399'],
+        ['Опросы и исследования', null]
+      ]}
+    ]},
+    { id:'edu', icon:'bookopen', title:'Обучение и развитие', groups:[
+      {title:'Учебные платформы', items:[
+        ['ЭнергоАкадемия (курсы и тесты)','https://life.power-m.ru/development/energyacademy'],
+        ['Профессиональное развитие','https://life.power-m.ru/development/profdevelop'],
+        ['Управленческое развитие','https://life.power-m.ru/development/reserve'],
+        ['Записи вебинаров', null],
+        ['Изучение иностранных языков','https://pmweb.powerm.ru/URP/Pages/language-learning.aspx#/company'],
+        ['Повышение квалификации','NOLINK']
+      ]},
+      {title:'Знания и библиотеки', items:[
+        ['База знаний и Нейрон', null],
+        ['Научно-техническая библиотека','https://pmweb.powerm.ru/Ntb/Pages/Main.aspx#/company'],
+        ['Электронная библиотека', null],
+        ['База знаний СМ (БУП)','https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%9C']
+      ]},
+      {title:'Оценка и карьера', items:[
+        ['Карьерный портал','https://career.power-m.ru/vakansii/'],
+        ['Аттестация','https://pmweb.powerm.ru/URP/Pages/%D0%90%D1%82%D1%82%D0%B5%D1%81%D1%82%D0%B0%D1%86%D0%B8%D1%8F.aspx#/company'],
+        ['Диалог о целях','https://pmweb.powerm.ru/URP/Pages/DialogTarget.aspx#/company'],
+        ['Кадровый резерв','https://pmweb.powerm.ru/URP/Pages/personnel_pool.aspx#/company'],
+        ['Кадровый комитет','https://pmweb.powerm.ru/URP/Pages/hr-comitet.aspx#/company'],
+        ['Конкурс Н.А.С. и аспирантура','https://pmweb.powerm.ru/URP/Pages/Postgraduate-studies.aspx#/company'],
+        ['Конкурс «Прорыв года»', null]
+      ]},
+      {title:'Профессиональные сообщества', items:[
+        ['Лекторий','https://pmweb.powerm.ru/DepPublicRel/CorpLife/Pages/lecture.aspx#/company'],
+        ['Инженерный клуб','https://pmweb.powerm.ru/DepPublicRel/CorpLife/Pages/engineeringclub.aspx#/company'],
+        ['Центры экспертиз', null]
+      ]}
+    ]},
+    { id:'prod', icon:'factory', title:'Производство, качество, охрана труда', groups:[
+      {title:'Производственные системы', items:[
+        ['АРМ', null],
+        ['Журнал производственного контроля','https://pmweb.powerm.ru/Pages/Instrument/MonitorProduction.aspx#/company'],
+        ['САПР КТИ','https://pmweb.powerm.ru/DepDit/Pages/SrvSaprKti.aspx#/company'],
+        ['Система КТПП','https://pmweb.powerm.ru/DepDit/Pages/PLMSystems.aspx#/company'],
+        ['ИС Метрология', null],
+        ['СТО и МОЗ', null],
+        ['Продажа неликвидов','https://pmweb.powerm.ru/DepProcurement/Pages/nelikvid.aspx#/company']
+      ]},
+      {title:'Качество', items:[
+        ['Вопросы качества на ПРП','https://pmweb.powerm.ru/Pages/prp.aspx#/company'],
+        ['Дашборд качества','https://pmweb.powerm.ru/Pages/Quality.aspx#/company'],
+        ['Портал качества', null],
+        ['Документация по качеству', null],
+        ['Аудиты качества', null]
+      ]},
+      {title:'Охрана труда и промбезопасность', items:[
+        ['Охрана труда (главная)','NOLINK'],
+        ['СИЗ','https://pmweb.powerm.ru/SafeW/Pages/ppe.aspx#/company'],
+        ['Работы на высоте', null],
+        ['Приложение СИЗ','NOLINK'],
+        ['Молнии', null],
+        ['Видеоматериалы по ОТ','https://pmweb.powerm.ru/SafeW/Pages/Videos.aspx#/company'],
+        ['Документы по ОТ','https://pmweb.powerm.ru/SafeW/Pages/Docs.aspx#/company'],
+        ['Программа «Опора»','https://pmweb.powerm.ru/Pages/OPORA/opora23.aspx#/company']
+      ]},
+      {title:'Бизнес-система (ЦРБС)', items:[
+        ['Инструменты БС','https://pmweb.powerm.ru/BusinessSystem/Pages/BSInstruments.aspx#/company'],
+        ['Аудиты БС','https://pmweb.powerm.ru/BusinessSystem/Pages/Audits.aspx#/company'],
+        ['Ключевые проекты БС','https://pmweb.powerm.ru/BusinessSystem/Pages/%D0%9A%D0%BB%D1%8E%D1%87%D0%B5%D0%B2%D1%8B%D0%B5-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D1%8B.aspx#/company']
+      ]}
+    ]},
+    { id:'health', icon:'heart', title:'Здоровье и благополучие', groups:[
+      {title:'Медицина и ДМС', items:[
+        ['ДМС для сотрудника','https://life.power-m.ru/health/physical/dmc'],
+        ['ДМС для близких','https://life.power-m.ru/health/physical/dmc-family'],
+        ['МСЧ','https://ms4sm.ru/'],
+        ['Фонд медицинской поддержки','https://life.power-m.ru/health/physical/medicalsupportfund'],
+        ['Диспансеризация','https://pmweb.powerm.ru/Rest/Pages/Checkup.aspx#/company'],
+        ['Санаторно-курортное лечение','https://pmweb.powerm.ru/Rest/Pages/HealthResort.aspx#/company'],
+        ['Донорство','https://pmweb.powerm.ru/Rest/Pages/%D0%94%D0%BE%D0%BD%D0%BE%D1%80%D1%81%D1%82%D0%B2%D0%BE.aspx#/company']
+      ]},
+      {title:'Питание', items:[
+        ['Столовые и меню','https://pmweb.powerm.ru/Rest/Pages/CateringTV.aspx#/company']
+      ]},
+      {title:'Отдых и спорт', items:[
+        ['Отдых и путёвки','https://pmweb.powerm.ru/Rest/Pages/Rest.aspx#/company'],
+        ['Детский отдых','https://pmweb.powerm.ru/Rest/Pages/Children.aspx#/company'],
+        ['Спортивное сообщество','https://life.power-m.ru/health/sport'],
+        ['Эмоциональный баланс','https://life.power-m.ru/health/emotion/stressmanagement']
+      ]},
+      {title:'Льготы и поддержка', items:[
+        ['Best Benefits','https://pmweb.powerm.ru/Pages/%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D0%B5%D1%80%D0%BE%D0%B2-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8.aspx#/company'],
+        ['Волонтёрство и благотворительность', null]
+      ]}
+    ]},
+    { id:'life', icon:'star', title:'Жизнь компании', groups:[
+      {title:'Новости и медиа', items:[
+        ['Новости компании', null],
+        ['Энергопульс','https://pmweb.powerm.ru/URP/Pages/Energopuls.aspx#/company'],
+        ['Дайджест ИТ', null],
+        ['КВН', null]
+      ]},
+      {title:'События', items:[
+        ['Мероприятия', null],
+        ['Выставки и конференции', null],
+        ['Дни рождения коллег','https://pmweb.powerm.ru/Pages/Birthday.aspx#/company'],
+        ['Поздравить партнёра', null]
+      ]},
+      {title:'Признание', items:[
+        ['Награды и признание', null]
+      ]},
+      {title:'История и традиции', items:[
+        ['Музеи ЛМЗ и Электросилы','https://pmweb.powerm.ru/DepPublicRel/Pages/museum.aspx#/company'],
+        ['Производственные экскурсии','https://pmweb.powerm.ru/DepPublicRel/Pages/expro.aspx#/company'],
+        ['Бессмертный полк', null]
+      ]}
+    ]},
+    { id:'about', icon:'building', title:'О компании и правила', groups:[
+      {title:'О компании', items:[
+        ['О компании','https://pmweb.powerm.ru/Company/Pages/Main.aspx#/company'],
+        ['Миссия/видение/ценности','https://pmweb.powerm.ru/Company/Pages/StrategicAims.aspx#/company'],
+        ['Руководители компании','https://pmweb.powerm.ru/Company/Pages/Directors.aspx#/company'],
+        ['Помощники руководителей','https://pmweb.powerm.ru/Company/Pages/assistants.aspx#/company'],
+        ['Реквизиты','https://pmweb.powerm.ru/Company/Pages/rekvizits.aspx#/company']
+      ]},
+      {title:'Справочник подразделений', items:[
+        ['Структура компании','https://pmweb.powerm.ru/Company/Pages/Structure.aspx#/company'],
+        ['Справочник дирекций','https://pmweb.powerm.ru/SitePages/Directions.aspx#/company'],
+        ['Вакансии', null],
+        ['Приведи друга','https://life.power-m.ru/finance/friend']
+      ]},
+      {title:'Политики и регламенты', items:[
+        ['Стандарт поведения','https://pmweb.powerm.ru/standart/Pages/Standart.aspx#/company'],
+        ['ИБ: правила','https://pmweb.powerm.ru/Security/InfSecurity/Pages/Main.aspx#/company'],
+        ['Персональные данные','https://pmweb.powerm.ru/Security/Pages/%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8.aspx#/company'],
+        ['Личная безопасность','https://pmweb.powerm.ru/Security/Pages/SecurityRec.aspx#/company'],
+        ['Новости законодательства','https://pmweb.powerm.ru/Security/Pages/LawNews.aspx#/company'],
+        ['Алкотестеры','https://pmweb.powerm.ru/Security/Pages/Alcotest.aspx#/company'],
+        ['Нотариальные услуги', null],
+        ['Интеллектуальная собственность', null],
+        ['Регламенты закупок', null],
+        ['Уничтожение документов', null],
+        ['Канцелярия', null]
+      ]}
+    ]}
   ];
-  const FREQUENT_SET = new Set(FREQUENT_SERVICES);
+
+  // Name -> url lookup, built once from the catalog (single source of truth).
+  const NAME_URL = {};
+  catalogData.forEach(section => section.groups.forEach(g => g.items.forEach(([name, url]) => {
+    NAME_URL[name] = url;
+  })));
+
+  // ---------- QR placeholder (used for pages with no real link yet) ----------
+  function buildQrPlaceholder(){
+    const n = 17, cell = 6, quiet = 8;
+    const size = n * cell + quiet * 2;
+    const dark = '#1a2a5e';
+    const isFinderZone = (r, c) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
+    let modules = '';
+    for (let r = 0; r < n; r++){
+      for (let c = 0; c < n; c++){
+        if (isFinderZone(r, c)) continue;
+        const h = (r * 13 + c * 29 + r * c * 7) % 5;
+        if (h < 2){
+          modules += '<rect x="'+(quiet+c*cell)+'" y="'+(quiet+r*cell)+'" width="'+cell+'" height="'+cell+'" fill="'+dark+'"/>';
+        }
+      }
+    }
+    function finder(fr, fc){
+      const x = quiet + fc * cell, y = quiet + fr * cell;
+      return '<rect x="'+x+'" y="'+y+'" width="'+(7*cell)+'" height="'+(7*cell)+'" fill="'+dark+'"/>'+
+             '<rect x="'+(x+cell)+'" y="'+(y+cell)+'" width="'+(5*cell)+'" height="'+(5*cell)+'" fill="#fff"/>'+
+             '<rect x="'+(x+2*cell)+'" y="'+(y+2*cell)+'" width="'+(3*cell)+'" height="'+(3*cell)+'" fill="'+dark+'"/>';
+    }
+    const finders = finder(0,0) + finder(0,n-7) + finder(n-7,0);
+    return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'">'+
+      '<rect width="'+size+'" height="'+size+'" fill="#fff"/>'+finders+modules+'</svg>';
+  }
+  const QR_SVG = buildQrPlaceholder();
+  const QR_CAPTION = 'Откройте на телефоне';
+
+  function qrPopupHtml(){
+    return '<div class="qr-popup">'+
+      '<div class="qr-code">'+QR_SVG+'</div>'+
+      '<div class="qr-caption">'+QR_CAPTION+'</div>'+
+    '</div>';
+  }
+
+  // Renders a catalog list entry: real link, QR trigger (NOLINK), or the classic "#" tooltip placeholder.
+  function renderServiceLink(name, url){
+    if (url === 'NOLINK'){
+      return '<span class="qr-wrap">'+
+        '<span class="qr-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">'+name+'</span>'+
+        qrPopupHtml()+
+      '</span>';
+    }
+    if (url){
+      return '<a href="'+url+'">'+name+'</a>';
+    }
+    return '<a href="#">'+name+'</a>';
+  }
+
+  // ---------- Popular services (header dropdown, shown as accent tiles) ----------
+  const POPULAR_SERVICES = [
+    {n:'Заказать справку', icon:'file'},
+    {n:'Библиотека документов', icon:'bookopen'},
+    {n:'Оформить отпуск', icon:'sun'},
+    {n:'Оформить командировку', icon:'briefcase'},
+    {n:'Пропуск (получить/восстановить)', icon:'badge'},
+    {n:'База знаний СМ (БУП)', icon:'stack'},
+    {n:'Приложение СИЗ', icon:'shield'},
+    {n:'Предложить идею', icon:'bulb'}
+  ];
+  const FREQUENT_SET = new Set(POPULAR_SERVICES.map(s => s.n));
+
+  function renderPopTile(entry){
+    const url = NAME_URL[entry.n];
+    const iconHtml = '<span class="pop-tile-icon">'+svg(entry.icon, 18)+'</span>';
+    if (url === 'NOLINK'){
+      return '<div class="qr-wrap">'+
+        '<div class="pop-tile qr-tile-trigger" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">'+
+          iconHtml+'<span class="pop-tile-name">'+entry.n+'</span>'+
+        '</div>'+
+        qrPopupHtml()+
+      '</div>';
+    }
+    return '<a class="pop-tile" href="'+(url || '#')+'">'+iconHtml+'<span class="pop-tile-name">'+entry.n+'</span></a>';
+  }
 
   const frequentGrid = document.getElementById('frequentGrid');
-  frequentGrid.innerHTML = FREQUENT_SERVICES.map(name =>
-    '<a class="dropdown-link" href="#">'+name+'</a>'
-  ).join('');
+  frequentGrid.innerHTML = POPULAR_SERVICES.map(renderPopTile).join('');
 
   // ---------- Newbie quick links ----------
   const NEWBIE_SERVICES = [
@@ -468,7 +944,7 @@
   ];
   const newbieList = document.getElementById('newbieList');
   newbieList.innerHTML = NEWBIE_SERVICES.map(name =>
-    '<li><a class="dropdown-link" href="#">'+name+'</a></li>'
+    '<li><a class="dropdown-link" href="'+(NAME_URL[name] || '#')+'">'+name+'</a></li>'
   ).join('');
 
   // ---------- Trigger dropdowns (hover on desktop, click/tap on mobile) ----------
@@ -477,9 +953,10 @@
       e.stopPropagation();
       const wrap = btn.closest('.trigger-wrap');
       const isOpen = wrap.classList.contains('open');
-      document.querySelectorAll('.trigger-wrap.open').forEach(w => {
+      document.querySelectorAll('.trigger-wrap.open, .qr-wrap.open').forEach(w => {
         w.classList.remove('open');
-        w.querySelector('.accent-trigger').setAttribute('aria-expanded','false');
+        const t = w.querySelector('.accent-trigger, .qr-trigger, .qr-tile-trigger');
+        if (t) t.setAttribute('aria-expanded','false');
       });
       if (!isOpen){
         wrap.classList.add('open');
@@ -487,92 +964,59 @@
       }
     });
   });
-  document.addEventListener('click', () => {
-    document.querySelectorAll('.trigger-wrap.open').forEach(w => {
+
+  // ---------- QR popup toggles (event delegation: content is built dynamically) ----------
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.qr-trigger, .qr-tile-trigger');
+    if (!trigger) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const wrap = trigger.closest('.qr-wrap');
+    const isOpen = wrap.classList.contains('open');
+    document.querySelectorAll('.trigger-wrap.open, .qr-wrap.open').forEach(w => {
       w.classList.remove('open');
-      w.querySelector('.accent-trigger').setAttribute('aria-expanded','false');
+      const t = w.querySelector('.accent-trigger, .qr-trigger, .qr-tile-trigger');
+      if (t) t.setAttribute('aria-expanded','false');
     });
+    if (!isOpen){
+      wrap.classList.add('open');
+      trigger.setAttribute('aria-expanded','true');
+    }
   });
 
-  // ---------- Catalog data ----------
-  const catalogData = [
-    { id:'hr', icon:'users', title:'Кадры, выплаты и документы', groups:[
-      {title:'Личное дело и документы', items:['Мой личный кабинет','Подписать кадровый документ (КЭДО)','Электронная трудовая книжка','Заказать справку','Мой HR-бизнес-партнёр']},
-      {title:'Отпуск, переводы, увольнение', items:['Оформить отпуск','Перевод на другую работу','Дистанционная работа','Увольнение','Исполнение дополнительных обязанностей']},
-      {title:'Выплаты и льготы', items:['Зарплата и выплаты','Как устроена оплата труда','Жилищная программа']},
-      {title:'Обязательные процедуры', items:['Пенсия и СНИЛС','Воинский учёт','Допуск к гостайне','Табельный учёт']},
-      {title:'Правила и трудовые отношения', items:['Дисциплина и ПВТР','Трудовые отношения','Договор ГПХ','Нормативные документы по кадрам','Профсоюз']},
-      {title:'Командировки и приём гостей', items:['Оформить командировку','Гостиницы и авиа: тревел-агент','Деловая виза и загранпаспорт','Московский офис','Приём делегаций','Приглашения и миграционный учёт']}
-    ]},
-    { id:'tools', icon:'gear', title:'Рабочие инструменты и системы', groups:[
-      {title:'Связь и коммуникации', items:['Synapse','Видеоконференции','Телефонный справочник','Услуги связи','Забронировать переговорную']},
-      {title:'Документы и формы', items:['Согласование документов (СЭД)','Все формы и заявки','Шаблоны документов','Шаблоны презентаций','Фотобанк','Фирменный стиль и логотип','Стенды/постеры/буклеты/сувениры']},
-      {title:'Данные и отчётность', items:['Отчётность Power BI','SAP (ERP/BW/HCM)','Управление лимитами','Торговые электронные площадки']},
-      {title:'Доступы и техника', items:['Каталог ИТ-услуг и прайс-лист','Дашборд по технике','СКИФ']}
-    ]},
-    { id:'help', icon:'help', title:'Помощь, обращения и идеи', groups:[
-      {title:'ИТ-поддержка', items:['Заявка в ИТ (Service Desk)','Каталог ИТ-услуг']},
-      {title:'Рабочее место и здание', items:['Заявка в АХО и ремонт помещений']},
-      {title:'Пропуск и безопасность', items:['Пропуск (получить/восстановить)','Телефоны экстренных служб','Действия в ЧС']},
-      {title:'Обращения и обратная связь', items:['Задать вопрос руководителю','Единое окно обращений','Комитет по этике','Противодействие коррупции']},
-      {title:'Идеи и улучшения', items:['Предложить улучшение','Сказать спасибо','Опросы и исследования']}
-    ]},
-    { id:'edu', icon:'bookopen', title:'Обучение и развитие', groups:[
-      {title:'Учебные платформы', items:['ЭнергоАкадемия (курсы и тесты)','Обучение и развитие','Записи вебинаров','Изучение иностранных языков','Повышение квалификации']},
-      {title:'Знания и библиотеки', items:['База знаний и Нейрон','Электронная библиотека','База знаний бизнес-системы']},
-      {title:'Оценка и карьера', items:['Аттестация','Диалог о целях','Кадровый резерв','Кадровый комитет','Конкурс Н.А.С. и аспирантура','Конкурс «Прорыв года»']},
-      {title:'Профессиональные сообщества', items:['Лекторий','Инженерный клуб','Центры экспертиз']}
-    ]},
-    { id:'prod', icon:'factory', title:'Производство, качество, охрана труда', groups:[
-      {title:'Производственные системы', items:['АРМ','Журнал производственного контроля','САПР КТИ','Система КТПП','ИС Метрология','СТО и МОЗ','Продажа неликвидов']},
-      {title:'Качество', items:['Вопросы качества на ПРП','Дашборд качества','Портал качества','Документация по качеству','Аудиты качества']},
-      {title:'Охрана труда и промбезопасность', items:['Охрана труда (главная)','СИЗ','Работы на высоте','Приложение СИЗ','Молнии','Видеоматериалы по ОТ','Документы по ОТ','Программа «Опора»']},
-      {title:'Бизнес-система (ЦРБС)', items:['Инструменты БС','Аудиты БС','Ключевые проекты БС']}
-    ]},
-    { id:'health', icon:'heart', title:'Здоровье и благополучие', groups:[
-      {title:'Медицина и ДМС', items:['ДМС для сотрудника','ДМС для близких','МСЧ','Фонд медицинской поддержки','Диспансеризация','Санаторно-курортное лечение','Донорство']},
-      {title:'Питание', items:['Столовые и меню']},
-      {title:'Отдых и спорт', items:['Отдых и путёвки','Детский отдых','Энергия спорта']},
-      {title:'Льготы и поддержка', items:['Best Benefits','Волонтёрство и благотворительность']}
-    ]},
-    { id:'life', icon:'star', title:'Жизнь компании', groups:[
-      {title:'Новости и медиа', items:['Новости компании','Telegram/MAX/ВК/YouTube','Энергопульс','Дайджест ИТ','КВН']},
-      {title:'События', items:['Мероприятия','Выставки и конференции','Дни рождения коллег','Поздравить партнёра']},
-      {title:'Признание', items:['Награды и признание']},
-      {title:'История и традиции', items:['Музеи ЛМЗ и Электросилы','Производственные экскурсии','Бессмертный полк']}
-    ]},
-    { id:'about', icon:'building', title:'О компании и правила', groups:[
-      {title:'О компании', items:['О компании','Миссия/видение/ценности','Руководители и помощники','Реквизиты']},
-      {title:'Справочник подразделений', items:['Структура компании','Справочник 24 подразделений','Вакансии','Приведи друга']},
-      {title:'Политики и регламенты', items:['Стандарт поведения','ИБ: правила','Персональные данные','Личная безопасность','Новости законодательства','Алкотестеры','Нотариальные услуги','Интеллектуальная собственность','Регламенты закупок','Уничтожение документов','Канцелярия']}
-    ]}
-  ];
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.trigger-wrap.open, .qr-wrap.open').forEach(w => {
+      w.classList.remove('open');
+      const t = w.querySelector('.accent-trigger, .qr-trigger, .qr-tile-trigger');
+      if (t) t.setAttribute('aria-expanded','false');
+    });
+  });
 
   const accordion = document.getElementById('catalogAccordion');
   accordion.innerHTML = catalogData.map((section, sIdx) => {
     const freqItems = [];
-    section.groups.forEach(g => g.items.forEach(item => {
-      if (FREQUENT_SET.has(item)) freqItems.push(item);
+    section.groups.forEach(g => g.items.forEach(([name, url]) => {
+      if (FREQUENT_SET.has(name)) freqItems.push([name, url]);
     }));
 
     const freqBlock = freqItems.length ?
       '<div class="group frequent-group">'+
         '<div class="frequent-label">'+svg('trend',13)+'Популярные сервисы</div>'+
         '<ul class="service-list">'+
-          freqItems.map(item =>
-            '<li class="service-item" data-search="'+item.toLowerCase()+'"><a href="#">'+item+'</a></li>'
+          freqItems.map(([name, url]) =>
+            '<li class="service-item" data-search="'+name.toLowerCase()+'">'+renderServiceLink(name, url)+'</li>'
           ).join('')+
         '</ul>'+
       '</div>' : '';
 
     const groupsHtml = section.groups.map(g => {
-      const items = g.items.filter(item => !FREQUENT_SET.has(item));
+      const items = g.items.filter(([name]) => !FREQUENT_SET.has(name));
       if (!items.length) return '';
       return '<div class="group">'+
         '<div class="group-title">'+g.title+'</div>'+
         '<ul class="service-list">'+
-          items.map(item =>
-            '<li class="service-item" data-search="'+item.toLowerCase()+'"><a href="#">'+item+'</a></li>'
+          items.map(([name, url]) =>
+            '<li class="service-item" data-search="'+name.toLowerCase()+'">'+renderServiceLink(name, url)+'</li>'
           ).join('')+
         '</ul>'+
       '</div>';
