@@ -331,11 +331,11 @@
     display:flex;
     flex-wrap:wrap;
     gap:24px;
-    max-width:620px;
+    max-width:680px;
   }
   .qr-block{
-    flex:1 1 260px;
-    min-width:250px;
+    flex:1 1 300px;
+    min-width:300px;
   }
   .qr-block-title{
     font-weight:700;
@@ -349,6 +349,10 @@
     line-height:1.55;
     margin:0 0 14px;
   }
+  .qr-instructions-highlight{
+    color:var(--pm-teal-dark);
+    font-weight:600;
+  }
   .qr-block-row{
     display:flex;
     gap:14px;
@@ -361,7 +365,7 @@
     gap:8px;
   }
   .qr-mini-single{
-    max-width:150px;
+    max-width:180px;
   }
   .qr-mini-icon{
     color:var(--pm-teal-dark);
@@ -582,6 +586,22 @@
     .pop-tile-grid{grid-template-columns:repeat(2,1fr);}
     .brand-block h1{font-size:24px;}
     .site-footer{padding:32px 16px;}
+    .qr-popup-wide{
+      position:fixed;
+      left:16px;
+      right:16px;
+      top:auto;
+      bottom:16px;
+      width:auto;
+      max-width:none;
+      max-height:70vh;
+      overflow-y:auto;
+      transform:translateY(12px);
+    }
+    .qr-wrap:hover .qr-popup-wide,
+    .qr-wrap.open .qr-popup-wide{
+      transform:translateY(0);
+    }
   }
 </style>
 </head>
@@ -700,7 +720,6 @@
       ]},
       {title:'Выплаты и льготы', items:[
         ['Зарплата и выплаты','https://pmweb.powerm.ru/DepCES/Pages/%D0%97%D0%B0%D1%80%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D1%8B%D0%B9-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82.aspx#/company'],
-        ['Как устроена оплата труда', null],
         ['Жилищная программа','https://life.power-m.ru/comfort/housing/housing']
       ]},
       {title:'Обязательные процедуры', items:[
@@ -711,7 +730,6 @@
       ]},
       {title:'Правила и трудовые отношения', items:[
         ['Дисциплина и ПВТР','https://pmweb.powerm.ru/HR/Personal/Pages/ASKUD.aspx#/company'],
-        ['Трудовые отношения', null],
         ['Договор ГПХ','https://pmweb.powerm.ru/HR/Personal/Pages/GPX.aspx#/company'],
         ['Нормативные документы по кадрам','https://pmweb.powerm.ru/HR/Personal/Pages/Normative-docs.aspx#/company'],
         ['Профсоюз','https://pmweb.powerm.ru/Pages/Profsouzy.aspx#/company']
@@ -721,7 +739,6 @@
         ['Гостиницы и авиа: тревел-агент','https://pmweb.powerm.ru/BusinessTrip/Pages/%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D1%8B%20%D0%9A%D0%BE%D0%BD%D1%82%D0%B8%D0%BD%D0%B5%D0%BD%D1%82%20%D0%AD%D0%BA%D1%81%D0%BF%D1%80%D0%B5%D1%81%D1%81.aspx#/company'],
         ['Деловая виза','https://pmweb.powerm.ru/BusinessTrip/Pages/Business_visa.aspx#/company'],
         ['Загранпаспорт','https://pmweb.powerm.ru/BusinessTrip/Pages/Passports.aspx#/company'],
-        ['Московский офис', null],
         ['Приём делегаций','https://pmweb.powerm.ru/ProtocolService/Pages/Delegations.aspx#/company'],
         ['Приглашения в РФ','https://pmweb.powerm.ru/BusinessTrip/Pages/Invites.aspx#/company']
       ]}
@@ -729,7 +746,6 @@
     { id:'tools', icon:'gear', title:'Рабочие инструменты и системы', groups:[
       {title:'Связь и коммуникации', items:[
         ['Synapse','https://pmweb.powerm.ru/DepDit/Pages/Synapse.aspx#/company'],
-        ['Видеоконференции', null],
         ['Телефонный справочник','https://pmweb.powerm.ru/SitePages/phonebook.aspx#/company'],
         ['Услуги связи','https://pmweb.powerm.ru/DepDit/SrvTelecom/Pages/Tel.aspx#/company'],
         ['Забронировать переговорную','https://pmweb.powerm.ru/DepDit/Pages/AVConf.aspx#/company'],
@@ -737,7 +753,6 @@
       ]},
       {title:'Документы и формы', items:[
         ['Согласование документов (СЭД)','https://pmweb.powerm.ru/HR/Documents/Forms/AllItems.aspx?RootFolder=%2fHR%2fDocuments%2f%d0%a2%d0%b0%d0%b1%d0%b5%d0%bb%d1%8c%d0%bd%d1%8b%d0%b9%20%d1%83%d1%87%d0%b5%d1%82%2f%d0%a1%d0%ad%d0%94&FolderCTID=0x012000BE2006A77C62F04488EF1759655B2B86#/company'],
-        ['Все формы и заявки', null],
         ['Шаблоны документов','https://pmweb.powerm.ru/Pages/Templates.aspx#/company'],
         ['Шаблоны презентаций','https://pmweb.powerm.ru/DepPublicRel/AdvSouvenirs/Pages/Presentations.aspx#/company'],
         ['Фотобанк','https://pmweb.powerm.ru/DepPublicRel/AdvSouvenirs/Pages/Photobank.aspx#/company'],
@@ -746,13 +761,9 @@
       ]},
       {title:'Данные и отчётность', items:[
         ['Отчётность Power BI','https://pmweb.powerm.ru/DepDit/Pages/PowerBI.aspx#/company'],
-        ['SAP (ERP/BW/HCM)', null],
-        ['Управление лимитами', null],
         ['Торговые электронные площадки','https://pmweb.powerm.ru/Pages/Etp.aspx#/company']
       ]},
       {title:'Доступы и техника', items:[
-        ['Каталог ИТ-услуг и прайс-лист', null],
-        ['Дашборд по технике', null],
         ['СКИФ','https://pmweb.powerm.ru/Security/Pages/skif.aspx#/company']
       ]}
     ]},
@@ -761,9 +772,6 @@
         ['Заявка в ИТ (Service Desk)','https://servicedesk.powerm.ru/Templates.do?module=serviceRequest'],
         ['Каталог ИТ-услуг','https://servicedesk.powerm.ru/Templates.do?SkipNV2Filter=true&module=serviceRequest']
       ]},
-      {title:'Рабочее место и здание', items:[
-        ['Заявка в АХО и ремонт помещений', null]
-      ]},
       {title:'Пропуск и безопасность', items:[
         ['Пропуск (получить/восстановить)','https://pmweb.powerm.ru/Security/Pages/Actions-in-case-of-lost-your-special-permit.aspx#/company'],
         ['Телефоны экстренных служб','https://pmweb.powerm.ru/Security/Pages/emercom.aspx#/company'],
@@ -771,14 +779,12 @@
       ]},
       {title:'Обращения и обратная связь', items:[
         ['Задать вопрос руководителю','https://pmweb.powerm.ru/PortalPages/home.aspx#/feedback/about'],
-        ['Единое окно обращений', null],
         ['Комитет по этике','https://pmweb.powerm.ru/standart/Pages/Members.aspx#/company'],
         ['Противодействие коррупции','https://pmweb.powerm.ru/Pages/%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-%D0%BF%D1%80%D0%BE%D1%82%D0%B8%D0%B2%D0%BE%D0%B4%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B8%D1%8F-%D0%BA%D0%BE%D1%80%D1%80%D1%83%D0%BF%D1%86%D0%B8%D0%B8.aspx#/company']
       ]},
       {title:'Идеи и улучшения', items:[
         ['Предложить идею','http://pmspapp7/sites/crbs/fi/SitePages/%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F.aspx'],
-        ['Сказать спасибо','https://pmweb.powerm.ru/DepCES/Pages/Thanks.aspx#/InplviewHashda30af62-a0a5-4a9d-8645-1fe7fba8b399'],
-        ['Опросы и исследования', null]
+        ['Сказать спасибо','https://pmweb.powerm.ru/DepCES/Pages/Thanks.aspx#/InplviewHashda30af62-a0a5-4a9d-8645-1fe7fba8b399']
       ]}
     ]},
     { id:'edu', icon:'bookopen', title:'Обучение и развитие', groups:[
@@ -786,14 +792,11 @@
         ['ЭнергоАкадемия (курсы и тесты)','https://life.power-m.ru/development/energyacademy'],
         ['Профессиональное развитие','https://life.power-m.ru/development/profdevelop'],
         ['Управленческое развитие','https://life.power-m.ru/development/reserve'],
-        ['Записи вебинаров', null],
         ['Изучение иностранных языков','https://pmweb.powerm.ru/URP/Pages/language-learning.aspx#/company'],
         ['Повышение квалификации','NOLINK']
       ]},
       {title:'Знания и библиотеки', items:[
-        ['База знаний и Нейрон', null],
         ['Научно-техническая библиотека','https://pmweb.powerm.ru/Ntb/Pages/Main.aspx#/company'],
-        ['Электронная библиотека', null],
         ['База знаний СМ (БУП)','https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%9C']
       ]},
       {title:'Оценка и карьера', items:[
@@ -802,38 +805,28 @@
         ['Диалог о целях','https://pmweb.powerm.ru/URP/Pages/DialogTarget.aspx#/company'],
         ['Кадровый резерв','https://pmweb.powerm.ru/URP/Pages/personnel_pool.aspx#/company'],
         ['Кадровый комитет','https://pmweb.powerm.ru/URP/Pages/hr-comitet.aspx#/company'],
-        ['Конкурс Н.А.С. и аспирантура','https://pmweb.powerm.ru/URP/Pages/Postgraduate-studies.aspx#/company'],
-        ['Конкурс «Прорыв года»', null]
+        ['Конкурс Н.А.С. и аспирантура','https://pmweb.powerm.ru/URP/Pages/Postgraduate-studies.aspx#/company']
       ]},
       {title:'Профессиональные сообщества', items:[
         ['Лекторий','https://pmweb.powerm.ru/DepPublicRel/CorpLife/Pages/lecture.aspx#/company'],
-        ['Инженерный клуб','https://pmweb.powerm.ru/DepPublicRel/CorpLife/Pages/engineeringclub.aspx#/company'],
-        ['Центры экспертиз', null]
+        ['Инженерный клуб','https://pmweb.powerm.ru/DepPublicRel/CorpLife/Pages/engineeringclub.aspx#/company']
       ]}
     ]},
     { id:'prod', icon:'factory', title:'Производство, качество, охрана труда', groups:[
       {title:'Производственные системы', items:[
-        ['АРМ', null],
         ['Журнал производственного контроля','https://pmweb.powerm.ru/Pages/Instrument/MonitorProduction.aspx#/company'],
         ['САПР КТИ','https://pmweb.powerm.ru/DepDit/Pages/SrvSaprKti.aspx#/company'],
         ['Система КТПП','https://pmweb.powerm.ru/DepDit/Pages/PLMSystems.aspx#/company'],
-        ['ИС Метрология', null],
-        ['СТО и МОЗ', null],
         ['Продажа неликвидов','https://pmweb.powerm.ru/DepProcurement/Pages/nelikvid.aspx#/company']
       ]},
       {title:'Качество', items:[
         ['Вопросы качества на ПРП','https://pmweb.powerm.ru/Pages/prp.aspx#/company'],
-        ['Дашборд качества','https://pmweb.powerm.ru/Pages/Quality.aspx#/company'],
-        ['Портал качества', null],
-        ['Документация по качеству', null],
-        ['Аудиты качества', null]
+        ['Дашборд качества','https://pmweb.powerm.ru/Pages/Quality.aspx#/company']
       ]},
       {title:'Охрана труда и промбезопасность', items:[
         ['Охрана труда (главная)','NOLINK'],
         ['СИЗ','https://pmweb.powerm.ru/SafeW/Pages/ppe.aspx#/company'],
-        ['Работы на высоте', null],
         ['Приложение СИЗ','NOLINK'],
-        ['Молнии', null],
         ['Видеоматериалы по ОТ','https://pmweb.powerm.ru/SafeW/Pages/Videos.aspx#/company'],
         ['Документы по ОТ','https://pmweb.powerm.ru/SafeW/Pages/Docs.aspx#/company'],
         ['Программа «Опора»','https://pmweb.powerm.ru/Pages/OPORA/opora23.aspx#/company']
@@ -864,30 +857,19 @@
         ['Эмоциональный баланс','https://life.power-m.ru/health/emotion/stressmanagement']
       ]},
       {title:'Льготы и поддержка', items:[
-        ['Best Benefits','https://pmweb.powerm.ru/Pages/%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D0%B5%D1%80%D0%BE%D0%B2-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8.aspx#/company'],
-        ['Волонтёрство и благотворительность', null]
+        ['Best Benefits','https://pmweb.powerm.ru/Pages/%D0%9F%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D0%B5%D1%80%D0%BE%D0%B2-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8.aspx#/company']
       ]}
     ]},
     { id:'life', icon:'star', title:'Жизнь компании', groups:[
       {title:'Новости и медиа', items:[
-        ['Новости компании', null],
-        ['Энергопульс','https://pmweb.powerm.ru/URP/Pages/Energopuls.aspx#/company'],
-        ['Дайджест ИТ', null],
-        ['КВН', null]
+        ['Энергопульс','https://pmweb.powerm.ru/URP/Pages/Energopuls.aspx#/company']
       ]},
       {title:'События', items:[
-        ['Мероприятия', null],
-        ['Выставки и конференции', null],
-        ['Дни рождения коллег','https://pmweb.powerm.ru/Pages/Birthday.aspx#/company'],
-        ['Поздравить партнёра', null]
-      ]},
-      {title:'Признание', items:[
-        ['Награды и признание', null]
+        ['Дни рождения коллег','https://pmweb.powerm.ru/Pages/Birthday.aspx#/company']
       ]},
       {title:'История и традиции', items:[
         ['Музеи ЛМЗ и Электросилы','https://pmweb.powerm.ru/DepPublicRel/Pages/museum.aspx#/company'],
-        ['Производственные экскурсии','https://pmweb.powerm.ru/DepPublicRel/Pages/expro.aspx#/company'],
-        ['Бессмертный полк', null]
+        ['Производственные экскурсии','https://pmweb.powerm.ru/DepPublicRel/Pages/expro.aspx#/company']
       ]}
     ]},
     { id:'about', icon:'building', title:'О компании и правила', groups:[
@@ -901,7 +883,6 @@
       {title:'Справочник подразделений', items:[
         ['Структура компании','https://pmweb.powerm.ru/Company/Pages/Structure.aspx#/company'],
         ['Справочник дирекций','https://pmweb.powerm.ru/SitePages/Directions.aspx#/company'],
-        ['Вакансии', null],
         ['Приведи друга','https://life.power-m.ru/finance/friend']
       ]},
       {title:'Политики и регламенты', items:[
@@ -910,12 +891,7 @@
         ['Персональные данные','https://pmweb.powerm.ru/Security/Pages/%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8.aspx#/company'],
         ['Личная безопасность','https://pmweb.powerm.ru/Security/Pages/SecurityRec.aspx#/company'],
         ['Новости законодательства','https://pmweb.powerm.ru/Security/Pages/LawNews.aspx#/company'],
-        ['Алкотестеры','https://pmweb.powerm.ru/Security/Pages/Alcotest.aspx#/company'],
-        ['Нотариальные услуги', null],
-        ['Интеллектуальная собственность', null],
-        ['Регламенты закупок', null],
-        ['Уничтожение документов', null],
-        ['Канцелярия', null]
+        ['Алкотестеры','https://pmweb.powerm.ru/Security/Pages/Alcotest.aspx#/company']
       ]}
     ]}
   ];
@@ -963,6 +939,282 @@
     '</div>';
   }
 
+  // ---------- Real QR Code encoder (version 1, EC level L, byte mode) ----------
+  // Self-contained, no dependencies. Verified against a reference decoder offline.
+  const QR_GF_EXP = new Array(256), QR_GF_LOG = new Array(256);
+  (function(){
+    let v = 1;
+    for (let i = 0; i < 255; i++){
+      QR_GF_EXP[i] = v;
+      QR_GF_LOG[v] = i;
+      v <<= 1;
+      if (v >= 256) v ^= 0x11D;
+    }
+    QR_GF_EXP[255] = QR_GF_EXP[0];
+  })();
+  function qrGfMul(a, b){
+    if (a === 0 || b === 0) return 0;
+    return QR_GF_EXP[(QR_GF_LOG[a] + QR_GF_LOG[b]) % 255];
+  }
+  function qrRsGeneratorPoly(degree){
+    let poly = [1], a = 1;
+    for (let i = 0; i < degree; i++){
+      const next = new Array(poly.length + 1).fill(0);
+      for (let j = 0; j < poly.length; j++){
+        next[j+1] ^= poly[j];
+        next[j] ^= qrGfMul(poly[j], a);
+      }
+      poly = next;
+      a = qrGfMul(a, 2);
+    }
+    return poly;
+  }
+  function qrRsEncode(dataCodewords, numEc){
+    const genDesc = qrRsGeneratorPoly(numEc).slice().reverse();
+    const buf = dataCodewords.concat(new Array(numEc).fill(0));
+    for (let i = 0; i < dataCodewords.length; i++){
+      const coef = buf[i];
+      if (coef === 0) continue;
+      for (let j = 0; j < genDesc.length; j++) buf[i+j] ^= qrGfMul(genDesc[j], coef);
+    }
+    return buf.slice(dataCodewords.length);
+  }
+  function qrEncodeDataCodewords(text){
+    const CAP = 19;
+    const bytes = [];
+    for (let i = 0; i < text.length; i++) bytes.push(text.charCodeAt(i) & 0xFF);
+    if (bytes.length > 17) throw new Error('QR text too long for version 1-L');
+    const bits = [];
+    function push(value, len){ for (let i = len-1; i >= 0; i--) bits.push((value >>> i) & 1); }
+    push(0b0100, 4);
+    push(bytes.length, 8);
+    for (const b of bytes) push(b, 8);
+    const maxBits = CAP * 8;
+    for (let i = 0; i < 4 && bits.length < maxBits; i++) bits.push(0);
+    while (bits.length % 8 !== 0) bits.push(0);
+    const codewords = [];
+    for (let i = 0; i < bits.length; i += 8){
+      let byte = 0;
+      for (let j = 0; j < 8; j++) byte = (byte << 1) | bits[i+j];
+      codewords.push(byte);
+    }
+    const pad = [0xEC, 0x11];
+    let p = 0;
+    while (codewords.length < CAP){ codewords.push(pad[p % 2]); p++; }
+    return codewords;
+  }
+  function qrCodewordsToBits(codewords){
+    const bits = [];
+    for (const cw of codewords) for (let i = 7; i >= 0; i--) bits.push((cw >>> i) & 1);
+    return bits;
+  }
+  const QR_SIZE = 21;
+  function qrIsFunctionModule(r, c){
+    if (r < 8 && c < 8) return true;
+    if (r < 8 && c >= QR_SIZE - 8) return true;
+    if (r >= QR_SIZE - 8 && c < 8) return true;
+    if (r === 6 || c === 6) return true;
+    if (r === 8 && (c < 9 || c >= QR_SIZE - 8)) return true;
+    if (c === 8 && (r < 9 || r >= QR_SIZE - 7)) return true;
+    if (r === 13 && c === 8) return true;
+    return false;
+  }
+  function qrPlaceFinder(m, topRow, topCol){
+    for (let r = -1; r <= 7; r++){
+      for (let c = -1; c <= 7; c++){
+        const rr = topRow + r, cc = topCol + c;
+        if (rr < 0 || cc < 0 || rr >= QR_SIZE || cc >= QR_SIZE) continue;
+        let dark;
+        if (r === -1 || r === 7 || c === -1 || c === 7) dark = false;
+        else if (r === 0 || r === 6 || c === 0 || c === 6) dark = true;
+        else if (r >= 2 && r <= 4 && c >= 2 && c <= 4) dark = true;
+        else dark = false;
+        m[rr][cc] = dark;
+      }
+    }
+  }
+  function qrBuildFunctionPatterns(){
+    const m = [];
+    for (let r = 0; r < QR_SIZE; r++) m.push(new Array(QR_SIZE).fill(null));
+    qrPlaceFinder(m, 0, 0);
+    qrPlaceFinder(m, 0, QR_SIZE - 7);
+    qrPlaceFinder(m, QR_SIZE - 7, 0);
+    for (let i = 8; i < QR_SIZE - 8; i++){
+      const dark = i % 2 === 0;
+      m[6][i] = dark;
+      m[i][6] = dark;
+    }
+    m[13][8] = true;
+    for (let i = 0; i <= 8; i++){
+      if (m[8][i] === null) m[8][i] = false;
+      if (m[i][8] === null) m[i][8] = false;
+    }
+    for (let i = 0; i < 8; i++){
+      if (m[8][QR_SIZE-1-i] === null) m[8][QR_SIZE-1-i] = false;
+      if (m[QR_SIZE-1-i][8] === null) m[QR_SIZE-1-i][8] = false;
+    }
+    return m;
+  }
+  function qrPlaceData(matrix, allBits){
+    let bitIndex = 0, upward = true, col = QR_SIZE - 1;
+    while (col > 0){
+      if (col === 6) col--;
+      for (let i = 0; i < QR_SIZE; i++){
+        const row = upward ? QR_SIZE - 1 - i : i;
+        for (let c = 0; c < 2; c++){
+          const cc = col - c;
+          if (qrIsFunctionModule(row, cc)) continue;
+          const bit = bitIndex < allBits.length ? allBits[bitIndex] : 0;
+          matrix[row][cc] = bit === 1;
+          bitIndex++;
+        }
+      }
+      upward = !upward;
+      col -= 2;
+    }
+    return matrix;
+  }
+  const QR_MASK_FUNCS = [
+    (r,c) => (r+c) % 2 === 0,
+    (r,c) => r % 2 === 0,
+    (r,c) => c % 3 === 0,
+    (r,c) => (r+c) % 3 === 0,
+    (r,c) => (Math.floor(r/2) + Math.floor(c/3)) % 2 === 0,
+    (r,c) => ((r*c) % 2) + ((r*c) % 3) === 0,
+    (r,c) => (((r*c) % 2) + ((r*c) % 3)) % 2 === 0,
+    (r,c) => (((r+c) % 2) + ((r*c) % 3)) % 2 === 0
+  ];
+  function qrApplyMask(matrix, maskIndex){
+    const f = QR_MASK_FUNCS[maskIndex];
+    const out = matrix.map(row => row.slice());
+    for (let r = 0; r < QR_SIZE; r++){
+      for (let c = 0; c < QR_SIZE; c++){
+        if (qrIsFunctionModule(r, c)) continue;
+        if (f(r, c)) out[r][c] = !out[r][c];
+      }
+    }
+    return out;
+  }
+  function qrComputeFormatBits(ecLevelBits, maskIndex){
+    const data = (ecLevelBits << 3) | maskIndex;
+    let d = data << 10;
+    const gen = 0b10100110111;
+    for (let i = 4; i >= 0; i--){
+      if ((d >>> (i + 10)) & 1) d ^= gen << i;
+    }
+    let bits15 = (data << 10) | d;
+    bits15 ^= 0b101010000010010;
+    return bits15;
+  }
+  const QR_COPY_A = [[0,8],[1,8],[2,8],[3,8],[4,8],[5,8],[7,8],[8,8],[8,7],[8,5],[8,4],[8,3],[8,2],[8,1],[8,0]];
+  const QR_COPY_B = [[8,QR_SIZE-1],[8,QR_SIZE-2],[8,QR_SIZE-3],[8,QR_SIZE-4],[8,QR_SIZE-5],[8,QR_SIZE-6],[8,QR_SIZE-7],[8,QR_SIZE-8],
+    [QR_SIZE-7,8],[QR_SIZE-6,8],[QR_SIZE-5,8],[QR_SIZE-4,8],[QR_SIZE-3,8],[QR_SIZE-2,8],[QR_SIZE-1,8]];
+  function qrPlaceFormatInfo(matrix, bits15){
+    for (let i = 0; i < 15; i++){
+      const bit = (bits15 >>> i) & 1;
+      let p = QR_COPY_A[i]; matrix[p[0]][p[1]] = bit === 1;
+      p = QR_COPY_B[i]; matrix[p[0]][p[1]] = bit === 1;
+    }
+  }
+  function qrPenaltyRule1(m){
+    let total = 0;
+    for (let r = 0; r < QR_SIZE; r++){
+      let run = 1;
+      for (let c = 1; c < QR_SIZE; c++){
+        if (m[r][c] === m[r][c-1]) run++;
+        else { if (run >= 5) total += 3 + (run-5); run = 1; }
+      }
+      if (run >= 5) total += 3 + (run-5);
+    }
+    for (let c = 0; c < QR_SIZE; c++){
+      let run = 1;
+      for (let r = 1; r < QR_SIZE; r++){
+        if (m[r][c] === m[r-1][c]) run++;
+        else { if (run >= 5) total += 3 + (run-5); run = 1; }
+      }
+      if (run >= 5) total += 3 + (run-5);
+    }
+    return total;
+  }
+  function qrPenaltyRule2(m){
+    let total = 0;
+    for (let r = 0; r < QR_SIZE - 1; r++){
+      for (let c = 0; c < QR_SIZE - 1; c++){
+        const v = m[r][c];
+        if (v === m[r][c+1] && v === m[r+1][c] && v === m[r+1][c+1]) total += 3;
+      }
+    }
+    return total;
+  }
+  const QR_PATTERN_A = [1,0,1,1,1,0,1,0,0,0,0];
+  const QR_PATTERN_B = [0,0,0,0,1,0,1,1,1,0,1];
+  function qrArrEq(a, b){ for (let i=0;i<a.length;i++) if (a[i]!==b[i]) return false; return true; }
+  function qrPenaltyRule3(m){
+    let total = 0;
+    for (let r = 0; r < QR_SIZE; r++){
+      const row = m[r].map(v => v ? 1 : 0);
+      for (let c = 0; c <= QR_SIZE - 11; c++){
+        const w = row.slice(c, c+11);
+        if (qrArrEq(w, QR_PATTERN_A) || qrArrEq(w, QR_PATTERN_B)) total += 40;
+      }
+    }
+    for (let c = 0; c < QR_SIZE; c++){
+      const col = [];
+      for (let r = 0; r < QR_SIZE; r++) col.push(m[r][c] ? 1 : 0);
+      for (let r = 0; r <= QR_SIZE - 11; r++){
+        const w = col.slice(r, r+11);
+        if (qrArrEq(w, QR_PATTERN_A) || qrArrEq(w, QR_PATTERN_B)) total += 40;
+      }
+    }
+    return total;
+  }
+  function qrPenaltyRule4(m){
+    let dark = 0;
+    for (let r = 0; r < QR_SIZE; r++) for (let c = 0; c < QR_SIZE; c++) if (m[r][c]) dark++;
+    const percent = dark * 100 / (QR_SIZE * QR_SIZE);
+    const prev = Math.floor(Math.abs(percent - 50) / 5) * 5;
+    const a = Math.abs(prev - 50) / 5, b = Math.abs(prev + 5 - 50) / 5;
+    return Math.floor(Math.min(a, b)) * 10;
+  }
+  function qrTotalPenalty(m){
+    return qrPenaltyRule1(m) + qrPenaltyRule2(m) + qrPenaltyRule3(m) + qrPenaltyRule4(m);
+  }
+  function qrBuildMatrix(text){
+    const dataCodewords = qrEncodeDataCodewords(text);
+    const ecCodewords = qrRsEncode(dataCodewords, 7);
+    const allBits = qrCodewordsToBits(dataCodewords.concat(ecCodewords));
+    let best = null, bestPenalty = Infinity;
+    for (let maskIndex = 0; maskIndex < 8; maskIndex++){
+      const base = qrBuildFunctionPatterns();
+      qrPlaceData(base, allBits);
+      const masked = qrApplyMask(base, maskIndex);
+      qrPlaceFormatInfo(masked, qrComputeFormatBits(0b01, maskIndex));
+      const p = qrTotalPenalty(masked);
+      if (p < bestPenalty){ bestPenalty = p; best = masked; }
+    }
+    return best;
+  }
+  function qrMatrixToSvg(matrix, cell, border){
+    cell = cell || 5;
+    border = border === undefined ? 4 : border;
+    const n = matrix.length;
+    const size = (n + border * 2) * cell;
+    let rects = '';
+    for (let r = 0; r < n; r++){
+      for (let c = 0; c < n; c++){
+        if (matrix[r][c]){
+          rects += '<rect x="'+((c+border)*cell)+'" y="'+((r+border)*cell)+'" width="'+cell+'" height="'+cell+'"/>';
+        }
+      }
+    }
+    return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'">'+
+      '<rect width="'+size+'" height="'+size+'" fill="#fff"/>'+
+      '<g fill="#1a2a5e">'+rects+'</g></svg>';
+  }
+  function buildRealQr(text){
+    return qrMatrixToSvg(qrBuildMatrix(text));
+  }
+
   // ---------- "Приложение СИЗ": 3-step download/register QR panel ----------
   const SIZ_ICONS = {
     android:'<line x1="9" y1="5.5" x2="8" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>'+
@@ -984,8 +1236,8 @@
     const fillMode = key === 'apple' ? ' fill="currentColor"' : ' fill="none"';
     return '<svg width="20" height="20" viewBox="0 0 24 24"'+fillMode+'>'+SIZ_ICONS[key]+'</svg>';
   }
-  function sizQrCard(seed){
-    return '<a class="qr-code-card" href="#">'+buildQrPlaceholder(seed)+'</a>';
+  function sizQrCard(text){
+    return '<a class="qr-code-card" href="#">'+buildRealQr(text)+'</a>';
   }
   function renderSizPopupHtml(){
     return '<div class="qr-popup qr-popup-wide">'+
@@ -995,23 +1247,24 @@
           '<div class="qr-block-row">'+
             '<div class="qr-mini">'+
               '<div class="qr-mini-icon">'+sizIcon('android')+'</div>'+
-              sizQrCard(1)+
+              sizQrCard('#android')+
               '<div class="qr-mini-caption">QR-код для Play Market</div>'+
             '</div>'+
             '<div class="qr-mini">'+
               '<div class="qr-mini-icon">'+sizIcon('apple')+'</div>'+
-              sizQrCard(2)+
+              sizQrCard('#ios')+
               '<div class="qr-mini-caption">QR-код для App Store</div>'+
             '</div>'+
           '</div>'+
         '</div>'+
         '<div class="qr-block">'+
           '<div class="qr-block-title">2. Зарегистрируйтесь</div>'+
-          '<p class="qr-instructions">Откройте приложение → Отсканируйте QR-код для входа → Укажите имя, отчество, табельный номер → Пароль — табельный номер</p>'+
+          '<p class="qr-instructions">Откройте приложение.<br>Отсканируйте QR-код через мобильное приложение.</p>'+
           '<div class="qr-mini qr-mini-single">'+
-            sizQrCard(3)+
-            '<div class="qr-mini-caption">QR-код для входа</div>'+
+            sizQrCard('#login')+
           '</div>'+
+          '<p class="qr-instructions qr-instructions-highlight">Через 10-15 секунд приложение сообщит, что готово к работе!</p>'+
+          '<p class="qr-instructions">Укажите имя, отчество, табельный номер.<br>Введите пароль — свой табельный номер.</p>'+
         '</div>'+
       '</div>'+
     '</div>';
