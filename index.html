@@ -383,7 +383,7 @@
       <div class="trigger-wrap">
         <button class="accent-trigger" id="newbieTrigger" aria-haspopup="true" aria-expanded="false">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="17" y1="11" x2="23" y2="11"/></svg>
-          Новичку — с чего начать
+          Новый сотрудник
           <svg class="trigger-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="dropdown-panel" id="newbieDropdown">
@@ -394,7 +394,7 @@
 
       <div class="trigger-wrap">
         <button class="accent-trigger" id="frequentTrigger" aria-haspopup="true" aria-expanded="false">
-          ⚡ Часто ищут
+          Популярные сервисы
           <svg class="trigger-chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="dropdown-panel" id="frequentDropdown">
@@ -559,7 +559,7 @@
 
     const freqBlock = freqItems.length ?
       '<div class="group frequent-group">'+
-        '<div class="frequent-label">'+svg('trend',13)+'Часто используют</div>'+
+        '<div class="frequent-label">'+svg('trend',13)+'Популярные сервисы</div>'+
         '<ul class="service-list">'+
           freqItems.map(item =>
             '<li class="service-item" data-search="'+item.toLowerCase()+'"><a href="#">'+item+'</a></li>'
