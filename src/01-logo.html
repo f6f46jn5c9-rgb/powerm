@@ -6,8 +6,6 @@
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;
   animation:sm-logo-in .5s ease both}
 .sm-logo *,.sm-logo *::before,.sm-logo *::after{box-sizing:border-box}
-.sm-logo::before{content:"";position:absolute;left:-60px;top:-80px;width:520px;height:300px;border-radius:50%;pointer-events:none;
-  background:radial-gradient(closest-side,rgba(14,124,123,.20),rgba(14,124,123,.07) 55%,transparent);animation:sm-logo-breathe 8s ease-in-out infinite}
 .sm-logo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;pointer-events:none;
   background:linear-gradient(90deg,var(--sm-teal-dark),var(--sm-teal) 35%,#35b8b3 70%,rgba(53,184,179,0))}
 .sm-logo .sm-logo__img{position:relative;display:block;flex:0 0 auto;height:68px;width:auto;max-width:100%;mix-blend-mode:multiply}
@@ -16,13 +14,12 @@
 .sm-logo h2.sm-logo__title{margin:0 0 4px !important;padding:0 !important;font-size:30px;font-weight:800;line-height:1.15;color:var(--sm-navy-dark) !important;letter-spacing:-.01em;border:0}
 .sm-logo .sm-logo__accent{color:var(--sm-teal) !important;background:linear-gradient(90deg,var(--sm-teal-dark),#26a9a4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .sm-logo p.sm-logo__sub{margin:0 !important;padding:0 !important;font-size:16px;color:var(--sm-muted) !important}
-@keyframes sm-logo-breathe{0%,100%{opacity:.75}50%{opacity:1}}
 @keyframes sm-logo-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (max-width:900px){.sm-logo{gap:20px;padding:20px 24px 24px}.sm-logo h2.sm-logo__title{font-size:25px}.sm-logo .sm-logo__img{height:56px}}
 @media (max-width:640px){.sm-logo{flex-direction:column;align-items:flex-start;gap:12px;padding:18px 18px 22px}
   .sm-logo .sm-logo__img{height:46px}.sm-logo .sm-logo__bar{display:none}
   .sm-logo h2.sm-logo__title{font-size:21px}.sm-logo p.sm-logo__sub{font-size:14.5px}}
-@media (prefers-reduced-motion:reduce){.sm-logo,.sm-logo::before{animation:none}}
+@media (prefers-reduced-motion:reduce){.sm-logo{animation:none}}
 </style>
 <section class="sm-logo" id="sm-logo" aria-label="База успешных практик">
   <img class="sm-logo__img" id="sm-logo-img" alt="Силовые машины" src="data:image/jpeg;base64,%%LOGO%%">
