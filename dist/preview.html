@@ -123,7 +123,7 @@
 
 /* ---- плашка: цветной градиент + пятна + стеклянный слой ---- */
 .sm-catalog a.sm-catalog__tile{--b1:rgba(150,215,255,.8);--b2:rgba(130,110,255,.55);--b3:rgba(70,150,255,.5);--sh:rgba(26,42,94,.30);
-  position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;height:150px;min-width:0;padding:18px;border-radius:var(--sm-radius);
+  position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;height:150px;min-width:0;padding:18px;border-radius:var(--sm-radius);
   color:#fff !important;text-decoration:none !important;
   background:linear-gradient(200deg,var(--c1) 0%,var(--c2) 38%,var(--c3) 100%);
   box-shadow:0 10px 26px var(--sh),0 2px 6px rgba(26,42,94,.12);
@@ -131,8 +131,9 @@
 .sm-catalog .sm-catalog__group--teal a.sm-catalog__tile{--b1:rgba(160,255,236,.75);--b2:rgba(40,205,195,.55);--b3:rgba(120,205,255,.42);--sh:rgba(10,95,94,.30)}
 .sm-catalog a.sm-catalog__tile--wide{grid-column:span 2}
 .sm-catalog a.sm-catalog__tile--violet{--b1:rgba(180,160,255,.85);--b2:rgba(90,175,255,.6);--b3:rgba(200,120,255,.5);--sh:rgba(60,50,170,.38)}
-/* размытые цветные пятна — «за стеклом» */
-.sm-catalog a.sm-catalog__tile::before{content:"";position:absolute;z-index:0;inset:-24px;pointer-events:none;filter:blur(8px);
+/* декоративный слой: именно он обрезает размытые пятна по скруглению (текст не обрезается) */
+.sm-catalog .sm-catalog__fx{position:absolute;z-index:0;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.sm-catalog .sm-catalog__fx::before{content:"";position:absolute;inset:-24px;filter:blur(8px);
   background:radial-gradient(circle at 88% 10%,var(--b1) 0,transparent 42%),radial-gradient(circle at 8% 46%,var(--b2) 0,transparent 36%),radial-gradient(circle at 94% 40%,var(--b3) 0,transparent 32%)}
 /* стеклянный слой */
 .sm-catalog .sm-catalog__glass{position:absolute;z-index:1;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;
@@ -150,23 +151,33 @@
 .sm-catalog .sm-catalog__icon{position:relative;z-index:2;flex:0 0 auto;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;
   background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
 .sm-catalog .sm-catalog__icon svg{display:block}
-.sm-catalog .sm-catalog__bottom{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:4px}
-.sm-catalog .sm-catalog__name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;flex:1 1 auto;min-width:0;margin:0;font-size:19px;font-weight:700;line-height:1.2;
+.sm-catalog .sm-catalog__top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sm-catalog .sm-catalog__bottom{position:relative;z-index:2;margin-top:auto}
+.sm-catalog .sm-catalog__name{display:block;margin:0;font-size:var(--sm-name-fs,19px);font-weight:700;line-height:1.2;
   word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual;text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.25)}
-.sm-catalog a.sm-catalog__tile--wide .sm-catalog__name{font-size:24px}
-.sm-catalog .sm-catalog__nb{white-space:nowrap}
-.sm-catalog .sm-catalog__arrow{flex:0 0 auto;display:block;margin-bottom:2px;opacity:.9;transition:transform .25s ease,opacity .25s ease}
+.sm-catalog a.sm-catalog__tile--wide .sm-catalog__name{font-size:var(--sm-wide-fs,24px)}
+.sm-catalog .sm-catalog__arrow{flex:0 0 auto;display:block;opacity:.9;transition:transform .25s ease,opacity .25s ease}
 .sm-catalog a.sm-catalog__tile:hover .sm-catalog__arrow{transform:translateX(4px);opacity:1}
 @keyframes sm-cat-in{from{opacity:0;transform:translateY(8px)}}
-@media (max-width:1100px){.sm-catalog a.sm-catalog__tile{height:140px;padding:16px}}
-@media (max-width:1099px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:639px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .sm-catalog h2.sm-catalog__title{font-size:22px}.sm-catalog a.sm-catalog__tile--wide .sm-catalog__name{font-size:22px}}
+.sm-catalog .sm-catalog__wrap{container-type:inline-size;container-name:smcat}
+@container smcat (max-width:1100px){.sm-catalog a.sm-catalog__tile{height:140px;padding:16px}}
+@container smcat (max-width:999px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@container smcat (max-width:639px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+/* страховка из скрипта: если слово не влезает даже при 14px, раскладка переключается на 3 / 2 колонки */
+.sm-catalog .sm-catalog__wrap[data-force="3"] .sm-catalog__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sm-catalog .sm-catalog__wrap[data-force="2"] .sm-catalog__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+/* браузеры без container queries: те же пороги по ширине окна */
+@supports not (container-type:inline-size){
+  @media (max-width:1100px){.sm-catalog a.sm-catalog__tile{height:140px;padding:16px}}
+  @media (max-width:999px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:639px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+}
+@media (max-width:639px){.sm-catalog h2.sm-catalog__title{font-size:22px}}
 @media (prefers-reduced-motion:reduce){.sm-catalog a.sm-catalog__tile{animation:none;transition:none}.sm-catalog .sm-catalog__glass,.sm-catalog .sm-catalog__glass::before,.sm-catalog .sm-catalog__arrow{transition:none}.sm-catalog a.sm-catalog__tile:hover .sm-catalog__glass::before{transform:none}}
 </style>
 <section class="sm-catalog" id="sm-catalog" aria-labelledby="sm-catalog-title">
   <h2 class="sm-catalog__title" id="sm-catalog-title">Каталог практик</h2>
-  <div id="sm-catalog-groups"></div>
+  <div class="sm-catalog__wrap" id="sm-catalog-groups"></div>
 </section>
 <script>
 (function () {
@@ -211,35 +222,63 @@
   root.innerHTML = GROUPS.map(function (g) {
     var tiles = g.items.map(function (it) {
       return '<a class="sm-catalog__tile' + (it.wide ? ' sm-catalog__tile--wide' : '') + (it.violet ? ' sm-catalog__tile--violet' : '') + '" style="--i:' + (n++) + ';--c1:' + it.c1 + ';--c2:' + it.c2 + ';--c3:' + it.c3 + '" href="' + it.url + '">' +
+        '<span class="sm-catalog__fx" aria-hidden="true"></span>' +
         '<span class="sm-catalog__glass" aria-hidden="true"></span>' +
-        '<span class="sm-catalog__icon">' + icon(it.icon) + '</span>' +
-        '<span class="sm-catalog__bottom"><span class="sm-catalog__name">' + it.title.replace(/\S+-\S+/g, '<span class="sm-catalog__nb">$&</span>') + '</span>' + ARROW + '</span></a>';
+        '<span class="sm-catalog__top"><span class="sm-catalog__icon">' + icon(it.icon) + '</span>' + ARROW + '</span>' +
+        '<span class="sm-catalog__bottom"><span class="sm-catalog__name">' + it.title + '</span></span></a>';
     }).join('');
     return '<div class="sm-catalog__group sm-catalog__group--' + g.cls + '"><h3 class="sm-catalog__sub">' + g.title + '</h3><div class="sm-catalog__grid">' + tiles + '</div></div>';
   }).join('');
 
-  // Слова не рвём. Если самое длинное слово не влезает при 19px, шрифт этой плашки уменьшается ступенями 16 → 15 → 14 → 13px.
-  var SIZES = ['', '16px', '15px', '14px', '13px'];
+  // Размер шрифта названий: один на все обычные плашки (и один для широкой). Берём самое длинное «слово»
+  // (перенос возможен только по пробелу и после дефиса), подбираем максимальный размер 14–19px, при котором оно
+  // влезает в ширину плашки минус отступы. Если не влезает даже 14px — раскладка переключается на 3, затем на 2 колонки.
+  var MAX_FS = 19, MIN_FS = 14, WIDE_MAX = 24, WIDE_MIN = 22;
+  var tilesAll = root.querySelectorAll('.sm-catalog__tile');
+  var normal = [], wide = [];
+  Array.prototype.forEach.call(tilesAll, function (tl) { (tl.classList.contains('sm-catalog__tile--wide') ? wide : normal).push(tl.querySelector('.sm-catalog__name')); });
+  function wordsOf(els) {
+    var out = [];
+    els.forEach(function (el) { el.textContent.replace(/-/g, '- ').split(/\s+/).forEach(function (w) { if (w) out.push(w); }); });
+    return out;
+  }
+  var normalWords = wordsOf(normal), wideWords = wordsOf(wide);
+  function longest(probe, words, size) {
+    probe.style.fontSize = size + 'px';
+    var max = 0;
+    words.forEach(function (w) { probe.textContent = w; max = Math.max(max, probe.getBoundingClientRect().width); });
+    return max;
+  }
+  function pick(probe, words, avail, hi, lo) {
+    for (var s = hi; s >= lo; s -= 0.5) if (longest(probe, words, s) <= avail - 1) return { size: s, fits: true };
+    return { size: lo, fits: false };
+  }
   function fit() {
-    var names = root.querySelectorAll('.sm-catalog__name');
-    for (var i = 0; i < names.length; i++) {
-      var el = names[i];
-      if (el.parentNode.parentNode.classList.contains('sm-catalog__tile--wide')) continue;
-      var probe = document.createElement('span');
-      probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font:inherit;letter-spacing:inherit';
-      el.appendChild(probe);
-      var words = el.textContent.split(/\s+/).filter(Boolean);
-      for (var s = 0; s < SIZES.length; s++) {
-        el.style.fontSize = SIZES[s];
-        var max = 0;
-        words.forEach(function (w) { probe.textContent = w; max = Math.max(max, probe.getBoundingClientRect().width); });
-        if (max <= el.clientWidth + 0.5) break;
-      }
-      el.removeChild(probe);
+    if (!normal.length) return;
+    var probe = document.createElement('span');
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font:inherit;font-weight:700;letter-spacing:inherit';
+    normal[0].appendChild(probe);
+    var forces = ['', '3', '2'], res;
+    for (var f = 0; f < forces.length; f++) {
+      if (forces[f]) root.setAttribute('data-force', forces[f]); else root.removeAttribute('data-force');
+      var availN = Math.min.apply(null, normal.map(function (el) { return el.clientWidth; }));
+      res = pick(probe, normalWords, availN, MAX_FS, MIN_FS);
+      if (res.fits) break;
+    }
+    root.style.setProperty('--sm-name-fs', res.size + 'px');
+    normal[0].removeChild(probe);
+    if (wide.length) {
+      var wp = document.createElement('span');
+      wp.style.cssText = probe.style.cssText;
+      wide[0].appendChild(wp);
+      var wr = pick(wp, wideWords, wide[0].clientWidth, WIDE_MAX, WIDE_MIN);
+      root.style.setProperty('--sm-wide-fs', wr.size + 'px');
+      wide[0].removeChild(wp);
     }
   }
   fit();
-  if (window.ResizeObserver) new ResizeObserver(function () { fit(); }).observe(root);
+  var lastW = 0;
+  if (window.ResizeObserver) new ResizeObserver(function () { var w = Math.round(root.getBoundingClientRect().width); if (w !== lastW) { lastW = w; fit(); } }).observe(root);
   else window.addEventListener('resize', fit);
 })();
 </script>
