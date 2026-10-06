@@ -2,8 +2,8 @@
 КАК НАСТРОИТЬ (блок «Новые опубликованные практики»)
 1. Откройте страницу, под которой лежат практики. В адресной строке найдите pageId=123456789 — число и есть ID.
    Если ссылка вида /pages/123456789/Название — ID тоже число после /pages/.
-2. Вставьте ID в ANCESTOR_PAGE_ID (в кавычках). MODE оставьте 'ancestor'.
-   Чтобы брать практики по метке — поставьте MODE: 'label' и впишите метку в LABEL.
+2. Сейчас практики берутся по метке: MODE: 'label', метка в LABEL (повесьте её на страницу практики).
+   Чтобы брать все страницы под родителем — поставьте MODE: 'ancestor' и вставьте ID в ANCESTOR_PAGE_ID (в кавычках).
 3. В ALL_PRACTICES_URL вставьте ссылку на страницу «Все практики».
 4. Если карточек нет: поставьте SHOW_DIAGNOSTICS: true — под заголовком появится причина (нет ID, ошибка 403, практик не найдено и т.п.).
    После проверки верните false. Подробности также в консоли браузера (F12), сообщения «[SM] ...».
@@ -57,9 +57,9 @@
 (function () {
   // ===== НАСТРОЙКИ (правьте только значения в кавычках) =====
   const CONFIG = {
-    MODE: 'ancestor',        // 'ancestor' — практики под родительской страницей; 'label' — по метке
+    MODE: 'label',           // 'ancestor' — практики под родительской страницей; 'label' — по метке
     ANCESTOR_PAGE_ID: '161546386', // ID родительской страницы с практиками (из ссылки на страницу: pageId=...)
-    LABEL: '',               // метка, если MODE = 'label'
+    LABEL: 'силовые_машины',  // метка, если MODE = 'label'
     SPACE_KEY: 'BSS',        // ключ пространства
     LIMIT: 6,                // сколько карточек показывать
     NEW_BADGE_DAYS: 14,      // сколько дней показывать бейдж «Новое»
@@ -152,7 +152,9 @@
       clearTimeout(timer);
       var items = (data.results || []).map(function (r) {
         var labels = (r.metadata && r.metadata.labels && r.metadata.labels.results) || [];
-        return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate, tag: labels[0] && labels[0].name };
+        // на карточке показываем первую метку, кроме той, по которой идёт отбор
+        var tagLabel = labels.filter(function (l) { return l.name !== CONFIG.LABEL; })[0];
+        return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate, tag: tagLabel && tagLabel.name };
       });
       if (!items.length) {
         useFallback(CONFIG.MODE === 'label' ? 'практик не найдено (страниц с меткой «' + CONFIG.LABEL + '» нет или нет доступа).'
