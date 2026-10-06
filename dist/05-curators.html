@@ -1,0 +1,45 @@
+<style>
+.sm-curators{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-text:#1a1a2e;--sm-muted:#6b7280;--sm-border:#e7e9f0;--sm-radius:16px;
+  --sm-shadow-sm:0 1px 3px rgba(26,42,94,.08),0 1px 2px rgba(26,42,94,.06);--sm-shadow-md:0 8px 24px rgba(26,42,94,.12);
+  box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text)}
+.sm-curators *,.sm-curators *::before,.sm-curators *::after{box-sizing:border-box}
+.sm-curators h2.sm-curators__title{margin:0 0 6px !important;padding:0 !important;font-size:26px;font-weight:800;color:var(--sm-navy-dark) !important;border:0}
+.sm-curators p.sm-curators__lead{margin:0 0 18px !important;padding:0 !important;font-size:15px;color:var(--sm-muted) !important;line-height:1.5}
+.sm-curators .sm-curators__list{display:flex;gap:18px}
+.sm-curators .sm-curators__card{flex:1 1 0;min-width:0;display:flex;align-items:center;gap:16px;padding:20px;background:#fff;border:1px solid var(--sm-border);border-radius:var(--sm-radius);box-shadow:var(--sm-shadow-sm);
+  opacity:0;animation:sm-cur-in .5s ease forwards;animation-delay:calc(var(--i) * 60ms);transition:transform .2s ease,box-shadow .2s ease}
+.sm-curators .sm-curators__card:hover{transform:translateY(-2px);box-shadow:var(--sm-shadow-md)}
+.sm-curators .sm-curators__avatar{flex:0 0 auto;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;letter-spacing:.02em;
+  background:linear-gradient(135deg,var(--sm-navy-dark),var(--sm-teal));box-shadow:0 4px 12px rgba(14,124,123,.3)}
+.sm-curators .sm-curators__info{min-width:0}
+.sm-curators .sm-curators__name{font-size:17px;font-weight:700;color:var(--sm-navy-dark)}
+.sm-curators .sm-curators__role{font-size:13.5px;color:var(--sm-muted);margin:2px 0 6px}
+.sm-curators a.sm-curators__mail{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:600;color:var(--sm-teal-dark) !important;text-decoration:none !important;overflow-wrap:anywhere;border-radius:6px}
+.sm-curators a.sm-curators__mail:hover{text-decoration:underline !important}
+.sm-curators a.sm-curators__mail:focus-visible{outline:3px solid #f5a623;outline-offset:2px}
+@keyframes sm-cur-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:640px){.sm-curators .sm-curators__list{flex-direction:column;gap:14px}.sm-curators h2.sm-curators__title{font-size:22px}}
+@media (prefers-reduced-motion:reduce){.sm-curators .sm-curators__card{animation:none;opacity:1;transition:none}}
+</style>
+<section class="sm-curators" id="sm-curators" aria-labelledby="sm-curators-title">
+  <h2 class="sm-curators__title" id="sm-curators-title">Кураторы раздела СМ</h2>
+  <p class="sm-curators__lead">Держатели Базы успешных практик Силовых машин, координаторы вопросов доступа и размещения материалов</p>
+  <div class="sm-curators__list" id="sm-curators-list"></div>
+</section>
+<script>
+(function () {
+  var ROLE = 'Куратор раздела СМ';
+  var CURATORS = [
+    { name: 'Решетняк Дмитрий Александрович', email: 'reshetnyak_da@power-m.ru' },
+    { name: 'Лунева Инна Максимовна', email: 'luneva_im@power-m.ru' }
+  ];
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function initials(name) { var p = name.split(/\s+/); return ((p[0] || '').charAt(0) + (p[1] || '').charAt(0)).toUpperCase(); }
+  var mail = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>';
+  document.getElementById('sm-curators-list').innerHTML = CURATORS.map(function (c, i) {
+    return '<div class="sm-curators__card" style="--i:' + i + '"><div class="sm-curators__avatar" aria-hidden="true">' + esc(initials(c.name)) + '</div>' +
+      '<div class="sm-curators__info"><div class="sm-curators__name">' + esc(c.name) + '</div><div class="sm-curators__role">' + ROLE + '</div>' +
+      '<a class="sm-curators__mail" href="mailto:' + esc(c.email) + '" aria-label="Написать: ' + esc(c.name) + '">' + mail + esc(c.email) + '</a></div></div>';
+  }).join('');
+})();
+</script>
