@@ -99,60 +99,60 @@
 </script>
 </div>
 <div><style>
-.sm-catalog{--sm-navy-dark:#1a2a5e;--sm-navy-blue:#2b4fa8;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-text:#1a1a2e;--sm-radius:18px;
-  box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text)}
+.sm-catalog{--sm-teal:#008290;--sm-aqua-base:#00ADBA;--sm-aqua-bright:#00C4D9;--sm-aqua-light:#B6F8FF;--sm-blue:#00388D;--sm-ink:#0b1f4d;--sm-radius:18px;
+  box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:#000}
 .sm-catalog *,.sm-catalog *::before,.sm-catalog *::after{box-sizing:border-box}
-.sm-catalog h2.sm-catalog__title{margin:0 0 20px !important;padding:0 !important;font-size:26px;font-weight:800;color:var(--sm-navy-dark) !important;border:0}
+.sm-catalog h2.sm-catalog__title{margin:0 0 20px !important;padding:0 !important;font-size:26px;font-weight:800;color:var(--sm-blue) !important;border:0}
 .sm-catalog .sm-catalog__group{margin:0 0 30px}
 .sm-catalog .sm-catalog__group:last-child{margin-bottom:0}
 .sm-catalog h3.sm-catalog__sub{display:flex;align-items:center;gap:10px;margin:0 0 14px !important;padding:0 !important;font-size:18px;font-weight:700;border:0}
 .sm-catalog h3.sm-catalog__sub::before{content:"";width:5px;height:22px;border-radius:3px}
-.sm-catalog .sm-catalog__group--blue h3.sm-catalog__sub{color:var(--sm-navy-blue) !important}
-.sm-catalog .sm-catalog__group--blue h3.sm-catalog__sub::before{background:linear-gradient(180deg,#5aa0e6,var(--sm-navy-blue))}
-.sm-catalog .sm-catalog__group--teal h3.sm-catalog__sub{color:var(--sm-teal-dark) !important}
-.sm-catalog .sm-catalog__group--teal h3.sm-catalog__sub::before{background:linear-gradient(180deg,#35b8b3,var(--sm-teal-dark))}
+.sm-catalog .sm-catalog__group--blue h3.sm-catalog__sub{color:var(--sm-blue) !important}
+.sm-catalog .sm-catalog__group--blue h3.sm-catalog__sub::before{background:linear-gradient(180deg,var(--sm-aqua-bright),var(--sm-blue))}
+.sm-catalog .sm-catalog__group--teal h3.sm-catalog__sub{color:var(--sm-teal) !important}
+.sm-catalog .sm-catalog__group--teal h3.sm-catalog__sub::before{background:linear-gradient(180deg,var(--sm-aqua-light),var(--sm-teal))}
 .sm-catalog .sm-catalog__grid{display:grid;gap:14px;grid-template-columns:repeat(6,minmax(0,1fr))}
 
-/* ---- плашка: цветной градиент + пятна + стеклянный слой ---- */
-.sm-catalog a.sm-catalog__tile{--b1:rgba(150,215,255,.8);--b2:rgba(130,110,255,.55);--b3:rgba(70,150,255,.5);--sh:rgba(26,42,94,.30);
-  position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;height:200px;min-width:0;padding:16px;border-radius:var(--sm-radius);
-  color:#fff !important;text-decoration:none !important;
-  background:linear-gradient(200deg,var(--c1) 0%,var(--c2) 38%,var(--c3) 100%);
-  box-shadow:0 10px 26px var(--sh),0 2px 6px rgba(26,42,94,.12);
-  opacity:0;animation:sm-cat-in .5s ease forwards;animation-delay:calc(var(--i) * 45ms);transition:transform .25s ease,box-shadow .25s ease}
-.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile{--b1:rgba(160,255,236,.75);--b2:rgba(40,205,195,.55);--b3:rgba(120,205,255,.42);--sh:rgba(10,95,94,.30)}
-.sm-catalog a.sm-catalog__tile--wide{grid-column:span 2;--b1:rgba(180,160,255,.85);--b2:rgba(90,175,255,.6);--b3:rgba(200,120,255,.5);--sh:rgba(60,50,170,.38)}
-/* размытые цветные пятна — «за стеклом» */
-.sm-catalog a.sm-catalog__tile::before{content:"";position:absolute;z-index:0;inset:-24px;pointer-events:none;filter:blur(8px);
-  background:radial-gradient(circle at 88% 10%,var(--b1) 0,transparent 42%),radial-gradient(circle at 8% 46%,var(--b2) 0,transparent 36%),radial-gradient(circle at 94% 40%,var(--b3) 0,transparent 32%)}
+/* ---- плашка: кусок общего градиента раздела (цвета ставит скрипт) + стекло ---- */
+.sm-catalog a.sm-catalog__tile{--sh:rgba(0,56,141,.26);--scrim:linear-gradient(transparent,transparent);
+  position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;height:128px;min-width:0;padding:16px;border-radius:var(--sm-radius);
+  color:var(--fg,#fff) !important;text-decoration:none !important;background:#0074B2;background-image:var(--bg,none);
+  box-shadow:0 8px 22px var(--sh),0 2px 5px rgba(0,56,141,.10);
+  animation:sm-cat-in .5s ease backwards;animation-delay:calc(var(--i) * 45ms);transition:transform .25s ease,box-shadow .25s ease}
+.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile{--sh:rgba(0,130,144,.26)}
+.sm-catalog a.sm-catalog__tile--wide{grid-column:span 2}
 /* стеклянный слой */
 .sm-catalog .sm-catalog__glass{position:absolute;z-index:1;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(0deg,rgba(4,22,46,.46) 0,rgba(4,22,46,.30) 38%,rgba(4,22,46,0) 70%),linear-gradient(rgba(255,255,255,.13),rgba(255,255,255,.13));-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
-  border:1px solid rgba(255,255,255,.45);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 0 26px rgba(255,255,255,.14);transition:border-color .25s ease}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.sm-catalog .sm-catalog__glass{background:linear-gradient(0deg,rgba(4,22,46,.46) 0,rgba(4,22,46,.30) 38%,rgba(4,22,46,0) 70%),linear-gradient(rgba(255,255,255,.24),rgba(255,255,255,.24))}}
-.sm-catalog .sm-catalog__glass::before{content:"";position:absolute;inset:-14px;background:linear-gradient(135deg,rgba(255,255,255,.35) 0,rgba(255,255,255,0) 42%);transition:transform .45s ease}
-.sm-catalog a.sm-catalog__tile:hover{transform:translateY(-3px);box-shadow:0 16px 32px var(--sh),0 3px 8px rgba(26,42,94,.14)}
-.sm-catalog a.sm-catalog__tile:hover .sm-catalog__glass{border-color:rgba(255,255,255,.85)}
+  background:var(--scrim),linear-gradient(rgba(255,255,255,.14),rgba(255,255,255,.14));-webkit-backdrop-filter:blur(12px) saturate(105%);backdrop-filter:blur(12px) saturate(105%);
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 0 22px rgba(255,255,255,.12);transition:border-color .25s ease}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.sm-catalog .sm-catalog__glass{background:var(--scrim),linear-gradient(rgba(255,255,255,.24),rgba(255,255,255,.24))}}
+.sm-catalog .sm-catalog__glass::before{content:"";position:absolute;inset:-14px;background:linear-gradient(165deg,rgba(255,255,255,.35) 0,rgba(255,255,255,0) 26%);transition:transform .45s ease}
+.sm-catalog a.sm-catalog__tile:hover{transform:translateY(-3px);box-shadow:0 14px 28px var(--sh),0 3px 8px rgba(0,56,141,.12)}
+.sm-catalog a.sm-catalog__tile:hover .sm-catalog__glass{border-color:rgba(255,255,255,.95)}
 .sm-catalog a.sm-catalog__tile:hover .sm-catalog__glass::before{transform:translate(12px,12px)}
-.sm-catalog a.sm-catalog__tile:focus-visible{outline:3px solid var(--sm-navy-dark);outline-offset:3px}
+.sm-catalog a.sm-catalog__tile:focus-visible{outline:3px solid var(--sm-blue);outline-offset:3px}
 
 /* ---- содержимое ---- */
-.sm-catalog .sm-catalog__icon{position:relative;z-index:2;flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;
+.sm-catalog .sm-catalog__icon{position:relative;z-index:2;flex:0 0 auto;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.sm-catalog a.sm-catalog__tile--dark .sm-catalog__icon{background:rgba(255,255,255,.4);border-color:rgba(0,56,141,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
 .sm-catalog .sm-catalog__icon svg{display:block}
 .sm-catalog .sm-catalog__bottom{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:4px}
-.sm-catalog .sm-catalog__name{display:block;flex:1 1 auto;min-width:0;margin:0;font-size:16px;font-weight:800;line-height:1.25;
+.sm-catalog .sm-catalog__name{display:block;flex:1 1 auto;min-width:0;margin:0;font-size:17px;font-weight:700;line-height:1.2;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
   word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual;text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.25)}
-.sm-catalog .sm-catalog__name--sm{font-size:14px}
+.sm-catalog a.sm-catalog__tile--dark .sm-catalog__name{text-shadow:none}
+.sm-catalog a.sm-catalog__tile--wide .sm-catalog__name{font-size:22px}
 .sm-catalog .sm-catalog__nb{white-space:nowrap}
-.sm-catalog .sm-catalog__arrow{flex:0 0 auto;display:block;margin-bottom:2px;opacity:.9;transition:transform .25s ease,opacity .25s ease}
+.sm-catalog .sm-catalog__arrow{flex:0 0 auto;display:block;margin-bottom:1px;opacity:.9;transition:transform .25s ease,opacity .25s ease}
 .sm-catalog a.sm-catalog__tile:hover .sm-catalog__arrow{transform:translateX(4px);opacity:1}
-@keyframes sm-cat-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (max-width:1099px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sm-catalog a.sm-catalog__tile{height:180px}}
-@media (max-width:639px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sm-catalog a.sm-catalog__tile{height:160px;padding:14px}
-  .sm-catalog h2.sm-catalog__title{font-size:22px}.sm-catalog .sm-catalog__icon{width:40px;height:40px}}
-@media (prefers-reduced-motion:reduce){.sm-catalog a.sm-catalog__tile{animation:none;opacity:1;transition:none}.sm-catalog .sm-catalog__glass,.sm-catalog .sm-catalog__glass::before,.sm-catalog .sm-catalog__arrow{transition:none}.sm-catalog a.sm-catalog__tile:hover .sm-catalog__glass::before{transform:none}}
+@keyframes sm-cat-in{from{opacity:0;transform:translateY(8px)}}
+@media (max-width:1099px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sm-catalog a.sm-catalog__tile{height:120px;padding:14px}.sm-catalog .sm-catalog__icon{width:48px;height:48px}}
+@media (max-width:639px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .sm-catalog h2.sm-catalog__title{font-size:22px}.sm-catalog a.sm-catalog__tile--wide .sm-catalog__name{font-size:20px}}
+@media (prefers-reduced-motion:reduce){.sm-catalog a.sm-catalog__tile{animation:none;transition:none}.sm-catalog .sm-catalog__glass,.sm-catalog .sm-catalog__glass::before,.sm-catalog .sm-catalog__arrow{transition:none}.sm-catalog a.sm-catalog__tile:hover .sm-catalog__glass::before{transform:none}}
 </style>
 <section class="sm-catalog" id="sm-catalog" aria-labelledby="sm-catalog-title">
   <h2 class="sm-catalog__title" id="sm-catalog-title">Каталог практик</h2>
@@ -161,26 +161,31 @@
 <script>
 (function () {
   var K = 'https://kb.severstal.com/';
-  // Плашки: title — название, url — ссылка, icon — ключ из ICONS,
-  // c1 → c2 → c3 — цвета градиента (светлый → основной → тёмный), wide — плашка вдвое шире.
+  // Плашки: title — название, url — ссылка, icon — ключ из ICONS, wide — плашка вдвое шире.
+  // Цвета считаются автоматически из общего градиента раздела (GRADIENTS ниже).
   var GROUPS = [
     { title: 'Производство и проекты', cls: 'blue', items: [
-      { title: 'Практики проектов', icon: 'project', c1: '#6a5ae0', c2: '#2c52c8', c3: '#1a2a5e', wide: true, url: K + 'spaces/BSS/pages/517603418/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2' },
-      { title: 'Производство', icon: 'gear', c1: '#5aa0e6', c2: '#2b4fa8', c3: '#1a2a5e', url: K + 'spaces/BSS/pages/167117074/%D0%9F%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'Инжиниринг', icon: 'ruler', c1: '#58bdea', c2: '#2a58b5', c3: '#1b3470', url: K + 'spaces/BSS/pages/156860862/%D0%98%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3+%D0%A1%D0%9C' },
-      { title: 'Управление проектами', icon: 'gantt', c1: '#7b9cf0', c2: '#3350b0', c3: '#1a2a5e', url: K + 'spaces/BSS/pages/259457050/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8+Agile+%D0%B8+%D0%BF%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8B+.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'ДСАЭМ', icon: 'bolt', c1: '#4aaee0', c2: '#24569e', c3: '#172c5c', url: K + 'pages/viewpage.action?pageId=189235313' }
+      { title: 'Практики проектов', icon: 'project', wide: true, url: K + 'spaces/BSS/pages/517603418/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2' },
+      { title: 'Производство', icon: 'gear', url: K + 'spaces/BSS/pages/167117074/%D0%9F%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'Инжиниринг', icon: 'ruler', url: K + 'spaces/BSS/pages/156860862/%D0%98%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3+%D0%A1%D0%9C' },
+      { title: 'Управление проектами', icon: 'gantt', url: K + 'spaces/BSS/pages/259457050/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8+Agile+%D0%B8+%D0%BF%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8B+.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'ДСАЭМ', icon: 'bolt', url: K + 'pages/viewpage.action?pageId=189235313' }
     ] },
     { title: 'Обеспечивающие функции', cls: 'teal', items: [
-      { title: 'Закупки', icon: 'cart', c1: '#3fc2b4', c2: '#0e7c7b', c3: '#0a5f5e', url: K + 'spaces/BSS/pages/167117077/%D0%97%D0%B0%D0%BA%D1%83%D0%BF%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'IT', icon: 'code', c1: '#3ab7cb', c2: '#0d7a86', c3: '#0a5a66', url: K + 'spaces/BSS/pages/186318879/IT+%D0%A1%D0%9C' },
-      { title: 'Охрана труда', icon: 'shield', c1: '#46c4a2', c2: '#0f8070', c3: '#0a5f52', url: K + 'spaces/BSS/pages/520651883/%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0+%D1%82%D1%80%D1%83%D0%B4%D0%B0+%D0%A1%D0%9C' },
-      { title: 'Управление изменениями', icon: 'cycle', c1: '#34b0c4', c2: '#0e7487', c3: '#0a5a6a', url: K + 'spaces/BSS/pages/373686311/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8+%D0%A1%D0%9C' },
-      { title: 'Внешние практики', icon: 'globe', c1: '#4cc7bd', c2: '#0b7a7d', c3: '#095b60', url: K + 'spaces/BSS/pages/167117099/%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'Практики-идеи', icon: 'bulb', c1: '#5ad0b0', c2: '#138a78', c3: '#0b6a58', url: K + 'spaces/BSS/pages/238519134/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8-%D0%B8%D0%B4%D0%B5%D0%B8' }
+      { title: 'Закупки', icon: 'cart', url: K + 'spaces/BSS/pages/167117077/%D0%97%D0%B0%D0%BA%D1%83%D0%BF%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'IT', icon: 'code', url: K + 'spaces/BSS/pages/186318879/IT+%D0%A1%D0%9C' },
+      { title: 'Охрана труда', icon: 'shield', url: K + 'spaces/BSS/pages/520651883/%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0+%D1%82%D1%80%D1%83%D0%B4%D0%B0+%D0%A1%D0%9C' },
+      { title: 'Управление изменениями', icon: 'cycle', url: K + 'spaces/BSS/pages/373686311/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8+%D0%A1%D0%9C' },
+      { title: 'Внешние практики', icon: 'globe', url: K + 'spaces/BSS/pages/167117099/%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'Практики-идеи', icon: 'bulb', url: K + 'spaces/BSS/pages/238519134/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8-%D0%B8%D0%B4%D0%B5%D0%B8' }
     ] }
   ];
-  // Контурные иконки (viewBox 24, stroke белый 1.6)
+  // Общий градиент раздела слева направо: [позиция 0..1, цвет] (цвета брендбука)
+  var GRADIENTS = {
+    blue: [[0, '#00388D'], [0.46, '#007DB2'], [1, '#00C4D9']],  // тёмный синий → яркий аквамарин
+    teal: [[0, '#00C4D9'], [1, '#B6F8FF']]                      // яркий аквамарин → светлый
+  };
+  var INK = '#0b1f4d', BLACK = '#000000', MIN_CONTRAST = 4.5, GLASS = 0.14;   // тёмный текст, запасной чёрный, порог контраста, белая заливка стекла
   var ICONS = {
     project: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/><path d="M6 8.5v6M6 8.5h2.5l-.8 1.2.8 1.2H6"/><path d="M11.5 8h1M11.5 11h1M17.5 8h1"/>',
     gear: '<circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
@@ -194,38 +199,102 @@
     globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
     bulb: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'
   };
-  var ARROW = '<svg class="sm-catalog__arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg>';
-  function icon(k) { return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICONS[k] + '</svg>'; }
+  var ARROW = '<svg class="sm-catalog__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg>';
+  function icon(k) { return '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICONS[k] + '</svg>'; }
   var n = 0;
   var root = document.getElementById('sm-catalog-groups');
   root.innerHTML = GROUPS.map(function (g) {
     var tiles = g.items.map(function (it) {
-      return '<a class="sm-catalog__tile' + (it.wide ? ' sm-catalog__tile--wide' : '') + '" style="--i:' + (n++) + ';--c1:' + it.c1 + ';--c2:' + it.c2 + ';--c3:' + it.c3 + '" href="' + it.url + '">' +
+      var title = it.title.replace(/\S+-\S+/g, '<span class="sm-catalog__nb">$&</span>');
+      return '<a class="sm-catalog__tile' + (it.wide ? ' sm-catalog__tile--wide' : '') + '" style="--i:' + (n++) + '" href="' + it.url + '">' +
         '<span class="sm-catalog__glass" aria-hidden="true"></span>' +
         '<span class="sm-catalog__icon">' + icon(it.icon) + '</span>' +
-        '<span class="sm-catalog__bottom"><span class="sm-catalog__name">' + it.title.replace(/\S+-\S+/g, '<span class="sm-catalog__nb">$&</span>') + '</span>' + ARROW + '</span></a>';
+        '<span class="sm-catalog__bottom"><span class="sm-catalog__name">' + title + '</span>' + ARROW + '</span></a>';
     }).join('');
-    return '<div class="sm-catalog__group sm-catalog__group--' + g.cls + '"><h3 class="sm-catalog__sub">' + g.title + '</h3><div class="sm-catalog__grid">' + tiles + '</div></div>';
+    return '<div class="sm-catalog__group sm-catalog__group--' + g.cls + '" data-grad="' + g.cls + '"><h3 class="sm-catalog__sub">' + g.title + '</h3><div class="sm-catalog__grid">' + tiles + '</div></div>';
   }).join('');
 
-  // Слова не рвём. Если самое длинное слово не влезает при 16px — для этой плашки шрифт 14px.
+  // ---- цвет и контраст ----
+  function hex(h) { return [1, 3, 5].map(function (i) { return parseInt(h.substr(i, 2), 16); }); }
+  function mixc(a, b, t) { return [0, 1, 2].map(function (i) { return a[i] + (b[i] - a[i]) * t; }); }
+  function css(c) { return 'rgb(' + c.map(Math.round).join(',') + ')'; }
+  function lum(c) { var f = function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2]); }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  function at(stops, u) {
+    u = Math.max(0, Math.min(1, u));
+    for (var i = 1; i < stops.length; i++) if (u <= stops[i][0]) { var a = stops[i - 1], b = stops[i]; return mixc(hex(a[1]), hex(b[1]), (u - a[0]) / (b[0] - a[0] || 1)); }
+    return hex(stops[stops.length - 1][1]);
+  }
+  var WHITE = [255, 255, 255], DARK = hex(INK), BLK = hex(BLACK);
+
+  // Градиент идёт по порядку плашек (широкая = 2 доли), поэтому на любой раскладке (6 / 3 / 2 колонки)
+  // соседние плашки в порядке чтения стыкуются по цвету без швов.
+  function paint() {
+    Array.prototype.forEach.call(root.querySelectorAll('.sm-catalog__group'), function (grp) {
+      var stops = GRADIENTS[grp.getAttribute('data-grad')];
+      var tiles = grp.querySelectorAll('.sm-catalog__tile');
+      var total = 0, cum = 0;
+      Array.prototype.forEach.call(tiles, function (tl) { total += tl.classList.contains('sm-catalog__tile--wide') ? 2 : 1; });
+      Array.prototype.forEach.call(tiles, function (tile) {
+        var span = tile.classList.contains('sm-catalog__tile--wide') ? 2 : 1;
+        var u0 = cum / total, u1 = (cum + span) / total;
+        cum += span;
+        var c0 = at(stops, u0), c1 = at(stops, u1);
+        tile.style.setProperty('--bg', 'linear-gradient(90deg,' + css(c0) + ',' + css(c1) + ')');
+        // образцы цвета под текстом: левые ~80% плашки (там название)
+        var samples = [];
+        for (var k = 0; k <= 6; k++) samples.push(at(stops, u0 + (u1 - u0) * 0.8 * k / 6));
+        // реальный фон = цвет + белая стеклянная заливка (для белого текста — с запасом на блик)
+        var effW = samples.map(function (c) { return mixc(c, WHITE, GLASS + 0.03); });
+        var effD = samples.map(function (c) { return mixc(c, WHITE, GLASS); });
+        var min = function (arr, fg) { return Math.min.apply(null, arr.map(function (c) { return ratio(c, fg); })); };
+        var fg, cr, scrim = 'linear-gradient(transparent,transparent)';
+        var cw = min(effW, WHITE), cn = min(effD, DARK), ck = min(effD, BLK);
+        if (cw >= MIN_CONTRAST) { fg = '#fff'; cr = cw; }
+        else if (cn >= MIN_CONTRAST) { fg = INK; cr = cn; }
+        else if (ck >= MIN_CONTRAST) { fg = BLACK; cr = ck; }
+        else {
+          // ничего не проходит: берём лучший вариант и подкрашиваем низ плашки
+          var darkSide = lum(mixc(samples[0], samples[6], 0.5)) > 0.2;
+          var f = darkSide ? DARK : WHITE, tint = darkSide ? WHITE : DARK, a = 0, eff = darkSide ? effD : effW;
+          fg = darkSide ? INK : '#fff'; cr = 0;
+          while (a <= 0.6) { cr = Math.min.apply(null, eff.map(function (c) { return ratio(mixc(c, tint, a), f); })); if (cr >= MIN_CONTRAST) break; a += 0.04; }
+          var tc = darkSide ? '255,255,255' : '4,22,46';
+          scrim = 'linear-gradient(0deg,rgba(' + tc + ',' + a.toFixed(2) + ') 0,rgba(' + tc + ',' + a.toFixed(2) + ') 45%,rgba(' + tc + ',0) 100%)';
+        }
+        var dark = fg !== '#fff';
+        tile.classList.toggle('sm-catalog__tile--dark', dark);
+        tile.style.setProperty('--fg', fg);
+        tile.style.setProperty('--scrim', scrim);
+        tile.setAttribute('data-text', fg === '#fff' ? 'white' : (fg === BLACK ? 'black' : 'dark'));
+        tile.setAttribute('data-contrast', cr.toFixed(2));
+      });
+    });
+  }
+
+  // Слова не рвём. Если самое длинное слово не влезает при 17px — шрифт этой плашки уменьшается ступенями 15 → 14 → 13px.
+  var SIZES = ['', '15px', '14px', '13px'];
   function fit() {
     var names = root.querySelectorAll('.sm-catalog__name');
     for (var i = 0; i < names.length; i++) {
       var el = names[i];
-      el.classList.remove('sm-catalog__name--sm');
+      if (el.parentNode.parentNode.classList.contains('sm-catalog__tile--wide')) continue;
       var probe = document.createElement('span');
       probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font:inherit;letter-spacing:inherit';
       el.appendChild(probe);
-      var max = 0;
-      el.textContent.split(/\s+/).forEach(function (w) { if (!w) return; probe.textContent = w; max = Math.max(max, probe.getBoundingClientRect().width); });
-      var avail = el.clientWidth;
+      var words = el.textContent.split(/\s+/).filter(Boolean);
+      for (var s = 0; s < SIZES.length; s++) {
+        el.style.fontSize = SIZES[s];
+        var max = 0;
+        words.forEach(function (w) { probe.textContent = w; max = Math.max(max, probe.getBoundingClientRect().width); });
+        if (max <= el.clientWidth + 0.5) break;
+      }
       el.removeChild(probe);
-      if (max > avail + 0.5) el.classList.add('sm-catalog__name--sm');
     }
   }
+  paint();      // цвета зависят только от порядка плашек, пересчёт при resize не нужен
   fit();
-  if (window.ResizeObserver) new ResizeObserver(function () { fit(); }).observe(root);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(root);
   else window.addEventListener('resize', fit);
 })();
 </script>
