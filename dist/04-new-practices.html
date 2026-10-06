@@ -5,8 +5,9 @@
 2. Вставьте ID в ANCESTOR_PAGE_ID (в кавычках). MODE оставьте 'ancestor'.
    Чтобы брать практики по метке — поставьте MODE: 'label' и впишите метку в LABEL.
 3. В ALL_PRACTICES_URL вставьте ссылку на страницу «Все практики».
-4. Если карточек нет или показан резервный список: проверьте ID/метку и ключ пространства SPACE_KEY, откройте консоль браузера (F12) —
-   там есть сообщение «[SM] ...» с причиной. Резервный список можно править вручную в FALLBACK_ITEMS.
+4. Если карточек нет: поставьте SHOW_DIAGNOSTICS: true — под заголовком появится причина (нет ID, ошибка 403, практик не найдено и т.п.).
+   После проверки верните false. Подробности также в консоли браузера (F12), сообщения «[SM] ...».
+   Пока нет данных, показывается карточка «Новые практики появятся здесь»; свой резервный список можно задать в FALLBACK_ITEMS.
 -->
 <style>
 .sm-new{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-red:#e63329;--sm-text:#1a1a2e;--sm-muted:#6b7280;--sm-border:#e7e9f0;--sm-radius:16px;
@@ -30,7 +31,14 @@
 .sm-new .sm-new__badge{position:absolute;top:12px;right:12px;background:var(--sm-red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
 .sm-new .sm-new__card--has-badge .sm-new__name{padding-right:64px}
 .sm-new .sm-new__skel{height:130px;border-radius:var(--sm-radius);background:linear-gradient(90deg,#eceef3 25%,#f6f7fa 50%,#eceef3 75%);background-size:200% 100%;animation:sm-new-sh 1.4s linear infinite}
-.sm-new .sm-new__empty{padding:28px 20px;text-align:center;background:#fff;border:1px dashed var(--sm-border);border-radius:var(--sm-radius);color:var(--sm-muted);font-size:15px}
+.sm-new p.sm-new__diag{margin:-10px 0 14px !important;padding:0 !important;font-size:12.5px;color:var(--sm-muted) !important}
+.sm-new .sm-new__empty{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--sm-radius);border:1px solid #cfe9e7;
+  background:linear-gradient(135deg,#f1faf9,#d9f0ee)}
+.sm-new .sm-new__empty-title{font-size:18px;font-weight:700;color:var(--sm-navy-dark)}
+.sm-new .sm-new__empty-text{font-size:14.5px;color:var(--sm-muted);margin-top:2px}
+.sm-new a.sm-new__btn{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;background:linear-gradient(135deg,#0a5f5e,#0e7c7b 60%,#1aa7a3);color:#fff !important;font-size:15px;font-weight:700;text-decoration:none !important;transition:transform .2s ease,filter .2s ease}
+.sm-new a.sm-new__btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.sm-new a.sm-new__btn:focus-visible{outline:3px solid #f5a623;outline-offset:3px}
 @keyframes sm-new-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes sm-new-sh{from{background-position:200% 0}to{background-position:-200% 0}}
 @media (max-width:1000px){.sm-new .sm-new__grid{grid-template-columns:repeat(2,1fr)}}
@@ -42,6 +50,7 @@
     <h2 class="sm-new__title" id="sm-new-title">Новые опубликованные практики</h2>
     <a class="sm-new__all" id="sm-new-all" href="#" hidden>Все практики →</a>
   </div>
+  <p class="sm-new__diag" id="sm-new-diag" hidden></p>
   <div class="sm-new__grid" id="sm-new-grid"></div>
 </section>
 <script>
@@ -49,12 +58,13 @@
   // ===== НАСТРОЙКИ (правьте только значения в кавычках) =====
   const CONFIG = {
     MODE: 'ancestor',        // 'ancestor' — практики под родительской страницей; 'label' — по метке
-    ANCESTOR_PAGE_ID: '',    // ID родительской страницы с практиками (из ссылки на страницу: pageId=...)
+    ANCESTOR_PAGE_ID: '517603418', // ID родительской страницы с практиками (из ссылки на страницу: pageId=...)
     LABEL: '',               // метка, если MODE = 'label'
     SPACE_KEY: 'BSS',        // ключ пространства
     LIMIT: 6,                // сколько карточек показывать
     NEW_BADGE_DAYS: 14,      // сколько дней показывать бейдж «Новое»
-    ALL_PRACTICES_URL: ''    // куда ведёт «Все практики →»
+    ALL_PRACTICES_URL: 'https://kb.severstal.com/spaces/BSS/pages/517603418/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2', // куда ведёт «Все практики →»
+    SHOW_DIAGNOSTICS: false  // true — под заголовком мелким серым текстом покажется причина, почему нет карточек
   };
   // Резервный список — показывается, если автозагрузка не настроена или не сработала.
   // Формат: { title: 'Название', url: 'https://...', date: '2026-01-31' }
@@ -69,12 +79,23 @@
   function safeUrl(u) { return /^(https?:)?\//.test(u || '') ? u : '#'; }
   function skeleton() { var h = ''; for (var i = 0; i < Math.min(CONFIG.LIMIT, 6); i++) h += '<div class="sm-new__skel" aria-hidden="true"></div>'; grid.innerHTML = h; }
 
+  const diag = document.getElementById('sm-new-diag');
+  function setDiag(msg) {
+    if (!CONFIG.SHOW_DIAGNOSTICS) return;
+    diag.textContent = 'Диагностика: ' + msg;
+    diag.hidden = false;
+  }
+  function allBtn() {
+    return CONFIG.ALL_PRACTICES_URL ? '<a class="sm-new__btn" href="' + esc(CONFIG.ALL_PRACTICES_URL) + '">Все практики →</a>' : '';
+  }
+  function renderPlaceholder() {
+    grid.innerHTML = '<div class="sm-new__empty"><div><div class="sm-new__empty-title">Новые практики появятся здесь</div>' +
+      '<div class="sm-new__empty-text">Весь накопленный опыт коллег — в разделе «Все практики».</div></div>' + allBtn() + '</div>';
+  }
+
   function render(items) {
     if (CONFIG.ALL_PRACTICES_URL) { allLink.href = CONFIG.ALL_PRACTICES_URL; allLink.hidden = false; }
-    if (!items.length) {
-      grid.innerHTML = '<div class="sm-new__empty" style="grid-column:1/-1">Пока нет опубликованных практик. Загляните в каталог выше — там уже собран весь опыт коллег.</div>';
-      return;
-    }
+    if (!items.length) { renderPlaceholder(); return; }
     var now = Date.now();
     grid.innerHTML = items.slice(0, CONFIG.LIMIT).map(function (it, i) {
       var d = it.date ? new Date(it.date) : null;
@@ -87,8 +108,9 @@
     }).join('');
   }
 
+  // Что-то пошло не так: пишем причину (в консоль и, при SHOW_DIAGNOSTICS, на страницу) и показываем резервный список / заглушку.
   function useFallback(reason) {
-    if (reason) console.warn('[SM] Новые практики: показан резервный список. ' + reason);
+    if (reason) { console.warn('[SM] Новые практики: ' + reason); setDiag(reason); }
     render(FALLBACK_ITEMS);
   }
 
@@ -109,26 +131,45 @@
   }
 
   var configured = CONFIG.MODE === 'label' ? !!CONFIG.LABEL : !!CONFIG.ANCESTOR_PAGE_ID;
-  if (!configured) { useFallback('Не заполнены ANCESTOR_PAGE_ID / LABEL — см. «Как настроить» в начале макроса.'); return; }
-  if (!window.fetch) { useFallback('Браузер не поддерживает fetch.'); return; }
+  if (!configured) { useFallback(CONFIG.MODE === 'label' ? 'не задана метка (LABEL).' : 'не задан ID страницы (ANCESTOR_PAGE_ID).'); return; }
+  if (!window.fetch) { useFallback('браузер не поддерживает запросы (fetch).'); return; }
 
   skeleton();
   var ctx0 = (window.AJS && AJS.contextPath && AJS.contextPath()) || '';
   var url = ctx0 + '/rest/api/content/search?cql=' + encodeURIComponent(buildCql()) + '&limit=' + CONFIG.LIMIT + '&expand=history,metadata.labels';
   var ctl = window.AbortController ? new AbortController() : null;
-  var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+  var timedOut = false;
+  var timer = setTimeout(function () { timedOut = true; if (ctl) ctl.abort(); }, 8000);
 
   fetch(url, { credentials: 'same-origin', headers: { 'Accept': 'application/json' }, signal: ctl ? ctl.signal : undefined })
-    .then(function (res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+    .then(function (res) {
+      if (!res.ok) {
+        var e = new Error('http'); e.status = res.status; throw e;
+      }
+      return res.json();
+    })
     .then(function (data) {
       clearTimeout(timer);
       var items = (data.results || []).map(function (r) {
         var labels = (r.metadata && r.metadata.labels && r.metadata.labels.results) || [];
         return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate, tag: labels[0] && labels[0].name };
       });
-      if (!items.length) { useFallback(FALLBACK_ITEMS.length ? 'Запрос вернул 0 страниц — проверьте ID/метку.' : ''); return; }
+      if (!items.length) {
+        useFallback(CONFIG.MODE === 'label' ? 'практик не найдено (страниц с меткой «' + CONFIG.LABEL + '» нет или нет доступа).'
+          : 'практик не найдено (под страницей ' + CONFIG.ANCESTOR_PAGE_ID + ' нет дочерних страниц или нет доступа к ним).');
+        return;
+      }
+      setDiag('загружено практик: ' + items.length + '.');
       render(items);
     })
-    .catch(function (e) { clearTimeout(timer); useFallback('Не удалось загрузить данные (' + (e && e.message) + '). Возможна блокировка CSP, нет прав или неверный ID.'); });
+    .catch(function (e) {
+      clearTimeout(timer);
+      var msg;
+      if (e && e.status) msg = 'запрос вернул ошибку ' + e.status + (e.status === 401 || e.status === 403 ? ' (нет доступа — войдите в Confluence или проверьте права на страницу)' : e.status === 404 ? ' (не найден ресурс — проверьте ID и ключ пространства)' : '') + '.';
+      else if (timedOut) msg = 'запрос не ответил за 8 секунд.';
+      else if (e instanceof SyntaxError) msg = 'сервер вернул не данные, а другую страницу (возможно, нужно войти в систему заново).';
+      else msg = 'не удалось выполнить запрос (нет сети или его блокирует политика безопасности страницы).';
+      useFallback(msg);
+    });
 })();
 </script>

@@ -1,40 +1,32 @@
 <style>
-.sm-logo{--sm-navy-dark:#1a2a5e;--sm-navy-blue:#2b4fa8;--sm-teal:#0e7c7b;--sm-white:#fff;--sm-radius:16px;
-  --sm-shadow-md:0 8px 24px rgba(26,42,94,.12);
-  box-sizing:border-box;position:relative;overflow:hidden;margin:0;padding:28px 36px;min-height:130px;
-  display:flex;align-items:center;gap:32px;border-radius:var(--sm-radius);color:#fff;
-  background:linear-gradient(135deg,var(--sm-navy-dark),var(--sm-teal));box-shadow:var(--sm-shadow-md);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3}
+.sm-logo{--sm-navy-dark:#1a2a5e;--sm-navy-blue:#2b4fa8;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-muted:#6b7280;
+  box-sizing:border-box;position:relative;overflow:hidden;margin:0;padding:22px 32px 26px;min-height:110px;
+  display:flex;align-items:center;gap:28px;border-radius:16px;background:#fff;color:var(--sm-navy-dark);
+  box-shadow:0 1px 3px rgba(26,42,94,.08),0 8px 24px rgba(14,124,123,.10);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;
+  animation:sm-logo-in .5s ease both}
 .sm-logo *,.sm-logo *::before,.sm-logo *::after{box-sizing:border-box}
-.sm-logo::before{content:"";position:absolute;top:-90px;right:-60px;width:320px;height:320px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.2),transparent 70%);pointer-events:none;animation:sm-logo-breathe 7s ease-in-out infinite}
-.sm-logo::after{content:"";position:absolute;bottom:-120px;left:28%;width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(43,79,168,.45),transparent 70%);pointer-events:none}
-.sm-logo .sm-logo__deco{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.9}
-.sm-logo .sm-logo__pill{position:relative;flex:0 0 auto;display:flex;align-items:center;background:#fff;border-radius:999px;
-  padding:12px 28px;box-shadow:0 6px 18px rgba(10,20,60,.25)}
-.sm-logo .sm-logo__img{display:block;height:56px;width:auto;max-width:100%}
+.sm-logo::before{content:"";position:absolute;left:-60px;top:-80px;width:520px;height:300px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(14,124,123,.20),rgba(14,124,123,.07) 55%,transparent);animation:sm-logo-breathe 8s ease-in-out infinite}
+.sm-logo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;pointer-events:none;
+  background:linear-gradient(90deg,var(--sm-teal-dark),var(--sm-teal) 35%,#35b8b3 70%,rgba(53,184,179,0))}
+.sm-logo .sm-logo__img{position:relative;display:block;flex:0 0 auto;height:68px;width:auto;max-width:100%;mix-blend-mode:multiply}
+.sm-logo .sm-logo__bar{position:relative;flex:0 0 3px;align-self:stretch;margin:4px 0;border-radius:3px;background:linear-gradient(180deg,#35b8b3,var(--sm-teal-dark))}
 .sm-logo .sm-logo__text{position:relative;min-width:0}
-.sm-logo h2.sm-logo__title{margin:0 0 6px !important;padding:0 !important;font-size:30px;font-weight:800;line-height:1.15;color:#fff !important;letter-spacing:-.01em;border:0}
-.sm-logo p.sm-logo__sub{margin:0 !important;padding:0 !important;font-size:16px;color:rgba(255,255,255,.92) !important}
-@keyframes sm-logo-breathe{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.sm-logo h2.sm-logo__title{margin:0 0 4px !important;padding:0 !important;font-size:30px;font-weight:800;line-height:1.15;color:var(--sm-navy-dark) !important;letter-spacing:-.01em;border:0}
+.sm-logo .sm-logo__accent{color:var(--sm-teal) !important;background:linear-gradient(90deg,var(--sm-teal-dark),#26a9a4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sm-logo p.sm-logo__sub{margin:0 !important;padding:0 !important;font-size:16px;color:var(--sm-muted) !important}
+@keyframes sm-logo-breathe{0%,100%{opacity:.75}50%{opacity:1}}
 @keyframes sm-logo-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.sm-logo{animation:sm-logo-in .5s ease both}
-@media (max-width:900px){.sm-logo{gap:20px;padding:24px}.sm-logo h2.sm-logo__title{font-size:24px}}
-@media (max-width:640px){.sm-logo{flex-direction:column;align-items:flex-start;gap:16px;padding:20px 18px}
-  .sm-logo .sm-logo__pill{padding:10px 20px;max-width:100%}.sm-logo .sm-logo__img{height:44px}
+@media (max-width:900px){.sm-logo{gap:20px;padding:20px 24px 24px}.sm-logo h2.sm-logo__title{font-size:25px}.sm-logo .sm-logo__img{height:56px}}
+@media (max-width:640px){.sm-logo{flex-direction:column;align-items:flex-start;gap:12px;padding:18px 18px 22px}
+  .sm-logo .sm-logo__img{height:46px}.sm-logo .sm-logo__bar{display:none}
   .sm-logo h2.sm-logo__title{font-size:21px}.sm-logo p.sm-logo__sub{font-size:14.5px}}
 @media (prefers-reduced-motion:reduce){.sm-logo,.sm-logo::before{animation:none}}
 </style>
-<section class="sm-logo" id="sm-logo" aria-label="Силовые машины">
-  <svg class="sm-logo__deco" viewBox="0 0 1000 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" fill="none" stroke="#fff">
-    <circle cx="880" cy="80" r="150" stroke-opacity=".10" stroke-width="1.5"/>
-    <circle cx="880" cy="80" r="110" stroke-opacity=".12" stroke-width="1.5"/>
-    <circle cx="880" cy="80" r="70" stroke-opacity=".14" stroke-width="1.5"/>
-    <path d="M560 175 L760 -15 M610 175 L810 -15 M660 175 L860 -15" stroke-opacity=".08" stroke-width="1.5"/>
-    <path d="M-20 130 Q 200 60 420 140" stroke-opacity=".08" stroke-width="1.5"/>
-  </svg>
-  <div class="sm-logo__pill"><img class="sm-logo__img" id="sm-logo-img" alt="Силовые машины" src="data:image/jpeg;base64,%%LOGO%%"></div>
+<section class="sm-logo" id="sm-logo" aria-label="База успешных практик">
+  <img class="sm-logo__img" id="sm-logo-img" alt="Силовые машины" src="data:image/jpeg;base64,%%LOGO%%">
+  <span class="sm-logo__bar" aria-hidden="true"></span>
   <div class="sm-logo__text">
     <h2 class="sm-logo__title" id="sm-logo-title"></h2>
     <p class="sm-logo__sub" id="sm-logo-sub"></p>
@@ -42,9 +34,15 @@
 </section>
 <script>
 (function () {
-  var TITLE = 'База успешных практик Силовых машин';
+  // Тексты шапки. Слово из ACCENT_WORD выделяется бирюзовым градиентом.
+  var TITLE_BEFORE = 'База ';
+  var ACCENT_WORD = 'успешных';
+  var TITLE_AFTER = ' практик';
   var SUBTITLE = 'Находите опыт коллег и делитесь своим';
-  document.getElementById('sm-logo-title').textContent = TITLE;
+  var t = document.getElementById('sm-logo-title');
+  t.appendChild(document.createTextNode(TITLE_BEFORE));
+  var a = document.createElement('span'); a.className = 'sm-logo__accent'; a.textContent = ACCENT_WORD; t.appendChild(a);
+  t.appendChild(document.createTextNode(TITLE_AFTER));
   document.getElementById('sm-logo-sub').textContent = SUBTITLE;
 })();
 </script>

@@ -10,19 +10,18 @@
 .sm-cta a.sm-cta__btn--accent{background:linear-gradient(135deg,var(--sm-navy-dark),var(--sm-teal));color:#fff !important;border:1px solid rgba(255,255,255,.15);box-shadow:var(--sm-shadow-md)}
 .sm-cta a.sm-cta__btn--accent::before{content:"";position:absolute;top:-40px;right:-30px;width:150px;height:150px;border-radius:50%;
   background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);pointer-events:none}
-.sm-cta a.sm-cta__btn--light{background:#fff;color:var(--sm-navy-dark) !important;border:2px solid var(--sm-teal);box-shadow:var(--sm-shadow-sm)}
+.sm-cta a.sm-cta__btn--alt{background:linear-gradient(135deg,#0a5f5e,#0e7c7b 55%,#1aa7a3);color:#fff !important;border:1px solid rgba(255,255,255,.15);box-shadow:var(--sm-shadow-md)}
+.sm-cta a.sm-cta__btn--alt::before{content:"";position:absolute;top:-40px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%);pointer-events:none}
 .sm-cta a.sm-cta__btn:hover{transform:translateY(-3px)}
 .sm-cta a.sm-cta__btn--accent:hover{filter:brightness(1.1);box-shadow:0 12px 30px rgba(14,124,123,.4)}
-.sm-cta a.sm-cta__btn--light:hover{background:var(--sm-teal-light);box-shadow:var(--sm-shadow-md)}
+.sm-cta a.sm-cta__btn--alt:hover{filter:brightness(1.1);box-shadow:0 12px 30px rgba(14,124,123,.4)}
 .sm-cta a.sm-cta__btn:focus-visible{outline:3px solid #f5a623;outline-offset:3px}
 .sm-cta .sm-cta__icon{flex:0 0 auto;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.sm-cta .sm-cta__btn--accent .sm-cta__icon{background:rgba(255,255,255,.18);color:#fff}
-.sm-cta .sm-cta__btn--light .sm-cta__icon{background:var(--sm-teal-light);color:var(--sm-teal-dark)}
+.sm-cta .sm-cta__icon{background:rgba(255,255,255,.18);color:#fff}
 .sm-cta .sm-cta__body{position:relative;flex:1 1 auto;min-width:0}
 .sm-cta .sm-cta__title{display:block;font-size:19px;font-weight:700;margin:0}
 .sm-cta .sm-cta__hint{display:block;font-size:14px;margin-top:3px}
-.sm-cta .sm-cta__btn--accent .sm-cta__hint{color:rgba(255,255,255,.9)}
-.sm-cta .sm-cta__btn--light .sm-cta__hint{color:var(--sm-muted)}
+.sm-cta .sm-cta__hint{color:rgba(255,255,255,.92)}
 .sm-cta .sm-cta__arrow{position:relative;flex:0 0 auto;transition:transform .2s ease}
 .sm-cta a.sm-cta__btn:hover .sm-cta__arrow{transform:translateX(5px)}
 @keyframes sm-cta-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -43,7 +42,7 @@
   function svg(p, w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + p + '</svg>'; }
   var root = document.getElementById('sm-cta');
   root.innerHTML = BUTTONS.map(function (b, i) {
-    return '<a class="sm-cta__btn ' + (b.accent ? 'sm-cta__btn--accent' : 'sm-cta__btn--light') + '" style="--i:' + i + '" href="' + b.url + '" target="_blank" rel="noopener">' +
+    return '<a class="sm-cta__btn ' + (b.accent ? 'sm-cta__btn--accent' : 'sm-cta__btn--alt') + '" style="--i:' + i + '" href="' + b.url + '" target="_blank" rel="noopener">' +
       '<span class="sm-cta__icon">' + svg(b.icon, 26) + '</span>' +
       '<span class="sm-cta__body"><span class="sm-cta__title">' + b.title + '</span><span class="sm-cta__hint">' + b.hint + '</span></span>' +
       '<span class="sm-cta__arrow">' + svg('<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>', 24) + '</span></a>';

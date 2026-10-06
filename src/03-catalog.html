@@ -1,40 +1,40 @@
 <style>
 .sm-catalog{--sm-navy-dark:#1a2a5e;--sm-navy-blue:#2b4fa8;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-text:#1a1a2e;--sm-radius:16px;
-  --sm-shadow-md:0 8px 24px rgba(26,42,94,.12);
   box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text)}
 .sm-catalog *,.sm-catalog *::before,.sm-catalog *::after{box-sizing:border-box}
 .sm-catalog h2.sm-catalog__title{margin:0 0 18px !important;padding:0 !important;font-size:26px;font-weight:800;color:var(--sm-navy-dark) !important;border:0}
 .sm-catalog .sm-catalog__group{margin:0 0 28px}
 .sm-catalog .sm-catalog__group:last-child{margin-bottom:0}
 .sm-catalog h3.sm-catalog__sub{display:flex;align-items:center;gap:10px;margin:0 0 14px !important;padding:0 !important;font-size:18px;font-weight:700;border:0}
-.sm-catalog .sm-catalog__group--navy h3.sm-catalog__sub{color:var(--sm-navy-blue) !important}
 .sm-catalog .sm-catalog__group--teal h3.sm-catalog__sub{color:var(--sm-teal-dark) !important}
+.sm-catalog .sm-catalog__group--sky h3.sm-catalog__sub{color:var(--sm-navy-blue) !important}
 .sm-catalog .sm-catalog__subicon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff}
-.sm-catalog .sm-catalog__group--navy .sm-catalog__subicon{background:var(--sm-navy-blue)}
 .sm-catalog .sm-catalog__group--teal .sm-catalog__subicon{background:var(--sm-teal)}
+.sm-catalog .sm-catalog__group--sky .sm-catalog__subicon{background:var(--sm-navy-blue)}
 .sm-catalog .sm-catalog__grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
 @media (min-width:1100px){.sm-catalog .sm-catalog__grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:1fr}}
 @media (max-width:640px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,1fr);gap:12px}.sm-catalog h2.sm-catalog__title{font-size:22px}}
 .sm-catalog a.sm-catalog__tile{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:120px;min-width:0;padding:16px;
-  border-radius:var(--sm-radius);color:#fff !important;text-decoration:none !important;border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--sm-radius);color:var(--sm-navy-dark) !important;text-decoration:none !important;border:1px solid rgba(255,255,255,.7);
   opacity:0;animation:sm-cat-in .5s ease forwards;animation-delay:calc(var(--i) * 45ms);
-  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
-.sm-catalog .sm-catalog__group--navy a.sm-catalog__tile{background:linear-gradient(135deg,var(--sm-navy-dark),var(--sm-navy-blue));box-shadow:0 4px 14px rgba(26,42,94,.22)}
-.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile{background:linear-gradient(135deg,var(--sm-teal-dark),var(--sm-teal));box-shadow:0 4px 14px rgba(14,124,123,.25)}
-.sm-catalog a.sm-catalog__tile::before{content:"";position:absolute;top:-30px;right:-30px;width:110px;height:110px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);pointer-events:none;transition:transform .3s ease}
-.sm-catalog a.sm-catalog__tile:hover{transform:translateY(-3px);filter:brightness(1.1)}
-.sm-catalog .sm-catalog__group--navy a.sm-catalog__tile:hover{box-shadow:0 12px 28px rgba(43,79,168,.4)}
-.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile:hover{box-shadow:0 12px 28px rgba(14,124,123,.4)}
-.sm-catalog a.sm-catalog__tile:hover::before{transform:scale(1.35)}
-.sm-catalog a.sm-catalog__tile:focus-visible{outline:3px solid #f5a623;outline-offset:3px}
-.sm-catalog .sm-catalog__top{position:relative;display:flex;align-items:center;justify-content:space-between}
-.sm-catalog .sm-catalog__icon{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
-.sm-catalog .sm-catalog__arrow{opacity:.7;transition:transform .2s ease,opacity .2s ease}
+  transition:transform .2s ease,box-shadow .2s ease}
+.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile{background:linear-gradient(135deg,#e6f6f5 0%,#b9e4e1 50%,#7fcfca 100%);box-shadow:0 4px 14px rgba(14,124,123,.14)}
+.sm-catalog .sm-catalog__group--sky a.sm-catalog__tile{background:linear-gradient(135deg,#eaf2fc 0%,#c4dbf5 50%,#93bdea 100%);box-shadow:0 4px 14px rgba(43,79,168,.14)}
+.sm-catalog a.sm-catalog__tile::after{content:"";position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile::after{background:linear-gradient(135deg,#b9e4e1 0%,#5fc2bc 55%,#2aa6a0 100%)}
+.sm-catalog .sm-catalog__group--sky a.sm-catalog__tile::after{background:linear-gradient(135deg,#c4dbf5 0%,#7aaae3 55%,#4a86d4 100%)}
+.sm-catalog a.sm-catalog__tile:hover{transform:translateY(-3px)}
+.sm-catalog a.sm-catalog__tile:hover::after{opacity:1}
+.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile:hover{box-shadow:0 12px 26px rgba(14,124,123,.28)}
+.sm-catalog .sm-catalog__group--sky a.sm-catalog__tile:hover{box-shadow:0 12px 26px rgba(43,79,168,.28)}
+.sm-catalog a.sm-catalog__tile:focus-visible{outline:3px solid var(--sm-navy-blue);outline-offset:3px}
+.sm-catalog .sm-catalog__top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between}
+.sm-catalog .sm-catalog__icon{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--sm-teal-dark);box-shadow:0 2px 6px rgba(26,42,94,.12);display:flex;align-items:center;justify-content:center}
+.sm-catalog .sm-catalog__arrow{color:var(--sm-navy-dark);opacity:.6;transition:transform .2s ease,opacity .2s ease}
 .sm-catalog a.sm-catalog__tile:hover .sm-catalog__arrow{transform:translateX(4px);opacity:1}
-.sm-catalog .sm-catalog__name{position:relative;font-size:15px;font-weight:700;line-height:1.25;overflow-wrap:break-word}
+.sm-catalog .sm-catalog__name{position:relative;z-index:1;font-size:15px;font-weight:700;line-height:1.25;overflow-wrap:break-word}
 @keyframes sm-cat-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.sm-catalog a.sm-catalog__tile{animation:none;opacity:1;transition:none}.sm-catalog a.sm-catalog__tile::before,.sm-catalog .sm-catalog__arrow{transition:none}}
+@media (prefers-reduced-motion:reduce){.sm-catalog a.sm-catalog__tile{animation:none;opacity:1;transition:none}.sm-catalog a.sm-catalog__tile::after,.sm-catalog .sm-catalog__arrow{transition:none}}
 </style>
 <section class="sm-catalog" id="sm-catalog" aria-labelledby="sm-catalog-title">
   <h2 class="sm-catalog__title" id="sm-catalog-title">Каталог практик</h2>
@@ -58,14 +58,14 @@
     arrow: '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>'
   };
   var GROUPS = [
-    { title: 'Производство и проекты', cls: 'navy', icon: 'factory', items: [
+    { title: 'Производство и проекты', cls: 'teal', icon: 'factory', items: [
       { title: 'Практики проектов', icon: 'project', url: K + 'spaces/BSS/pages/517603418/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2' },
       { title: 'Производство', icon: 'factory', url: K + 'spaces/BSS/pages/167117074/%D0%9F%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
       { title: 'Инжиниринг', icon: 'gear', url: K + 'spaces/BSS/pages/156860862/%D0%98%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3+%D0%A1%D0%9C' },
       { title: 'Управление проектами', icon: 'board', url: K + 'spaces/BSS/pages/259457050/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8+Agile+%D0%B8+%D0%BF%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8B+.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
       { title: 'ДСАЭМ', icon: 'bolt', url: K + 'pages/viewpage.action?pageId=189235313' }
     ] },
-    { title: 'Обеспечивающие функции', cls: 'teal', icon: 'shield', items: [
+    { title: 'Обеспечивающие функции', cls: 'sky', icon: 'shield', items: [
       { title: 'Закупки', icon: 'cart', url: K + 'spaces/BSS/pages/167117077/%D0%97%D0%B0%D0%BA%D1%83%D0%BF%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
       { title: 'IT', icon: 'it', url: K + 'spaces/BSS/pages/186318879/IT+%D0%A1%D0%9C' },
       { title: 'Охрана труда', icon: 'shield', url: K + 'spaces/BSS/pages/520651883/%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0+%D1%82%D1%80%D1%83%D0%B4%D0%B0+%D0%A1%D0%9C' },
