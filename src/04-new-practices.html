@@ -1,13 +1,16 @@
 <!--
 КАК НАСТРОИТЬ (блок «Новые опубликованные практики»)
-1. Откройте страницу, под которой лежат практики. В адресной строке найдите pageId=123456789 — число и есть ID.
-   Если ссылка вида /pages/123456789/Название — ID тоже число после /pages/.
-2. Сейчас практики берутся по метке: MODE: 'label', метка в LABEL (повесьте её на страницу практики).
-   Чтобы брать все страницы под родителем — поставьте MODE: 'ancestor' и вставьте ID в ANCESTOR_PAGE_ID (в кавычках).
-3. В ALL_PRACTICES_URL вставьте ссылку на страницу «Все практики».
-4. Если карточек нет: поставьте SHOW_DIAGNOSTICS: true — под заголовком появится причина (нет ID, ошибка 403, практик не найдено и т.п.).
-   После проверки верните false. Подробности также в консоли браузера (F12), сообщения «[SM] ...».
-   Пока нет данных, показывается карточка «Новые практики появятся здесь»; свой резервный список можно задать в FALLBACK_ITEMS.
+Всё, что можно менять, — в блоке CONFIG в начале скрипта (значения в кавычках).
+1. ANCESTOR_PAGE_ID — число-ID родительской страницы. Берётся из ссылки на неё: .../pages/161546386/... или pageId=161546386.
+   Практики ищутся среди всех страниц ПОД этой страницей.
+2. LABEL — метка, которая должна стоять на странице практики. Сейчас «силовые_машины». В блок попадают только страницы,
+   у которых есть эта метка И которые лежат под ANCESTOR_PAGE_ID (оба условия сразу).
+3. SPACE_KEY — ключ пространства (BSS). Пустая строка '' — не ограничивать пространством.
+4. LIMIT — сколько карточек показывать; NEW_BADGE_DAYS — сколько дней висит бейдж «Новое».
+5. ALL_PRACTICES_URL — куда ведёт «Все практики →».
+6. SHOW_DIAGNOSTICS — true: под заголовком мелким серым текстом видно, что происходит (адрес запроса и причина, если нет карточек).
+   Когда всё заработает, поставьте false.
+Если карточек нет или запрос не удался, блок не пропадает: показывается карточка «Новые практики появятся здесь» с кнопкой «Все практики →».
 -->
 <style>
 .sm-new{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-red:#e63329;--sm-text:#1a1a2e;--sm-muted:#6b7280;--sm-border:#e7e9f0;--sm-radius:16px;
@@ -31,7 +34,7 @@
 .sm-new .sm-new__badge{position:absolute;top:12px;right:12px;background:var(--sm-red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
 .sm-new .sm-new__card--has-badge .sm-new__name{padding-right:64px}
 .sm-new .sm-new__skel{height:130px;border-radius:var(--sm-radius);background:linear-gradient(90deg,#eceef3 25%,#f6f7fa 50%,#eceef3 75%);background-size:200% 100%;animation:sm-new-sh 1.4s linear infinite}
-.sm-new p.sm-new__diag{margin:-10px 0 14px !important;padding:0 !important;font-size:12.5px;color:var(--sm-muted) !important}
+.sm-new p.sm-new__diag{margin:-6px 0 14px !important;padding:0 !important;font-size:12.5px;line-height:1.45;color:var(--sm-muted) !important;overflow-wrap:anywhere}
 .sm-new .sm-new__empty{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--sm-radius);border:1px solid #cfe9e7;
   background:linear-gradient(135deg,#f1faf9,#d9f0ee)}
 .sm-new .sm-new__empty-title{font-size:18px;font-weight:700;color:var(--sm-navy-dark)}
@@ -55,47 +58,51 @@
 </section>
 <script>
 (function () {
-  // ===== НАСТРОЙКИ (правьте только значения в кавычках) =====
+  // ===== НАСТРОЙКИ (правьте только значения) =====
   const CONFIG = {
-    MODE: 'label',           // 'ancestor' — практики под родительской страницей; 'label' — по метке
-    ANCESTOR_PAGE_ID: '161546386', // ID родительской страницы с практиками (из ссылки на страницу: pageId=...)
-    LABEL: 'силовые_машины',  // метка, если MODE = 'label'
-    SPACE_KEY: 'BSS',        // ключ пространства
-    LIMIT: 6,                // сколько карточек показывать
-    NEW_BADGE_DAYS: 14,      // сколько дней показывать бейдж «Новое»
+    SPACE_KEY: 'BSS',                 // ключ пространства ('' — не ограничивать)
+    ANCESTOR_PAGE_ID: '161546386',    // ID родительской страницы (из ссылки: /pages/<ID>/ или pageId=<ID>)
+    LABEL: 'силовые_машины',          // метка, которая должна стоять на странице практики
+    LIMIT: 6,                         // сколько карточек показывать
+    NEW_BADGE_DAYS: 14,               // сколько дней показывать бейдж «Новое»
     ALL_PRACTICES_URL: 'https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%9C', // куда ведёт «Все практики →»
-    SHOW_DIAGNOSTICS: false  // true — под заголовком мелким серым текстом покажется причина, почему нет карточек
+    SHOW_DIAGNOSTICS: true            // true — показывать причину под заголовком; потом поставьте false
   };
-  // Резервный список — показывается, если автозагрузка не настроена или не сработала.
-  // Формат: { title: 'Название', url: 'https://...', date: '2026-01-31' }
-  const FALLBACK_ITEMS = [];
   // ===== конец настроек =====
 
   const grid = document.getElementById('sm-new-grid');
   const allLink = document.getElementById('sm-new-all');
+  const diag = document.getElementById('sm-new-diag');
   const fmt = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function safeUrl(u) { return /^(https?:)?\//.test(u || '') ? u : '#'; }
-  function skeleton() { var h = ''; for (var i = 0; i < Math.min(CONFIG.LIMIT, 6); i++) h += '<div class="sm-new__skel" aria-hidden="true"></div>'; grid.innerHTML = h; }
 
-  const diag = document.getElementById('sm-new-diag');
-  function setDiag(msg) {
+  function showDiag(msg, requestUrl) {
     if (!CONFIG.SHOW_DIAGNOSTICS) return;
-    diag.textContent = 'Диагностика: ' + msg;
+    diag.innerHTML = 'Диагностика: ' + esc(msg) + (requestUrl ? '<br>Адрес запроса: ' + esc(requestUrl) : '');
     diag.hidden = false;
   }
+
   function allBtn() {
     return CONFIG.ALL_PRACTICES_URL ? '<a class="sm-new__btn" href="' + esc(CONFIG.ALL_PRACTICES_URL) + '">Все практики →</a>' : '';
   }
+
+  // Заглушка: блок никогда не остаётся пустым.
   function renderPlaceholder() {
+    if (CONFIG.ALL_PRACTICES_URL) { allLink.href = CONFIG.ALL_PRACTICES_URL; allLink.hidden = false; }
     grid.innerHTML = '<div class="sm-new__empty"><div><div class="sm-new__empty-title">Новые практики появятся здесь</div>' +
       '<div class="sm-new__empty-text">Весь накопленный опыт коллег — в разделе «Все практики».</div></div>' + allBtn() + '</div>';
   }
 
-  function render(items) {
+  function skeleton() {
+    var h = '';
+    for (var i = 0; i < Math.min(CONFIG.LIMIT, 6); i++) h += '<div class="sm-new__skel" aria-hidden="true"></div>';
+    grid.innerHTML = h;
+  }
+
+  function renderCards(items) {
     if (CONFIG.ALL_PRACTICES_URL) { allLink.href = CONFIG.ALL_PRACTICES_URL; allLink.hidden = false; }
-    if (!items.length) { renderPlaceholder(); return; }
     var now = Date.now();
     grid.innerHTML = items.slice(0, CONFIG.LIMIT).map(function (it, i) {
       var d = it.date ? new Date(it.date) : null;
@@ -104,21 +111,14 @@
       return '<a class="sm-new__card' + (isNew ? ' sm-new__card--has-badge' : '') + '" style="--i:' + i + '" href="' + esc(safeUrl(it.url)) + '">' +
         (isNew ? '<span class="sm-new__badge">Новое</span>' : '') +
         '<span class="sm-new__name">' + esc(it.title) + '</span>' +
-        '<span class="sm-new__meta">' + (valid ? '<span>' + fmt.format(d) + '</span>' : '') + (it.tag ? '<span class="sm-new__tag">' + esc(it.tag) + '</span>' : '') + '</span></a>';
+        '<span class="sm-new__meta">' + (valid ? '<span>' + fmt.format(d) + '</span>' : '') + '</span></a>';
     }).join('');
   }
 
-  // Что-то пошло не так: пишем причину (в консоль и, при SHOW_DIAGNOSTICS, на страницу) и показываем резервный список / заглушку.
-  function useFallback(reason) {
-    if (reason) { console.warn('[SM] Новые практики: ' + reason); setDiag(reason); }
-    render(FALLBACK_ITEMS);
-  }
-
-  function buildCql() {
-    var c = 'type=page AND space="' + CONFIG.SPACE_KEY + '"';
-    if (CONFIG.MODE === 'label') c += ' AND label="' + CONFIG.LABEL.replace(/"/g, '') + '"';
-    else c += ' AND ancestor=' + CONFIG.ANCESTOR_PAGE_ID;
-    return c + ' ORDER BY created DESC';
+  function fail(msg, requestUrl) {
+    console.warn('[SM] Новые практики: ' + msg + (requestUrl ? ' Запрос: ' + requestUrl : ''));
+    showDiag(msg, requestUrl);
+    renderPlaceholder();
   }
 
   function pageUrl(data, r) {
@@ -130,48 +130,64 @@
     return location.origin + ctx + webui;
   }
 
-  var configured = CONFIG.MODE === 'label' ? !!CONFIG.LABEL : !!CONFIG.ANCESTOR_PAGE_ID;
-  if (!configured) { useFallback(CONFIG.MODE === 'label' ? 'не задана метка (LABEL).' : 'не задан ID страницы (ANCESTOR_PAGE_ID).'); return; }
-  if (!window.fetch) { useFallback('браузер не поддерживает запросы (fetch).'); return; }
+  // Составной фильтр: страница лежит под ANCESTOR_PAGE_ID И имеет метку LABEL.
+  function buildCql() {
+    var c = 'ancestor=' + CONFIG.ANCESTOR_PAGE_ID + ' AND label="' + CONFIG.LABEL.replace(/"/g, '') + '" AND type=page';
+    if (CONFIG.SPACE_KEY) c += ' AND space="' + CONFIG.SPACE_KEY + '"';
+    return c + ' ORDER BY created DESC';
+  }
 
-  skeleton();
-  var ctx0 = (window.AJS && AJS.contextPath && AJS.contextPath()) || '';
-  var url = ctx0 + '/rest/api/content/search?cql=' + encodeURIComponent(buildCql()) + '&limit=' + CONFIG.LIMIT + '&expand=history,metadata.labels';
-  var ctl = window.AbortController ? new AbortController() : null;
-  var timedOut = false;
-  var timer = setTimeout(function () { timedOut = true; if (ctl) ctl.abort(); }, 8000);
+  try {
+    renderPlaceholder();                       // сразу есть что показать
+    if (!CONFIG.ANCESTOR_PAGE_ID) { fail('ID страницы не задан (ANCESTOR_PAGE_ID).'); return; }
+    if (!CONFIG.LABEL) { fail('метка не задана (LABEL).'); return; }
+    if (!window.fetch) { fail('браузер не поддерживает запросы (fetch).'); return; }
 
-  fetch(url, { credentials: 'same-origin', headers: { 'Accept': 'application/json' }, signal: ctl ? ctl.signal : undefined })
-    .then(function (res) {
-      if (!res.ok) {
-        var e = new Error('http'); e.status = res.status; throw e;
-      }
-      return res.json();
-    })
-    .then(function (data) {
-      clearTimeout(timer);
-      var items = (data.results || []).map(function (r) {
-        var labels = (r.metadata && r.metadata.labels && r.metadata.labels.results) || [];
-        // на карточке показываем первую метку, кроме той, по которой идёт отбор
-        var tagLabel = labels.filter(function (l) { return l.name !== CONFIG.LABEL; })[0];
-        return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate, tag: tagLabel && tagLabel.name };
-      });
-      if (!items.length) {
-        useFallback(CONFIG.MODE === 'label' ? 'практик не найдено (страниц с меткой «' + CONFIG.LABEL + '» нет или нет доступа).'
-          : 'практик не найдено (под страницей ' + CONFIG.ANCESTOR_PAGE_ID + ' нет дочерних страниц или нет доступа к ним).');
-        return;
-      }
-      setDiag('загружено практик: ' + items.length + '.');
-      render(items);
-    })
-    .catch(function (e) {
-      clearTimeout(timer);
-      var msg;
-      if (e && e.status) msg = 'запрос вернул ошибку ' + e.status + (e.status === 401 || e.status === 403 ? ' (нет доступа — войдите в Confluence или проверьте права на страницу)' : e.status === 404 ? ' (не найден ресурс — проверьте ID и ключ пространства)' : '') + '.';
-      else if (timedOut) msg = 'запрос не ответил за 8 секунд.';
-      else if (e instanceof SyntaxError) msg = 'сервер вернул не данные, а другую страницу (возможно, нужно войти в систему заново).';
-      else msg = 'не удалось выполнить запрос (нет сети или его блокирует политика безопасности страницы).';
-      useFallback(msg);
-    });
+    // Адреса по очереди: сначала относительный, потом с context path Confluence (если он есть).
+    var path = '/rest/api/content/search?cql=' + encodeURIComponent(buildCql()) + '&limit=' + CONFIG.LIMIT + '&expand=history';
+    var ctx = (window.AJS && AJS.contextPath && AJS.contextPath()) || '';
+    var urls = [path];
+    if (ctx && ctx !== '/') urls.push(ctx.replace(/\/$/, '') + path);
+
+    skeleton();
+
+    var lastErr = null, lastUrl = urls[0];
+    (function attempt(i) {
+      lastUrl = urls[i];
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timedOut = false;
+      var timer = setTimeout(function () { timedOut = true; if (ctl) ctl.abort(); }, 8000);
+      fetch(urls[i], { credentials: 'same-origin', headers: { 'Accept': 'application/json' }, signal: ctl ? ctl.signal : undefined })
+        .then(function (res) {
+          if (!res.ok) { var e = new Error('http'); e.status = res.status; throw e; }
+          return res.json();
+        })
+        .then(function (data) {
+          clearTimeout(timer);
+          var items = (data.results || []).map(function (r) {
+            return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate };
+          });
+          if (!items.length) {
+            fail('практик не найдено (под страницей ' + CONFIG.ANCESTOR_PAGE_ID + ' нет страниц с меткой «' + CONFIG.LABEL + '» или нет доступа к ним).', decodeURIComponent(urls[i]));
+            return;
+          }
+          showDiag('загружено практик: ' + items.length + '.', decodeURIComponent(urls[i]));
+          renderCards(items);
+        })
+        .catch(function (e) {
+          clearTimeout(timer);
+          lastErr = { e: e, timedOut: timedOut };
+          if (i + 1 < urls.length) { attempt(i + 1); return; }      // пробуем адрес с context path
+          var msg;
+          if (e && e.status) msg = 'запрос вернул ошибку ' + e.status + (e.status === 401 || e.status === 403 ? ' (нет доступа — войдите в Confluence или проверьте права на страницу).' : e.status === 404 ? ' (ресурс не найден — проверьте ID страницы).' : '.');
+          else if (timedOut) msg = 'сервер не ответил за 8 секунд.';
+          else if (e instanceof SyntaxError) msg = 'сервер вернул не данные, а другую страницу (возможно, нужно заново войти в систему).';
+          else msg = 'не удалось связаться с сервером (нет сети или запрос блокирует политика безопасности страницы).';
+          fail(msg, decodeURIComponent(lastUrl));
+        });
+    })(0);
+  } catch (err) {
+    fail('внутренняя ошибка скрипта: ' + (err && err.message) + '.');
+  }
 })();
 </script>

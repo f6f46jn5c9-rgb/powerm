@@ -102,104 +102,127 @@
 </script>
 </div>
 <div><style>
-.sm-catalog{--sm-navy-dark:#1a2a5e;--sm-navy-blue:#2b4fa8;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-text:#1a1a2e;--sm-radius:16px;
+.sm-catalog{--sm-navy-dark:#1a2a5e;--sm-navy-blue:#2b4fa8;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-text:#1a1a2e;--sm-radius:18px;
   box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text)}
 .sm-catalog *,.sm-catalog *::before,.sm-catalog *::after{box-sizing:border-box}
-.sm-catalog h2.sm-catalog__title{margin:0 0 18px !important;padding:0 !important;font-size:26px;font-weight:800;color:var(--sm-navy-dark) !important;border:0}
-.sm-catalog .sm-catalog__group{margin:0 0 28px}
+.sm-catalog h2.sm-catalog__title{margin:0 0 20px !important;padding:0 !important;font-size:26px;font-weight:800;color:var(--sm-navy-dark) !important;border:0}
+.sm-catalog .sm-catalog__group{margin:0 0 30px}
 .sm-catalog .sm-catalog__group:last-child{margin-bottom:0}
-.sm-catalog h3.sm-catalog__sub{display:flex;align-items:center;gap:10px;margin:0 0 14px !important;padding:0 !important;font-size:18px;font-weight:700;border:0}
-.sm-catalog .sm-catalog__group--teal h3.sm-catalog__sub{color:var(--sm-teal-dark) !important}
-.sm-catalog .sm-catalog__group--sky h3.sm-catalog__sub{color:var(--sm-navy-blue) !important}
-.sm-catalog .sm-catalog__subicon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff}
-.sm-catalog .sm-catalog__group--teal .sm-catalog__subicon{background:var(--sm-teal)}
-.sm-catalog .sm-catalog__group--sky .sm-catalog__subicon{background:var(--sm-navy-blue)}
-.sm-catalog .sm-catalog__grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr)}
-@media (min-width:1100px){.sm-catalog .sm-catalog__grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:1fr}}
-@media (max-width:640px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,1fr);gap:12px}.sm-catalog h2.sm-catalog__title{font-size:22px}}
-.sm-catalog a.sm-catalog__tile{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:120px;min-width:0;padding:16px;
-  border-radius:var(--sm-radius);color:var(--sm-navy-dark) !important;text-decoration:none !important;border:1px solid rgba(255,255,255,.7);
-  opacity:0;animation:sm-cat-in .5s ease forwards;animation-delay:calc(var(--i) * 45ms);
-  transition:transform .2s ease,box-shadow .2s ease}
-.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile{background:linear-gradient(135deg,#e6f6f5 0%,#b9e4e1 50%,#7fcfca 100%);box-shadow:0 4px 14px rgba(14,124,123,.14)}
-.sm-catalog .sm-catalog__group--sky a.sm-catalog__tile{background:linear-gradient(135deg,#eaf2fc 0%,#c4dbf5 50%,#93bdea 100%);box-shadow:0 4px 14px rgba(43,79,168,.14)}
-.sm-catalog a.sm-catalog__tile::after{content:"";position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .25s ease}
-.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile::after{background:linear-gradient(135deg,#b9e4e1 0%,#5fc2bc 55%,#2aa6a0 100%)}
-.sm-catalog .sm-catalog__group--sky a.sm-catalog__tile::after{background:linear-gradient(135deg,#c4dbf5 0%,#7aaae3 55%,#4a86d4 100%)}
-.sm-catalog a.sm-catalog__tile:hover{transform:translateY(-3px)}
-.sm-catalog a.sm-catalog__tile:hover::after{opacity:1}
-.sm-catalog .sm-catalog__group--teal a.sm-catalog__tile:hover{box-shadow:0 12px 26px rgba(14,124,123,.28)}
-.sm-catalog .sm-catalog__group--sky a.sm-catalog__tile:hover{box-shadow:0 12px 26px rgba(43,79,168,.28)}
-.sm-catalog a.sm-catalog__tile:focus-visible{outline:3px solid var(--sm-navy-blue);outline-offset:3px}
-.sm-catalog .sm-catalog__top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between}
-.sm-catalog .sm-catalog__icon{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--sm-teal-dark);box-shadow:0 2px 6px rgba(26,42,94,.12);display:flex;align-items:center;justify-content:center}
-.sm-catalog .sm-catalog__arrow{color:var(--sm-navy-dark);opacity:.6;transition:transform .2s ease,opacity .2s ease}
-.sm-catalog a.sm-catalog__tile:hover .sm-catalog__arrow{transform:translateX(4px);opacity:1}
-.sm-catalog .sm-catalog__name{position:relative;z-index:1;font-size:15px;font-weight:700;line-height:1.25;overflow-wrap:break-word}
+.sm-catalog h3.sm-catalog__sub{display:flex;align-items:center;gap:10px;margin:0 0 14px !important;padding:0 !important;font-size:18px;font-weight:700;color:var(--sm-teal-dark) !important;border:0}
+.sm-catalog h3.sm-catalog__sub::before{content:"";width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,#35b8b3,var(--sm-teal-dark))}
+.sm-catalog .sm-catalog__grid{display:grid;gap:14px;grid-template-columns:repeat(6,minmax(0,1fr))}
+.sm-catalog a.sm-catalog__tile{position:relative;overflow:hidden;display:block;height:200px;min-width:0;padding:18px 18px 0;border-radius:var(--sm-radius);
+  color:#fff !important;text-decoration:none !important;border:1px solid rgba(255,255,255,.25);
+  background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 6px 16px rgba(10,95,94,.2);
+  opacity:0;animation:sm-cat-in .5s ease forwards;animation-delay:calc(var(--i) * 45ms);transition:transform .2s ease,box-shadow .2s ease}
+.sm-catalog a.sm-catalog__tile--wide{grid-column:span 2}
+.sm-catalog a.sm-catalog__tile::before{content:"";position:absolute;top:-50px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);pointer-events:none}
+.sm-catalog a.sm-catalog__tile:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(10,95,94,.34)}
+.sm-catalog a.sm-catalog__tile:focus-visible{outline:3px solid var(--sm-navy-dark);outline-offset:3px}
+.sm-catalog .sm-catalog__name{position:relative;z-index:2;display:block;max-width:88%;font-size:17px;font-weight:800;line-height:1.22;overflow-wrap:break-word;margin:0}
+.sm-catalog .sm-catalog__fig{position:absolute;z-index:1;right:-16%;bottom:-20%;width:82%;aspect-ratio:1;pointer-events:none;transform-origin:70% 70%;transition:transform .4s ease}
+.sm-catalog a.sm-catalog__tile--wide .sm-catalog__fig{right:-3%;bottom:-18%;width:auto;height:116%;aspect-ratio:3/2}
+.sm-catalog .sm-catalog__fig svg{display:block;width:100%;height:100%;overflow:visible}
+.sm-catalog a.sm-catalog__tile:hover .sm-catalog__fig{transform:translate(-8px,-8px) scale(1.08)}
+.sm-catalog .sm-catalog__go{position:absolute;z-index:3;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.55);color:#fff;transition:background .25s ease,color .25s ease,transform .25s ease}
+.sm-catalog a.sm-catalog__tile:hover .sm-catalog__go{background:#fff;color:var(--sm-teal-dark);transform:translateX(2px)}
 @keyframes sm-cat-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.sm-catalog a.sm-catalog__tile{animation:none;opacity:1;transition:none}.sm-catalog a.sm-catalog__tile::after,.sm-catalog .sm-catalog__arrow{transition:none}}
+@media (max-width:1099px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sm-catalog a.sm-catalog__tile{height:180px}}
+@media (max-width:639px){.sm-catalog .sm-catalog__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sm-catalog a.sm-catalog__tile{height:160px;padding:14px 14px 0}
+  .sm-catalog h2.sm-catalog__title{font-size:22px}.sm-catalog .sm-catalog__name{font-size:16px}.sm-catalog .sm-catalog__go{width:34px;height:34px;right:12px;bottom:12px}}
+@media (prefers-reduced-motion:reduce){.sm-catalog a.sm-catalog__tile{animation:none;opacity:1;transition:none}.sm-catalog .sm-catalog__fig,.sm-catalog .sm-catalog__go{transition:none}.sm-catalog a.sm-catalog__tile:hover .sm-catalog__fig{transform:none}}
 </style>
 <section class="sm-catalog" id="sm-catalog" aria-labelledby="sm-catalog-title">
+<svg class="sm-catalog__defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+<defs>
+<linearGradient id="sm-cat-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".72"/><stop offset=".55" stop-color="#fff" stop-opacity=".24"/><stop offset="1" stop-color="#03303a" stop-opacity=".5"/></linearGradient>
+<radialGradient id="sm-cat-rg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".5" stop-color="#fff" stop-opacity=".26"/><stop offset="1" stop-color="#03303a" stop-opacity=".5"/></radialGradient>
+<radialGradient id="sm-cat-glow"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".45" stop-color="#fff" stop-opacity=".32"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="sm-cat-core"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset=".6" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity=".2"/></radialGradient>
+<filter id="sm-cat-b1" x="-15%" y="-15%" width="130%" height="130%"><feGaussianBlur stdDeviation="1.8"/></filter>
+<filter id="sm-cat-b2" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8"/></filter>
+<symbol id="sm-cat-gear" viewBox="0 0 200 200" style="overflow:visible"><g filter="url(#sm-cat-b1)"><g fill="url(#sm-cat-lg)"><circle cx="100" cy="100" r="58"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(0 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(36 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(72 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(108 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(144 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(180 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(216 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(252 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(288 100 100)"/><rect x="89" y="26" width="22" height="28" rx="5" transform="rotate(324 100 100)"/></g>
+<circle cx="100" cy="100" r="26" fill="#03303a" fill-opacity=".4"/><circle cx="100" cy="100" r="58" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3"/></g>
+<circle cx="78" cy="74" r="34" fill="url(#sm-cat-glow)" opacity=".55"/></symbol>
+<symbol id="sm-cat-cubes" viewBox="0 0 200 200" style="overflow:visible"><g filter="url(#sm-cat-b1)"><polygon points="33.0,92.0 78.0,118.0 78.0,170.0 33.0,144.0" fill="#fff" fill-opacity=".26"/><polygon points="78.0,118.0 123.0,92.0 123.0,144.0 78.0,170.0" fill="#03303a" fill-opacity=".34"/><polygon points="78.0,66.0 123.0,92.0 78.0,118.0 33.0,92.0" fill="#fff" fill-opacity=".6"/><polygon points="116.6,67.0 146.0,84.0 146.0,118.0 116.6,101.0" fill="#fff" fill-opacity=".26"/><polygon points="146.0,84.0 175.4,67.0 175.4,101.0 146.0,118.0" fill="#03303a" fill-opacity=".34"/><polygon points="146.0,50.0 175.4,67.0 146.0,84.0 116.6,67.0" fill="#fff" fill-opacity=".6"/><polygon points="125.8,146.0 150.0,160.0 150.0,188.0 125.8,174.0" fill="#fff" fill-opacity=".26"/><polygon points="150.0,160.0 174.2,146.0 174.2,174.0 150.0,188.0" fill="#03303a" fill-opacity=".34"/><polygon points="150.0,132.0 174.2,146.0 150.0,160.0 125.8,146.0" fill="#fff" fill-opacity=".6"/></g><circle cx="70" cy="70" r="36" fill="url(#sm-cat-glow)" opacity=".4"/></symbol>
+<symbol id="sm-cat-waves" viewBox="0 0 200 200" style="overflow:visible"><path d="M-14 70 C36 8 78 128 128 64 S186 24 214 48" fill="none" stroke="url(#sm-cat-lg)" stroke-width="20" stroke-linecap="round" opacity="0.95" filter="url(#sm-cat-b1)"/><path d="M-14 110 C36 48 78 168 128 104 S186 64 214 88" fill="none" stroke="url(#sm-cat-lg)" stroke-width="22" stroke-linecap="round" opacity="0.8" filter="url(#sm-cat-b1)"/><path d="M-14 150 C36 88 78 208 128 144 S186 104 214 128" fill="none" stroke="url(#sm-cat-lg)" stroke-width="20" stroke-linecap="round" opacity="0.62" filter="url(#sm-cat-b1)"/></symbol>
+<symbol id="sm-cat-rings" viewBox="0 0 200 200" style="overflow:visible"><g fill="none" filter="url(#sm-cat-b1)"><circle cx="104" cy="104" r="72" stroke="url(#sm-cat-lg)" stroke-width="18"/><circle cx="104" cy="104" r="46" stroke="url(#sm-cat-lg)" stroke-width="13" opacity=".85"/>
+<circle cx="64" cy="58" r="34" stroke="#fff" stroke-opacity=".42" stroke-width="8"/></g><circle cx="104" cy="104" r="20" fill="url(#sm-cat-glow)" opacity=".7"/></symbol>
+<symbol id="sm-cat-stack" viewBox="0 0 200 200" style="overflow:visible"><g filter="url(#sm-cat-b1)"><polygon points="38.0,128.0 100.0,159.0 100.0,181.0 38.0,150.0" fill="#fff" fill-opacity=".24"/><polygon points="100.0,159.0 162.0,128.0 162.0,150.0 100.0,181.0" fill="#03303a" fill-opacity=".34"/><polygon points="100.0,97.0 162.0,128.0 100.0,159.0 38.0,128.0" fill="#fff" fill-opacity=".58"/><polygon points="38.0,96.0 100.0,127.0 100.0,149.0 38.0,118.0" fill="#fff" fill-opacity=".24"/><polygon points="100.0,127.0 162.0,96.0 162.0,118.0 100.0,149.0" fill="#03303a" fill-opacity=".34"/><polygon points="100.0,65.0 162.0,96.0 100.0,127.0 38.0,96.0" fill="#fff" fill-opacity=".58"/><polygon points="38.0,64.0 100.0,95.0 100.0,117.0 38.0,86.0" fill="#fff" fill-opacity=".24"/><polygon points="100.0,95.0 162.0,64.0 162.0,86.0 100.0,117.0" fill="#03303a" fill-opacity=".34"/><polygon points="100.0,33.0 162.0,64.0 100.0,95.0 38.0,64.0" fill="#fff" fill-opacity=".58"/></g><circle cx="74" cy="56" r="32" fill="url(#sm-cat-glow)" opacity=".4"/></symbol>
+<symbol id="sm-cat-globe" viewBox="0 0 200 200" style="overflow:visible"><g filter="url(#sm-cat-b1)"><circle cx="100" cy="100" r="74" fill="url(#sm-cat-rg)"/>
+<g fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2.6"><ellipse cx="100" cy="100" rx="74" ry="28"/><ellipse cx="100" cy="100" rx="28" ry="74"/><ellipse cx="100" cy="100" rx="52" ry="74"/><path d="M26 100H174M100 26V174"/></g>
+<g fill="#fff" fill-opacity=".85"><circle cx="152" cy="76" r="5"/><circle cx="62" cy="134" r="5"/><circle cx="116" cy="170" r="4"/><circle cx="74" cy="52" r="4"/></g></g></symbol>
+<symbol id="sm-cat-shield" viewBox="0 0 200 200" style="overflow:visible"><g filter="url(#sm-cat-b1)"><path id="sm-cat-sh" d="M100 18L172 44V100C172 146 136 176 100 192C64 176 28 146 28 100V44Z" fill="url(#sm-cat-lg)"/>
+<path d="M100 18L172 44V100C172 146 136 176 100 192Z" fill="#03303a" fill-opacity=".3"/>
+<path d="M100 40L152 59V100C152 132 128 154 100 167C72 154 48 132 48 100V59Z" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="3"/>
+<path d="M72 100L94 124L134 78" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></g></symbol>
+<symbol id="sm-cat-spiral" viewBox="0 0 200 200" style="overflow:visible"><g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#sm-cat-b1)"><path d="M105.0 100.0 L105.5 100.5 L105.9 101.1 L106.3 101.8 L106.6 102.6 L106.8 103.5 L106.9 104.4 L106.8 105.3 L106.7 106.3 L106.4 107.3 L106.0 108.3 L105.5 109.2 L104.8 110.2 L104.0 111.1 L103.1 111.9 L102.0 112.7 L100.8 113.3 L99.6 113.9 L98.2 114.3 L96.7 114.5 L95.2 114.7 L93.7 114.6 L92.1 114.4 L90.4 114.1 L88.8 113.5 L87.2 112.8 L85.7 111.8 L84.2 110.7 L82.8 109.4 L81.5 108.0 L80.4 106.4 L79.3 104.6 L78.5 102.7 L77.8 100.7 L77.3 98.6 L77.0 96.4 L77.0 94.1 L77.1 91.8 L77.5 89.4 L78.2 87.1 L79.1 84.8 L80.2 82.6 L81.6 80.4 L83.2 78.3 L85.0 76.4 L87.1 74.6 L89.3 73.0 L91.8 71.7 L94.4 70.5 L97.1 69.6 L100.0 68.9 L103.0 68.5 L106.0 68.5 L109.1 68.7 L112.2 69.2 L115.3 70.0 L118.3 71.1 L121.3 72.6 L124.1 74.3 L126.8 76.3 L129.4 78.7 L131.7 81.3 L133.8 84.1 L135.6 87.2 L137.2 90.5 L138.4 93.9 L139.3 97.5 L139.9 101.3 L140.1 105.1 L140.0 108.9 L139.5 112.8 L138.6 116.7 L137.3 120.5 L135.6 124.2 L133.6 127.8 L131.2 131.2 L128.4 134.4 L125.4 137.3 L122.0 140.0 L118.3 142.4 L114.4 144.4 L110.3 146.1 L106.0 147.4 L101.5 148.3 L96.9 148.7 L92.3 148.7 L87.6 148.3 L82.9 147.4 L78.3 146.0 L73.8 144.2 L69.5 142.0 L65.3 139.3 L61.4 136.3 L57.7 132.8 L54.4 128.9 L51.4 124.8 L48.8 120.3 L46.6 115.5 L44.9 110.5 L43.6 105.3 L42.9 100.0 L42.6 94.6 L42.8 89.1 L43.6 83.6 L44.9 78.2 L46.8 72.9 L49.1 67.7 L52.0 62.7 L55.3 58.0 L59.1 53.6 L63.3 49.6 L68.0 45.9 L73.0 42.6 L78.3 39.9 L84.0 37.6 L89.8 35.8 L95.9 34.6 L102.1 34.0 L108.3 34.0 L114.6 34.6 L120.9 35.7 L127.0 37.5 L133.1 39.9 L138.9 42.8 L144.4 46.3 L149.6 50.4 L154.5 54.9 L158.9 60.0 L162.9 65.4 L166.3 71.3 L169.2 77.5 L171.5 84.0 L173.2 90.7 L174.3 97.7 L174.7 104.7 L174.5 111.8 L173.5 118.9 L171.9 125.9 L169.6 132.8 L166.7 139.4 L163.1 145.8" stroke="url(#sm-cat-lg)" stroke-width="17"/><path d="M95.0 100.0 L94.5 99.5 L94.1 98.9 L93.7 98.2 L93.4 97.4 L93.2 96.5 L93.1 95.6 L93.2 94.7 L93.3 93.7 L93.6 92.7 L94.0 91.7 L94.5 90.8 L95.2 89.8 L96.0 88.9 L96.9 88.1 L98.0 87.3 L99.2 86.7 L100.4 86.1 L101.8 85.7 L103.3 85.5 L104.8 85.3 L106.3 85.4 L107.9 85.6 L109.6 85.9 L111.2 86.5 L112.8 87.2 L114.3 88.2 L115.8 89.3 L117.2 90.6 L118.5 92.0 L119.6 93.6 L120.7 95.4 L121.5 97.3 L122.2 99.3 L122.7 101.4 L123.0 103.6 L123.0 105.9 L122.9 108.2 L122.5 110.6 L121.8 112.9 L120.9 115.2 L119.8 117.4 L118.4 119.6 L116.8 121.7 L115.0 123.6 L112.9 125.4 L110.7 127.0 L108.2 128.3 L105.6 129.5 L102.9 130.4 L100.0 131.1 L97.0 131.5 L94.0 131.5 L90.9 131.3 L87.8 130.8 L84.7 130.0 L81.7 128.9 L78.7 127.4 L75.9 125.7 L73.2 123.7 L70.6 121.3 L68.3 118.7 L66.2 115.9 L64.4 112.8 L62.8 109.5 L61.6 106.1 L60.7 102.5 L60.1 98.7 L59.9 94.9 L60.0 91.1 L60.5 87.2 L61.4 83.3 L62.7 79.5 L64.4 75.8 L66.4 72.2 L68.8 68.8 L71.6 65.6 L74.6 62.7 L78.0 60.0 L81.7 57.6 L85.6 55.6 L89.7 53.9 L94.0 52.6 L98.5 51.7 L103.1 51.3 L107.7 51.3 L112.4 51.7 L117.1 52.6 L121.7 54.0 L126.2 55.8 L130.5 58.0 L134.7 60.7 L138.6 63.7 L142.3 67.2 L145.6 71.1 L148.6 75.2 L151.2 79.7 L153.4 84.5 L155.1 89.5 L156.4 94.7 L157.1 100.0 L157.4 105.4 L157.2 110.9 L156.4 116.4 L155.1 121.8 L153.2 127.1 L150.9 132.3 L148.0 137.3 L144.7 142.0 L140.9 146.4 L136.7 150.4 L132.0 154.1 L127.0 157.4 L121.7 160.1 L116.0 162.4 L110.2 164.2 L104.1 165.4 L97.9 166.0 L91.7 166.0 L85.4 165.4 L79.1 164.3 L73.0 162.5 L66.9 160.1 L61.1 157.2 L55.6 153.7 L50.4 149.6 L45.5 145.1 L41.1 140.0 L37.1 134.6 L33.7 128.7 L30.8 122.5 L28.5 116.0 L26.8 109.3 L25.7 102.3 L25.3 95.3 L25.5 88.2 L26.5 81.1 L28.1 74.1 L30.4 67.2 L33.3 60.6 L36.9 54.2" stroke="#fff" stroke-opacity=".35" stroke-width="9"/></g></symbol>
+<symbol id="sm-cat-orb" viewBox="0 0 200 200" style="overflow:visible"><g fill="none" filter="url(#sm-cat-b1)"><g transform="rotate(-22 100 100)"><ellipse cx="100" cy="100" rx="90" ry="30" stroke="url(#sm-cat-lg)" stroke-width="10"/></g></g>
+<circle cx="100" cy="100" r="50" fill="url(#sm-cat-rg)" filter="url(#sm-cat-b1)"/>
+<g fill="none" filter="url(#sm-cat-b1)"><g transform="rotate(-22 100 100)"><path d="M10 100A90 30 0 0 0 190 100" stroke="url(#sm-cat-lg)" stroke-width="10"/></g>
+<g transform="rotate(58 100 100)"><path d="M16 100A84 26 0 0 0 184 100" stroke="#fff" stroke-opacity=".45" stroke-width="7"/></g></g></symbol>
+<symbol id="sm-cat-idea" viewBox="0 0 200 200" style="overflow:visible"><circle cx="100" cy="100" r="92" fill="url(#sm-cat-glow)" opacity=".8" filter="url(#sm-cat-b2)"/>
+<circle cx="100" cy="100" r="38" fill="url(#sm-cat-core)" filter="url(#sm-cat-b1)"/>
+<g fill="#fff" filter="url(#sm-cat-b1)"><circle cx="150" cy="56" r="6" fill-opacity=".85"/><circle cx="46" cy="140" r="5" fill-opacity=".7"/><circle cx="160" cy="146" r="3.5" fill-opacity=".8"/><circle cx="52" cy="58" r="3" fill-opacity=".7"/></g>
+<g stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" filter="url(#sm-cat-b1)"><path d="M100 26V44M100 156V174M26 100H44M156 100H174"/></g></symbol>
+<symbol id="sm-cat-big" viewBox="0 0 300 200" style="overflow:visible"><g fill="none" filter="url(#sm-cat-b1)"><circle cx="204" cy="112" r="84" stroke="url(#sm-cat-lg)" stroke-width="22"/><circle cx="204" cy="112" r="54" stroke="url(#sm-cat-lg)" stroke-width="15" opacity=".85"/>
+<circle cx="70" cy="58" r="36" stroke="#fff" stroke-opacity=".42" stroke-width="9"/>
+<path d="M-10 172C50 122 104 206 168 154S262 132 312 164" stroke="url(#sm-cat-lg)" stroke-width="20" stroke-linecap="round"/></g>
+<circle cx="204" cy="112" r="28" fill="url(#sm-cat-rg)" filter="url(#sm-cat-b1)"/></symbol>
+</defs></svg>
   <h2 class="sm-catalog__title" id="sm-catalog-title">Каталог практик</h2>
   <div id="sm-catalog-groups"></div>
 </section>
 <script>
 (function () {
   var K = 'https://kb.severstal.com/';
-  var ICONS = {
-    project: '<path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/>',
-    factory: '<path d="M3 21V10l6 4V10l6 4V6h4a2 2 0 0 1 2 2v13z"/><path d="M3 21h18"/>',
-    gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
-    board: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/>',
-    bolt: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
-    cart: '<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20 7H6"/>',
-    it: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
-    shield: '<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
-    change: '<path d="M21 12a9 9 0 0 0-15.5-6.2L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 15.5 6.2L21 16"/><path d="M21 21v-5h-5"/>',
-    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
-    idea: '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
-    arrow: '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>'
-  };
+  // Плашки: title — название, url — ссылка, fig — фигура на фоне (см. symbol id="sm-cat-…"),
+  // c1 → c2 — цвета градиента (сверху-слева → снизу-справа), wide — плашка вдвое шире.
   var GROUPS = [
-    { title: 'Производство и проекты', cls: 'teal', icon: 'factory', items: [
-      { title: 'Практики проектов', icon: 'project', url: K + 'spaces/BSS/pages/517603418/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2' },
-      { title: 'Производство', icon: 'factory', url: K + 'spaces/BSS/pages/167117074/%D0%9F%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'Инжиниринг', icon: 'gear', url: K + 'spaces/BSS/pages/156860862/%D0%98%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3+%D0%A1%D0%9C' },
-      { title: 'Управление проектами', icon: 'board', url: K + 'spaces/BSS/pages/259457050/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8+Agile+%D0%B8+%D0%BF%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8B+.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'ДСАЭМ', icon: 'bolt', url: K + 'pages/viewpage.action?pageId=189235313' }
+    { title: 'Производство и проекты', items: [
+      { title: 'Практики проектов', fig: 'big', c1: '#2b4fa8', c2: '#0e7c7b', wide: true, url: K + 'spaces/BSS/pages/517603418/%D0%9B%D1%83%D1%87%D1%88%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BE%D0%B2' },
+      { title: 'Производство', fig: 'gear', c1: '#0a5f5e', c2: '#168f86', url: K + 'spaces/BSS/pages/167117074/%D0%9F%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'Инжиниринг', fig: 'cubes', c1: '#0b5c68', c2: '#1a8ea0', url: K + 'spaces/BSS/pages/156860862/%D0%98%D0%BD%D0%B6%D0%B8%D0%BD%D0%B8%D1%80%D0%B8%D0%BD%D0%B3+%D0%A1%D0%9C' },
+      { title: 'Управление проектами', fig: 'waves', c1: '#0c6a68', c2: '#198f85', url: K + 'spaces/BSS/pages/259457050/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8+Agile+%D0%B8+%D0%BF%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8B+.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'ДСАЭМ', fig: 'rings', c1: '#08605f', c2: '#1b9a94', url: K + 'pages/viewpage.action?pageId=189235313' }
     ] },
-    { title: 'Обеспечивающие функции', cls: 'sky', icon: 'shield', items: [
-      { title: 'Закупки', icon: 'cart', url: K + 'spaces/BSS/pages/167117077/%D0%97%D0%B0%D0%BA%D1%83%D0%BF%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'IT', icon: 'it', url: K + 'spaces/BSS/pages/186318879/IT+%D0%A1%D0%9C' },
-      { title: 'Охрана труда', icon: 'shield', url: K + 'spaces/BSS/pages/520651883/%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0+%D1%82%D1%80%D1%83%D0%B4%D0%B0+%D0%A1%D0%9C' },
-      { title: 'Управление изменениями', icon: 'change', url: K + 'spaces/BSS/pages/373686311/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8+%D0%A1%D0%9C' },
-      { title: 'Внешние практики', icon: 'globe', url: K + 'spaces/BSS/pages/167117099/%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
-      { title: 'Практики-идеи', icon: 'idea', url: K + 'spaces/BSS/pages/238519134/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8-%D0%B8%D0%B4%D0%B5%D0%B8' }
+    { title: 'Обеспечивающие функции', items: [
+      { title: 'Закупки', fig: 'stack', c1: '#0a6360', c2: '#16978c', url: K + 'spaces/BSS/pages/167117077/%D0%97%D0%B0%D0%BA%D1%83%D0%BF%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'IT', fig: 'globe', c1: '#0b5e6b', c2: '#1990a3', url: K + 'spaces/BSS/pages/186318879/IT+%D0%A1%D0%9C' },
+      { title: 'Охрана труда', fig: 'shield', c1: '#0a6462', c2: '#18948b', url: K + 'spaces/BSS/pages/520651883/%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0+%D1%82%D1%80%D1%83%D0%B4%D0%B0+%D0%A1%D0%9C' },
+      { title: 'Управление изменениями', fig: 'spiral', c1: '#0c5f63', c2: '#1a949a', url: K + 'spaces/BSS/pages/373686311/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%D0%BC%D0%B8+%D0%A1%D0%9C' },
+      { title: 'Внешние практики', fig: 'orb', c1: '#0a5c5a', c2: '#1b9590', url: K + 'spaces/BSS/pages/167117099/%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'Практики-идеи', fig: 'idea', c1: '#0e6a68', c2: '#188f8b', url: K + 'spaces/BSS/pages/238519134/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8-%D0%B8%D0%B4%D0%B5%D0%B8' }
     ] }
   ];
-  function svg(k, w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + ICONS[k] + '</svg>'; }
+  var ARROW = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
   var n = 0;
-  document.getElementById('sm-catalog-groups').innerHTML = GROUPS.map(function (g, gi) {
+  document.getElementById('sm-catalog-groups').innerHTML = GROUPS.map(function (g) {
     var tiles = g.items.map(function (it) {
-      return '<a class="sm-catalog__tile" style="--i:' + (n++) + '" href="' + it.url + '">' +
-        '<span class="sm-catalog__top"><span class="sm-catalog__icon">' + svg(it.icon, 22) + '</span><span class="sm-catalog__arrow">' + svg('arrow', 20) + '</span></span>' +
-        '<span class="sm-catalog__name">' + it.title + '</span></a>';
+      return '<a class="sm-catalog__tile' + (it.wide ? ' sm-catalog__tile--wide' : '') + '" style="--i:' + (n++) + ';--c1:' + it.c1 + ';--c2:' + it.c2 + '" href="' + it.url + '">' +
+        '<span class="sm-catalog__fig" aria-hidden="true"><svg viewBox="0 0 ' + (it.wide ? '300' : '200') + ' 200" preserveAspectRatio="xMaxYMax meet"><use href="#sm-cat-' + it.fig + '" width="100%" height="100%"/></svg></span>' +
+        '<span class="sm-catalog__name">' + it.title + '</span>' +
+        '<span class="sm-catalog__go" aria-hidden="true">' + ARROW + '</span></a>';
     }).join('');
-    return '<div class="sm-catalog__group sm-catalog__group--' + g.cls + '"><h3 class="sm-catalog__sub"><span class="sm-catalog__subicon">' + svg(g.icon, 18) + '</span>' + g.title + '</h3><div class="sm-catalog__grid">' + tiles + '</div></div>';
+    return '<div class="sm-catalog__group"><h3 class="sm-catalog__sub">' + g.title + '</h3><div class="sm-catalog__grid">' + tiles + '</div></div>';
   }).join('');
 })();
 </script>
 </div>
 <div><!--
 КАК НАСТРОИТЬ (блок «Новые опубликованные практики»)
-1. Откройте страницу, под которой лежат практики. В адресной строке найдите pageId=123456789 — число и есть ID.
-   Если ссылка вида /pages/123456789/Название — ID тоже число после /pages/.
-2. Сейчас практики берутся по метке: MODE: 'label', метка в LABEL (повесьте её на страницу практики).
-   Чтобы брать все страницы под родителем — поставьте MODE: 'ancestor' и вставьте ID в ANCESTOR_PAGE_ID (в кавычках).
-3. В ALL_PRACTICES_URL вставьте ссылку на страницу «Все практики».
-4. Если карточек нет: поставьте SHOW_DIAGNOSTICS: true — под заголовком появится причина (нет ID, ошибка 403, практик не найдено и т.п.).
-   После проверки верните false. Подробности также в консоли браузера (F12), сообщения «[SM] ...».
-   Пока нет данных, показывается карточка «Новые практики появятся здесь»; свой резервный список можно задать в FALLBACK_ITEMS.
+Всё, что можно менять, — в блоке CONFIG в начале скрипта (значения в кавычках).
+1. ANCESTOR_PAGE_ID — число-ID родительской страницы. Берётся из ссылки на неё: .../pages/161546386/... или pageId=161546386.
+   Практики ищутся среди всех страниц ПОД этой страницей.
+2. LABEL — метка, которая должна стоять на странице практики. Сейчас «силовые_машины». В блок попадают только страницы,
+   у которых есть эта метка И которые лежат под ANCESTOR_PAGE_ID (оба условия сразу).
+3. SPACE_KEY — ключ пространства (BSS). Пустая строка '' — не ограничивать пространством.
+4. LIMIT — сколько карточек показывать; NEW_BADGE_DAYS — сколько дней висит бейдж «Новое».
+5. ALL_PRACTICES_URL — куда ведёт «Все практики →».
+6. SHOW_DIAGNOSTICS — true: под заголовком мелким серым текстом видно, что происходит (адрес запроса и причина, если нет карточек).
+   Когда всё заработает, поставьте false.
+Если карточек нет или запрос не удался, блок не пропадает: показывается карточка «Новые практики появятся здесь» с кнопкой «Все практики →».
 -->
 <style>
 .sm-new{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-red:#e63329;--sm-text:#1a1a2e;--sm-muted:#6b7280;--sm-border:#e7e9f0;--sm-radius:16px;
@@ -223,7 +246,7 @@
 .sm-new .sm-new__badge{position:absolute;top:12px;right:12px;background:var(--sm-red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
 .sm-new .sm-new__card--has-badge .sm-new__name{padding-right:64px}
 .sm-new .sm-new__skel{height:130px;border-radius:var(--sm-radius);background:linear-gradient(90deg,#eceef3 25%,#f6f7fa 50%,#eceef3 75%);background-size:200% 100%;animation:sm-new-sh 1.4s linear infinite}
-.sm-new p.sm-new__diag{margin:-10px 0 14px !important;padding:0 !important;font-size:12.5px;color:var(--sm-muted) !important}
+.sm-new p.sm-new__diag{margin:-6px 0 14px !important;padding:0 !important;font-size:12.5px;line-height:1.45;color:var(--sm-muted) !important;overflow-wrap:anywhere}
 .sm-new .sm-new__empty{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--sm-radius);border:1px solid #cfe9e7;
   background:linear-gradient(135deg,#f1faf9,#d9f0ee)}
 .sm-new .sm-new__empty-title{font-size:18px;font-weight:700;color:var(--sm-navy-dark)}
@@ -247,47 +270,51 @@
 </section>
 <script>
 (function () {
-  // ===== НАСТРОЙКИ (правьте только значения в кавычках) =====
+  // ===== НАСТРОЙКИ (правьте только значения) =====
   const CONFIG = {
-    MODE: 'label',           // 'ancestor' — практики под родительской страницей; 'label' — по метке
-    ANCESTOR_PAGE_ID: '161546386', // ID родительской страницы с практиками (из ссылки на страницу: pageId=...)
-    LABEL: 'силовые_машины',  // метка, если MODE = 'label'
-    SPACE_KEY: 'BSS',        // ключ пространства
-    LIMIT: 6,                // сколько карточек показывать
-    NEW_BADGE_DAYS: 14,      // сколько дней показывать бейдж «Новое»
+    SPACE_KEY: 'BSS',                 // ключ пространства ('' — не ограничивать)
+    ANCESTOR_PAGE_ID: '161546386',    // ID родительской страницы (из ссылки: /pages/<ID>/ или pageId=<ID>)
+    LABEL: 'силовые_машины',          // метка, которая должна стоять на странице практики
+    LIMIT: 6,                         // сколько карточек показывать
+    NEW_BADGE_DAYS: 14,               // сколько дней показывать бейдж «Новое»
     ALL_PRACTICES_URL: 'https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%9C', // куда ведёт «Все практики →»
-    SHOW_DIAGNOSTICS: false  // true — под заголовком мелким серым текстом покажется причина, почему нет карточек
+    SHOW_DIAGNOSTICS: true            // true — показывать причину под заголовком; потом поставьте false
   };
-  // Резервный список — показывается, если автозагрузка не настроена или не сработала.
-  // Формат: { title: 'Название', url: 'https://...', date: '2026-01-31' }
-  const FALLBACK_ITEMS = [];
   // ===== конец настроек =====
 
   const grid = document.getElementById('sm-new-grid');
   const allLink = document.getElementById('sm-new-all');
+  const diag = document.getElementById('sm-new-diag');
   const fmt = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function safeUrl(u) { return /^(https?:)?\//.test(u || '') ? u : '#'; }
-  function skeleton() { var h = ''; for (var i = 0; i < Math.min(CONFIG.LIMIT, 6); i++) h += '<div class="sm-new__skel" aria-hidden="true"></div>'; grid.innerHTML = h; }
 
-  const diag = document.getElementById('sm-new-diag');
-  function setDiag(msg) {
+  function showDiag(msg, requestUrl) {
     if (!CONFIG.SHOW_DIAGNOSTICS) return;
-    diag.textContent = 'Диагностика: ' + msg;
+    diag.innerHTML = 'Диагностика: ' + esc(msg) + (requestUrl ? '<br>Адрес запроса: ' + esc(requestUrl) : '');
     diag.hidden = false;
   }
+
   function allBtn() {
     return CONFIG.ALL_PRACTICES_URL ? '<a class="sm-new__btn" href="' + esc(CONFIG.ALL_PRACTICES_URL) + '">Все практики →</a>' : '';
   }
+
+  // Заглушка: блок никогда не остаётся пустым.
   function renderPlaceholder() {
+    if (CONFIG.ALL_PRACTICES_URL) { allLink.href = CONFIG.ALL_PRACTICES_URL; allLink.hidden = false; }
     grid.innerHTML = '<div class="sm-new__empty"><div><div class="sm-new__empty-title">Новые практики появятся здесь</div>' +
       '<div class="sm-new__empty-text">Весь накопленный опыт коллег — в разделе «Все практики».</div></div>' + allBtn() + '</div>';
   }
 
-  function render(items) {
+  function skeleton() {
+    var h = '';
+    for (var i = 0; i < Math.min(CONFIG.LIMIT, 6); i++) h += '<div class="sm-new__skel" aria-hidden="true"></div>';
+    grid.innerHTML = h;
+  }
+
+  function renderCards(items) {
     if (CONFIG.ALL_PRACTICES_URL) { allLink.href = CONFIG.ALL_PRACTICES_URL; allLink.hidden = false; }
-    if (!items.length) { renderPlaceholder(); return; }
     var now = Date.now();
     grid.innerHTML = items.slice(0, CONFIG.LIMIT).map(function (it, i) {
       var d = it.date ? new Date(it.date) : null;
@@ -296,21 +323,14 @@
       return '<a class="sm-new__card' + (isNew ? ' sm-new__card--has-badge' : '') + '" style="--i:' + i + '" href="' + esc(safeUrl(it.url)) + '">' +
         (isNew ? '<span class="sm-new__badge">Новое</span>' : '') +
         '<span class="sm-new__name">' + esc(it.title) + '</span>' +
-        '<span class="sm-new__meta">' + (valid ? '<span>' + fmt.format(d) + '</span>' : '') + (it.tag ? '<span class="sm-new__tag">' + esc(it.tag) + '</span>' : '') + '</span></a>';
+        '<span class="sm-new__meta">' + (valid ? '<span>' + fmt.format(d) + '</span>' : '') + '</span></a>';
     }).join('');
   }
 
-  // Что-то пошло не так: пишем причину (в консоль и, при SHOW_DIAGNOSTICS, на страницу) и показываем резервный список / заглушку.
-  function useFallback(reason) {
-    if (reason) { console.warn('[SM] Новые практики: ' + reason); setDiag(reason); }
-    render(FALLBACK_ITEMS);
-  }
-
-  function buildCql() {
-    var c = 'type=page AND space="' + CONFIG.SPACE_KEY + '"';
-    if (CONFIG.MODE === 'label') c += ' AND label="' + CONFIG.LABEL.replace(/"/g, '') + '"';
-    else c += ' AND ancestor=' + CONFIG.ANCESTOR_PAGE_ID;
-    return c + ' ORDER BY created DESC';
+  function fail(msg, requestUrl) {
+    console.warn('[SM] Новые практики: ' + msg + (requestUrl ? ' Запрос: ' + requestUrl : ''));
+    showDiag(msg, requestUrl);
+    renderPlaceholder();
   }
 
   function pageUrl(data, r) {
@@ -322,49 +342,65 @@
     return location.origin + ctx + webui;
   }
 
-  var configured = CONFIG.MODE === 'label' ? !!CONFIG.LABEL : !!CONFIG.ANCESTOR_PAGE_ID;
-  if (!configured) { useFallback(CONFIG.MODE === 'label' ? 'не задана метка (LABEL).' : 'не задан ID страницы (ANCESTOR_PAGE_ID).'); return; }
-  if (!window.fetch) { useFallback('браузер не поддерживает запросы (fetch).'); return; }
+  // Составной фильтр: страница лежит под ANCESTOR_PAGE_ID И имеет метку LABEL.
+  function buildCql() {
+    var c = 'ancestor=' + CONFIG.ANCESTOR_PAGE_ID + ' AND label="' + CONFIG.LABEL.replace(/"/g, '') + '" AND type=page';
+    if (CONFIG.SPACE_KEY) c += ' AND space="' + CONFIG.SPACE_KEY + '"';
+    return c + ' ORDER BY created DESC';
+  }
 
-  skeleton();
-  var ctx0 = (window.AJS && AJS.contextPath && AJS.contextPath()) || '';
-  var url = ctx0 + '/rest/api/content/search?cql=' + encodeURIComponent(buildCql()) + '&limit=' + CONFIG.LIMIT + '&expand=history,metadata.labels';
-  var ctl = window.AbortController ? new AbortController() : null;
-  var timedOut = false;
-  var timer = setTimeout(function () { timedOut = true; if (ctl) ctl.abort(); }, 8000);
+  try {
+    renderPlaceholder();                       // сразу есть что показать
+    if (!CONFIG.ANCESTOR_PAGE_ID) { fail('ID страницы не задан (ANCESTOR_PAGE_ID).'); return; }
+    if (!CONFIG.LABEL) { fail('метка не задана (LABEL).'); return; }
+    if (!window.fetch) { fail('браузер не поддерживает запросы (fetch).'); return; }
 
-  fetch(url, { credentials: 'same-origin', headers: { 'Accept': 'application/json' }, signal: ctl ? ctl.signal : undefined })
-    .then(function (res) {
-      if (!res.ok) {
-        var e = new Error('http'); e.status = res.status; throw e;
-      }
-      return res.json();
-    })
-    .then(function (data) {
-      clearTimeout(timer);
-      var items = (data.results || []).map(function (r) {
-        var labels = (r.metadata && r.metadata.labels && r.metadata.labels.results) || [];
-        // на карточке показываем первую метку, кроме той, по которой идёт отбор
-        var tagLabel = labels.filter(function (l) { return l.name !== CONFIG.LABEL; })[0];
-        return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate, tag: tagLabel && tagLabel.name };
-      });
-      if (!items.length) {
-        useFallback(CONFIG.MODE === 'label' ? 'практик не найдено (страниц с меткой «' + CONFIG.LABEL + '» нет или нет доступа).'
-          : 'практик не найдено (под страницей ' + CONFIG.ANCESTOR_PAGE_ID + ' нет дочерних страниц или нет доступа к ним).');
-        return;
-      }
-      setDiag('загружено практик: ' + items.length + '.');
-      render(items);
-    })
-    .catch(function (e) {
-      clearTimeout(timer);
-      var msg;
-      if (e && e.status) msg = 'запрос вернул ошибку ' + e.status + (e.status === 401 || e.status === 403 ? ' (нет доступа — войдите в Confluence или проверьте права на страницу)' : e.status === 404 ? ' (не найден ресурс — проверьте ID и ключ пространства)' : '') + '.';
-      else if (timedOut) msg = 'запрос не ответил за 8 секунд.';
-      else if (e instanceof SyntaxError) msg = 'сервер вернул не данные, а другую страницу (возможно, нужно войти в систему заново).';
-      else msg = 'не удалось выполнить запрос (нет сети или его блокирует политика безопасности страницы).';
-      useFallback(msg);
-    });
+    // Адреса по очереди: сначала относительный, потом с context path Confluence (если он есть).
+    var path = '/rest/api/content/search?cql=' + encodeURIComponent(buildCql()) + '&limit=' + CONFIG.LIMIT + '&expand=history';
+    var ctx = (window.AJS && AJS.contextPath && AJS.contextPath()) || '';
+    var urls = [path];
+    if (ctx && ctx !== '/') urls.push(ctx.replace(/\/$/, '') + path);
+
+    skeleton();
+
+    var lastErr = null, lastUrl = urls[0];
+    (function attempt(i) {
+      lastUrl = urls[i];
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timedOut = false;
+      var timer = setTimeout(function () { timedOut = true; if (ctl) ctl.abort(); }, 8000);
+      fetch(urls[i], { credentials: 'same-origin', headers: { 'Accept': 'application/json' }, signal: ctl ? ctl.signal : undefined })
+        .then(function (res) {
+          if (!res.ok) { var e = new Error('http'); e.status = res.status; throw e; }
+          return res.json();
+        })
+        .then(function (data) {
+          clearTimeout(timer);
+          var items = (data.results || []).map(function (r) {
+            return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate };
+          });
+          if (!items.length) {
+            fail('практик не найдено (под страницей ' + CONFIG.ANCESTOR_PAGE_ID + ' нет страниц с меткой «' + CONFIG.LABEL + '» или нет доступа к ним).', decodeURIComponent(urls[i]));
+            return;
+          }
+          showDiag('загружено практик: ' + items.length + '.', decodeURIComponent(urls[i]));
+          renderCards(items);
+        })
+        .catch(function (e) {
+          clearTimeout(timer);
+          lastErr = { e: e, timedOut: timedOut };
+          if (i + 1 < urls.length) { attempt(i + 1); return; }      // пробуем адрес с context path
+          var msg;
+          if (e && e.status) msg = 'запрос вернул ошибку ' + e.status + (e.status === 401 || e.status === 403 ? ' (нет доступа — войдите в Confluence или проверьте права на страницу).' : e.status === 404 ? ' (ресурс не найден — проверьте ID страницы).' : '.');
+          else if (timedOut) msg = 'сервер не ответил за 8 секунд.';
+          else if (e instanceof SyntaxError) msg = 'сервер вернул не данные, а другую страницу (возможно, нужно заново войти в систему).';
+          else msg = 'не удалось связаться с сервером (нет сети или запрос блокирует политика безопасности страницы).';
+          fail(msg, decodeURIComponent(lastUrl));
+        });
+    })(0);
+  } catch (err) {
+    fail('внутренняя ошибка скрипта: ' + (err && err.message) + '.');
+  }
 })();
 </script>
 </div>
@@ -379,8 +415,9 @@
 .sm-curators .sm-curators__card{flex:1 1 0;min-width:0;display:flex;align-items:center;gap:16px;padding:20px;background:#fff;border:1px solid var(--sm-border);border-radius:var(--sm-radius);box-shadow:var(--sm-shadow-sm);
   opacity:0;animation:sm-cur-in .5s ease forwards;animation-delay:calc(var(--i) * 60ms);transition:transform .2s ease,box-shadow .2s ease}
 .sm-curators .sm-curators__card:hover{transform:translateY(-2px);box-shadow:var(--sm-shadow-md)}
-.sm-curators .sm-curators__avatar{flex:0 0 auto;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;letter-spacing:.02em;
-  background:linear-gradient(135deg,var(--sm-navy-dark),var(--sm-teal));box-shadow:0 4px 12px rgba(14,124,123,.3)}
+.sm-curators .sm-curators__avatar{flex:0 0 auto;overflow:hidden;width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;letter-spacing:.02em;
+  background:linear-gradient(135deg,var(--sm-navy-dark),var(--sm-teal));box-shadow:0 0 0 3px #fff,0 0 0 5px #35b8b3,0 4px 12px rgba(14,124,123,.3)}
+.sm-curators .sm-curators__avatar img{display:block;width:100%;height:100%;object-fit:cover}
 .sm-curators .sm-curators__info{min-width:0}
 .sm-curators .sm-curators__name{font-size:17px;font-weight:700;color:var(--sm-navy-dark)}
 .sm-curators .sm-curators__role{font-size:13.5px;color:var(--sm-muted);margin:2px 0 6px}
@@ -400,14 +437,14 @@
 (function () {
   var ROLE = 'Куратор раздела СМ';
   var CURATORS = [
-    { name: 'Решетняк Дмитрий Александрович', email: 'reshetnyak_da@power-m.ru' },
-    { name: 'Лунева Инна Максимовна', email: 'luneva_im@power-m.ru' }
+    { name: 'Решетняк Дмитрий Александрович', email: 'reshetnyak_da@power-m.ru', photo: 'data:image/jpeg;base64,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' },
+    { name: 'Лунева Инна Максимовна', email: 'luneva_im@power-m.ru', photo: 'data:image/jpeg;base64,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' }
   ];
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function initials(name) { var p = name.split(/\s+/); return ((p[0] || '').charAt(0) + (p[1] || '').charAt(0)).toUpperCase(); }
   var mail = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>';
   document.getElementById('sm-curators-list').innerHTML = CURATORS.map(function (c, i) {
-    return '<div class="sm-curators__card" style="--i:' + i + '"><div class="sm-curators__avatar" aria-hidden="true">' + esc(initials(c.name)) + '</div>' +
+    return '<div class="sm-curators__card" style="--i:' + i + '"><div class="sm-curators__avatar" aria-hidden="true">' + (c.photo ? '<img src="' + c.photo + '" alt="">' : esc(initials(c.name))) + '</div>' +
       '<div class="sm-curators__info"><div class="sm-curators__name">' + esc(c.name) + '</div><div class="sm-curators__role">' + ROLE + '</div>' +
       '<a class="sm-curators__mail" href="mailto:' + esc(c.email) + '" aria-label="Написать: ' + esc(c.name) + '">' + mail + esc(c.email) + '</a></div></div>';
   }).join('');
