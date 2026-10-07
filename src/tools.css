@@ -1,0 +1,117 @@
+.sm-tools{--sm-navy:#1a2a5e;--sm-text:#1a1a2e;--sm-muted:#4b5563;--sm-bg:#f2f1ed;--sm-white:#fff;--sm-radius:16px;--sm-shadow-sm:0 1px 3px rgba(26,42,94,.08),0 1px 2px rgba(26,42,94,.06);
+  display:block;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text);
+  word-break:normal;overflow-wrap:normal;hyphens:manual;text-wrap:balance}
+.sm-tools *,.sm-tools *::before,.sm-tools *::after{box-sizing:border-box}
+.sm-tools__wrap{container-type:inline-size;container-name:smtools;display:block}
+.sm-tools :focus-visible{outline:3px solid #f5a623 !important;outline-offset:3px}
+
+/* Шапка */
+.sm-tools h2.sm-tools__title{margin:0 0 6px !important;padding:0 !important;font-size:26px;font-weight:800;color:#1a2a5e !important;line-height:1.2;border:0}
+.sm-tools p.sm-tools__lead{margin:0 0 22px !important;padding:0 !important;font-size:15px;color:#4b5563 !important;line-height:1.5}
+.sm-tools p.sm-tools__empty{margin:0 !important;padding:16px 0 !important;font-size:15px;color:#4b5563 !important}
+
+/* Группа и цвета раздела */
+.sm-tools__group{--g1:#0a5f5e;--g2:#1aa7a3;--accent:#008290;--accent-text:#0a5f5e;--glass:#eefafa;--tint:rgba(26,167,163,.12);--halo:rgba(14,124,123,.22);--halo2:rgba(14,124,123,.36);--i1:rgba(10,95,94,.16);--i2:rgba(26,167,163,.16);--ibd:rgba(14,124,123,.35);--h1:#0a5f5e;--h2:#0e7c7b;margin:0 0 28px}
+/* Шаблоны будущих разделов (раскомментировать вместе с разметкой в JS):
+.sm-tools__group--production{--g1:#00388D;--g2:#2b4fa8;--accent:#00388D;--accent-text:#00388D;--glass:#eef3fb;--tint:rgba(43,79,168,.12);--halo:rgba(0,56,141,.20);--halo2:rgba(0,56,141,.34);--i1:rgba(0,56,141,.14);--i2:rgba(43,79,168,.16);--ibd:rgba(0,56,141,.35);--h1:#00388D;--h2:#2b4fa8}
+.sm-tools__group--engineering{--g1:#00ADBA;--g2:#0d7a86;--accent:#0d7a86;--accent-text:#0b6772;--glass:#eefafb;--tint:rgba(0,173,186,.12);--halo:rgba(13,122,134,.22);--halo2:rgba(13,122,134,.36);--i1:rgba(0,173,186,.14);--i2:rgba(13,122,134,.16);--ibd:rgba(13,122,134,.35);--h1:#0b6772;--h2:#0d7a86}
+.sm-tools__group--bs{--g1:#1d5a86;--g2:#0e7c7b;--accent:#1d5a86;--accent-text:#1d5a86;--glass:#eef5f9;--tint:rgba(14,124,123,.12);--halo:rgba(29,90,134,.20);--halo2:rgba(29,90,134,.34);--i1:rgba(29,90,134,.14);--i2:rgba(14,124,123,.16);--ibd:rgba(29,90,134,.35);--h1:#1d5a86;--h2:#0e7c7b}
+*/
+.sm-tools h3.sm-tools__sub{display:flex;align-items:center;gap:10px;margin:0 0 14px !important;padding:0 !important;font-size:18px;font-weight:700;color:var(--accent-text) !important;border:0;line-height:1.3}
+.sm-tools h3.sm-tools__sub::before{content:"";flex:none;width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--g2),var(--g1))}
+
+/* Сетка (мобильная раскладка по умолчанию: всё в одну колонку) */
+.sm-tools__grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;grid-auto-flow:dense;grid-auto-rows:minmax(116px,auto);margin:0 !important;padding:0 !important}
+.sm-tools__tile{grid-column:span 12;grid-row:span 1}
+
+/* Плитка */
+.sm-tools__tile{position:relative;display:flex;flex-direction:column;justify-content:center;min-width:0;border:1.5px solid transparent;border-radius:16px;
+  background:linear-gradient(135deg,#fff 0%,var(--glass) 100%) padding-box,linear-gradient(135deg,var(--g1),var(--g2)) border-box;
+  box-shadow:0 6px 22px var(--halo);transition:transform .2s ease,box-shadow .25s ease;animation:sm-tools-in .5s ease backwards;animation-delay:calc(var(--i) * 60ms)}
+.sm-tools__tile:hover,.sm-tools__tile.is-open{transform:translateY(-3px);box-shadow:0 10px 30px var(--halo2)}
+.sm-tools__fx{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.sm-tools__fx::before{content:"";position:absolute;top:-40px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,var(--tint),transparent 70%)}
+@keyframes sm-tools-in{from{opacity:0;transform:translateY(8px)}}
+
+/* Заголовок плитки */
+.sm-tools button.sm-tools__head{position:relative;z-index:1;flex:0 0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"icon body end";align-items:center;gap:14px;width:100%;margin:0;padding:18px 20px;
+  border:0;border-radius:16px;background:none;box-shadow:none;font:inherit;color:inherit !important;text-align:left;text-transform:none;letter-spacing:normal;cursor:pointer;-webkit-appearance:none;appearance:none}
+.sm-tools__soon-head{position:relative;z-index:1;flex:1 1 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"icon body end";align-items:center;gap:14px;padding:18px 20px}
+.sm-tools__icon{grid-area:icon;position:relative;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--i1),var(--i2));border:1px solid var(--ibd);color:var(--accent);transition:color .2s ease}
+.sm-tools__icon::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,var(--h1),var(--h2));opacity:0;transition:opacity .2s ease}
+.sm-tools__icon svg{position:relative;display:block;width:26px;height:26px}
+.sm-tools__tile:hover .sm-tools__icon,.sm-tools__tile.is-open .sm-tools__icon{color:#fff}
+.sm-tools__tile:hover .sm-tools__icon::before,.sm-tools__tile.is-open .sm-tools__icon::before{opacity:1}
+.sm-tools__body{grid-area:body;display:block;min-width:0}
+.sm-tools__name{display:block;font-size:19px;font-weight:700;line-height:1.25;color:var(--accent-text) !important}
+.sm-tools__hint{display:block;margin-top:3px;font-size:14px;font-weight:400;line-height:1.3;color:var(--sm-muted) !important}
+.sm-tools__chev{grid-area:end;display:flex;color:var(--accent);transition:transform .25s ease}
+.sm-tools__chev svg{display:block;width:22px;height:22px}
+.sm-tools__tile.is-open .sm-tools__chev{transform:rotate(180deg)}
+
+/* Раскрывающаяся панель внутри плитки */
+.sm-tools__panel{position:relative;z-index:1;display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .25s ease,visibility 0s linear .25s}
+.sm-tools__tile.is-open .sm-tools__panel{grid-template-rows:1fr;visibility:visible;transition-delay:0s}
+.sm-tools__panel-in{min-height:0;overflow:hidden}
+.sm-tools ul.sm-tools__list{list-style:none !important;margin:0 !important;padding:0 14px 14px !important}
+.sm-tools ul.sm-tools__list li{list-style:none !important;margin:0 !important;padding:0 !important}
+.sm-tools ul.sm-tools__list li::before,.sm-tools ul.sm-tools__list li::marker{content:none}
+.sm-tools ul.sm-tools__list li + li{margin-top:2px !important}
+.sm-tools a.sm-tools__link{display:flex;align-items:center;gap:10px;margin:0 !important;padding:10px 12px !important;border-radius:10px;font-size:15px;font-weight:600;line-height:1.3;
+  color:#1a2a5e !important;text-decoration:none !important;background:none;border:0;transition:background-color .15s ease,color .15s ease}
+.sm-tools a.sm-tools__link:hover,.sm-tools a.sm-tools__link:focus-visible{background:#e6f4f3;color:#0a5f5e !important;text-decoration:none !important}
+.sm-tools a.sm-tools__link:visited{color:#1a2a5e !important}
+.sm-tools a.sm-tools__link:hover:visited,.sm-tools a.sm-tools__link:focus-visible:visited{color:#0a5f5e !important}
+.sm-tools a.sm-tools__link > span{flex:1 1 auto;min-width:0}
+.sm-tools a.sm-tools__link svg{flex:none;display:block}
+.sm-tools a.sm-tools__link .sm-tools__ic-map{width:20px;height:20px;color:var(--accent)}
+.sm-tools a.sm-tools__link .sm-tools__ic-arrow{width:18px;height:18px}
+
+/* Плитка «Скоро» */
+.sm-tools__tile.is-soon{border-color:#cfe3e2;background:linear-gradient(135deg,#fff 0%,#f6fafa 100%);box-shadow:none}
+.sm-tools__tile.is-soon:hover{transform:none;box-shadow:none}
+.sm-tools__tile.is-soon .sm-tools__fx{display:none}
+.sm-tools__tile.is-soon .sm-tools__icon{background:#f1f6f6;border-color:#d9e8e7;color:#7aa3a2}
+.sm-tools__tile.is-soon:hover .sm-tools__icon{color:#7aa3a2}
+.sm-tools__tile.is-soon:hover .sm-tools__icon::before{opacity:0}
+.sm-tools__tile.is-soon .sm-tools__name{color:#4b5563 !important}
+.sm-tools__badge{grid-area:end;align-self:start;display:inline-block;padding:3px 10px;border-radius:999px;background:#e6f4f3;color:#0a5f5e;font-size:12px;font-weight:700;line-height:1.3;white-space:nowrap}
+
+/* Единственная плитка: горизонтальная на всю ширину */
+.sm-tools__tile.is-solo{grid-column:span 12;grid-row:span 1}
+
+/* Раскладка по ширине КОНТЕЙНЕРА */
+@container smtools (min-width:700px){
+  .sm-tools__tile.is-l{grid-column:span 12}
+  .sm-tools__tile.is-m,.sm-tools__tile.is-s{grid-column:span 6}
+  .sm-tools__tile.is-w{grid-column:span 12}
+  .sm-tools__tile.is-solo{grid-column:span 12}
+}
+@container smtools (min-width:1000px){
+  .sm-tools__tile.is-l{grid-column:span 6;grid-row:span 2}
+  .sm-tools__tile.is-m{grid-column:span 4}
+  .sm-tools__tile.is-s{grid-column:span 3}
+  .sm-tools__tile.is-solo{grid-column:span 12;grid-row:span 1}
+  .sm-tools__tile.is-s:not(.is-solo) .sm-tools__head,.sm-tools__tile.is-s:not(.is-solo) .sm-tools__soon-head{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"icon end" "body body";align-items:start;row-gap:12px}
+  .sm-tools__tile.is-s:not(.is-solo) .sm-tools__icon{justify-self:start}
+}
+@supports not (container-type:inline-size){
+  @media (min-width:700px){
+    .sm-tools__tile.is-l{grid-column:span 12}
+    .sm-tools__tile.is-m,.sm-tools__tile.is-s{grid-column:span 6}
+    .sm-tools__tile.is-w{grid-column:span 12}
+    .sm-tools__tile.is-solo{grid-column:span 12}
+  }
+  @media (min-width:1000px){
+    .sm-tools__tile.is-l{grid-column:span 6;grid-row:span 2}
+    .sm-tools__tile.is-m{grid-column:span 4}
+    .sm-tools__tile.is-s{grid-column:span 3}
+    .sm-tools__tile.is-solo{grid-column:span 12;grid-row:span 1}
+    .sm-tools__tile.is-s:not(.is-solo) .sm-tools__head,.sm-tools__tile.is-s:not(.is-solo) .sm-tools__soon-head{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"icon end" "body body";align-items:start;row-gap:12px}
+    .sm-tools__tile.is-s:not(.is-solo) .sm-tools__icon{justify-self:start}
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sm-tools *,.sm-tools *::before,.sm-tools *::after{animation:none !important;transition:none !important}
+}
