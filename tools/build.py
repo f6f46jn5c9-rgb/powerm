@@ -13,3 +13,17 @@ order = [parts['01-logo'], ph('[нативный макрос] Поиск по �
 html = '<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Превью стартовой страницы СМ</title><style>body{margin:0;background:#f2f1ed;font-family:sans-serif}.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 60px;display:flex;flex-direction:column;gap:32px}.ph{background:#d9dbe0;color:#555;border-radius:12px;padding:14px;text-align:center;font-size:14px}@media(max-width:640px){.wrap{padding:16px}}</style></head><body><main class="wrap">' + '\n'.join(f'<div>{o}</div>' if not o.startswith('<div class="ph"') else o for o in order) + '</main></body></html>'
 (R/'dist/preview.html').write_text(html)
 (R/'preview.html').write_text(html)
+
+# --- Страница «Цифровой инструментарий» (src/tools.*) -> dist/01-instrumentarii.html ---
+def build_instrumentarii():
+    css = (R/'src/tools.css').read_text().strip()
+    html = (R/'src/tools.html').read_text().strip()
+    js = (R/'src/tools.js').read_text().strip()
+    block = f'<style>\n{css}\n</style>\n{html}\n<script>\n{js}\n</script>\n'
+    (R/'dist/01-instrumentarii.html').write_text(block)
+    prev = ('<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+            '<title>Превью: Цифровой инструментарий</title><style>body{margin:0;background:#f2f1ed}.col{width:960px;max-width:100%;margin:0 auto;padding:24px 0 60px}</style></head>'
+            '<body><div class="col">' + block + '</div></body></html>')
+    (R/'preview-instrumentarii.html').write_text(prev)
+
+build_instrumentarii()

@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Превью: Цифровой инструментарий</title><style>body{margin:0;background:#f2f1ed}.col{width:960px;max-width:100%;margin:0 auto;padding:24px 0 60px}</style></head><body><div class="col"><style>
+.sm-tools{--sm-navy:#1a2a5e;--sm-text:#1a1a2e;--sm-muted:#4b5563;--sm-bg:#f2f1ed;--sm-white:#fff;--sm-radius:16px;--sm-shadow-sm:0 1px 3px rgba(26,42,94,.08),0 1px 2px rgba(26,42,94,.06);
+  display:block;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text);
+  word-break:normal;overflow-wrap:normal;hyphens:manual;text-wrap:balance}
+.sm-tools *,.sm-tools *::before,.sm-tools *::after{box-sizing:border-box}
+.sm-tools__wrap{container-type:inline-size;container-name:smtools;display:block}
+.sm-tools :focus-visible{outline:3px solid #f5a623 !important;outline-offset:3px}
+
+/* Шапка */
+.sm-tools h2.sm-tools__title{margin:0 0 6px !important;padding:0 !important;font-size:26px;font-weight:800;color:#1a2a5e !important;line-height:1.2;border:0}
+.sm-tools p.sm-tools__lead{margin:0 0 22px !important;padding:0 !important;font-size:15px;color:#4b5563 !important;line-height:1.5}
+.sm-tools p.sm-tools__empty{margin:0 !important;padding:16px 0 !important;font-size:15px;color:#4b5563 !important}
+
+/* Группа и цвета раздела */
+.sm-tools__group{--g1:#0a5f5e;--g2:#1aa7a3;--accent:#008290;--accent-text:#0a5f5e;--glass:#eefafa;--tint:rgba(26,167,163,.12);--halo:rgba(14,124,123,.22);--halo2:rgba(14,124,123,.36);--i1:rgba(10,95,94,.16);--i2:rgba(26,167,163,.16);--ibd:rgba(14,124,123,.35);--h1:#0a5f5e;--h2:#0e7c7b;margin:0 0 28px}
+/* Шаблоны будущих разделов (раскомментировать вместе с разметкой в JS):
+.sm-tools__group--production{--g1:#00388D;--g2:#2b4fa8;--accent:#00388D;--accent-text:#00388D;--glass:#eef3fb;--tint:rgba(43,79,168,.12);--halo:rgba(0,56,141,.20);--halo2:rgba(0,56,141,.34);--i1:rgba(0,56,141,.14);--i2:rgba(43,79,168,.16);--ibd:rgba(0,56,141,.35);--h1:#00388D;--h2:#2b4fa8}
+.sm-tools__group--engineering{--g1:#00ADBA;--g2:#0d7a86;--accent:#0d7a86;--accent-text:#0b6772;--glass:#eefafb;--tint:rgba(0,173,186,.12);--halo:rgba(13,122,134,.22);--halo2:rgba(13,122,134,.36);--i1:rgba(0,173,186,.14);--i2:rgba(13,122,134,.16);--ibd:rgba(13,122,134,.35);--h1:#0b6772;--h2:#0d7a86}
+.sm-tools__group--bs{--g1:#1d5a86;--g2:#0e7c7b;--accent:#1d5a86;--accent-text:#1d5a86;--glass:#eef5f9;--tint:rgba(14,124,123,.12);--halo:rgba(29,90,134,.20);--halo2:rgba(29,90,134,.34);--i1:rgba(29,90,134,.14);--i2:rgba(14,124,123,.16);--ibd:rgba(29,90,134,.35);--h1:#1d5a86;--h2:#0e7c7b}
+*/
+.sm-tools h3.sm-tools__sub{display:flex;align-items:center;gap:10px;margin:0 0 14px !important;padding:0 !important;font-size:18px;font-weight:700;color:var(--accent-text) !important;border:0;line-height:1.3}
+.sm-tools h3.sm-tools__sub::before{content:"";flex:none;width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--g2),var(--g1))}
+
+/* Сетка (мобильная раскладка по умолчанию: всё в одну колонку) */
+.sm-tools__grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;grid-auto-flow:dense;grid-auto-rows:minmax(116px,auto);margin:0 !important;padding:0 !important}
+.sm-tools__tile{grid-column:span 12;grid-row:span 1}
+
+/* Плитка */
+.sm-tools__tile{position:relative;display:flex;flex-direction:column;justify-content:center;min-width:0;border:1.5px solid transparent;border-radius:16px;
+  background:linear-gradient(135deg,#fff 0%,var(--glass) 100%) padding-box,linear-gradient(135deg,var(--g1),var(--g2)) border-box;
+  box-shadow:0 6px 22px var(--halo);transition:transform .2s ease,box-shadow .25s ease;animation:sm-tools-in .5s ease backwards;animation-delay:calc(var(--i) * 60ms)}
+.sm-tools__tile:hover,.sm-tools__tile.is-open{transform:translateY(-3px);box-shadow:0 10px 30px var(--halo2)}
+.sm-tools__fx{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.sm-tools__fx::before{content:"";position:absolute;top:-40px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,var(--tint),transparent 70%)}
+@keyframes sm-tools-in{from{opacity:0;transform:translateY(8px)}}
+
+/* Заголовок плитки */
+.sm-tools button.sm-tools__head{position:relative;z-index:1;flex:0 0 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"icon body end";align-items:center;gap:14px;width:100%;margin:0;padding:18px 20px;
+  border:0;border-radius:16px;background:none;box-shadow:none;font:inherit;color:inherit !important;text-align:left;text-transform:none;letter-spacing:normal;cursor:pointer;-webkit-appearance:none;appearance:none}
+.sm-tools__soon-head{position:relative;z-index:1;flex:1 1 auto;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"icon body end";align-items:center;gap:14px;padding:18px 20px}
+.sm-tools__icon{grid-area:icon;position:relative;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--i1),var(--i2));border:1px solid var(--ibd);color:var(--accent);transition:color .2s ease}
+.sm-tools__icon::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,var(--h1),var(--h2));opacity:0;transition:opacity .2s ease}
+.sm-tools__icon svg{position:relative;display:block;width:26px;height:26px}
+.sm-tools__tile:hover .sm-tools__icon,.sm-tools__tile.is-open .sm-tools__icon{color:#fff}
+.sm-tools__tile:hover .sm-tools__icon::before,.sm-tools__tile.is-open .sm-tools__icon::before{opacity:1}
+.sm-tools__body{grid-area:body;display:block;min-width:0}
+.sm-tools__name{display:block;font-size:19px;font-weight:700;line-height:1.25;color:var(--accent-text) !important}
+.sm-tools__hint{display:block;margin-top:3px;font-size:14px;font-weight:400;line-height:1.3;color:var(--sm-muted) !important}
+.sm-tools__chev{grid-area:end;display:flex;color:var(--accent);transition:transform .25s ease}
+.sm-tools__chev svg{display:block;width:22px;height:22px}
+.sm-tools__tile.is-open .sm-tools__chev{transform:rotate(180deg)}
+
+/* Раскрывающаяся панель внутри плитки */
+.sm-tools__panel{position:relative;z-index:1;display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .25s ease,visibility 0s linear .25s}
+.sm-tools__tile.is-open .sm-tools__panel{grid-template-rows:1fr;visibility:visible;transition-delay:0s}
+.sm-tools__panel-in{min-height:0;overflow:hidden}
+.sm-tools ul.sm-tools__list{list-style:none !important;margin:0 !important;padding:0 14px 14px !important}
+.sm-tools ul.sm-tools__list li{list-style:none !important;margin:0 !important;padding:0 !important}
+.sm-tools ul.sm-tools__list li::before,.sm-tools ul.sm-tools__list li::marker{content:none}
+.sm-tools ul.sm-tools__list li + li{margin-top:2px !important}
+.sm-tools a.sm-tools__link{display:flex;align-items:center;gap:10px;margin:0 !important;padding:10px 12px !important;border-radius:10px;font-size:15px;font-weight:600;line-height:1.3;
+  color:#1a2a5e !important;text-decoration:none !important;background:none;border:0;transition:background-color .15s ease,color .15s ease}
+.sm-tools a.sm-tools__link:hover,.sm-tools a.sm-tools__link:focus-visible{background:#e6f4f3;color:#0a5f5e !important;text-decoration:none !important}
+.sm-tools a.sm-tools__link:visited{color:#1a2a5e !important}
+.sm-tools a.sm-tools__link:hover:visited,.sm-tools a.sm-tools__link:focus-visible:visited{color:#0a5f5e !important}
+.sm-tools a.sm-tools__link > span{flex:1 1 auto;min-width:0}
+.sm-tools a.sm-tools__link svg{flex:none;display:block}
+.sm-tools a.sm-tools__link .sm-tools__ic-map{width:20px;height:20px;color:var(--accent)}
+.sm-tools a.sm-tools__link .sm-tools__ic-arrow{width:18px;height:18px}
+
+/* Плитка «Скоро» */
+.sm-tools__tile.is-soon{border-color:#cfe3e2;background:linear-gradient(135deg,#fff 0%,#f6fafa 100%);box-shadow:none}
+.sm-tools__tile.is-soon:hover{transform:none;box-shadow:none}
+.sm-tools__tile.is-soon .sm-tools__fx{display:none}
+.sm-tools__tile.is-soon .sm-tools__icon{background:#f1f6f6;border-color:#d9e8e7;color:#7aa3a2}
+.sm-tools__tile.is-soon:hover .sm-tools__icon{color:#7aa3a2}
+.sm-tools__tile.is-soon:hover .sm-tools__icon::before{opacity:0}
+.sm-tools__tile.is-soon .sm-tools__name{color:#4b5563 !important}
+.sm-tools__badge{grid-area:end;align-self:start;display:inline-block;padding:3px 10px;border-radius:999px;background:#e6f4f3;color:#0a5f5e;font-size:12px;font-weight:700;line-height:1.3;white-space:nowrap}
+
+/* Единственная плитка: горизонтальная на всю ширину */
+.sm-tools__tile.is-solo{grid-column:span 12;grid-row:span 1}
+
+/* Раскладка по ширине КОНТЕЙНЕРА */
+@container smtools (min-width:700px){
+  .sm-tools__tile.is-l{grid-column:span 12}
+  .sm-tools__tile.is-m,.sm-tools__tile.is-s{grid-column:span 6}
+  .sm-tools__tile.is-w{grid-column:span 12}
+  .sm-tools__tile.is-solo{grid-column:span 12}
+}
+@container smtools (min-width:1000px){
+  .sm-tools__tile.is-l{grid-column:span 6;grid-row:span 2}
+  .sm-tools__tile.is-m{grid-column:span 4}
+  .sm-tools__tile.is-s{grid-column:span 3}
+  .sm-tools__tile.is-solo{grid-column:span 12;grid-row:span 1}
+  .sm-tools__tile.is-s:not(.is-solo) .sm-tools__head,.sm-tools__tile.is-s:not(.is-solo) .sm-tools__soon-head{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"icon end" "body body";align-items:start;row-gap:12px}
+  .sm-tools__tile.is-s:not(.is-solo) .sm-tools__icon{justify-self:start}
+}
+@supports not (container-type:inline-size){
+  @media (min-width:700px){
+    .sm-tools__tile.is-l{grid-column:span 12}
+    .sm-tools__tile.is-m,.sm-tools__tile.is-s{grid-column:span 6}
+    .sm-tools__tile.is-w{grid-column:span 12}
+    .sm-tools__tile.is-solo{grid-column:span 12}
+  }
+  @media (min-width:1000px){
+    .sm-tools__tile.is-l{grid-column:span 6;grid-row:span 2}
+    .sm-tools__tile.is-m{grid-column:span 4}
+    .sm-tools__tile.is-s{grid-column:span 3}
+    .sm-tools__tile.is-solo{grid-column:span 12;grid-row:span 1}
+    .sm-tools__tile.is-s:not(.is-solo) .sm-tools__head,.sm-tools__tile.is-s:not(.is-solo) .sm-tools__soon-head{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"icon end" "body body";align-items:start;row-gap:12px}
+    .sm-tools__tile.is-s:not(.is-solo) .sm-tools__icon{justify-self:start}
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sm-tools *,.sm-tools *::before,.sm-tools *::after{animation:none !important;transition:none !important}
+}
+</style>
+<div class="sm-tools" data-sm-tools>
+  <div class="sm-tools__wrap">
+    <h2 class="sm-tools__title">Цифровой инструментарий</h2>
+    <p class="sm-tools__lead">Интерактивные HTML-инструменты для решения рабочих задач, визуализации данных и экономии времени.</p>
+    <div class="sm-tools__groups" data-sm-tools-mount></div>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+
+  /* ============================================================
+     НАСТРОЙКИ КАТАЛОГА (здесь добавляются плитки и инструменты)
+     ============================================================ */
+
+  // true — показать ещё и скрытые плитки со значком «Скоро» (для просмотра полной раскладки)
+  var SHOW_HIDDEN = false;
+
+  // size: 'l' — большая, 'm' — средняя, 's' — малая, 'w' — на всю ширину
+  // hidden: true — плитка не показывается; false — показывается
+  // links: список инструментов плитки. Одна строка = один инструмент:
+  //        {name:'Название инструмента', url:'https://...'}
+  var GROUPS = [
+    { id: 'support', title: 'Обеспечивающие функции', cls: 'support', tiles: [
+      { id: 'ot', title: 'Охрана труда', icon: 'shield', size: 'l', hidden: false, links: [
+        { name: 'Интерактивная карта цеха по зонам и опасным факторам', url: 'https://kb.severstal.com/spaces/BSS/pages/575668860/%D0%9A%D0%B0%D1%80%D1%82%D0%B0+%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8+%D1%83%D1%87%D0%B0%D1%81%D1%82%D0%BA%D0%B0' }
+      ] },
+      { id: 'zakupki', title: 'Закупки, логистика, склад', icon: 'cart',  size: 's', hidden: true, links: [] },
+      { id: 'sbyt',    title: 'Сбыт',                      icon: 'trend', size: 's', hidden: true, links: [] },
+      { id: 'it',      title: 'IT',                        icon: 'code',  size: 's', hidden: true, links: [] },
+      { id: 'hr',      title: 'HR и обучение',             icon: 'users', size: 's', hidden: true, links: [] },
+      { id: 'fin',     title: 'Финансы и экономика',       icon: 'coins', size: 'w', hidden: true, links: [] }
+    ] }
+  ];
+
+  /* ============================================================
+     Ниже менять ничего не нужно
+     ============================================================ */
+
+  var ICONS = {
+    shield: '<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+    cart: '<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20 7H6"/>',
+    code: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M9.5 8.5L7 10.5l2.5 2M14.5 8.5l2.5 2-2.5 2"/>',
+    users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    trend: '<polyline points="3 17 9 11 13 15 21 5"/><polyline points="14 5 21 5 21 12"/>',
+    coins: '<circle cx="12" cy="12" r="9"/><path d="M14.5 9a3 3 0 0 0-5 1.5c0 3 5 2 5 5a3 3 0 0 1-5 1.5M12 6.5v1.5M12 16v1.5"/>',
+    map: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+    chevron: '<polyline points="6 9 12 15 18 9"/>',
+    arrow: '<path d="M4 12h15"/><path d="M14 7l5 5-5 5"/>'
+  };
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var SIZES = { l: 1, m: 1, s: 1, w: 1 };
+
+  function svg(key, size, cls) {
+    var s = document.createElementNS(SVGNS, 'svg');
+    s.setAttribute('viewBox', '0 0 24 24');
+    s.setAttribute('width', size);
+    s.setAttribute('height', size);
+    s.setAttribute('fill', 'none');
+    s.setAttribute('stroke', 'currentColor');
+    s.setAttribute('stroke-width', '1.8');
+    s.setAttribute('stroke-linecap', 'round');
+    s.setAttribute('stroke-linejoin', 'round');
+    s.setAttribute('aria-hidden', 'true');
+    s.setAttribute('focusable', 'false');
+    if (cls) { s.setAttribute('class', cls); }
+    s.innerHTML = ICONS[key] || '';
+    return s;
+  }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) { e.className = cls; }
+    if (text != null) { e.textContent = text; }
+    return e;
+  }
+
+  function isVisible(t) { return SHOW_HIDDEN || !t.hidden; }
+  function isSoon(t) { return t.hidden || !t.links || !t.links.length; }
+
+  function buildTile(t, idx, solo, reg) {
+    var size = SIZES[t.size] ? t.size : 's';
+    var tile = el('article', 'sm-tools__tile is-' + size + (solo ? ' is-solo' : ''));
+    tile.style.setProperty('--i', idx);
+    tile.setAttribute('data-id', t.id);
+    var fx = el('span', 'sm-tools__fx');
+    fx.setAttribute('aria-hidden', 'true');
+    tile.appendChild(fx);
+
+    var icon = el('span', 'sm-tools__icon');
+    icon.appendChild(svg(t.icon, 26));
+
+    if (isSoon(t)) {
+      tile.className += ' is-soon';
+      tile.setAttribute('aria-disabled', 'true');
+      var sh = el('div', 'sm-tools__soon-head');
+      var sb = el('span', 'sm-tools__body');
+      sb.appendChild(el('span', 'sm-tools__name', t.title));
+      sh.appendChild(icon);
+      sh.appendChild(sb);
+      sh.appendChild(el('span', 'sm-tools__badge', 'Скоро'));
+      tile.appendChild(sh);
+      return tile;
+    }
+
+    var pid = 'sm-tools-panel-' + t.id;
+    var btn = el('button', 'sm-tools__head');
+    btn.type = 'button';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', pid);
+    var body = el('span', 'sm-tools__body');
+    body.appendChild(el('span', 'sm-tools__name', t.title));
+    body.appendChild(el('span', 'sm-tools__hint', 'Инструментов: ' + t.links.length));
+    var chev = el('span', 'sm-tools__chev');
+    chev.setAttribute('aria-hidden', 'true');
+    chev.appendChild(svg('chevron', 22));
+    btn.appendChild(icon);
+    btn.appendChild(body);
+    btn.appendChild(chev);
+    tile.appendChild(btn);
+
+    var panel = el('div', 'sm-tools__panel');
+    panel.id = pid;
+    panel.setAttribute('role', 'region');
+    panel.setAttribute('aria-label', 'Инструменты: ' + t.title);
+    var inner = el('div', 'sm-tools__panel-in');
+    var ul = el('ul', 'sm-tools__list');
+    t.links.forEach(function (l) {
+      var li = el('li');
+      var a = el('a', 'sm-tools__link');
+      a.href = l.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.setAttribute('aria-label', l.name + ', откроется в новой вкладке');
+      a.appendChild(svg('map', 20, 'sm-tools__ic-map'));
+      a.appendChild(el('span', null, l.name));
+      a.appendChild(svg('arrow', 18, 'sm-tools__ic-arrow'));
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    inner.appendChild(ul);
+    panel.appendChild(inner);
+    tile.appendChild(panel);
+    reg.push({ tile: tile, btn: btn });
+    return tile;
+  }
+
+  function init(root) {
+    var mount = root.querySelector('[data-sm-tools-mount]');
+    if (!mount || mount.getAttribute('data-ready')) { return; }
+    mount.setAttribute('data-ready', '1');
+    var reg = [];
+    var shown = 0;
+
+    GROUPS.forEach(function (g) {
+      var vis = g.tiles.filter(isVisible);
+      if (!vis.length) { return; }
+      shown++;
+      var group = el('section', 'sm-tools__group sm-tools__group--' + g.cls);
+      var hid = 'sm-tools-group-' + g.id;
+      var h3 = el('h3', 'sm-tools__sub', g.title);
+      h3.id = hid;
+      group.setAttribute('aria-labelledby', hid);
+      group.appendChild(h3);
+      var grid = el('div', 'sm-tools__grid');
+      vis.forEach(function (t, i) { grid.appendChild(buildTile(t, i, vis.length === 1, reg)); });
+      group.appendChild(grid);
+      mount.appendChild(group);
+    });
+
+    if (!shown) {
+      mount.appendChild(el('p', 'sm-tools__empty', 'Инструменты скоро появятся'));
+      return;
+    }
+
+    var hoverMq = window.matchMedia ? window.matchMedia('(hover:hover) and (pointer:fine)') : null;
+    function canHover() { return !!(hoverMq && hoverMq.matches); }
+
+    function setOpen(r, on) {
+      if (r.tile.classList.contains('is-open') === on) { return; }
+      r.tile.classList.toggle('is-open', on);
+      r.btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    }
+
+    reg.forEach(function (r) {
+      r.btn.addEventListener('click', function () {
+        // мышь: плитка уже раскрыта наведением — первый клик её закрепляет, а не закрывает
+        if (r.byHover) { r.byHover = false; setOpen(r, true); return; }
+        setOpen(r, !r.tile.classList.contains('is-open'));
+      });
+      r.tile.addEventListener('mouseenter', function () {
+        if (!canHover()) { return; }
+        if (!r.tile.classList.contains('is-open')) { r.byHover = true; }
+        setOpen(r, true);
+      });
+      r.tile.addEventListener('mouseleave', function () {
+        r.byHover = false;
+        if (canHover() && !r.tile.contains(document.activeElement)) { setOpen(r, false); }
+      });
+      r.tile.addEventListener('focusout', function (e) {
+        var to = e.relatedTarget;
+        if (to && r.tile.contains(to)) { return; }
+        if (canHover() && r.tile.matches(':hover')) { return; }
+        setOpen(r, false);
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      reg.forEach(function (r) {
+        if (!r.tile.contains(e.target)) { setOpen(r, false); }
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape' && e.key !== 'Esc') { return; }
+      reg.forEach(function (r) {
+        if (!r.tile.classList.contains('is-open')) { return; }
+        if (r.tile.contains(document.activeElement)) { r.btn.focus(); }
+        setOpen(r, false);
+      });
+    });
+  }
+
+  var roots = document.querySelectorAll('[data-sm-tools]');
+  for (var i = 0; i < roots.length; i++) { init(roots[i]); }
+})();
+</script>
+</div></body></html>
