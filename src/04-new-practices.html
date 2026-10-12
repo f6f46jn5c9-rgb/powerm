@@ -1,0 +1,193 @@
+<!--
+КАК НАСТРОИТЬ (блок «Новые опубликованные практики»)
+Всё, что можно менять, — в блоке CONFIG в начале скрипта (значения в кавычках).
+1. ANCESTOR_PAGE_ID — число-ID родительской страницы. Берётся из ссылки на неё: .../pages/161546386/... или pageId=161546386.
+   Практики ищутся среди всех страниц ПОД этой страницей.
+2. LABEL — метка, которая должна стоять на странице практики. Сейчас «силовые_машины». В блок попадают только страницы,
+   у которых есть эта метка И которые лежат под ANCESTOR_PAGE_ID (оба условия сразу).
+3. SPACE_KEY — ключ пространства (BSS). Пустая строка '' — не ограничивать пространством.
+4. LIMIT — сколько карточек показывать; NEW_BADGE_DAYS — сколько дней висит бейдж «Новое».
+5. ALL_PRACTICES_URL — куда ведёт «Все практики →».
+6. SHOW_DIAGNOSTICS — true: под заголовком мелким серым текстом видно, что происходит (адрес запроса и причина, если нет карточек).
+   Когда всё заработает, поставьте false.
+Если карточек нет или запрос не удался, блок не пропадает: показывается карточка «Новые практики появятся здесь» с кнопкой «Все практики →».
+-->
+<style>
+.sm-new{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-red:#e63329;--sm-text:#1a1a2e;--sm-muted:#6b7280;--sm-border:#e7e9f0;--sm-radius:16px;
+  --sm-shadow-sm:0 1px 3px rgba(26,42,94,.08),0 1px 2px rgba(26,42,94,.06);--sm-shadow-md:0 8px 24px rgba(26,42,94,.12);
+  box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text)}
+.sm-new *,.sm-new *::before,.sm-new *::after{box-sizing:border-box}
+.sm-new .sm-new__head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 18px}
+.sm-new h2.sm-new__title{margin:0 !important;padding:0 !important;font-size:26px;font-weight:800;color:var(--sm-navy-dark) !important;border:0}
+.sm-new a.sm-new__all{flex:0 0 auto;font-size:15px;font-weight:700;color:var(--sm-teal-dark) !important;text-decoration:none !important;border-radius:6px;white-space:nowrap}
+.sm-new a.sm-new__all:hover{text-decoration:underline !important}
+.sm-new a.sm-new__all:focus-visible,.sm-new a.sm-new__card:focus-visible{outline:3px solid #f5a623;outline-offset:3px}
+.sm-new .sm-new__grid{display:grid;gap:16px;grid-template-columns:repeat(3,1fr)}
+.sm-new a.sm-new__card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;min-height:130px;padding:18px 18px 16px;background:#fff;border:1px solid var(--sm-border);
+  border-radius:var(--sm-radius);box-shadow:var(--sm-shadow-sm);color:var(--sm-text) !important;text-decoration:none !important;
+  opacity:0;animation:sm-new-in .5s ease forwards;animation-delay:calc(var(--i) * 50ms);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.sm-new a.sm-new__card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--sm-navy-dark),var(--sm-teal))}
+.sm-new a.sm-new__card:hover{transform:translateY(-3px);box-shadow:var(--sm-shadow-md);border-color:var(--sm-teal)}
+.sm-new .sm-new__name{flex:1 1 auto;font-size:16px;font-weight:700;line-height:1.3;color:var(--sm-navy-dark);overflow-wrap:break-word;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sm-new .sm-new__meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13.5px;color:var(--sm-muted)}
+.sm-new .sm-new__tag{background:var(--sm-teal-light);color:var(--sm-teal-dark);padding:2px 10px;border-radius:999px;font-weight:600}
+.sm-new .sm-new__badge{position:absolute;top:12px;right:12px;background:var(--sm-red);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
+.sm-new .sm-new__card--has-badge .sm-new__name{padding-right:64px}
+.sm-new .sm-new__skel{height:130px;border-radius:var(--sm-radius);background:linear-gradient(90deg,#eceef3 25%,#f6f7fa 50%,#eceef3 75%);background-size:200% 100%;animation:sm-new-sh 1.4s linear infinite}
+.sm-new p.sm-new__diag{margin:-6px 0 14px !important;padding:0 !important;font-size:12.5px;line-height:1.45;color:var(--sm-muted) !important;overflow-wrap:anywhere}
+.sm-new .sm-new__empty{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:24px 28px;border-radius:var(--sm-radius);border:1px solid #cfe9e7;
+  background:linear-gradient(135deg,#f1faf9,#d9f0ee)}
+.sm-new .sm-new__empty-title{font-size:18px;font-weight:700;color:var(--sm-navy-dark)}
+.sm-new .sm-new__empty-text{font-size:14.5px;color:var(--sm-muted);margin-top:2px}
+.sm-new a.sm-new__btn{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;background:linear-gradient(135deg,#0a5f5e,#0e7c7b 60%,#1aa7a3);color:#fff !important;font-size:15px;font-weight:700;text-decoration:none !important;transition:transform .2s ease,filter .2s ease}
+.sm-new a.sm-new__btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.sm-new a.sm-new__btn:focus-visible{outline:3px solid #f5a623;outline-offset:3px}
+@keyframes sm-new-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes sm-new-sh{from{background-position:200% 0}to{background-position:-200% 0}}
+@media (max-width:1000px){.sm-new .sm-new__grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.sm-new .sm-new__grid{grid-template-columns:1fr}.sm-new h2.sm-new__title{font-size:22px}.sm-new .sm-new__head{flex-wrap:wrap;gap:6px}}
+@media (prefers-reduced-motion:reduce){.sm-new a.sm-new__card{animation:none;opacity:1;transition:none}.sm-new .sm-new__skel{animation:none}}
+</style>
+<section class="sm-new" id="sm-new" aria-labelledby="sm-new-title" aria-live="polite">
+  <div class="sm-new__head">
+    <h2 class="sm-new__title" id="sm-new-title">Новые опубликованные практики</h2>
+    <a class="sm-new__all" id="sm-new-all" href="#" hidden>Все практики →</a>
+  </div>
+  <p class="sm-new__diag" id="sm-new-diag" hidden></p>
+  <div class="sm-new__grid" id="sm-new-grid"></div>
+</section>
+<script>
+(function () {
+  // ===== НАСТРОЙКИ (правьте только значения) =====
+  const CONFIG = {
+    SPACE_KEY: 'BSS',                 // ключ пространства ('' — не ограничивать)
+    ANCESTOR_PAGE_ID: '161546386',    // ID родительской страницы (из ссылки: /pages/<ID>/ или pageId=<ID>)
+    LABEL: 'силовые_машины',          // метка, которая должна стоять на странице практики
+    LIMIT: 6,                         // сколько карточек показывать
+    NEW_BADGE_DAYS: 14,               // сколько дней показывать бейдж «Новое»
+    ALL_PRACTICES_URL: 'https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%9C', // куда ведёт «Все практики →»
+    SHOW_DIAGNOSTICS: true            // true — показывать причину под заголовком; потом поставьте false
+  };
+  // ===== конец настроек =====
+
+  const grid = document.getElementById('sm-new-grid');
+  const allLink = document.getElementById('sm-new-all');
+  const diag = document.getElementById('sm-new-diag');
+  const fmt = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function safeUrl(u) { return /^(https?:)?\//.test(u || '') ? u : '#'; }
+
+  function showDiag(msg, requestUrl) {
+    if (!CONFIG.SHOW_DIAGNOSTICS) return;
+    diag.innerHTML = 'Диагностика: ' + esc(msg) + (requestUrl ? '<br>Адрес запроса: ' + esc(requestUrl) : '');
+    diag.hidden = false;
+  }
+
+  function allBtn() {
+    return CONFIG.ALL_PRACTICES_URL ? '<a class="sm-new__btn" href="' + esc(CONFIG.ALL_PRACTICES_URL) + '">Все практики →</a>' : '';
+  }
+
+  // Заглушка: блок никогда не остаётся пустым.
+  function renderPlaceholder() {
+    if (CONFIG.ALL_PRACTICES_URL) { allLink.href = CONFIG.ALL_PRACTICES_URL; allLink.hidden = false; }
+    grid.innerHTML = '<div class="sm-new__empty"><div><div class="sm-new__empty-title">Новые практики появятся здесь</div>' +
+      '<div class="sm-new__empty-text">Весь накопленный опыт коллег — в разделе «Все практики».</div></div>' + allBtn() + '</div>';
+  }
+
+  function skeleton() {
+    var h = '';
+    for (var i = 0; i < Math.min(CONFIG.LIMIT, 6); i++) h += '<div class="sm-new__skel" aria-hidden="true"></div>';
+    grid.innerHTML = h;
+  }
+
+  function renderCards(items) {
+    if (CONFIG.ALL_PRACTICES_URL) { allLink.href = CONFIG.ALL_PRACTICES_URL; allLink.hidden = false; }
+    var now = Date.now();
+    grid.innerHTML = items.slice(0, CONFIG.LIMIT).map(function (it, i) {
+      var d = it.date ? new Date(it.date) : null;
+      var valid = d && !isNaN(d);
+      var isNew = valid && (now - d.getTime()) < CONFIG.NEW_BADGE_DAYS * 864e5;
+      return '<a class="sm-new__card' + (isNew ? ' sm-new__card--has-badge' : '') + '" style="--i:' + i + '" href="' + esc(safeUrl(it.url)) + '">' +
+        (isNew ? '<span class="sm-new__badge">Новое</span>' : '') +
+        '<span class="sm-new__name">' + esc(it.title) + '</span>' +
+        '<span class="sm-new__meta">' + (valid ? '<span>' + fmt.format(d) + '</span>' : '') + '</span></a>';
+    }).join('');
+  }
+
+  function fail(msg, requestUrl) {
+    console.warn('[SM] Новые практики: ' + msg + (requestUrl ? ' Запрос: ' + requestUrl : ''));
+    showDiag(msg, requestUrl);
+    renderPlaceholder();
+  }
+
+  function pageUrl(data, r) {
+    var webui = (r._links && r._links.webui) || '';
+    var base = (data._links && data._links.base) || '';
+    if (/^https?:/.test(webui)) return webui;
+    if (base) return base.replace(/\/$/, '') + webui;                 // base уже содержит context path
+    var ctx = (window.AJS && AJS.contextPath && AJS.contextPath()) || '';
+    return location.origin + ctx + webui;
+  }
+
+  // Составной фильтр: страница лежит под ANCESTOR_PAGE_ID И имеет метку LABEL.
+  function buildCql() {
+    var c = 'ancestor=' + CONFIG.ANCESTOR_PAGE_ID + ' AND label="' + CONFIG.LABEL.replace(/"/g, '') + '" AND type=page';
+    if (CONFIG.SPACE_KEY) c += ' AND space="' + CONFIG.SPACE_KEY + '"';
+    return c + ' ORDER BY created DESC';
+  }
+
+  try {
+    renderPlaceholder();                       // сразу есть что показать
+    if (!CONFIG.ANCESTOR_PAGE_ID) { fail('ID страницы не задан (ANCESTOR_PAGE_ID).'); return; }
+    if (!CONFIG.LABEL) { fail('метка не задана (LABEL).'); return; }
+    if (!window.fetch) { fail('браузер не поддерживает запросы (fetch).'); return; }
+
+    // Адреса по очереди: сначала относительный, потом с context path Confluence (если он есть).
+    var path = '/rest/api/content/search?cql=' + encodeURIComponent(buildCql()) + '&limit=' + CONFIG.LIMIT + '&expand=history';
+    var ctx = (window.AJS && AJS.contextPath && AJS.contextPath()) || '';
+    var urls = [path];
+    if (ctx && ctx !== '/') urls.push(ctx.replace(/\/$/, '') + path);
+
+    skeleton();
+
+    var lastErr = null, lastUrl = urls[0];
+    (function attempt(i) {
+      lastUrl = urls[i];
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timedOut = false;
+      var timer = setTimeout(function () { timedOut = true; if (ctl) ctl.abort(); }, 8000);
+      fetch(urls[i], { credentials: 'same-origin', headers: { 'Accept': 'application/json' }, signal: ctl ? ctl.signal : undefined })
+        .then(function (res) {
+          if (!res.ok) { var e = new Error('http'); e.status = res.status; throw e; }
+          return res.json();
+        })
+        .then(function (data) {
+          clearTimeout(timer);
+          var items = (data.results || []).map(function (r) {
+            return { title: r.title, url: pageUrl(data, r), date: r.history && r.history.createdDate };
+          });
+          if (!items.length) {
+            fail('практик не найдено (под страницей ' + CONFIG.ANCESTOR_PAGE_ID + ' нет страниц с меткой «' + CONFIG.LABEL + '» или нет доступа к ним).', decodeURIComponent(urls[i]));
+            return;
+          }
+          showDiag('загружено практик: ' + items.length + '.', decodeURIComponent(urls[i]));
+          renderCards(items);
+        })
+        .catch(function (e) {
+          clearTimeout(timer);
+          lastErr = { e: e, timedOut: timedOut };
+          if (i + 1 < urls.length) { attempt(i + 1); return; }      // пробуем адрес с context path
+          var msg;
+          if (e && e.status) msg = 'запрос вернул ошибку ' + e.status + (e.status === 401 || e.status === 403 ? ' (нет доступа — войдите в Confluence или проверьте права на страницу).' : e.status === 404 ? ' (ресурс не найден — проверьте ID страницы).' : '.');
+          else if (timedOut) msg = 'сервер не ответил за 8 секунд.';
+          else if (e instanceof SyntaxError) msg = 'сервер вернул не данные, а другую страницу (возможно, нужно заново войти в систему).';
+          else msg = 'не удалось связаться с сервером (нет сети или запрос блокирует политика безопасности страницы).';
+          fail(msg, decodeURIComponent(lastUrl));
+        });
+    })(0);
+  } catch (err) {
+    fail('внутренняя ошибка скрипта: ' + (err && err.message) + '.');
+  }
+})();
+</script>

@@ -1,0 +1,45 @@
+<style>
+.sm-logo{--sm-navy-dark:#1a2a5e;--sm-navy-blue:#2b4fa8;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-muted:#6b7280;
+  box-sizing:border-box;position:relative;overflow:hidden;margin:0;padding:22px 32px 26px;min-height:110px;
+  display:flex;align-items:center;gap:28px;border-radius:16px;background:#fff;color:var(--sm-navy-dark);
+  box-shadow:0 1px 3px rgba(26,42,94,.08),0 8px 24px rgba(14,124,123,.10);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;
+  animation:sm-logo-in .5s ease both}
+.sm-logo *,.sm-logo *::before,.sm-logo *::after{box-sizing:border-box}
+.sm-logo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;pointer-events:none;
+  background:linear-gradient(90deg,var(--sm-teal-dark),var(--sm-teal) 35%,#35b8b3 70%,rgba(53,184,179,0))}
+.sm-logo .sm-logo__img{position:relative;display:block;flex:0 0 auto;height:68px;width:auto;max-width:100%;mix-blend-mode:multiply}
+.sm-logo .sm-logo__bar{position:relative;flex:0 0 3px;align-self:stretch;margin:4px 0;border-radius:3px;background:linear-gradient(180deg,#35b8b3,var(--sm-teal-dark))}
+.sm-logo .sm-logo__text{position:relative;min-width:0}
+.sm-logo h2.sm-logo__title{margin:0 0 4px !important;padding:0 !important;font-size:30px;font-weight:800;line-height:1.15;color:var(--sm-navy-dark) !important;letter-spacing:-.01em;border:0}
+.sm-logo .sm-logo__accent{color:var(--sm-teal) !important;background:linear-gradient(90deg,var(--sm-teal-dark),#26a9a4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sm-logo p.sm-logo__sub{margin:0 !important;padding:0 !important;font-size:16px;color:var(--sm-muted) !important}
+@keyframes sm-logo-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.sm-logo{gap:20px;padding:20px 24px 24px}.sm-logo h2.sm-logo__title{font-size:25px}.sm-logo .sm-logo__img{height:56px}}
+@media (max-width:640px){.sm-logo{flex-direction:column;align-items:flex-start;gap:12px;padding:18px 18px 22px}
+  .sm-logo .sm-logo__img{height:46px}.sm-logo .sm-logo__bar{display:none}
+  .sm-logo h2.sm-logo__title{font-size:21px}.sm-logo p.sm-logo__sub{font-size:14.5px}}
+@media (prefers-reduced-motion:reduce){.sm-logo{animation:none}}
+</style>
+<section class="sm-logo" id="sm-logo" aria-label="База успешных практик">
+  <img class="sm-logo__img" id="sm-logo-img" alt="Силовые машины" src="data:image/jpeg;base64,%%LOGO%%">
+  <span class="sm-logo__bar" aria-hidden="true"></span>
+  <div class="sm-logo__text">
+    <h2 class="sm-logo__title" id="sm-logo-title"></h2>
+    <p class="sm-logo__sub" id="sm-logo-sub"></p>
+  </div>
+</section>
+<script>
+(function () {
+  // Тексты шапки. Слово из ACCENT_WORD выделяется бирюзовым градиентом.
+  var TITLE_BEFORE = 'База ';
+  var ACCENT_WORD = 'успешных';
+  var TITLE_AFTER = ' практик';
+  var SUBTITLE = 'Находите опыт коллег и делитесь своим';
+  var t = document.getElementById('sm-logo-title');
+  t.appendChild(document.createTextNode(TITLE_BEFORE));
+  var a = document.createElement('span'); a.className = 'sm-logo__accent'; a.textContent = ACCENT_WORD; t.appendChild(a);
+  t.appendChild(document.createTextNode(TITLE_AFTER));
+  document.getElementById('sm-logo-sub').textContent = SUBTITLE;
+})();
+</script>

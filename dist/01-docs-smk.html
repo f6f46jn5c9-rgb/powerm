@@ -1,0 +1,451 @@
+<style>
+.sm-docs{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-text:#1a1a2e;--sm-muted:#4b5563;--sm-border:#e7e9f0;--sm-plate:#f7f9fb;--sm-focus:#f5a623;--sm-shadow-sm:0 1px 3px rgba(26,42,94,.08),0 1px 2px rgba(26,42,94,.06);--sm-shadow-md:0 8px 24px rgba(26,42,94,.12);
+  display:block;margin:0;padding:0;container-type:inline-size;container-name:smdocs;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:var(--sm-text);
+  word-break:normal;overflow-wrap:normal;hyphens:manual;text-wrap:balance}
+.sm-docs *,.sm-docs *::before,.sm-docs *::after{box-sizing:border-box}
+.sm-docs [hidden]{display:none !important}
+.sm-docs :focus-visible{outline:3px solid var(--sm-focus) !important;outline-offset:3px}
+
+/* Шапка */
+.sm-docs h2.sm-docs__title{margin:0 0 6px !important;padding:0 !important;font-size:26px;font-weight:800;line-height:1.3;color:var(--sm-navy-dark) !important;border:0 !important}
+.sm-docs p.sm-docs__lead{margin:0 0 18px !important;padding:0 !important;font-size:15px;color:var(--sm-muted) !important}
+
+/* Поиск */
+.sm-docs .sm-docs__searchbar{margin:0 0 20px}
+.sm-docs .sm-docs__search{display:flex;align-items:center;gap:10px;max-width:640px;height:52px;padding:0 10px 0 18px;border:1.5px solid transparent;border-radius:999px;background:linear-gradient(135deg,#fff 0%,#eefafa 100%) padding-box,linear-gradient(135deg,#1a2a5e,#0e7c7b) border-box;box-shadow:0 6px 22px rgba(14,124,123,.14)}
+.sm-docs .sm-docs__search:focus-within{outline:3px solid var(--sm-focus);outline-offset:3px}
+.sm-docs .sm-docs__search-ic{flex:0 0 auto;display:flex;color:var(--sm-teal)}
+.sm-docs input.sm-docs__input{flex:1 1 auto;min-width:0;height:100%;margin:0 !important;padding:0 !important;border:0 !important;border-radius:0 !important;background:transparent !important;box-shadow:none !important;outline:none !important;font-family:inherit;font-size:16px;line-height:1.3;color:var(--sm-text) !important}
+.sm-docs input.sm-docs__input::placeholder{color:var(--sm-muted);opacity:1}
+.sm-docs button.sm-docs__clear{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:34px;height:34px;margin:0;padding:0;border:0;border-radius:50%;background:var(--sm-teal-light);color:var(--sm-teal-dark);cursor:pointer;transition:background .2s,color .2s}
+.sm-docs button.sm-docs__clear:hover{background:var(--sm-teal-dark);color:#fff}
+.sm-docs p.sm-docs__count{margin:8px 0 0 !important;padding:0 0 0 18px !important;font-size:13px;color:var(--sm-muted) !important}
+
+/* Основная область */
+.sm-docs .sm-docs__main{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:20px;align-items:start}
+.sm-docs .sm-docs__menu{display:flex;flex-direction:column;gap:8px;min-width:0}
+
+/* Кнопка раздела */
+.sm-docs button.sm-docs__sec{position:relative;display:flex;align-items:center;gap:12px;width:100%;margin:0;padding:12px 14px;text-align:left;font-family:inherit;line-height:1.3;cursor:pointer;color:var(--sm-navy-dark);border:1.5px solid transparent;border-radius:16px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#d9e2ee,#c9e3e2) border-box;box-shadow:0 2px 8px rgba(26,42,94,.06);transition:transform .2s ease,box-shadow .25s ease}
+.sm-docs button.sm-docs__sec.is-active{background:linear-gradient(135deg,#fff 0%,#eefafa 100%) padding-box,linear-gradient(135deg,#1a2a5e,#0e7c7b) border-box;box-shadow:0 6px 22px rgba(14,124,123,.22)}
+.sm-docs .sm-docs__sec-ic{position:relative;flex:0 0 auto;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(10,95,94,.16),rgba(26,167,163,.16));border:1px solid rgba(14,124,123,.35);color:var(--sm-teal);transition:color .2s ease}
+.sm-docs .sm-docs__sec-ic::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,#0a5f5e,#0e7c7b);opacity:0;transition:opacity .2s ease}
+.sm-docs .sm-docs__sec-ic svg{position:relative;display:block}
+.sm-docs button.sm-docs__sec.is-active .sm-docs__sec-ic{color:#fff}
+.sm-docs button.sm-docs__sec.is-active .sm-docs__sec-ic::before{opacity:1}
+.sm-docs .sm-docs__sec-name{flex:1 1 auto;min-width:0;font-size:16px;font-weight:700;color:var(--sm-navy-dark)}
+.sm-docs .sm-docs__sec-num{flex:0 0 auto;min-width:28px;padding:2px 9px;border-radius:999px;background:var(--sm-teal-light);color:var(--sm-teal-dark);font-size:13px;font-weight:700;text-align:center}
+
+/* Карточка */
+.sm-docs .sm-docs__card{min-width:0;padding:16px;border:1.5px solid transparent;border-radius:16px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#1a2a5e,#0e7c7b) border-box;box-shadow:0 8px 24px rgba(26,42,94,.10)}
+.sm-docs h3.sm-docs__card-title{margin:0 !important;padding:0 !important;font-size:20px;font-weight:800;line-height:1.3;color:var(--sm-navy-dark) !important;border:0 !important}
+.sm-docs p.sm-docs__card-sub{margin:4px 0 14px !important;padding:0 !important;font-size:13px;color:var(--sm-muted) !important}
+.sm-docs p.sm-docs__empty{margin:0 0 4px !important;padding:12px 14px !important;border-radius:12px;background:var(--sm-plate);font-size:15px;color:var(--sm-text) !important}
+.sm-docs button.sm-docs__reset{margin:12px 0 0;padding:10px 18px;font-family:inherit;font-size:14.5px;font-weight:700;line-height:1.3;color:var(--sm-teal-dark);background:var(--sm-teal-light);border:1.5px solid rgba(14,124,123,.35);border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.sm-docs button.sm-docs__reset:hover{background:var(--sm-teal-dark);color:#fff}
+
+/* Документы */
+.sm-docs ul.sm-docs__list{list-style:none !important;margin:0 !important;padding:0 !important}
+.sm-docs ul.sm-docs__list.is-anim{animation:smDocsIn .25s ease both}
+.sm-docs ul.sm-docs__list > li{list-style:none !important;margin:0 0 8px !important;padding:0 !important}
+.sm-docs ul.sm-docs__list > li:last-child{margin-bottom:0 !important}
+.sm-docs a.sm-docs__doc{display:flex;align-items:center;gap:12px;margin:0 !important;padding:12px 14px !important;background:var(--sm-plate);border-left:4px solid var(--sm-teal);border-radius:12px;color:var(--sm-navy-dark) !important;text-decoration:none !important;transition:background .2s,transform .2s}
+.sm-docs a.sm-docs__doc:hover,.sm-docs a.sm-docs__doc:focus-visible{background:var(--sm-teal-light);color:var(--sm-teal-dark) !important}
+.sm-docs a.sm-docs__doc:hover .sm-docs__doc-name{text-decoration:underline}
+.sm-docs .sm-docs__doc-body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-wrap:wrap}
+.sm-docs .sm-docs__chip{display:inline-block;max-width:100%;padding:2px 10px;border-radius:999px;background:var(--sm-teal-light);color:var(--sm-teal-dark);font-size:13px;font-weight:700}
+.sm-docs a.sm-docs__doc:hover .sm-docs__chip,.sm-docs a.sm-docs__doc:focus-visible .sm-docs__chip{background:#fff}
+.sm-docs .sm-docs__doc-name{font-size:15px;font-weight:600}
+.sm-docs .sm-docs__doc-sec{font-size:13px;color:var(--sm-muted)}
+.sm-docs .sm-docs__go{flex:0 0 auto;display:flex;color:var(--sm-teal)}
+
+/* Нижняя кнопка */
+.sm-docs a.sm-docs__cta{--g1:#0a5f5e;--g2:#1aa7a3;--halo:rgba(14,124,123,.22);--halo2:rgba(14,124,123,.36);position:relative;display:flex;align-items:center;gap:16px;margin:24px 0 0 !important;padding:22px 24px;border:1.5px solid transparent;border-radius:16px;text-decoration:none !important;color:var(--sm-teal-dark) !important;background:linear-gradient(135deg,#fff 0%,#eefafa 100%) padding-box,linear-gradient(135deg,var(--g1),var(--g2)) border-box;box-shadow:0 6px 22px var(--halo);transition:transform .2s ease,box-shadow .25s ease}
+.sm-docs a.sm-docs__cta:focus-visible{outline:3px solid var(--sm-focus) !important;outline-offset:3px}
+.sm-docs .sm-docs__cta-ic{position:relative;flex:0 0 auto;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(10,95,94,.16),rgba(26,167,163,.16));border:1px solid rgba(14,124,123,.35);color:var(--sm-teal);transition:color .2s ease}
+.sm-docs .sm-docs__cta-ic::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,#0a5f5e,#0e7c7b);opacity:0;transition:opacity .2s ease}
+.sm-docs .sm-docs__cta-ic svg{position:relative;display:block}
+.sm-docs a.sm-docs__cta:hover .sm-docs__cta-ic{color:#fff}
+.sm-docs a.sm-docs__cta:hover .sm-docs__cta-ic::before{opacity:1}
+.sm-docs .sm-docs__cta-text{flex:1 1 auto;min-width:0;font-size:16px;font-weight:700;color:var(--sm-teal-dark)}
+.sm-docs .sm-docs__cta-arrow{flex:0 0 auto;display:flex;color:var(--sm-teal)}
+
+@keyframes smDocsIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Эффекты наведения — только там, где есть мышь */
+@media (hover:hover){
+  .sm-docs button.sm-docs__sec:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(14,124,123,.30)}
+  .sm-docs a.sm-docs__doc:hover{transform:translateX(3px)}
+  .sm-docs a.sm-docs__cta:hover{transform:translateY(-3px);box-shadow:0 10px 30px var(--halo2)}
+}
+
+/* Адаптив по ширине контейнера */
+@container smdocs (max-width:759px){
+  .sm-docs .sm-docs__main{grid-template-columns:minmax(0,1fr)}
+}
+@container smdocs (max-width:479px){
+  .sm-docs .sm-docs__card{padding:12px}
+  .sm-docs a.sm-docs__doc{padding:10px 12px !important}
+  .sm-docs a.sm-docs__cta{gap:12px;padding:16px}
+  .sm-docs .sm-docs__cta-ic{width:44px;height:44px}
+}
+@supports not (container-type:inline-size){
+  @media (max-width:1000px){.sm-docs .sm-docs__main{grid-template-columns:minmax(0,1fr)}}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sm-docs ul.sm-docs__list.is-anim{animation:none}
+  .sm-docs button.sm-docs__sec,.sm-docs a.sm-docs__doc,.sm-docs a.sm-docs__cta,.sm-docs button.sm-docs__clear,.sm-docs button.sm-docs__reset,.sm-docs .sm-docs__sec-ic,.sm-docs .sm-docs__sec-ic::before,.sm-docs .sm-docs__cta-ic,.sm-docs .sm-docs__cta-ic::before{transition:none}
+  .sm-docs button.sm-docs__sec:hover,.sm-docs a.sm-docs__doc:hover,.sm-docs a.sm-docs__cta:hover{transform:none !important}
+}
+</style>
+<div class="sm-docs" data-sm-docs>
+  <h2 class="sm-docs__title">Стандарты и инструкции СМК</h2>
+  <p class="sm-docs__lead">Документы системы менеджмента качества Силовых машин. Выберите раздел или найдите документ по номеру и названию</p>
+
+  <div class="sm-docs__searchbar">
+    <div class="sm-docs__search">
+      <span class="sm-docs__search-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      <input class="sm-docs__input" type="text" inputmode="search" autocomplete="off" spellcheck="false" placeholder="Номер или название документа…" aria-label="Поиск по документам" data-input>
+      <button class="sm-docs__clear" type="button" aria-label="Очистить поиск" data-clear hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <p class="sm-docs__count" aria-live="polite" data-count></p>
+  </div>
+
+  <div class="sm-docs__main" data-main>
+    <div class="sm-docs__menu" role="group" aria-label="Разделы СМК" data-menu></div>
+    <section class="sm-docs__card sm-docs__panel" id="sm-docs-panel" data-panel></section>
+  </div>
+
+  <section class="sm-docs__card" aria-label="Результаты поиска" data-results hidden></section>
+
+  <a class="sm-docs__cta" href="http://doclib.powerm.ru/Lists/Smk/AllItems.aspx" target="_blank" rel="noopener">
+    <span class="sm-docs__cta-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></span>
+    <span class="sm-docs__cta-text">Остальные документы СМК — в библиотеке документов</span>
+    <span class="sm-docs__cta-arrow" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+  </a>
+</div>
+<script>
+(function () {
+  "use strict";
+  /* ============================================================
+     ДАННЫЕ СТРАНИЦЫ
+     Чтобы добавить документ — скопируйте любую строку в нужном разделе и замените три значения в кавычках: номер, название, ссылку.
+     Чтобы убрать — удалите строку целиком.
+     Допустимые значения icon: cycle, checklist, shield, users, book, file, clipboard.
+     ============================================================ */
+  var SECTIONS = [
+    { n: 1, title: "Документированная процедура", icon: "cycle", docs: [
+      ["ДП-ГО-СМК5.5-5-2010", "Порядок оформления, отмены, учета и хранения доверенностей в Обществе", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1034&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-ГО-СМК5.5-6-2010", "Порядок оформления, согласования, учета и хранения договоров о полной материальной ответственности", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1067&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-ГО-СМК7.4-7-2010", "Порядок подготовки, согласования и утверждения Решений о намерении и Решений о применении импортного оборудования, изделий, материалов и комплектующих для АЭС", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1045&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-ГО-СМК7.5-6-2010", "Порядок предъявления на оценку соответствия и приемочную инспекцию оборудования, изготавливаемого для НВАЭС-2", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1084&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК4.2-3-2013", "Управление записями", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1211&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-10-2021", "Порядок высвобождения работников в связи с осуществлением мероприятий по сокращению численности или штата", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1562&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-15-2013", "Порядок оформления отпусков", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1222&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-16-2021", "Порядок вынесения дисциплинарных взысканий", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1561&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-21-2011", "Порядок изменения режимов рабочего времени", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1186&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-30-2021", "Порядок оформления договоров гражданско-правового характера с физическими лицами, предметом которых является выполнение работ/оказание услуг", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1584&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-40-2021", "Регламент дистанционной работы", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1543&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-4-2012", "Порядок организации практики учащихся и студентов", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1151&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.2-7-2011", "Порядок подготовки и развития персонала", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1569&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.3-18-2021", "Управление услугами в области информационных технологий и изменениями ИТ-систем", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1558&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК6.3-2-2013", "Порядок взаимодействия подразделений Общества при наступлении страхового случая", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1228&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК7.2-24-2011", "Порядок организации и обеспечения протокольных мероприятий", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1146&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК7.4-15-2021", "Порядок формирования, согласования и утверждения годовой комплексной программы закупок", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1538&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК8.3-3-2012", "Управление несоответствиями продукции, поставленной на площадку строительства ТЭС «БАРХ» Индия", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1216&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ДП-СМК8.5-1-2011", "Корректирующие и предупреждающие действия", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1132&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+    ] },
+    { n: 2, title: "Инструкция", icon: "checklist", docs: [
+      ["", "Процедура по порядку выполнения операций ввода и обработки информации по рекламационным заказам в САП", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1136&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК4.2-8-2019", "Порядок занесения и обновления пользовательских статусов проектов в системе SAP ERP", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1448&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК6.2-9-2020", "Порядок вознаграждения и премирования за создание и использование служебных объектов интеллектуальной собственности", "http://doclib.powerm.ru/ReferencesELS/Lists/DocumentsELS/Attachments/31/%D0%98-%D0%A1%D0%9C%D0%9A6.2-9-2020"],
+      ["И-СМК7.2-13-2020", "Методика формирования бюджета сбытового проекта", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1507&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК7.2-35-2020", "Методика формирования себестоимости продукции собственного производства при разработке технико-коммерческого предложения", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1508&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК7.2-43-2020", "Методика расчета экономических показателей для формирования производственной себестоимости продукции и услуг", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1547&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК7.2-44-2020", "Порядок оценки стоимости товарно-материальных ценностей, услуг внешней кооперации, транспортных услуг и оборудования перепродаж на стадии подготовки технико-коммерческих предложений по сбытовым проектам", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1503&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК7.2-45-2022", "Методика подготовки исходных данных для расчета себестоимости при разработке технико-коммерческих предложений на заводе \"Электросила\"", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1635&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК7.2-46-2021", "Инструкция проведения проверки расчета себестоимости собственного производства сбытовых проектов", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1588&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК7.4-8-2022", "Инструкция по формированию и согласованию заявок на закупку безадресных ТМЦ и услуг непроизводственного характера", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1633&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК8.2-7-2018", "Порядок формирования, хранения и обращения \"Дела турбины\"", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1422&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["И-СМК8.3-5-2021", "Инструкция проведения оперативного расследования несоответствий в сварочном производстве", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1556&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+    ] },
+    { n: 3, title: "Перечень документов СМК подлежащих согласованию 511 ВП МО РФ", icon: "shield", docs: [
+      ["", "Перечень документов СМК подлежащих согласованию 511 ВП МО РФ", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1640&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+    ] },
+    { n: 4, title: "Положение о функциональной единице", icon: "users", docs: [
+      ["ПФ-СМК5.5-3-2013", "Положение об уполномоченных по качеству", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1212&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ПФ-СМК5.5-2-2017", "Положение о Совете по качеству", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1407&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+    ] },
+    { n: 5, title: "Руководство по качеству", icon: "book", docs: [
+      ["0БС.690.358 РК", "Руководство по качеству технологической лаборатории защитных покрытий и химических анализов ОРМК ЦИИ завода \"Электросила\"", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1391&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["РК-СМК4.2-1-2017", "Руководство по качеству АО \"Силовые машины\"", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1377&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["РК-СМК4.2-5-2022", "Руководство по качеству. Военная продукция", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1616&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["РК-СМК-ЦПЛ4.2-6-2015", "Руководство по качеству центральной производственной лаборатории", "https://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1292&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+    ] },
+    { n: 6, title: "Формы. Шаблоны оформления документации", icon: "file", docs: [
+      ["", "Заявка на автотранспорт", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=72&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Формы заказа-наряда, поручение на проектирование", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=426&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Обоснование разработки документа СМК", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=566&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Стандарт", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=567&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Документированная процедура", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=568&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Приказ об утверждении и введении документа СМК", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=569&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Положение о функциональной единице", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=570&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Типовые договора к СТО-44-2007", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=587&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Лист согласования к договору, лист рассылки", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=588&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Инструкция", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=788&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+    ] },
+    { n: 7, title: "Формы и бланки. Нормативные и технические документы", icon: "clipboard", docs: [
+      ["", "Бланки протоколов ЦЛНМК", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1172&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Распоряжения О введении технических, нормативных документов и форм бланков", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1174&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Паспорт технологической оснастки", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1175&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Сертификат качества. Бланк", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1176&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Акт фактического качества и комплектности", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1177&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["", "Сертификат качества - Бланки", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1185&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["№ 267", "Распоряжение \"О введении в действие нормативного документа СТО 4610.19 - 2014 и форм бланков ф. Г2.503-10, ф. Г2.503-10а\"", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1263&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+      ["ф. 8.298-1", "Сопроводительный ярлык на сварочные материалы", "http://doclib.powerm.ru/Lists/Smk/DispForm.aspx?ID=1269&ContentTypeId=0x0100263C5AC53B373E42B0BDCA49045B7834"],
+    ] },
+  ];
+
+  /* ============================================================
+     ЛОГИКА (обычно не требует правок)
+     ============================================================ */
+  var ICONS = {
+    cycle: '<path d="M20 12a8 8 0 0 0-13.7-5.6L4 8.5"/><path d="M4 4v4.5h4.5"/><path d="M4 12a8 8 0 0 0 13.7 5.6L20 15.5"/><path d="M20 20v-4.5h-4.5"/>',
+    checklist: '<path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/>',
+    shield: '<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+    users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    book: '<path d="M2 3h7a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-7a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h8z"/>',
+    file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>',
+    clipboard: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 12h6M9 16h6"/>',
+    out: '<path d="M7 17L17 7"/><path d="M8 7h9v9"/>'
+  };
+  var NARROW_BELOW = 760; // ширина контейнера, ниже которой разделы раскрываются аккордеоном
+
+  function svg(p, w) {
+    return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + p + '</svg>';
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+  }
+  function norm(s) {
+    return String(s).toLowerCase().replace(/ё/g, 'е').replace(/^\s+|\s+$/g, '');
+  }
+  function plural(n) {
+    var a = n % 10, b = n % 100;
+    if (a === 1 && b !== 11) return 'документ';
+    if (a >= 2 && a <= 4 && (b < 10 || b >= 20)) return 'документа';
+    return 'документов';
+  }
+
+  function init(root) {
+    var menu = root.querySelector('[data-menu]');
+    var main = root.querySelector('[data-main]');
+    var panel = root.querySelector('[data-panel]');
+    var results = root.querySelector('[data-results]');
+    var input = root.querySelector('[data-input]');
+    var clearBtn = root.querySelector('[data-clear]');
+    var countEl = root.querySelector('[data-count]');
+    if (!menu || !main || !panel || !results || !input) return;
+
+    var total = 0;
+    SECTIONS.forEach(function (s) { total += s.docs.length; });
+
+    var state = { active: 0, open: true, narrow: false };
+    var buttons = [];
+
+    // --- Меню разделов (строится один раз, чтобы не терять фокус) ---
+    menu.innerHTML = SECTIONS.map(function (s, i) {
+      return '<button type="button" class="sm-docs__sec" data-i="' + i + '" aria-expanded="false" aria-controls="' + esc(panel.id) + '">' +
+        '<span class="sm-docs__sec-ic" aria-hidden="true">' + svg(ICONS[s.icon] || ICONS.file, 20) + '</span>' +
+        '<span class="sm-docs__sec-name">' + esc(s.title) + '</span>' +
+        '<span class="sm-docs__sec-num">' + s.docs.length + '</span></button>';
+    }).join('');
+    buttons = Array.prototype.slice.call(menu.querySelectorAll('button.sm-docs__sec'));
+
+    function docRow(s, d, withSection) {
+      var chip = d[0] ? '<span class="sm-docs__chip">' + esc(d[0]) + '</span>' : '';
+      var sec = withSection ? '<span class="sm-docs__doc-sec">Раздел: ' + esc(s.title) + '</span>' : '';
+      return '<li><a class="sm-docs__doc" href="' + esc(d[2]) + '" target="_blank" rel="noopener">' +
+        '<span class="sm-docs__doc-body">' + chip + '<span class="sm-docs__doc-name">' + esc(d[1]) + '</span>' + sec + '</span>' +
+        '<span class="sm-docs__go" aria-hidden="true">' + svg(ICONS.out, 18) + '</span></a></li>';
+    }
+
+    function animate(list) {
+      if (!list) return;
+      list.classList.remove('is-anim');
+      void list.offsetWidth;
+      list.classList.add('is-anim');
+    }
+
+    function renderPanel() {
+      var s = SECTIONS[state.active];
+      var n = s.docs.length;
+      var html = '<h3 class="sm-docs__card-title" id="sm-docs-panel-title">' + esc(s.title) + '</h3>' +
+        '<p class="sm-docs__card-sub">' + n + ' ' + plural(n) + '</p>';
+      if (n) {
+        html += '<ul class="sm-docs__list">' + s.docs.map(function (d) { return docRow(s, d, false); }).join('') + '</ul>';
+      } else {
+        html += '<p class="sm-docs__empty">Документы скоро появятся</p>';
+      }
+      panel.innerHTML = html;
+      panel.setAttribute('role', 'region');
+      panel.setAttribute('aria-labelledby', 'sm-docs-panel-title');
+      animate(panel.querySelector('.sm-docs__list'));
+    }
+
+    function place() {
+      if (state.narrow) {
+        if (state.open) {
+          menu.insertBefore(panel, buttons[state.active].nextSibling);
+          panel.hidden = false;
+        } else {
+          panel.hidden = true;
+        }
+      } else {
+        if (panel.parentNode !== main) main.appendChild(panel);
+        panel.hidden = false;
+      }
+    }
+
+    function updateButtons() {
+      buttons.forEach(function (b, i) {
+        var on = i === state.active && (!state.narrow || state.open);
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    }
+
+    function select(i) {
+      var btn = buttons[i];
+      var before = btn.getBoundingClientRect().top;
+      if (state.narrow) {
+        if (i === state.active && state.open) {
+          state.open = false;
+        } else {
+          var changed = i !== state.active || !state.open;
+          state.active = i;
+          state.open = true;
+          if (changed) renderPanel();
+        }
+      } else {
+        if (i === state.active) return;
+        state.active = i;
+        renderPanel();
+      }
+      place();
+      updateButtons();
+      // кнопка остаётся на месте экрана, даже если закрылась панель выше неё
+      var delta = btn.getBoundingClientRect().top - before;
+      if (state.narrow && delta) window.scrollBy(0, delta);
+    }
+
+    function setWidth(w) {
+      if (!w) return;
+      var narrow = w < NARROW_BELOW;
+      if (narrow === state.narrow) return;
+      state.narrow = narrow;
+      place();
+      updateButtons();
+    }
+
+    // --- Поиск ---
+    function search(q) {
+      var words = q.split(/\s+/);
+      var found = [];
+      SECTIONS.forEach(function (s) {
+        s.docs.forEach(function (d) {
+          var hay = norm(d[0] + ' ' + d[1] + ' ' + s.title);
+          for (var k = 0; k < words.length; k++) { if (hay.indexOf(words[k]) === -1) return; }
+          found.push({ s: s, d: d });
+        });
+      });
+      return found;
+    }
+
+    function update() {
+      var raw = input.value;
+      var q = norm(raw);
+      clearBtn.hidden = !raw;
+      if (!q) {
+        results.hidden = true;
+        main.hidden = false;
+        countEl.textContent = 'Всего документов: ' + total;
+        return;
+      }
+      var found = search(q);
+      main.hidden = true;
+      results.hidden = false;
+      countEl.textContent = 'Найдено: ' + found.length;
+      var html = '<h3 class="sm-docs__card-title">Результаты поиска</h3>';
+      if (found.length) {
+        html += '<p class="sm-docs__card-sub">' + found.length + ' ' + plural(found.length) + '</p>' +
+          '<ul class="sm-docs__list">' + found.map(function (f) { return docRow(f.s, f.d, true); }).join('') + '</ul>';
+      } else {
+        html += '<p class="sm-docs__card-sub">&nbsp;</p><p class="sm-docs__empty">Ничего не найдено. Проверьте написание или введите часть номера</p>' +
+          '<button type="button" class="sm-docs__reset" data-reset>Сбросить поиск</button>';
+      }
+      results.innerHTML = html;
+      animate(results.querySelector('.sm-docs__list'));
+    }
+
+    function reset() {
+      input.value = '';
+      update();
+      input.focus();
+    }
+
+    // --- События ---
+    menu.addEventListener('click', function (e) {
+      var b = e.target.closest ? e.target.closest('button.sm-docs__sec') : null;
+      if (b && menu.contains(b)) select(+b.getAttribute('data-i'));
+    });
+    menu.addEventListener('keydown', function (e) {
+      var b = e.target.closest ? e.target.closest('button.sm-docs__sec') : null;
+      if (!b) return;
+      var i = buttons.indexOf(b), t = -1;
+      if (e.key === 'ArrowDown') t = Math.min(i + 1, buttons.length - 1);
+      else if (e.key === 'ArrowUp') t = Math.max(i - 1, 0);
+      else if (e.key === 'Home') t = 0;
+      else if (e.key === 'End') t = buttons.length - 1;
+      if (t < 0) return;
+      e.preventDefault();
+      buttons[t].focus();
+    });
+    input.addEventListener('input', update);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && input.value) { e.preventDefault(); input.value = ''; update(); }
+    });
+    clearBtn.addEventListener('click', reset);
+    results.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('[data-reset]')) reset();
+    });
+
+    // --- Старт ---
+    renderPanel();
+    countEl.textContent = 'Всего документов: ' + total;
+    setWidth(root.getBoundingClientRect().width);
+    place();
+    updateButtons();
+
+    var pending = 0;
+    function onSize(w) {
+      if (pending) cancelAnimationFrame(pending);
+      pending = requestAnimationFrame(function () { pending = 0; setWidth(w); });
+    }
+    if (window.ResizeObserver) {
+      new ResizeObserver(function (entries) {
+        onSize(entries[0].contentRect.width);
+      }).observe(root);
+    } else {
+      window.addEventListener('resize', function () { onSize(root.getBoundingClientRect().width); });
+    }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.sm-docs[data-sm-docs]'), function (r) {
+    if (r.getAttribute('data-ready')) return;
+    r.setAttribute('data-ready', '1');
+    init(r);
+  });
+})();
+</script>

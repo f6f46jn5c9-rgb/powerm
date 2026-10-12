@@ -1,0 +1,71 @@
+<style>
+.sm-cta{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-text:#1a1a2e;--sm-muted:#6b7280;
+  --sm-radius:16px;--sm-shadow-sm:0 1px 3px rgba(26,42,94,.08),0 1px 2px rgba(26,42,94,.06);--sm-shadow-md:0 8px 24px rgba(26,42,94,.12);
+  box-sizing:border-box;margin:0;display:flex;align-items:stretch;gap:16px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3}
+.sm-cta-wrap{container-type:inline-size;container-name:smcta;display:block;width:100%;margin:0}
+.sm-cta *,.sm-cta *::before,.sm-cta *::after{box-sizing:border-box}
+.sm-cta a.sm-cta__btn{position:relative;overflow:hidden;flex:1 1 0;min-width:0;display:flex;align-items:center;gap:14px;padding:18px 20px;min-height:96px;
+  border:1.5px solid transparent;border-radius:var(--sm-radius);text-decoration:none !important;color:var(--t1) !important;
+  background:linear-gradient(135deg,#fff 0%,var(--glass) 100%) padding-box,linear-gradient(135deg,var(--g1),var(--g2)) border-box;
+  box-shadow:0 6px 22px var(--halo);
+  transition:transform .2s ease,box-shadow .25s ease;
+  animation:sm-cta-in .5s ease backwards;animation-delay:calc(var(--i) * 60ms)}
+/* цвета каждой кнопки: g — градиент обводки, t — заголовок, ic — иконка и стрелка, h — заливка подложки иконки на hover */
+.sm-cta a.sm-cta__btn--accent{--g1:#1a2a5e;--g2:#0e7c7b;--t1:#1a2a5e;--t2:#0d6f73;--hint:#4a5a85;--ic:#1d5a86;--glass:#f1f6fb;--tint:rgba(14,124,123,.10);
+  --i1:rgba(26,42,94,.16);--i2:rgba(14,124,123,.16);--ibd:rgba(26,70,120,.35);--h1:#1a2a5e;--h2:#0e7c7b;--halo:rgba(20,84,108,.22);--halo2:rgba(20,84,108,.36)}
+.sm-cta a.sm-cta__btn--alt{--g1:#0a5f5e;--g2:#1aa7a3;--t1:#0a5f5e;--t2:#0c6e6d;--hint:#3a6b6a;--ic:#0e7c7b;--glass:#eefafa;--tint:rgba(26,167,163,.12);
+  --i1:rgba(10,95,94,.16);--i2:rgba(26,167,163,.16);--ibd:rgba(14,124,123,.35);--h1:#0a5f5e;--h2:#0e7c7b;--halo:rgba(14,124,123,.22);--halo2:rgba(14,124,123,.36)}
+.sm-cta a.sm-cta__btn--solid{--t1:#fff;--hint:#fff;--ic:#fff;--tint:rgba(255,255,255,.18);--i1:rgba(255,255,255,.16);--i2:rgba(255,255,255,.16);--ibd:rgba(255,255,255,.45);
+  --h1:#fff;--h2:#fff;--halo:rgba(10,95,94,.32);--halo2:rgba(10,95,94,.48)}
+.sm-cta a.sm-cta__btn.sm-cta__btn--solid{background:linear-gradient(135deg,#0a5f5e,#0e7c7b) !important;border-color:#0a5f5e !important;color:#fff !important}
+.sm-cta a.sm-cta__btn.sm-cta__btn--solid:hover .sm-cta__icon{color:#0a5f5e !important}
+.sm-cta a.sm-cta__btn--solid .sm-cta__title{background:none !important;-webkit-text-fill-color:#fff !important;color:#fff !important}
+.sm-cta a.sm-cta__btn--solid .sm-cta__hint{color:#fff !important}
+.sm-cta a.sm-cta__btn--solid .sm-cta__arrow{color:#fff !important}
+.sm-cta a.sm-cta__btn::before{content:"";position:absolute;top:-40px;right:-30px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,var(--tint),transparent 70%);pointer-events:none}
+.sm-cta a.sm-cta__btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px var(--halo2)}
+.sm-cta a.sm-cta__btn:focus-visible{outline:3px solid #f5a623;outline-offset:3px}
+.sm-cta .sm-cta__icon{position:relative;flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--i1),var(--i2));border:1px solid var(--ibd);color:var(--ic);transition:color .2s ease}
+.sm-cta .sm-cta__icon::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,var(--h1),var(--h2));opacity:0;transition:opacity .2s ease}
+.sm-cta .sm-cta__icon svg{position:relative;display:block}
+.sm-cta a.sm-cta__btn:hover .sm-cta__icon{color:#fff}
+.sm-cta a.sm-cta__btn:hover .sm-cta__icon::before{opacity:1}
+.sm-cta .sm-cta__body{position:relative;flex:1 1 auto;min-width:0}
+.sm-cta .sm-cta__title{display:block;width:fit-content;max-width:100%;font-size:17px;font-weight:700;margin:0;color:var(--t1)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .sm-cta .sm-cta__title{background:linear-gradient(90deg,var(--t1),var(--t2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}}
+.sm-cta .sm-cta__hint{display:block;font-size:13px;margin-top:3px;color:var(--hint)}
+.sm-cta .sm-cta__arrow{position:relative;flex:0 0 auto;color:var(--ic);transition:transform .2s ease}
+.sm-cta a.sm-cta__btn:hover .sm-cta__arrow{transform:translateX(5px)}
+@keyframes sm-cta-in{from{opacity:0;transform:translateY(8px)}}
+@container smcta (max-width:879px){.sm-cta{flex-direction:column;gap:14px}.sm-cta a.sm-cta__btn{flex:0 0 auto}}
+@supports not (container-type:inline-size){@media (max-width:879px){.sm-cta{flex-direction:column;gap:14px}.sm-cta a.sm-cta__btn{flex:0 0 auto}}}
+@media (prefers-reduced-motion:reduce){.sm-cta a.sm-cta__btn{animation:none;transition:none}.sm-cta .sm-cta__arrow,.sm-cta .sm-cta__icon,.sm-cta .sm-cta__icon::before{transition:none}}
+</style>
+<div class="sm-cta-wrap"><nav class="sm-cta" id="sm-cta" aria-label="Основные действия"></nav></div>
+<script>
+(function () {
+  var BUTTONS = [
+    { title: 'Поделиться практикой', hint: 'Расскажите коллегам о своём опыте', variant: 'accent',
+      url: 'https://allforms.severstal.com/passing/787f04af-5596-4227-96df-f37d6604ec30',
+      icon: '<path d="M12 3v12"/><path d="M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/>' },
+    { title: 'Каталог сервисов СМ', hint: 'Все сервисы и инструменты в одном месте', variant: 'alt',
+      url: 'https://kb.severstal.com/spaces/BSS/pages/573178683/%D0%9A%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BE%D0%B2',
+      icon: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>' },
+    { title: 'Цифровой инструментарий', hint: 'Интерактивные HTML-инструменты', variant: 'solid',
+      url: 'https://kb.severstal.com/spaces/BSS/pages/575668888/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9+%D1%86%D0%B5%D1%85%D0%B0',
+      icon: '<rect x="3" y="3" width="8" height="10" rx="1.5"/><rect x="13" y="3" width="8" height="6" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="15" width="8" height="6" rx="1.5"/>' }
+  ];
+  function svg(p, w) { return '<svg width="' + w + '" height="' + w + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' + p + '</svg>'; }
+  var root = document.getElementById('sm-cta');
+  root.innerHTML = BUTTONS.map(function (b, i) {
+    return '<a class="sm-cta__btn ' + 'sm-cta__btn--' + b.variant + '" style="--i:' + i + '" href="' + b.url + '" target="_blank" rel="noopener">' +
+      '<span class="sm-cta__icon">' + svg(b.icon, 24) + '</span>' +
+      '<span class="sm-cta__body"><span class="sm-cta__title">' + b.title + '</span><span class="sm-cta__hint">' + b.hint + '</span></span>' +
+      '<span class="sm-cta__arrow">' + svg('<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>', 22) + '</span></a>';
+  }).join('');
+})();
+</script>
