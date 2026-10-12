@@ -89,6 +89,43 @@ PM_DOCS_CSS = """
   }
 """
 
+PM_CONFLUENCE_OVERRIDES = """
+  /* ---------- Confluence overrides (Confluence перебивает цвета ссылок и отступы заголовков) ---------- */
+  a.pop-tile, a.pop-tile:hover, a.pop-tile:visited, a.pop-tile:active,
+  a.pop-tile .pop-tile-name, .pop-tile .pop-tile-name{color:#fff !important;text-decoration:none !important;}
+  .pop-tile .pop-tile-name{font-size:13.5px !important; font-weight:600 !important;}
+  .service-item a, .service-item a:visited{color:#000 !important;text-decoration:none !important;}
+  .service-item a:hover{color:var(--pm-teal-dark) !important;}
+  .qr-trigger{color:#000 !important;}
+  .qr-trigger:hover{color:var(--pm-teal-dark) !important;}
+  .dropdown-link, .dropdown-link:visited{color:var(--pm-text-dark) !important; text-decoration:none !important;}
+  .dropdown-link:hover{color:var(--pm-teal-dark) !important;}
+  .social-btn, .social-btn:visited{color:var(--pm-teal) !important; text-decoration:none !important;}
+  .block-title{margin:0 0 14px !important;}
+  .catalog-hint{margin:0 0 18px !important; padding-top:6px !important;}
+  .header-search-row{margin-bottom:36px !important;}
+
+  /* Дополнение: цвета всех ссылок и кнопок во всех состояниях (значения те же, что в CSS выше) */
+  .accent-trigger, .accent-trigger:hover, .accent-trigger:focus, .accent-trigger:active,
+  .trigger-wrap.open .accent-trigger, .accent-trigger svg, .accent-trigger .trigger-chev{color:#fff !important;}
+  .pm-docs-btn, .pm-docs-btn:visited, .pm-docs-btn:focus, .pm-docs-btn:active{color:#1a2a5e !important;text-decoration:none !important;}
+  .pm-docs-btn svg, .pm-docs-btn:visited svg, .pm-docs-btn:focus svg, .pm-docs-btn:active svg{color:#0e7c7b !important;}
+  .pm-docs-btn:hover, .pm-docs-btn:hover:focus, .pm-docs-btn:hover:active, .pm-docs-btn:hover:visited{color:#0a5f5e !important;}
+  .pm-docs-btn:hover svg, .pm-docs-btn:hover:focus svg, .pm-docs-btn:hover:active svg, .pm-docs-btn:hover:visited svg{color:#0a5f5e !important;}
+  .pop-tile, .pop-tile:hover, .pop-tile:focus, .pop-tile:active, .pop-tile:visited,
+  a.pop-tile:focus, a.pop-tile:focus .pop-tile-name, .pop-tile-icon, .pop-tile-icon svg{color:#fff !important;}
+  .service-item a:focus, .service-item a:active{color:#000 !important;text-decoration:none !important;}
+  .service-item a:hover, .service-item a:hover:focus, .service-item a:hover:active, .service-item a:hover:visited{color:var(--pm-teal-dark) !important;}
+  .qr-trigger:focus, .qr-trigger:active{color:#000 !important;}
+  .qr-trigger:hover, .qr-trigger:hover:focus, .qr-trigger:hover:active{color:var(--pm-teal-dark) !important;}
+  .dropdown-link:focus, .dropdown-link:active{color:var(--pm-text-dark) !important;text-decoration:none !important;}
+  .dropdown-link:hover, .dropdown-link:hover:focus, .dropdown-link:hover:active, .dropdown-link:hover:visited{color:var(--pm-teal-dark) !important;}
+  .social-btn:hover, .social-btn:focus, .social-btn:active, .social-btn svg{color:var(--pm-teal) !important;text-decoration:none !important;}
+  .accordion-header, .accordion-header:hover, .accordion-header:focus, .accordion-header:active{color:#000 !important;}
+  .accordion-header h3{color:var(--pm-text-dark) !important;}
+  .block-title{color:var(--pm-navy-dark) !important;}
+"""
+
 PM_DOCS_BTN = """
       <a class="pm-docs-btn" id="pmDocsBtn" href="#" aria-label="Документы СМК: стандарты и инструкции">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
@@ -116,7 +153,7 @@ def build_catalog_services():
     anchor = '<ul class="dropdown-list" id="newbieList"></ul>\n        </div>\n      </div>\n'
     html = sub1(html, anchor, anchor + PM_DOCS_BTN.lstrip('\n'))
     # 3. стили кнопки и переноса ряда
-    css = css.rstrip('\n') + '\n' + PM_DOCS_CSS
+    css = css.rstrip('\n') + '\n' + PM_DOCS_CSS + PM_CONFLUENCE_OVERRIDES
     # 4. константа в начале скрипта
     js = sub1(js, '"use strict";\n', '"use strict";\n\n  // Адрес страницы «Стандарты и инструкции СМК». Пока пусто — кнопка показывает подсказку «Ссылка появится позже».\n  var DOCS_PAGE_URL = %r;\n' % DOCS_PAGE_URL)
     # 5. строка в «О компании и правила» -> «Политики и регламенты»
