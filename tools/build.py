@@ -27,3 +27,18 @@ def build_instrumentarii():
     (R/'preview-instrumentarii.html').write_text(prev)
 
 build_instrumentarii()
+
+# --- Страница «Стандарты и инструкции СМК» (src/docs-smk*) -> dist/01-docs-smk.html ---
+def build_docs_smk():
+    css = (R/'src/docs-smk.css').read_text().strip()
+    html = (R/'src/docs-smk.html').read_text().strip()
+    data = (R/'src/docs-smk-data.js').read_text().rstrip()
+    js = (R/'src/docs-smk.js').read_text().rstrip()
+    block = f'<style>\n{css}\n</style>\n{html}\n<script>\n(function () {{\n  "use strict";\n{data}\n{js}\n}})();\n</script>\n'
+    (R/'dist/01-docs-smk.html').write_text(block)
+    prev = ('<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+            '<title>Превью: Стандарты и инструкции СМК</title><style>body{margin:0;background:#f2f1ed}.col{width:1100px;max-width:100%;margin:0 auto;padding:24px 0 60px}</style></head>'
+            '<body><div class="col">' + block + '</div></body></html>')
+    (R/'preview-docs-smk.html').write_text(prev)
+
+build_docs_smk()
