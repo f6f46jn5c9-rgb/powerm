@@ -42,3 +42,90 @@ def build_docs_smk():
     (R/'preview-docs-smk.html').write_text(prev)
 
 build_docs_smk()
+
+# --- «Каталог сервисов» для Confluence: index.html (лендинг, не меняется) -> dist/catalog-services.html ---
+# Правки точечные: каждая подмена проверяется assert, чтобы при изменении index.html сборка не молчала.
+DOCS_PAGE_URL = ''  # адрес страницы «Стандарты и инструкции СМК»; пусто — кнопка и строка показывают подсказку
+
+PM_DOCS_CSS = """
+  /* ---------- Кнопка «Документы СМК» (добавлено для Confluence-версии) ---------- */
+  .header-search-row{flex-wrap:wrap;}
+  .header-search-row .search-box{flex:1 1 280px;}
+  .pm-docs-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    flex:0 0 auto;
+    font-family:inherit;
+    font-size:14.5px;
+    font-weight:700;
+    padding:10.5px 18.5px;
+    border:1.5px solid transparent;
+    border-radius:999px;
+    background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#1a2a5e,#0e7c7b) border-box;
+    color:#1a2a5e !important;
+    text-decoration:none !important;
+    cursor:pointer;
+    box-shadow:var(--shadow-sm),0 0 28px rgba(14,124,123,.18);
+    transition:box-shadow .25s ease,transform .2s ease;
+  }
+  .pm-docs-btn svg{color:#0e7c7b !important;flex-shrink:0;}
+  .pm-docs-btn:hover{
+    transform:translateY(-2px);
+    color:#0a5f5e !important;
+    box-shadow:var(--shadow-md),0 0 40px rgba(14,124,123,.32);
+  }
+  .pm-docs-btn:hover svg{color:#0a5f5e !important;}
+  .pm-docs-btn:focus-visible{outline:3px solid #f5a623;outline-offset:3px;}
+  @media (max-width:640px){
+    .header-search-row{flex-wrap:nowrap;}
+    .header-search-row .search-box{flex:0 0 auto;}
+    .pm-docs-btn{width:100%;justify-content:center;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .pm-docs-btn{transition:none;}
+    .pm-docs-btn:hover{transform:none;}
+  }
+"""
+
+PM_DOCS_BTN = """
+      <a class="pm-docs-btn" id="pmDocsBtn" href="#" aria-label="Документы СМК: стандарты и инструкции">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+        Документы СМК
+      </a>
+"""
+
+def sub1(text, old, new, flags=0):
+    import re as _re
+    if flags:
+        text2, n = _re.subn(old, lambda m: new, text, count=1, flags=flags)
+    else:
+        n = text.count(old); text2 = text.replace(old, new, 1)
+    assert n == 1, 'catalog-services: якорь не найден/не единственный: ' + old[:60]
+    return text2
+
+def build_catalog_services():
+    src = (R/'index.html').read_text()
+    css = re.search(r'<style>\n(.*?)</style>', src, re.S).group(1)
+    body = re.search(r'<body>\s*(<div class="wrap">.*?<div id="tooltip">[^<]*</div>)\s*<script>(.*?)</script>', src, re.S)
+    html, js = body.group(1), body.group(2)
+    # 1. шапка с логотипом СМ в Confluence не нужна
+    html = sub1(html, r'    <div class="brand-block">.*?\n    </div>\n', '', re.S)
+    # 2. кнопка «Документы СМК» сразу после .trigger-wrap «Новый сотрудник»
+    anchor = '<ul class="dropdown-list" id="newbieList"></ul>\n        </div>\n      </div>\n'
+    html = sub1(html, anchor, anchor + PM_DOCS_BTN.lstrip('\n'))
+    # 3. стили кнопки и переноса ряда
+    css = css.rstrip('\n') + '\n' + PM_DOCS_CSS
+    # 4. константа в начале скрипта
+    js = sub1(js, '"use strict";\n', '"use strict";\n\n  // Адрес страницы «Стандарты и инструкции СМК». Пока пусто — кнопка показывает подсказку «Ссылка появится позже».\n  var DOCS_PAGE_URL = %r;\n' % DOCS_PAGE_URL)
+    # 5. строка в «О компании и правила» -> «Политики и регламенты»
+    old = "['Алкотестеры','https://pmweb.powerm.ru/Security/Pages/Alcotest.aspx#/company']\n      ]}\n    ]}\n  ];"
+    new = "['Алкотестеры','https://pmweb.powerm.ru/Security/Pages/Alcotest.aspx#/company'],\n        ['Стандарты и инструкции СМК', DOCS_PAGE_URL || null]\n      ]}\n    ]}\n  ];"
+    js = sub1(js, old, new)
+    # 6. href кнопки при инициализации
+    t = '  // ---------- Tooltip on placeholder links ----------\n'
+    js = sub1(js, t, "  const pmDocsBtn = document.getElementById('pmDocsBtn');\n  if (pmDocsBtn) pmDocsBtn.setAttribute('href', DOCS_PAGE_URL || '#');\n\n" + t)
+    out = f'<style>\n{css}</style>\n{html}\n<script>{js}</script>\n'
+    (R/'dist/catalog-services.html').write_text(out)
+
+build_catalog_services()
