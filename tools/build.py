@@ -123,6 +123,11 @@ def build_catalog_services():
     old = "['Алкотестеры','https://pmweb.powerm.ru/Security/Pages/Alcotest.aspx#/company']\n      ]}\n    ]}\n  ];"
     new = "['Алкотестеры','https://pmweb.powerm.ru/Security/Pages/Alcotest.aspx#/company'],\n        ['Стандарты и инструкции СМК', DOCS_PAGE_URL || null]\n      ]}\n    ]}\n  ];"
     js = sub1(js, old, new)
+    # 5а. картинка «Приложение СИЗ» (JPEG 179 КБ) -> облегчённый PNG из 5 цветов (tools/siz-app.png, те же 1287x590 и те же QR-коды)
+    import base64
+    png = base64.b64encode((R/'tools/siz-app.png').read_bytes()).decode()
+    js, n = re.subn(r"(const SIZ_APP_IMAGE = ')data:image/jpeg;base64,[A-Za-z0-9+/=]+(')", lambda m: m.group(1) + 'data:image/png;base64,' + png + m.group(2), js)
+    assert n == 1, 'catalog-services: SIZ_APP_IMAGE не найден'
     # 6. href кнопки при инициализации
     t = '  // ---------- Tooltip on placeholder links ----------\n'
     js = sub1(js, t, "  const pmDocsBtn = document.getElementById('pmDocsBtn');\n  if (pmDocsBtn) pmDocsBtn.setAttribute('href', DOCS_PAGE_URL || '#');\n\n" + t)
