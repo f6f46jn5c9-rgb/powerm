@@ -39,6 +39,11 @@ ASSETS = [
     ('04-kr', '04-kr', 'dbv-kr', 'Как формулировать КР', {'chip', 'tip'}),
     ('05-oshibki', '05-oshibki', 'dbv-err', 'Чего не делать и частые ошибки', {'tip'}),
 ]
+ROLES = [
+    ('01-navigaciya', '01-navigaciya', 'dbv-nav', 'Навигация и заголовок', {'tip'}),
+    ('02-matrica', '02-matrica', 'dbv-mx', 'Матрица ролей', {'tip'}),
+    ('03-roli', '03-roli', 'dbv-rl', 'К кому обращаться', {'glass', 'tip'}),
+]
 SECTION = re.compile(r'/\*@(\w+)\*/(.*?)/\*@end\*/', re.S)
 MAX_KB = 40
 
@@ -224,6 +229,8 @@ def main():
         ok = build_set(RHYTHM, 'src/blocks-rhythm', 'dist/rhythm', False, 'preview-dbv-rhythm.html', 'Превью: Рабочий ритм и нештатные ситуации') and ok
     if (R / 'src/blocks-assets').exists():
         ok = build_set(ASSETS, 'src/blocks-assets', 'dist/assets', False, 'preview-dbv-assets.html', 'Превью: Активы, КР и частые ошибки') and ok
+    if (R / 'src/blocks-roles').exists():
+        ok = build_set(ROLES, 'src/blocks-roles', 'dist/roles', False, 'preview-dbv-roles.html', 'Превью: Роли: кто за что отвечает') and ok
     sys.exit(0 if ok else 1)
 
 
