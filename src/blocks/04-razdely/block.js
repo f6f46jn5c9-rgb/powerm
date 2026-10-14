@@ -1,14 +1,15 @@
-/* Здесь правятся названия и подписи плиток, а в url — адреса дочерних страниц. Пока url пустой, плитка показывается с меткой «Скоро» и не является ссылкой. variant и icon не трогайте. */
+/* Здесь правятся подписи плиток (hint). Названия и адреса страниц берутся из общего файла src/core/dbv-pages.js; пока url пустой, плитка показывается с меткой «Скоро» и не является ссылкой. variant не трогайте. */
 var DATA = {
   title: 'Выберите раздел',
   soon: 'Скоро'
 };
+/*%%PAGES%%*/
 var PAGES = {
-  stages: { title: 'Этапы и контрольные точки', hint: 'Что делать на каждом этапе, чек-листы готовности и первые 30 дней', url: '', variant: 'accent' },
-  rhythm: { title: 'Рабочий ритм и нештатные ситуации', hint: 'Встречи, отчёты, блокираторы и что делать, если что-то пошло не так', url: '', variant: 'alt' },
-  assets: { title: 'Активы, КР и частые ошибки', hint: 'Что считать результатом проекта и как его сформулировать', url: '', variant: 'alt' },
-  roles: { title: 'Роли: кто за что отвечает', hint: 'Матрица ролей и к кому обратиться по каким вопросам', url: '', variant: 'alt' },
-  grade: { title: 'Оценка и защита', hint: 'Как оценивают проекты и участников и как проходит защита', url: '', variant: 'accent' }
+  stages: { hint: 'Что делать на каждом этапе, чек-листы готовности и первые 30 дней', variant: 'accent' },
+  rhythm: { hint: 'Встречи, отчёты, блокираторы и что делать, если что-то пошло не так', variant: 'alt' },
+  assets: { hint: 'Что считать результатом проекта и как его сформулировать', variant: 'alt' },
+  roles: { hint: 'Матрица ролей и к кому обратиться по каким вопросам', variant: 'alt' },
+  grade: { hint: 'Как оценивают проекты и участников и как проходит защита', variant: 'accent' }
 };
 var ICONS = {
   stages: '<path d="M2 12h20"/><path d="M12 4.5 17.5 12 12 19.5 6.5 12z"/>',
@@ -22,7 +23,7 @@ function svg(p) { return '<svg class="dbv-svg" viewBox="0 0 24 24" aria-hidden="
 var ARROW = svg('<path d="M5 12h14M13 6l6 6-6 6"/>');
 function init(root) {
   var html = Object.keys(PAGES).map(function (k, i) {
-    var p = PAGES[k], on = !!p.url;
+    var p = { title: DBV_PAGES[k].title, url: DBV_PAGES[k].url, hint: PAGES[k].hint, variant: PAGES[k].variant }, on = !!p.url;
     var cls = 'dbv-glass dbv-tile' + (p.variant === 'accent' ? ' dbv-glass--accent' : '') + (on ? ' dbv-lift' : ' dbv-tile--off');
     var inner = '<span class="dbv-ico">' + svg(ICONS[k]) + '</span>' +
       '<span class="dbv-tile__body"><span class="dbv-tile__t">' + esc(p.title) + '</span>' + (p.hint ? '<span class="dbv-tile__h">' + esc(p.hint) + '</span>' : '') + '</span>' +
