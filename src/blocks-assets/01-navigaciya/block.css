@@ -1,0 +1,11 @@
+/* Блок 01: навигация и заголовок страницы */
+.ROOT .dbv-nav__head{position:relative;margin-top:26px}
+.ROOT .dbv-nav__clip{position:absolute;left:0;right:0;top:-10px;bottom:-10px;overflow:hidden;pointer-events:none}
+.ROOT .dbv-nav__orb{position:absolute;right:-30px;top:0;width:220px !important;height:160px !important}
+.ROOT .dbv-nav__txt{position:relative;padding-right:170px}
+.ROOT h2.dbv-nav__h2 .dbv-nav__acc{color:var(--dbv-teal) !important}
+.ROOT p.dbv-nav__lead{max-width:820px}
+@container (max-width:759px){
+  .ROOT .dbv-nav__txt{padding-right:0}
+  .ROOT .dbv-nav__clip{display:none}
+}
