@@ -43,8 +43,8 @@ var DATA = {
   ],
   note: 'Месяцы 2026 года — пример. Даты каждого цикла устанавливает приказ о запуске; порядок и правила остаются прежними.'
 };
-/* Ссылка «Подробно про этап» ведёт на страницу этапов: впишите адрес в url (пока пусто — кнопка не показывается). */
-var PAGES = { stages: { url: '' } };
+/* Адрес для кнопки «Подробно про этап» берётся из общего файла ссылок src/core/dbv-pages.js (DBV_PAGES.stages.url); пока пусто — кнопка не показывается. */
+/*%%PAGES%%*/
 /*%%GLOSSARY%%*/
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 var SVGO = '<svg class="dbv-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">';
@@ -64,7 +64,7 @@ function init(root, uid) {
     if (it.kt) h += '<div class="dbv-ktb">' + ICON_DIA + '<span>КТ' + it.n + ' · ' + esc(it.kt) + '</span></div>';
     if (it.who) h += '<p class="dbv-pc__row" data-gl><b>Решает:</b>' + esc(it.who) + '</p>';
     if (it.term && it.term[mode]) h += '<p class="dbv-pc__row"><b>Срок:</b>' + esc(it.term[mode]) + '</p>';
-    if (it.n && PAGES.stages.url) h += '<a class="dbv-go" href="' + esc(PAGES.stages.url + '#e' + it.n) + '">Подробно про этап ' + ICON_ARROW + '</a>';
+    if (it.n && DBV_PAGES.stages.url) h += '<a class="dbv-go" href="' + esc(DBV_PAGES.stages.url + '#e' + it.n) + '">Подробно про этап ' + ICON_ARROW + '</a>';
     return h + '</div>';
   }
 
