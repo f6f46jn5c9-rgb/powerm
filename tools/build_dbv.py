@@ -26,6 +26,12 @@ STAGES = [
     ('03-pervye-30-dney', '03-pervye-30-dney', 'dbv-f30', 'Первые 30 дней', {'glass', 'chip', 'tip'}),
     ('04-kriterii', '04-kriterii', 'dbv-crit', 'Критерии включения', {'glass', 'tip'}),
 ]
+RHYTHM = [
+    ('01-navigaciya', '01-navigaciya', 'dbv-nav', 'Навигация и заголовок', {'tip'}),
+    ('02-ritm', '02-ritm', 'dbv-rit', 'Рабочий ритм проекта', {'glass', 'chip', 'tip'}),
+    ('03-otchet-blokiratory', '03-otchet-blokiratory', 'dbv-rep', 'Пятничный отчёт и блокиратор', {'glass', 'chip', 'tip'}),
+    ('04-nestatnye', '04-nestatnye', 'dbv-oops', 'Если что-то пошло не так', {'chip', 'tip'}),
+]
 SECTION = re.compile(r'/\*@(\w+)\*/(.*?)/\*@end\*/', re.S)
 MAX_KB = 40
 
@@ -204,6 +210,8 @@ def main():
     ok = build_set(HUB, 'src/blocks', 'dist', True, 'preview-dbv-hub.html', 'Превью: Проектный трек ДБВ (хаб)')
     if (R / 'src/blocks-stages').exists():
         ok = build_set(STAGES, 'src/blocks-stages', 'dist/stages', False, 'preview-dbv-stages.html', 'Превью: Этапы и контрольные точки') and ok
+    if (R / 'src/blocks-rhythm').exists():
+        ok = build_set(RHYTHM, 'src/blocks-rhythm', 'dist/rhythm', False, 'preview-dbv-rhythm.html', 'Превью: Рабочий ритм и нештатные ситуации') and ok
     sys.exit(0 if ok else 1)
 
 
