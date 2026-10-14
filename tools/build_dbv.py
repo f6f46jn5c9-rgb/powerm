@@ -32,6 +32,13 @@ RHYTHM = [
     ('03-otchet-blokiratory', '03-otchet-blokiratory', 'dbv-rep', 'Пятничный отчёт и блокиратор', {'glass', 'chip', 'tip'}),
     ('04-nestatnye', '04-nestatnye', 'dbv-oops', 'Если что-то пошло не так', {'chip', 'tip'}),
 ]
+ASSETS = [
+    ('01-navigaciya', '01-navigaciya', 'dbv-nav', 'Навигация и заголовок', {'tip'}),
+    ('02-aktiv', '02-aktiv', 'dbv-act', 'Актив: что это и что нет', {'glass', 'tip'}),
+    ('03-ustoychivost', '03-ustoychivost', 'dbv-sus', 'Что делает результат устойчивым', set()),
+    ('04-kr', '04-kr', 'dbv-kr', 'Как формулировать КР', {'chip', 'tip'}),
+    ('05-oshibki', '05-oshibki', 'dbv-err', 'Чего не делать и частые ошибки', {'tip'}),
+]
 SECTION = re.compile(r'/\*@(\w+)\*/(.*?)/\*@end\*/', re.S)
 MAX_KB = 40
 
@@ -195,6 +202,9 @@ def build_set(blocks, src, outdir, double, prev_name, prev_title):
     (R / outdir).mkdir(parents=True, exist_ok=True)
     ok, items = True, []
     for folder, name, root, cap, sections in blocks:
+        if not (R / src / folder / 'block.js').exists():
+            print(f'(пропуск: нет {src}/{folder}/block.js)')
+            continue
         t = build_block(src, folder, root, sections, double)
         (R / outdir / f'{name}.html').write_text(t, encoding='utf-8')
         kb = len(t.encode('utf-8')) / 1024
@@ -212,6 +222,8 @@ def main():
         ok = build_set(STAGES, 'src/blocks-stages', 'dist/stages', False, 'preview-dbv-stages.html', 'Превью: Этапы и контрольные точки') and ok
     if (R / 'src/blocks-rhythm').exists():
         ok = build_set(RHYTHM, 'src/blocks-rhythm', 'dist/rhythm', False, 'preview-dbv-rhythm.html', 'Превью: Рабочий ритм и нештатные ситуации') and ok
+    if (R / 'src/blocks-assets').exists():
+        ok = build_set(ASSETS, 'src/blocks-assets', 'dist/assets', False, 'preview-dbv-assets.html', 'Превью: Активы, КР и частые ошибки') and ok
     sys.exit(0 if ok else 1)
 
 
