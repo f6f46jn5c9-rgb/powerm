@@ -1,0 +1,97 @@
+/* ДБВ core: токены и базовые классы. .ROOT и ROOTK подставляет tools/build_dbv.py (корень блока).
+   Секции между маркерами «@имя» и «@end» подключаются к блоку только по списку в build_dbv.py, остальное (база) — всегда. */
+.ROOT{
+  --dbv-red:#E01828;--dbv-teal:#007890;--dbv-cyan:#00A8C0;
+  --dbv-ink:#1F2A33;--dbv-muted:#5B6670;--dbv-logo-gray:#989898;
+  --dbv-tint-cyan:#EEF9FB;--dbv-tint-red:#FDF1F2;--dbv-white:#FFFFFF;
+  --dbv-red-ink:#D61525; /* красный для ТЕКСТА на тинте: #E01828 на #FDF1F2 даёт 4.40 < 4.5 */
+  --dbv-radius:16px;
+  --dbv-shadow:0 6px 22px rgba(0,120,144,.14);--dbv-shadow-hover:0 10px 30px rgba(0,120,144,.26);
+  --dbv-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  display:block;position:relative;container-type:inline-size;box-sizing:border-box;
+  width:100%;max-width:100%;margin:0;padding:0;
+  font:400 16px/1.4 var(--dbv-font);color:var(--dbv-ink);text-align:left;
+  word-break:normal;overflow-wrap:normal;hyphens:manual;text-wrap:balance;
+  -webkit-text-size-adjust:100%;
+}
+.ROOT *,.ROOT *::before,.ROOT *::after{box-sizing:border-box}
+
+/* типографика по ролям */
+.ROOT h2.dbv-h2{margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;
+  font:800 26px/1.25 var(--dbv-font) !important;color:var(--dbv-ink) !important;letter-spacing:0 !important;
+  text-transform:none !important;text-align:left !important;text-decoration:none !important}
+.ROOT h3.dbv-h3{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;
+  font:700 19px/1.3 var(--dbv-font) !important;color:var(--dbv-ink) !important;letter-spacing:0 !important;
+  text-transform:none !important;text-align:left !important}
+.ROOT p.dbv-body,.ROOT div.dbv-body{margin:0 !important;padding:0 !important;font:400 16px/1.45 var(--dbv-font) !important;color:var(--dbv-ink) !important}
+.ROOT p.dbv-small,.ROOT div.dbv-small{margin:0 !important;padding:0 !important;font:400 14px/1.4 var(--dbv-font) !important;color:var(--dbv-muted) !important}
+.ROOT .dbv-svg{width:24px !important;height:24px !important;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ROOT button{font-family:var(--dbv-font)}
+@container (max-width:640px){
+  .ROOT h2.dbv-h2{font-size:21px !important}
+  .ROOT h3.dbv-h3{font-size:17px !important}
+  .ROOT p.dbv-body,.ROOT div.dbv-body{font-size:15px !important}
+}
+
+/* фокус и движение */
+.ROOT a:focus-visible,.ROOT button:focus-visible,.ROOT summary:focus-visible,.ROOT .dbv-ab:focus-visible,.ROOT [tabindex]:focus-visible{
+  outline:3px solid var(--dbv-teal) !important;outline-offset:3px !important}
+@media (prefers-reduced-motion:reduce){
+  .ROOT *,.ROOT *::before,.ROOT *::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+}
+@keyframes ROOTK-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes ROOTK-fade{from{opacity:0}to{opacity:1}}
+
+/*@logo*/
+/* логотип: знак + живая надпись */
+.ROOT .dbv-logo{--mk:92px;display:flex;align-items:center;gap:16px;flex:0 0 auto}
+.ROOT .dbv-logo svg{display:block;width:var(--mk) !important;height:auto !important;flex:0 0 auto}
+.ROOT .dbv-logo__word{display:flex;flex-direction:column;justify-content:center;color:var(--dbv-logo-gray);
+  font-family:"Arial Narrow","Liberation Sans Narrow","Helvetica Neue",Arial,sans-serif;font-weight:400;font-stretch:condensed;
+  font-size:calc(var(--mk)*.27);line-height:calc(var(--mk)*.3535);letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}
+@container (max-width:640px){.ROOT .dbv-logo{--mk:64px;gap:12px}}
+
+/*@end*/
+/*@chip*/
+/* чипы и метки */
+.ROOT .dbv-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1.5px solid rgba(0,120,144,.3);border-radius:999px;
+  background:#fff;font:600 14px/1.3 var(--dbv-font);color:var(--dbv-ink)}
+.ROOT .dbv-chip .dbv-svg{width:20px !important;height:20px !important;color:var(--dbv-teal)}
+.ROOT .dbv-chip--red{border-color:rgba(224,24,40,.4)}
+.ROOT .dbv-chip--red .dbv-svg{color:var(--dbv-red)}
+
+/*@end*/
+/*@glass*/
+/* стеклянная карточка с градиентной границей (механика эталона А) */
+.ROOT .dbv-glass{--g1:#007890;--g2:#00A8C0;--glass:#EEF9FB;--halo:rgba(0,120,144,.14);--halo2:rgba(0,120,144,.26);--tint:rgba(0,168,192,.18);
+  --i1:#fff;--i2:#EEF9FB;--ibd:rgba(0,120,144,.3);--ic:#007890;--h1:#007890;--h2:#00A8C0;
+  position:relative;overflow:hidden;border:1.5px solid transparent;border-radius:var(--dbv-radius);
+  background:linear-gradient(135deg,#fff 0%,var(--glass) 100%) padding-box,linear-gradient(135deg,var(--g1),var(--g2)) border-box;
+  box-shadow:0 6px 22px var(--halo);transition:transform .2s ease,box-shadow .25s ease;
+  animation:ROOTK-in .5s ease backwards;animation-delay:calc(var(--i,0)*60ms)}
+.ROOT .dbv-glass--accent{--g1:#E01828;--g2:#007890;--glass:#FDF1F2;--halo:rgba(224,24,40,.18);--halo2:rgba(224,24,40,.28);--tint:rgba(224,24,40,.12);
+  --i2:#FDF1F2;--ibd:rgba(224,24,40,.3);--ic:#E01828;--h1:#E01828;--h2:#007890}
+.ROOT .dbv-glass::before{content:"";position:absolute;top:-40px;right:-30px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,var(--tint),transparent 70%);pointer-events:none}
+.ROOT .dbv-lift:hover{transform:translateY(-3px);box-shadow:0 10px 30px var(--halo2)}
+.ROOT .dbv-ico{flex:0 0 auto;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;
+  background:linear-gradient(135deg,var(--i1),var(--i2));border:1px solid var(--ibd);color:var(--ic);transition:color .2s}
+.ROOT .dbv-ico::before{content:"";position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,var(--h1),var(--h2));opacity:0;transition:opacity .2s}
+.ROOT .dbv-ico .dbv-svg{position:relative}
+.ROOT .dbv-lift:hover .dbv-ico{color:#fff}
+.ROOT .dbv-lift:hover .dbv-ico::before{opacity:1}
+
+/*@end*/
+/*@tip*/
+/* подсказки-аббревиатуры */
+.ROOT .dbv-ab{border-bottom:1.5px dotted var(--dbv-teal);cursor:help;color:inherit;text-decoration:none}
+.ROOT .dbv-tip{position:absolute;left:0;top:0;z-index:20;width:max-content;max-width:300px;padding:10px 14px;border-radius:12px;
+  background:#fff;border:1px solid rgba(0,168,192,.35);box-shadow:0 10px 30px rgba(0,120,144,.26);
+  font:400 14px/1.4 var(--dbv-font);color:var(--dbv-ink);text-align:left;
+  visibility:hidden;opacity:0;pointer-events:none;transition:opacity .15s ease}
+.ROOT .dbv-tip.is-open{visibility:visible;opacity:1}
+.ROOT .dbv-tip__t{font-weight:700;color:var(--dbv-teal);margin-bottom:2px}
+.ROOT .dbv-tip::after{content:"";position:absolute;left:var(--ax,20px);bottom:-6px;width:10px;height:10px;margin-left:-5px;background:#fff;
+  border-right:1px solid rgba(0,168,192,.35);border-bottom:1px solid rgba(0,168,192,.35);transform:rotate(45deg)}
+.ROOT .dbv-tip.is-below::after{bottom:auto;top:-6px;border:0;border-left:1px solid rgba(0,168,192,.35);border-top:1px solid rgba(0,168,192,.35)}
+/*@end*/

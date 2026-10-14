@@ -1,0 +1,202 @@
+<style>
+.dbv-hero.dbv-hero{--dbv-red:#E01828;--dbv-teal:#007890;--dbv-cyan:#00A8C0;--dbv-ink:#1F2A33;--dbv-muted:#5B6670;--dbv-logo-gray:#989898;--dbv-tint-cyan:#EEF9FB;--dbv-tint-red:#FDF1F2;--dbv-white:#FFFFFF;--dbv-red-ink:#D61525;--dbv-radius:16px;--dbv-shadow:0 6px 22px rgba(0,120,144,.14);--dbv-shadow-hover:0 10px 30px rgba(0,120,144,.26);--dbv-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:block;position:relative;container-type:inline-size;box-sizing:border-box;width:100%;max-width:100%;margin:0;padding:0;font:400 16px/1.4 var(--dbv-font);color:var(--dbv-ink);text-align:left;word-break:normal;overflow-wrap:normal;hyphens:manual;text-wrap:balance;-webkit-text-size-adjust:100%;}.dbv-hero.dbv-hero *,.dbv-hero.dbv-hero *::before,.dbv-hero.dbv-hero *::after{box-sizing:border-box}.dbv-hero.dbv-hero h2.dbv-h2{margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;font:800 26px/1.25 var(--dbv-font) !important;color:var(--dbv-ink) !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important;text-decoration:none !important}.dbv-hero.dbv-hero h3.dbv-h3{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font:700 19px/1.3 var(--dbv-font) !important;color:var(--dbv-ink) !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important}.dbv-hero.dbv-hero p.dbv-body,.dbv-hero.dbv-hero div.dbv-body{margin:0 !important;padding:0 !important;font:400 16px/1.45 var(--dbv-font) !important;color:var(--dbv-ink) !important}.dbv-hero.dbv-hero p.dbv-small,.dbv-hero.dbv-hero div.dbv-small{margin:0 !important;padding:0 !important;font:400 14px/1.4 var(--dbv-font) !important;color:var(--dbv-muted) !important}.dbv-hero.dbv-hero .dbv-svg{width:24px !important;height:24px !important;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.dbv-hero.dbv-hero button{font-family:var(--dbv-font)}@container (max-width:640px){.dbv-hero.dbv-hero h2.dbv-h2{font-size:21px !important}.dbv-hero.dbv-hero h3.dbv-h3{font-size:17px !important}.dbv-hero.dbv-hero p.dbv-body,.dbv-hero.dbv-hero div.dbv-body{font-size:15px !important}}.dbv-hero.dbv-hero a:focus-visible,.dbv-hero.dbv-hero button:focus-visible,.dbv-hero.dbv-hero summary:focus-visible,.dbv-hero.dbv-hero .dbv-ab:focus-visible,.dbv-hero.dbv-hero [tabindex]:focus-visible{outline:3px solid var(--dbv-teal) !important;outline-offset:3px !important}@media (prefers-reduced-motion:reduce){.dbv-hero.dbv-hero *,.dbv-hero.dbv-hero *::before,.dbv-hero.dbv-hero *::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}@keyframes dbv-hero-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes dbv-hero-fade{from{opacity:0}to{opacity:1}}.dbv-hero.dbv-hero .dbv-logo{--mk:92px;display:flex;align-items:center;gap:16px;flex:0 0 auto}.dbv-hero.dbv-hero .dbv-logo svg{display:block;width:var(--mk) !important;height:auto !important;flex:0 0 auto}.dbv-hero.dbv-hero .dbv-logo__word{display:flex;flex-direction:column;justify-content:center;color:var(--dbv-logo-gray);font-family:"Arial Narrow","Liberation Sans Narrow","Helvetica Neue",Arial,sans-serif;font-weight:400;font-stretch:condensed;font-size:calc(var(--mk)*.27);line-height:calc(var(--mk)*.3535);letter-spacing:.01em;text-transform:uppercase;white-space:nowrap}@container (max-width:640px){.dbv-hero.dbv-hero .dbv-logo{--mk:64px;gap:12px}}.dbv-hero.dbv-hero .dbv-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1.5px solid rgba(0,120,144,.3);border-radius:999px;background:#fff;font:600 14px/1.3 var(--dbv-font);color:var(--dbv-ink)}.dbv-hero.dbv-hero .dbv-chip .dbv-svg{width:20px !important;height:20px !important;color:var(--dbv-teal)}.dbv-hero.dbv-hero .dbv-chip--red{border-color:rgba(224,24,40,.4)}.dbv-hero.dbv-hero .dbv-chip--red .dbv-svg{color:var(--dbv-red)}.dbv-hero.dbv-hero .dbv-ab{border-bottom:1.5px dotted var(--dbv-teal);cursor:help;color:inherit;text-decoration:none}.dbv-hero.dbv-hero .dbv-tip{position:absolute;left:0;top:0;z-index:20;width:max-content;max-width:300px;padding:10px 14px;border-radius:12px;background:#fff;border:1px solid rgba(0,168,192,.35);box-shadow:0 10px 30px rgba(0,120,144,.26);font:400 14px/1.4 var(--dbv-font);color:var(--dbv-ink);text-align:left;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .15s ease}.dbv-hero.dbv-hero .dbv-tip.is-open{visibility:visible;opacity:1}.dbv-hero.dbv-hero .dbv-tip__t{font-weight:700;color:var(--dbv-teal);margin-bottom:2px}.dbv-hero.dbv-hero .dbv-tip::after{content:"";position:absolute;left:var(--ax,20px);bottom:-6px;width:10px;height:10px;margin-left:-5px;background:#fff;border-right:1px solid rgba(0,168,192,.35);border-bottom:1px solid rgba(0,168,192,.35);transform:rotate(45deg)}.dbv-hero.dbv-hero .dbv-tip.is-below::after{bottom:auto;top:-6px;border:0;border-left:1px solid rgba(0,168,192,.35);border-top:1px solid rgba(0,168,192,.35)}
+.dbv-hero.dbv-hero{background:#fff;border:1px solid rgba(0,120,144,.18);border-radius:var(--dbv-radius);box-shadow:var(--dbv-shadow);padding-bottom:4px}.dbv-hero.dbv-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;border-radius:0 0 15px 15px;background:linear-gradient(90deg,var(--dbv-red),var(--dbv-teal),var(--dbv-cyan))}.dbv-hero.dbv-hero .dbv-hero__clip{position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;border-radius:inherit;pointer-events:none}.dbv-hero.dbv-hero .dbv-hero__orb{position:absolute;right:-40px;top:0;width:240px !important;height:180px !important}.dbv-hero.dbv-hero .dbv-hero__in{position:relative;padding:28px 32px 30px}.dbv-hero.dbv-hero .dbv-hero__head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 32px;align-items:center}.dbv-hero.dbv-hero .dbv-hero__txt{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-right:140px;min-width:0}.dbv-hero.dbv-hero .dbv-hero__eyebrow{font:600 14px/1.4 var(--dbv-font);letter-spacing:.06em;text-transform:uppercase;color:var(--dbv-muted)}.dbv-hero.dbv-hero h2.dbv-hero__h2{font-size:30px !important;margin:0 !important}.dbv-hero.dbv-hero h2.dbv-hero__h2 .dbv-hero__acc{color:var(--dbv-teal) !important}.dbv-hero.dbv-hero p.dbv-hero__sub{margin:0 !important}.dbv-hero.dbv-hero .dbv-hero__chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}.dbv-hero.dbv-hero .dbv-hero__info{display:grid;grid-template-columns:1fr 1fr 1.7fr;gap:14px;margin-top:24px}.dbv-hero.dbv-hero .dbv-hero__box{padding:14px 18px !important;border-radius:12px;background:var(--dbv-tint-cyan);border:1px solid rgba(0,120,144,.16);min-width:0}.dbv-hero.dbv-hero .dbv-hero__lab{margin:0 0 6px !important;font:600 14px/1.3 var(--dbv-font);letter-spacing:.06em;text-transform:uppercase;color:var(--dbv-teal)}.dbv-hero.dbv-hero p.dbv-hero__t{font-size:15px !important;line-height:1.45 !important}.dbv-hero.dbv-hero .dbv-hero__box{animation:dbv-hero-in .5s ease backwards;animation-delay:calc(var(--i,0)*60ms)}@container (max-width:900px){.dbv-hero.dbv-hero .dbv-hero__info{grid-template-columns:1fr}.dbv-hero.dbv-hero .dbv-hero__txt{padding-right:90px}}@container (max-width:759px){.dbv-hero.dbv-hero .dbv-hero__in{padding:22px 20px 24px}.dbv-hero.dbv-hero .dbv-hero__head{grid-template-columns:1fr}.dbv-hero.dbv-hero .dbv-hero__txt{padding-right:0}.dbv-hero.dbv-hero .dbv-hero__orb{height:130px !important;width:174px !important;right:-30px}}@container (max-width:640px){.dbv-hero.dbv-hero h2.dbv-hero__h2{font-size:24px !important}.dbv-hero.dbv-hero .dbv-hero__eyebrow{letter-spacing:.04em}.dbv-hero.dbv-hero .dbv-hero__info{margin-top:18px}}
+</style>
+<div class="dbv-hero" role="region" aria-label="Проектный трек ДБВ">
+  <div class="dbv-hero__clip" aria-hidden="true">
+    <svg class="dbv-hero__orb" viewBox="0 0 240 180" preserveAspectRatio="xMaxYMin meet" focusable="false">
+      <ellipse cx="150" cy="90" rx="118" ry="44" transform="rotate(-24 150 90)" fill="none" stroke="#007890" stroke-width="1.5" opacity=".35"/>
+      <ellipse cx="160" cy="96" rx="96" ry="34" transform="rotate(18 160 96)" fill="none" stroke="#E01828" stroke-width="1.5" opacity=".3"/>
+    </svg>
+  </div>
+  <div class="dbv-hero__in">
+    <div class="dbv-hero__head">
+      <div class="dbv-logo" role="group" aria-label="Достичь большего вместе"><svg class="dbv-hero__mark" viewBox="0 0 596 632" role="img" aria-label="Знак программы «Достичь большего вместе»"><path d="M0 0 C3 -0 7 -0 10 -0 C18 0 26 1 34 3 C36 4 39 4 41 4 C51 7 59 10 68 14 C78 18 78 18 86 20 C98 29 98 29 97 32 C92 31 92 31 80 25 C49 13 6 2 -24 20 C-28 22 -31 23 -34 24 C-57 40 -70 55 -80 80 C-82 83 -83 86 -84 89 C-90 107 -93 124 -94 142 C-89 143 -89 143 -78 139 C-71 137 -64 135 -56 133 C-56 133 -55 133 -54 132 C-51 132 -49 132 -46 131 C-36 130 -36 130 -29 128 C20 123 20 123 30 126 C35 127 40 127 45 127 C59 128 73 130 88 133 C90 134 93 134 95 135 C103 136 103 136 112 139 C115 140 118 141 121 141 C129 144 138 147 147 150 C153 153 160 155 167 158 C176 161 185 165 193 171 C197 173 201 175 205 177 C229 193 229 193 235 199 C236 200 237 200 239 200 C234 176 225 155 208 136 C208 136 208 135 208 134 C207 134 206 134 205 133 C205 133 205 132 205 131 C203 131 202 130 201 129 C199 128 199 128 190 121 C176 112 162 107 146 104 C144 103 142 102 141 101 C136 101 131 100 127 100 C127 99 127 98 127 96 C141 96 141 96 146 98 C148 98 151 99 154 99 C164 100 174 103 184 107 C186 108 189 109 192 109 C196 111 200 113 204 115 C206 116 208 117 211 118 C226 128 240 138 250 153 C252 156 254 159 257 162 C262 174 268 186 270 199 C270 200 270 201 271 202 C271 207 271 211 272 215 C272 218 273 221 274 224 C274 227 274 230 274 233 C276 242 276 242 283 252 C303 288 320 335 300 375 C299 378 298 380 298 382 C297 384 297 384 292 390 C290 394 288 398 286 402 C281 408 281 408 276 413 C275 414 275 414 270 418 C265 423 265 423 254 431 C251 433 248 435 246 437 C241 440 241 440 237 439 C238 436 238 436 243 433 C256 421 266 409 276 393 C276 392 277 391 278 390 C278 389 278 389 281 380 C281 379 281 379 283 374 C285 365 285 358 285 349 C285 346 285 343 285 340 C285 333 285 333 283 329 C282 327 281 324 281 321 C269 297 269 297 264 297 C263 299 263 299 261 307 C259 311 257 314 256 317 C254 321 253 324 252 327 C240 349 240 349 235 355 C233 357 232 359 230 361 C218 377 205 392 190 407 C188 409 186 411 184 413 C178 419 173 423 167 428 C166 429 166 429 160 434 C144 446 127 457 110 467 C106 469 103 471 100 473 C89 480 78 485 67 490 C63 492 59 494 55 496 C47 500 47 500 39 502 C37 503 36 504 35 504 C32 505 29 506 27 506 C25 508 23 510 22 511 C19 511 17 511 15 510 C7 513 -0 515 -7 517 C-15 519 -22 521 -30 522 C-38 523 -38 523 -40 526 C-41 526 -42 526 -43 525 C-49 525 -54 525 -60 525 C-63 525 -66 525 -69 525 C-76 525 -76 525 -79 526 C-91 526 -91 526 -94 525 C-101 525 -108 525 -115 525 C-129 524 -129 524 -134 521 C-137 521 -140 521 -143 520 C-151 519 -160 518 -167 513 C-170 513 -173 512 -175 511 C-203 499 -228 482 -244 455 C-246 453 -248 450 -249 447 C-262 415 -263 383 -254 350 C-254 347 -253 344 -252 341 C-248 331 -248 331 -245 330 C-245 340 -245 340 -247 345 C-256 396 -246 448 -193 467 C-189 468 -184 469 -179 470 C-178 471 -177 471 -176 471 C-168 471 -160 471 -151 471 C-147 471 -142 471 -138 471 C-126 471 -126 471 -122 469 C-121 469 -121 469 -115 468 C-106 467 -106 467 -96 463 C-100 450 -110 436 -117 424 C-124 411 -130 397 -135 383 C-137 380 -138 377 -139 374 C-144 361 -148 349 -151 335 C-152 333 -153 331 -153 329 C-154 324 -155 319 -156 314 C-157 311 -158 307 -159 303 C-163 283 -164 263 -166 242 C-177 248 -180 264 -182 274 C-183 277 -184 279 -184 281 C-185 286 -185 291 -185 296 C-185 298 -185 301 -185 304 C-184 316 -183 329 -177 340 C-177 343 -176 346 -175 348 C-170 358 -165 367 -158 375 C-158 376 -158 377 -158 378 C-168 376 -173 366 -178 358 C-181 355 -184 352 -186 349 C-199 327 -207 306 -207 280 C-207 278 -207 275 -207 272 C-206 263 -206 256 -202 247 C-202 244 -201 241 -200 238 C-194 224 -187 210 -175 199 C-166 189 -162 183 -159 169 C-156 156 -156 156 -154 150 C-154 147 -153 144 -152 140 C-149 131 -146 123 -142 114 C-141 111 -140 108 -138 104 C-130 87 -121 70 -107 56 C-106 55 -106 55 -100 47 C-93 39 -84 32 -75 25 C-74 25 -74 25 -70 21 C-55 12 -39 6 -21 1 C-15 -1 -7 0 0 0 Z " fill="#017D95" transform="translate(277.3125,15.75)"/><path d="M0 0 C5 -0 9 -0 14 -0 C24 0 33 1 43 2 C47 3 51 3 55 3 C66 4 66 4 72 6 C73 6 73 6 81 7 C90 8 90 8 95 10 C97 11 97 11 107 12 C108 13 110 14 112 14 C114 15 114 15 124 17 C129 19 134 20 139 21 C143 22 147 23 151 24 C156 26 161 28 166 29 C170 31 174 32 179 33 C196 39 213 46 230 54 C232 56 235 57 238 58 C247 63 255 68 264 73 C265 74 267 75 269 76 C272 89 252 109 244 118 C242 120 241 122 239 124 C235 129 235 129 229 134 C227 136 225 138 224 140 C219 144 215 147 211 150 C207 154 203 157 199 160 C197 161 197 161 191 166 C189 168 187 169 185 171 C173 180 160 187 147 195 C145 197 143 198 141 199 C133 204 125 208 117 212 C114 213 111 215 108 216 C105 217 103 219 100 220 C97 222 94 223 91 224 C81 230 71 234 61 239 C58 241 55 242 52 244 C45 247 37 250 29 253 C27 254 27 254 18 257 C3 255 -3 225 -8 212 C-10 209 -11 206 -12 203 C-16 196 -18 189 -20 181 C-21 181 -21 181 -22 177 C-23 175 -24 172 -24 169 C-25 169 -25 169 -26 165 C-27 163 -28 160 -28 157 C-29 156 -30 155 -30 153 C-31 151 -32 148 -32 145 C-33 144 -34 143 -34 141 C-37 132 -39 123 -40 114 C-41 113 -42 111 -42 109 C-43 105 -44 101 -44 97 C-46 92 -47 87 -48 81 C-50 73 -51 64 -52 55 C-53 53 -53 53 -54 44 C-55 39 -56 33 -56 27 C-57 24 -57 21 -58 18 C-59 7 -57 8 -46 4 C-41 4 -35 3 -29 2 C-21 -2 -9 -0 0 0 Z " fill="#FFFFFF" transform="translate(238.25,200.75)"/><path d="M0 0 C12 3 36 24 38 36 C37 36 37 37 36 37 C35 40 34 44 33 47 C32 49 32 49 28 57 C27 60 25 64 24 67 C12 89 12 89 7 95 C5 97 4 99 2 101 C-10 117 -23 132 -37 146 C-38 148 -38 148 -44 153 C-49 158 -55 163 -61 168 C-62 169 -62 169 -68 174 C-84 186 -101 197 -118 207 C-121 209 -125 211 -128 213 C-139 219 -150 225 -161 230 C-163 231 -163 231 -173 236 C-181 240 -181 240 -189 242 C-190 242 -190 242 -193 244 C-196 245 -198 245 -201 246 C-203 248 -204 249 -206 251 C-208 251 -211 250 -213 250 C-220 252 -228 255 -235 257 C-243 259 -250 260 -258 262 C-266 263 -266 263 -268 266 C-269 266 -270 265 -271 265 C-276 265 -282 265 -288 265 C-291 265 -294 265 -297 265 C-304 265 -304 265 -307 266 C-319 266 -319 266 -322 265 C-329 265 -336 265 -343 264 C-357 264 -357 264 -362 261 C-365 261 -368 260 -370 260 C-379 259 -387 258 -395 253 C-398 252 -400 252 -403 251 C-431 239 -456 222 -472 195 C-474 192 -475 190 -477 187 C-489 155 -490 123 -482 90 C-481 87 -481 84 -480 81 C-476 71 -476 71 -473 70 C-473 80 -473 80 -475 85 C-483 135 -474 188 -421 207 C-416 208 -412 209 -407 210 C-406 210 -405 211 -404 211 C-396 211 -387 211 -379 211 C-377 211 -377 211 -365 211 C-354 211 -354 211 -350 209 C-349 209 -349 209 -342 208 C-334 207 -334 207 -324 203 C-320 202 -316 202 -312 201 C-307 200 -303 198 -298 197 C-294 196 -290 195 -286 194 C-261 186 -261 186 -256 181 C-254 181 -251 181 -249 181 C-234 175 -219 169 -204 162 C-198 159 -192 156 -186 154 C-174 148 -161 142 -149 135 C-145 133 -140 130 -136 128 C-124 122 -124 122 -115 116 C-112 114 -109 112 -106 111 C-95 104 -84 97 -74 88 C-70 85 -67 83 -63 80 C-58 76 -54 72 -49 68 C-45 65 -45 65 -43 65 C-43 64 -42 63 -42 62 C-40 60 -38 59 -36 57 C-35 56 -35 56 -29 49 C-26 46 -24 43 -21 40 C2 11 2 11 2 1 C1 1 1 0 0 0 Z " fill="#00A7BF" transform="translate(505,276)"/><path d="M0 0 C0 1 0 1 1 8 C2 22 4 37 7 51 C7 54 8 57 8 60 C9 71 12 81 15 91 C15 93 15 93 17 103 C18 105 18 106 19 108 C19 110 19 110 21 119 C25 133 25 133 27 138 C28 141 28 143 29 146 C30 147 30 149 31 150 C32 153 32 155 33 158 C34 159 34 161 35 162 C36 165 36 167 37 170 C38 171 38 173 39 174 C40 177 40 179 41 182 C43 187 45 191 47 196 C49 201 51 206 53 211 C64 237 64 237 69 247 C61 254 53 256 43 259 C40 260 37 261 34 262 C31 263 29 263 26 264 C24 265 21 265 19 266 C4 270 1 269 -6 256 C-8 253 -9 251 -10 249 C-11 247 -13 244 -14 242 C-16 238 -19 234 -21 230 C-28 217 -34 203 -39 189 C-40 186 -42 183 -43 180 C-48 167 -52 154 -55 141 C-56 139 -56 137 -57 135 C-58 130 -59 125 -60 120 C-61 116 -62 113 -62 109 C-73 56 -69 25 -15 3 C-6 0 -6 0 0 0 Z " fill="#E01828" transform="translate(181,210)"/><path d="M0 0 C0 9 0 9 -3 14 C-3 17 -4 20 -4 23 C-8 37 -27 99 -45 99 C-46 100 -46 102 -47 103 C-56 113 -56 113 -62 117 C-66 120 -69 122 -73 125 C-89 135 -105 141 -123 144 C-123 143 -123 143 -123 142 C-125 142 -126 142 -128 142 C-128 143 -128 144 -128 145 C-138 145 -148 145 -158 145 C-158 144 -158 143 -158 142 C-160 142 -161 142 -163 142 C-163 143 -163 143 -163 144 C-187 142 -187 142 -197 138 C-199 138 -202 137 -204 137 C-204 136 -203 135 -203 134 C-205 134 -205 134 -206 136 C-210 134 -215 133 -219 131 C-221 130 -221 130 -231 127 C-246 120 -260 112 -274 102 C-277 100 -280 98 -283 96 C-294 88 -294 88 -301 81 C-304 79 -306 76 -309 74 C-310 73 -311 72 -312 71 C-306 64 -296 64 -287 63 C-279 61 -271 59 -263 56 C-251 53 -249 54 -241 63 C-234 70 -226 76 -218 82 C-215 84 -213 86 -210 88 C-189 99 -189 99 -179 102 C-178 103 -176 103 -175 104 C-173 104 -170 105 -168 105 C-161 107 -161 107 -158 108 C-153 108 -147 109 -142 109 C-142 110 -142 111 -142 112 C-139 112 -136 112 -133 112 C-133 111 -133 110 -133 109 C-131 109 -129 109 -127 109 C-119 108 -112 107 -105 105 C-102 104 -98 104 -95 103 C-84 99 -84 99 -72 93 C-68 91 -64 89 -60 87 C-42 73 -29 59 -19 39 C-17 35 -15 31 -13 27 C-9 18 -9 18 -7 11 C-6 10 -6 9 -5 8 C-5 5 -4 3 -4 0 C-3 -1 -3 -1 0 0 Z " fill="#DF1929" transform="translate(548,471)"/><path d="M0 0 C2 -0 2 -0 10 -0 C18 0 26 1 34 3 C36 4 39 4 41 4 C51 7 59 10 68 14 C78 18 78 18 86 20 C98 29 98 29 97 32 C92 31 92 31 80 25 C49 13 6 2 -24 20 C-28 22 -31 23 -34 24 C-57 40 -70 55 -80 80 C-82 83 -83 86 -84 89 C-88 103 -92 115 -93 129 C-95 149 -104 150 -122 158 C-132 163 -140 168 -149 174 C-155 179 -155 179 -161 179 C-158 159 -158 159 -154 150 C-154 147 -153 144 -152 140 C-149 131 -146 123 -142 114 C-141 111 -140 108 -138 104 C-130 87 -121 70 -107 56 C-105 53 -103 50 -100 47 C-93 39 -84 32 -75 25 C-74 24 -72 23 -70 21 C-55 12 -39 6 -21 1 C-15 -1 -7 0 0 0 Z " fill="#DF1929" transform="translate(277.3125,15.75)"/></svg><div class="dbv-logo__word" aria-hidden="true"><span>Достичь</span><span>большего</span><span>вместе</span></div></div>
+      <div class="dbv-hero__txt">
+        <div class="dbv-hero__eyebrow" data-f="eyebrow"></div>
+        <h2 class="dbv-h2 dbv-hero__h2" data-f="title"></h2>
+        <p class="dbv-body dbv-hero__sub" data-f="subtitle"></p>
+        <div class="dbv-hero__chips" data-f="chips"></div>
+      </div>
+    </div>
+    <div class="dbv-hero__info" data-f="info"></div>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+  /* Здесь правятся тексты шапки: заголовок, подзаголовок, чипы, три блока «Для кого / Цель / Основание». Меняйте только текст между кавычками. */
+  var DATA = {
+    eyebrow: 'СИЛОВЫЕ МАШИНЫ · ПРОГРАММА «ДОСТИЧЬ БОЛЬШЕГО ВМЕСТЕ»',
+    titleStart: 'Инструкция по ',
+    titleAccent: 'проектному треку',
+    subtitle: 'Основная информация, этапы и контрольные точки, роли, критерии оценки',
+    chips: [
+      { icon: 'steps', text: '5 этапов' },
+      { icon: 'diamond', text: '5 контрольных точек', red: true },
+      { icon: 'star', text: '1 система — ПЗ' }
+    ],
+    info: [
+      { h: 'Для кого', t: 'Участники программы — заказчики проектов, руководители проектов и члены проектных команд.' },
+      { h: 'Цель', t: 'Единое понимание порядка работы по проектному треку и ожидаемых результатов.' },
+      { h: 'Основание', t: 'СТО «Порядок реализации программы «Достичь большего вместе» (проект, ред. 1.0). При расхождении действует СТО. Страница описывает практический порядок работы и не заменяет текст стандарта.' }
+    ]
+  };
+  /* Модуль подсказок-аббревиатур (общий, копируется в каждый блок, где есть data-gl). Словарь — GLOSSARY. */
+  var GLOSSARY = {
+    'КТ': 'контрольная точка: момент, когда принимается решение, можно ли проекту переходить на следующий этап.',
+    'ЛПР': 'лицо, принимающее решение по контрольной точке: комиссия по портфелю, координатор проектного трека, заказчик проекта или ЛСП.',
+    'СОП': 'стандартная операционная процедура.',
+    'ЛНА': 'локальный нормативный акт.',
+    'КР': 'ключевой результат: проверяемое состояние, по которому видно, что цель проекта достигнута. У каждого КР есть показатель, исходное и целевое значение, плановая дата.',
+    'ПЗ': 'система управления проектами «Полярная звезда».',
+    'РП': 'руководитель проекта: член проектной команды, которого выбрала команда.',
+    'ЛСП': 'лидер стратегического приоритета: руководитель, отвечающий за цели приоритета и проекты программы по нему.',
+    'ДРП': 'Дирекция по работе с персоналом; организатор академического трека.',
+    'ЦРБС': 'Центр развития бизнес-системы; организатор проектного трека.',
+    'ГД': 'генеральный директор «Силовых машин».',
+    'ДИТ': 'Дирекция по информационным технологиям.',
+    'ДОБ': 'Дирекция по обеспечению безопасности.',
+    'БП': 'бизнес-партнёр стратегического приоритета.'
+  };
+
+  /* Оборачивает первое вхождение каждой аббревиатуры в каждом [data-gl] и показывает подсказку. Возвращает {apply, hide}. */
+  function dbvGlossary(root) {
+    var tip = document.createElement('div');
+    tip.className = 'dbv-tip';
+    tip.id = 'dbv-tip-' + root.className.split(' ')[0];
+    tip.setAttribute('role', 'tooltip');
+    var tT = document.createElement('div'), tD = document.createElement('div');
+    tT.className = 'dbv-tip__t'; tD.className = 'dbv-tip__d';
+    tip.appendChild(tT); tip.appendChild(tD);
+    root.appendChild(tip);
+    var cur = null, lastType = 'mouse';
+    var SKIP = 'button,summary,a,.dbv-ab,script,style';
+
+    function apply(scope) {
+      var list = [].slice.call(scope.querySelectorAll('[data-gl]'));
+      if (scope.hasAttribute && scope.hasAttribute('data-gl')) list.unshift(scope);
+      list.forEach(function (el) {
+        if (el.parentElement && el.parentElement.closest('[data-gl]') && list.indexOf(el.parentElement.closest('[data-gl]')) > -1) return;
+        var seen = {}, nodes = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n;
+        while ((n = w.nextNode())) {
+          if (n.parentElement && !n.parentElement.closest(SKIP)) nodes.push(n);
+        }
+        nodes.forEach(function (tn) {
+          var s = tn.nodeValue, re = /[A-Za-zА-яЁё]+\d*/g, m, last = 0, frag = null;
+          while ((m = re.exec(s))) {
+            var key = m[0].replace(/\d+$/, '');
+            if (!Object.prototype.hasOwnProperty.call(GLOSSARY, key) || seen[key]) continue;
+            seen[key] = 1;
+            if (!frag) frag = document.createDocumentFragment();
+            if (m.index > last) frag.appendChild(document.createTextNode(s.slice(last, m.index)));
+            var sp = document.createElement('span');
+            sp.className = 'dbv-ab';
+            sp.setAttribute('tabindex', '0');
+            sp.setAttribute('role', 'button');
+            sp.setAttribute('aria-describedby', tip.id);
+            sp.setAttribute('aria-expanded', 'false');
+            sp.setAttribute('data-k', key);
+            sp.textContent = m[0];
+            frag.appendChild(sp);
+            last = m.index + m[0].length;
+          }
+          if (frag) {
+            if (last < s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+            tn.parentNode.replaceChild(frag, tn);
+          }
+        });
+      });
+    }
+
+    function hide() {
+      if (cur) cur.setAttribute('aria-expanded', 'false');
+      cur = null;
+      tip.classList.remove('is-open');
+    }
+
+    function show(el) {
+      if (cur && cur !== el) cur.setAttribute('aria-expanded', 'false');
+      cur = el;
+      var k = el.getAttribute('data-k');
+      tT.textContent = k;
+      tD.textContent = GLOSSARY[k];
+      el.setAttribute('aria-expanded', 'true');
+      var rr = root.getBoundingClientRect(), r = el.getBoundingClientRect();
+      tip.style.maxWidth = Math.max(120, Math.min(300, rr.width - 16)) + 'px';
+      tip.style.left = '0px'; tip.style.top = '0px';
+      var tw = tip.offsetWidth, th = tip.offsetHeight;
+      var cx = r.left + r.width / 2 - rr.left - root.clientLeft;
+      var left = Math.max(8, Math.min(cx - tw / 2, rr.width - tw - 8));
+      var top = r.top - rr.top - root.clientTop - th - 10, below = false;
+      if (top < 0) { below = true; top = r.bottom - rr.top - root.clientTop + 10; }
+      tip.style.left = Math.round(left) + 'px';
+      tip.style.top = Math.round(top) + 'px';
+      tip.style.setProperty('--ax', Math.round(Math.max(14, Math.min(cx - left, tw - 14))) + 'px');
+      tip.classList.toggle('is-below', below);
+      tip.classList.add('is-open');
+    }
+
+    function ab(t) { return t && t.closest ? t.closest('.dbv-ab') : null; }
+    root.addEventListener('pointerdown', function (e) { lastType = e.pointerType || 'mouse'; }, true);
+    root.addEventListener('keydown', function (e) {
+      lastType = 'key';
+      var a = ab(e.target);
+      if (a && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); cur === a ? hide() : show(a); }
+    }, true);
+    root.addEventListener('pointerover', function (e) {
+      var a = ab(e.target);
+      if (a && e.pointerType === 'mouse') show(a);
+    });
+    root.addEventListener('pointerout', function (e) {
+      var a = ab(e.target);
+      if (a && e.pointerType === 'mouse' && !(e.relatedTarget && a.contains(e.relatedTarget))) hide();
+    });
+    root.addEventListener('click', function (e) {
+      var a = ab(e.target);
+      if (!a) return;
+      if (lastType === 'touch' || lastType === 'pen') cur === a ? hide() : show(a);
+      else if (cur !== a) show(a);
+    });
+    root.addEventListener('focusin', function (e) {
+      var a = ab(e.target);
+      if (a && lastType === 'key') show(a);
+    });
+    root.addEventListener('focusout', function (e) {
+      var a = ab(e.target);
+      if (a && a === cur) hide();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+    document.addEventListener('pointerdown', function (e) { if (!ab(e.target)) hide(); });
+    window.addEventListener('resize', hide);
+    return { apply: apply, hide: hide };
+  }
+  var ICONS = {
+    steps: '<path d="M12 3 2.5 8 12 13l9.5-5L12 3z"/><path d="M2.5 12 12 17l9.5-5"/><path d="M2.5 16 12 21l9.5-5"/>',
+    diamond: '<path d="M12 2.5 21.5 12 12 21.5 2.5 12z"/>',
+    star: '<path d="M12 2c.6 5.2 4.8 9.4 10 10-5.2.6-9.4 4.8-10 10-.6-5.2-4.8-9.4-10-10 5.2-.6 9.4-4.8 10-10z"/>'
+  };
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function svg(name, label) {
+    return '<svg class="dbv-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + ICONS[name] + '</svg>';
+  }
+  function init(root) {
+    function f(n) { return root.querySelector('[data-f="' + n + '"]'); }
+    f('eyebrow').textContent = DATA.eyebrow;
+    f('title').innerHTML = esc(DATA.titleStart) + '<span class="dbv-hero__acc">' + esc(DATA.titleAccent) + '</span>';
+    f('subtitle').textContent = DATA.subtitle;
+    f('chips').innerHTML = DATA.chips.map(function (c) {
+      return '<span class="dbv-chip' + (c.red ? ' dbv-chip--red' : '') + '" data-gl>' + svg(c.icon) + '<span>' + esc(c.text) + '</span></span>';
+    }).join('');
+    f('info').innerHTML = DATA.info.map(function (b, i) {
+      return '<div class="dbv-hero__box" style="--i:' + i + '" data-gl><div class="dbv-hero__lab">' + esc(b.h) + '</div><p class="dbv-body dbv-hero__t">' + esc(b.t) + '</p></div>';
+    }).join('');
+    dbvGlossary(root).apply(root);
+  }
+  [].forEach.call(document.querySelectorAll('.dbv-hero'), function (r) {
+    if (r.getAttribute('data-dbv-init')) return;
+    r.setAttribute('data-dbv-init', '1');
+    init(r);
+  });
+})();
+</script>
