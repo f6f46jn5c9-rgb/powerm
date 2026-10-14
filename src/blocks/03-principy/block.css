@@ -1,0 +1,17 @@
+/* Блок 03: три принципа */
+.ROOT .dbv-prin__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+.ROOT .dbv-prin__card{padding:22px 22px 24px !important;display:flex;flex-direction:column;gap:14px;min-width:0}
+.ROOT .dbv-prin__top{display:flex;align-items:center;gap:14px}
+.ROOT .dbv-prin__num{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--dbv-teal);color:#fff;font:700 15px/1 var(--dbv-font)}
+.ROOT .dbv-glass--accent .dbv-prin__num{background:var(--dbv-red)}
+.ROOT .dbv-prin__ico{margin-left:auto}
+.ROOT .dbv-prin__t{position:relative}
+.ROOT .dbv-prin__txt{position:relative}
+.ROOT .dbv-stop{display:flex;align-items:flex-start;gap:14px;margin-top:20px;padding:16px 20px !important;border-radius:12px;background:var(--dbv-tint-red);
+  border-left:4px solid var(--dbv-red);animation:ROOTK-in .5s ease backwards;animation-delay:240ms}
+.ROOT .dbv-stop .dbv-svg{width:26px !important;height:26px !important;margin-top:1px;color:var(--dbv-red)}
+.ROOT .dbv-stop p.dbv-body{font-weight:600 !important}
+@container (max-width:759px){
+  .ROOT .dbv-prin__grid{grid-template-columns:minmax(0,1fr)}
+}
