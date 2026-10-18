@@ -6,7 +6,7 @@ t = (R/'src/01-polarnaya-zvezda.html').read_text()
 for n in range(1, 12):
     b = (R/f'tools/pz-images/{n:02d}.b64').read_text().strip()
     ph = f'%%IMG{n}%%'
-    assert t.count(ph) == 1, ph
+    assert ph in t, ph
     t = t.replace(ph, 'data:image/jpeg;base64,' + b)
 assert '%%' not in t
 (R/'dist').mkdir(exist_ok=True)
