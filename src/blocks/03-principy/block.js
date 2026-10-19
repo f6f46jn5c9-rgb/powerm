@@ -1,4 +1,4 @@
-/* Здесь правятся три принципа и красная плашка под ними. Меняйте только текст между кавычками; поле icon (key, ruler, star) не трогайте. */
+/* Здесь правятся три принципа и красная плашка под ними. Меняйте только текст между кавычками; поле icon (key, ruler, star) не трогайте. Адрес кнопки «Инструкция по работе в ПЗ» берётся из src/core/dbv-pages.js (DBV_PAGES.pz.url); пока пусто — кнопка не показывается. */
 var DATA = {
   title: 'Три принципа проектного трека',
   cards: [
@@ -7,10 +7,11 @@ var DATA = {
     { icon: 'ruler', title: 'Эффект подтверждён замером', variant: 'alt',
       text: 'Эффект проекта подтверждается исходным замером. По каждому ключевому результату (КР) фиксируется исходное значение: число, период измерения, источник данных.' },
     { icon: 'star', title: 'Единый источник данных — ПЗ', variant: 'accent',
-      text: 'Единственный источник данных о проектах — система «Полярная звезда» (ПЗ).' }
+      text: 'Единственный источник данных о проектах — система «Полярная звезда» (ПЗ).', link: 'Инструкция по работе в ПЗ →' }
   ],
   stop: 'Информация, не зафиксированная в ПЗ, для жюри и организаторов программы не существует: при оценке состояния проекта она не учитывается.'
 };
+/*%%PAGES%%*/
 /*%%GLOSSARY%%*/
 var ICONS = {
   key: '<circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 20 3M16 7l3 3M13.5 9.5l2.5 2.5"/>',
@@ -27,7 +28,8 @@ function init(root) {
       return '<div class="dbv-glass dbv-lift dbv-prin__card' + (c.variant === 'accent' ? ' dbv-glass--accent' : '') + '" style="--i:' + i + '">' +
         '<div class="dbv-prin__top"><span class="dbv-prin__num" aria-hidden="true">' + (i + 1) + '</span><span class="dbv-ico dbv-prin__ico">' + svg(c.icon) + '</span></div>' +
         '<h3 class="dbv-h3 dbv-prin__t">' + esc(c.title) + '</h3>' +
-        '<p class="dbv-body dbv-prin__txt" data-gl>' + esc(c.text) + '</p></div>';
+        '<p class="dbv-body dbv-prin__txt" data-gl>' + esc(c.text) + '</p>' +
+        (c.link && DBV_PAGES.pz.url ? '<a class="dbv-go" href="' + esc(DBV_PAGES.pz.url) + '" rel="noopener">' + esc(c.link) + '</a>' : '') + '</div>';
     }).join('') + '</div>' +
     '<div class="dbv-stop" role="note"><span aria-hidden="true">' + svg('diamond') + '</span><p class="dbv-body" data-gl>' + esc(DATA.stop) + '</p></div>';
   dbvGlossary(root).apply(root);

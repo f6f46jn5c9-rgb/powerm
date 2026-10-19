@@ -46,6 +46,7 @@ ROLES = [
 ]
 GRADE = [
     ('01-navigaciya', '01-navigaciya', 'dbv-nav', 'Навигация и заголовок', {'tip'}),
+    ('01b-dva-kontura', '01b-dva-kontura', 'dbv-two', 'Две части оценки', {'glass', 'tip'}),
     ('02-svetofor', '02-svetofor', 'dbv-svf', 'Светофор проектов', {'tip'}),
     ('03-priemka', '03-priemka', 'dbv-acc', 'Приёмка результата', {'tip'}),
     ('04-zashchita', '04-zashchita', 'dbv-def', 'Защита проекта', {'glass', 'tip'}),
@@ -172,6 +173,21 @@ def squeeze_js(lines):
     return res
 
 
+def pages_for(js):
+    # в блок попадают только те записи DBV_PAGES, которые ему нужны (длинные адреса иначе раздувают файл)
+    nav = '/*%%NAV%%*/' in js
+    keep = {'hub', 'stages', 'rhythm', 'assets', 'roles', 'grade'} if nav else set()
+    body = js.replace('/*%%PAGES%%*/', '')
+    out = []
+    for line in CORE_PAGES.split('\n'):
+        m = re.match(r"\s+(\w+):\s*\{", line)
+        if m and not (m.group(1) in keep or re.search(r'\b' + m.group(1) + r'\b', body)):
+            continue
+        out.append(line)
+    t = '\n'.join(out)
+    return re.sub(r",(\s*\n\};)", r"\1", t)
+
+
 def build_block(src, folder, root, sections, double):
     d = R / src / folder
     js = (d / 'block.js').read_text(encoding='utf-8').rstrip()
@@ -192,7 +208,7 @@ def build_block(src, folder, root, sections, double):
     # блок без data-gl не тянет модуль подсказок
     gl = CORE_GL if double else prune_glossary(CORE_GL, js)
     js = js.replace('/*%%GLOSSARY%%*/', gl if 'dbvGlossary(' in js else '')
-    js = js.replace('/*%%PAGES%%*/', CORE_PAGES).replace('/*%%NAV%%*/', CORE_NAV_JS)
+    js = js.replace('/*%%PAGES%%*/', pages_for(js)).replace('/*%%NAV%%*/', CORE_NAV_JS)
     if double:
         js = '\n'.join('  ' + l if l else l for l in js.split('\n'))
     else:  # страница этапов: без отступов и пустых строк (экономия размера)

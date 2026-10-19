@@ -1,9 +1,10 @@
 /* Здесь живут адреса всех страниц инструкции. Впишите адрес в url — и он подставится во все блоки при следующей сборке */
 var DBV_PAGES = {
-  hub:    { title: 'Проектный трек ДБВ', url: '' },
-  stages: { title: 'Этапы и контрольные точки', url: '' },
-  rhythm: { title: 'Рабочий ритм и нештатные ситуации', url: '' },
-  assets: { title: 'Активы, КР и частые ошибки', url: '' },
-  roles:  { title: 'Роли: кто за что отвечает', url: '' },
-  grade:  { title: 'Оценка и защита', url: '' }
+  hub:    { title: 'Проектный трек ДБВ', url: 'https://kb.severstal.com/spaces/BSS/pages/581828736/%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B9+%D1%82%D1%80%D0%B5%D0%BA+%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B+%D0%94%D0%91%D0%92' },
+  stages: { title: 'Этапы и контрольные точки', url: 'https://kb.severstal.com/spaces/BSS/pages/581828740/%D0%94%D0%91%D0%92+%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B9+%D1%82%D1%80%D0%B5%D0%BA+%D0%AD%D1%82%D0%B0%D0%BF%D1%8B+%D0%B8+%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5+%D1%82%D0%BE%D1%87%D0%BA%D0%B8' },
+  rhythm: { title: 'Рабочий ритм и нештатные ситуации', url: 'https://kb.severstal.com/spaces/BSS/pages/581828742/%D0%94%D0%91%D0%92+%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B9+%D1%82%D1%80%D0%B5%D0%BA+%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9+%D1%80%D0%B8%D1%82%D0%BC+%D0%B8+%D0%BD%D0%B5%D1%88%D1%82%D0%B0%D1%82%D0%BD%D1%8B%D0%B5+%D1%81%D0%B8%D1%82%D1%83%D0%B0%D1%86%D0%B8%D0%B8' },
+  assets: { title: 'Активы, КР и частые ошибки', url: 'https://kb.severstal.com/spaces/BSS/pages/581828744/%D0%94%D0%91%D0%92+%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B9+%D1%82%D1%80%D0%B5%D0%BA+%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D1%8B+%D0%9A%D0%A0+%D0%B8+%D1%87%D0%B0%D1%81%D1%82%D1%8B%D0%B5+%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8' },
+  roles:  { title: 'Роли: кто за что отвечает', url: 'https://kb.severstal.com/spaces/BSS/pages/581828746/%D0%94%D0%91%D0%92+%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B9+%D1%82%D1%80%D0%B5%D0%BA+%D0%A0%D0%BE%D0%BB%D0%B8+%D0%BA%D1%82%D0%BE+%D0%B7%D0%B0+%D1%87%D1%82%D0%BE+%D0%BE%D1%82%D0%B2%D0%B5%D1%87%D0%B0%D0%B5%D1%82' },
+  grade:  { title: 'Оценка и защита', url: 'https://kb.severstal.com/spaces/BSS/pages/581828748/%D0%94%D0%91%D0%92+%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B9+%D1%82%D1%80%D0%B5%D0%BA+%D0%9E%D1%86%D0%B5%D0%BD%D0%BA%D0%B0+%D0%B8+%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0' },
+  pz:     { title: 'Инструкция по работе в ПЗ', url: 'https://kb.severstal.com/spaces/BSS/pages/581828637/%D0%94%D0%91%D0%92+%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%BD%D1%8B%D0%B9+%D1%82%D1%80%D0%B5%D0%BA+%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F+%D0%BF%D0%BE+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B5+%D0%9F%D0%BE%D0%BB%D1%8F%D1%80%D0%BD%D0%B0%D1%8F+%D0%B7%D0%B2%D0%B5%D0%B7%D0%B4%D0%B0' }
 };

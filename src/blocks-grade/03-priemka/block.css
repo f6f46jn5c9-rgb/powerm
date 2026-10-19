@@ -1,4 +1,7 @@
 /* Блок 03: приёмка результата */
+.ROOT .dbv-eb{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:0 0 10px}
+.ROOT .dbv-tagg{padding:4px 14px;border:1.5px solid transparent;border-radius:999px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,var(--dbv-red),var(--dbv-teal)) border-box;font:600 14px/1.3 var(--dbv-font);color:var(--dbv-ink)}
+.ROOT .dbv-eb__s{font:400 14px/1.3 var(--dbv-font);color:var(--dbv-muted)}
 .ROOT p.dbv-acc__lead{max-width:880px}
 .ROOT h3.dbv-acc__h3{margin:34px 0 12px !important}
 .ROOT .dbv-sb{display:flex;height:40px;margin-top:8px;gap:3px}

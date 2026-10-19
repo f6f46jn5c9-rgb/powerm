@@ -1,4 +1,4 @@
-/* Блок 05: вопросы и контакты */
+/* Блок 05: вопросы */
 .ROOT .dbv-faq__list{display:flex;flex-direction:column;gap:12px;margin-top:16px}
 .ROOT .dbv-q{border:1.5px solid rgba(0,120,144,.3);border-radius:14px;background:#fff;box-shadow:0 3px 12px rgba(0,120,144,.08);transition:box-shadow .25s ease,border-color .2s;
   animation:ROOTK-in .5s ease backwards;animation-delay:calc(var(--i,0)*40ms)}
@@ -13,22 +13,11 @@
 .ROOT .dbv-q[open] .dbv-q__chev{transform:rotate(180deg)}
 .ROOT .dbv-q__a{padding:0 20px 18px !important}
 .ROOT .dbv-q[open] .dbv-q__a{animation:ROOTK-fade .2s ease}
-.ROOT h2.dbv-faq__h2b{margin-top:40px !important}
-.ROOT .dbv-cc__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:14px;margin-top:16px}
-.ROOT .dbv-cc{display:flex;align-items:center;gap:14px;padding:16px 18px !important;min-width:0}
-.ROOT .dbv-cc .dbv-ico{width:44px;height:44px}
-.ROOT .dbv-cc .dbv-svg{width:22px !important;height:22px !important}
-.ROOT .dbv-cc__b{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1 1 auto;position:relative}
-.ROOT .dbv-cc__t{font:700 16px/1.3 var(--dbv-font);color:var(--dbv-ink)}
-.ROOT .dbv-cc__h{font:400 14px/1.4 var(--dbv-font);color:var(--dbv-muted)}
-.ROOT a.dbv-cc,.ROOT a.dbv-cc:visited,.ROOT a.dbv-cc:hover,.ROOT a.dbv-cc:focus,.ROOT a.dbv-cc:active{color:var(--dbv-ink) !important;text-decoration:none !important;margin:0 !important;font:400 16px/1.4 var(--dbv-font) !important}
-.ROOT a.dbv-cc .dbv-cc__t{color:var(--dbv-teal)}
-.ROOT .dbv-cc__go{position:relative;flex:0 0 auto;color:var(--dbv-teal);transition:transform .2s ease}
-.ROOT .dbv-cc__go .dbv-svg{width:20px !important;height:20px !important}
-.ROOT a.dbv-cc:hover .dbv-cc__go{transform:translateX(4px)}
-.ROOT div.dbv-cc{background:linear-gradient(135deg,#fff,#F7FAFB) padding-box,linear-gradient(135deg,rgba(0,120,144,.28),rgba(0,168,192,.28)) border-box;box-shadow:0 3px 12px rgba(0,120,144,.08)}
+.ROOT a.dbv-go,.ROOT a.dbv-go:visited{display:inline-flex;align-items:center;gap:8px;margin:0 !important;padding:9px 16px !important;border:1.5px solid var(--dbv-teal);border-radius:999px;
+  background:#fff;color:var(--dbv-teal) !important;text-decoration:none !important;font:600 14px/1.3 var(--dbv-font) !important;transition:background .2s,color .2s}
+.ROOT a.dbv-go:hover,.ROOT a.dbv-go:focus{background:var(--dbv-teal);color:#fff !important;text-decoration:none !important}
+.ROOT .dbv-q__a a.dbv-go{margin-top:14px !important}
 @container (max-width:640px){
   .ROOT .dbv-q summary{padding:14px 16px !important;font-size:15px !important}
   .ROOT .dbv-q__a{padding:0 16px 16px !important}
-  .ROOT h2.dbv-faq__h2b{margin-top:32px !important}
 }
