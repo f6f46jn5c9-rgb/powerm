@@ -1,7 +1,9 @@
 /* Здесь правятся критерии светофора (t — название, w — вес в %, d — что оценивается) и зоны (границы в «lo» — в десятых долях балла, текст). Меняйте только текст между кавычками; цвета и числа весов трогать только если меняется методика. */
 var DATA = {
+  tag: 'Во время программы', tagSub: 'регулярная, динамичная оценка',
   title: 'Светофор проектов',
-  lead: 'Светофор формируется ежемесячно и представляется на демонстрационном дне. Оценку от 1 до 5 по каждому критерию выставляют координатор проектного трека и руководитель программы по данным ПЗ.',
+  lead: 'Светофор формируется ежемесячно и представляется жюри на демонстрационном дне. Оценку от 1 до 5 по каждому критерию выставляют координатор проектного трека и руководитель программы по данным ПЗ.',
+  pzNote: 'Светофор строится по данным ПЗ: актуальность карточки проекта напрямую влияет на положение проекта в светофоре.',
   wH: 'Из чего складывается оценка',
   weight: 'Вес', what: 'Что оценивается:',
   crit: [
@@ -19,23 +21,20 @@ var DATA = {
     { n: 'Топ-проект', r: 'От 3,8', lo: 380, c: '#007890', m: 'Рекомендован к защите как образцовый.' }
   ],
   ticks: ['1,7', '2,7', '3,8'],
-  zNote: 'Красная зона сама по себе не выводит проект из программы: решение принимает ЛСП.',
-  calcH: 'Попробуйте рассчитать',
-  cnt: 'Оценено:', of: 'из', total: 'Итоговая оценка:', reset: 'Сбросить',
-  hint: 'Это ориентировочный расчёт. Оценки по критериям выставляют координатор проектного трека и руководитель программы.'
+  zNote: 'Красная зона сама по себе не выводит проект из программы: решение принимает ЛСП.'
 };
 /*%%GLOSSARY%%*/
 var IC = { info: '<circle cx="12" cy="12" r="9.5"/><path d="M12 11v5.5M12 7.5v.2"/>' };
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 function svg(n) { return '<svg class="dbv-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + IC[n] + '</svg>'; }
 function reduced() { return window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches; }
-function fmt10(t) { return Math.floor(t / 10) + ',' + (t % 10); }
 
 function init(root, uid) {
-  var C = DATA.crit, Z = DATA.zones, cur = 0, lastW = -1, sc = C.map(function () { return 0; });
+  var C = DATA.crit, Z = DATA.zones, cur = 0, lastW = -1;
   var maxW = Math.max.apply(null, C.map(function (c) { return c.w; }));
-  function zone(t100) { var z = Z[0]; Z.forEach(function (x) { if (t100 >= x.lo) z = x; }); return z; }
-  root.innerHTML = '<h2 class="dbv-h2">' + esc(DATA.title) + '</h2><p class="dbv-body dbv-svf__lead" data-gl>' + esc(DATA.lead) + '</p>' +
+  root.innerHTML = '<div class="dbv-eb"><span class="dbv-tagc">' + esc(DATA.tag) + '</span><span class="dbv-eb__s">' + esc(DATA.tagSub) + '</span></div>' +
+    '<h2 class="dbv-h2">' + esc(DATA.title) + '</h2><p class="dbv-body dbv-svf__lead" data-gl>' + esc(DATA.lead) + '</p>' +
+    '<div class="dbv-note dbv-note--pz" role="note">' + svg('info') + '<p class="dbv-body" data-gl>' + esc(DATA.pzNote) + '</p></div>' +
     '<h3 class="dbv-h3 dbv-svf__h3" style="margin-top:26px !important">' + esc(DATA.wH) + '</h3>' +
     '<div class="dbv-wt" role="tablist" aria-label="' + esc(DATA.wH) + '" style="grid-template-columns:' + C.map(function (c) { return c.w + 'fr'; }).join(' ') + '">' +
     C.map(function (c, i) { return '<button type="button" class="dbv-sg" role="tab" id="' + uid + '-t' + i + '" data-i="' + i + '" aria-controls="' + uid + '-p" aria-selected="false" tabindex="-1" style="--f:' + Math.round(c.w / maxW * 100) + '%"><span class="dbv-sg__bar"></span><span class="dbv-sg__w">' + c.w + ' %</span><span class="dbv-sg__n">' + esc(c.t) + '</span></button>'; }).join('') + '</div>' +
@@ -43,12 +42,7 @@ function init(root, uid) {
     '<h3 class="dbv-h3 dbv-svf__h3">' + esc(DATA.zH) + '</h3><div class="dbv-zs">' +
     DATA.ticks.map(function (t, i) { return '<span class="dbv-zt" aria-hidden="true" style="left:' + (25 * (i + 1)) + '%">' + esc(t) + '</span>'; }).join('') +
     Z.map(function (z) { return '<div class="dbv-z"><span class="dbv-z__bar" style="background:' + z.c + '"></span><div class="dbv-z__n"><span class="dbv-dot" style="background:' + z.c + '"></span>' + esc(z.n) + '</div><div class="dbv-z__r">' + esc(z.r) + '</div><p class="dbv-z__m" data-gl>' + esc(z.m) + '</p></div>'; }).join('') + '</div>' +
-    '<div class="dbv-note" role="note">' + svg('info') + '<p class="dbv-body" data-gl>' + esc(DATA.zNote) + '</p></div>' +
-    '<h3 class="dbv-h3 dbv-svf__h3">' + esc(DATA.calcH) + '</h3><div class="dbv-cl">' +
-    C.map(function (c, i) { return '<div class="dbv-cr"><span class="dbv-cr__t">' + esc(c.t) + '<span class="dbv-cr__w">' + esc(DATA.weight) + ' ' + c.w + ' %</span></span><div class="dbv-rg" role="radiogroup" aria-label="' + esc(c.t) + ', ' + c.w + ' %" data-i="' + i + '">' +
-      [1, 2, 3, 4, 5].map(function (v) { return '<button type="button" class="dbv-rb" role="radio" aria-checked="false" data-v="' + v + '" tabindex="' + (v === 1 ? 0 : -1) + '">' + v + '</button>'; }).join('') + '</div></div>'; }).join('') + '</div>' +
-    '<div class="dbv-cnt" data-cnt></div><div class="dbv-res" aria-live="polite" data-res></div><button type="button" class="dbv-lnk" data-reset>' + esc(DATA.reset) + '</button>' +
-    '<p class="dbv-small dbv-svf__hint">' + esc(DATA.hint) + '</p>';
+    '<div class="dbv-note" role="note">' + svg('info') + '<p class="dbv-body" data-gl>' + esc(DATA.zNote) + '</p></div>' ;
   var gl = dbvGlossary(root);
   gl.apply(root);
   var tabs = [].slice.call(root.querySelectorAll('.dbv-sg')), panel = root.querySelector('.dbv-wp'), pc = root.querySelector('[data-pc]'), meas = root.querySelector('[data-meas]');
@@ -70,32 +64,7 @@ function init(root, uid) {
     if (to < 0) return;
     e.preventDefault(); select(to); tabs[to].focus();
   });
-  // калькулятор
-  var cnt = root.querySelector('[data-cnt]'), res = root.querySelector('[data-res]'), groups = [].slice.call(root.querySelectorAll('.dbv-rg'));
-  function calc() {
-    var n = sc.filter(Boolean).length;
-    cnt.textContent = DATA.cnt + ' ' + n + ' ' + DATA.of + ' ' + C.length;
-    groups.forEach(function (g, i) { [].forEach.call(g.querySelectorAll('.dbv-rb'), function (b) { var v = +b.getAttribute('data-v'); b.setAttribute('aria-checked', sc[i] === v ? 'true' : 'false'); b.tabIndex = sc[i] ? (sc[i] === v ? 0 : -1) : (v === 1 ? 0 : -1); }); });
-    if (n < C.length) { res.innerHTML = ''; return; }
-    var s100 = 0; C.forEach(function (c, i) { s100 += sc[i] * c.w; });
-    var z = zone(s100), t10 = Math.floor(s100 / 10);
-    res.innerHTML = '<div class="dbv-resc" style="border-color:' + z.c + '"><div class="dbv-resc__s">' + esc(DATA.total) + ' ' + fmt10(t10) + '</div><div class="dbv-resc__z"><span class="dbv-dot" style="background:' + z.c + '"></span><span>' + esc(z.n) + '</span></div><p class="dbv-resc__m">' + esc(z.m) + '</p></div>';
-    res.setAttribute('data-zone', z.n);
-  }
-  root.addEventListener('click', function (e) {
-    var b = e.target.closest && e.target.closest('.dbv-rb');
-    if (b) { sc[+b.parentNode.getAttribute('data-i')] = +b.getAttribute('data-v'); calc(); return; }
-    if (e.target.closest && e.target.closest('[data-reset]')) { sc = C.map(function () { return 0; }); calc(); }
-  });
-  root.addEventListener('keydown', function (e) {
-    var b = e.target.closest && e.target.closest('.dbv-rb');
-    if (!b) return;
-    var k = e.key, v = +b.getAttribute('data-v'), to = 0;
-    if (k === 'ArrowRight' || k === 'ArrowDown') to = v % 5 + 1; else if (k === 'ArrowLeft' || k === 'ArrowUp') to = (v + 3) % 5 + 1; else if (k === 'Home') to = 1; else if (k === 'End') to = 5; else if (k === ' ' || k === 'Enter') { e.preventDefault(); b.click(); return; }
-    if (!to) return;
-    e.preventDefault(); sc[+b.parentNode.getAttribute('data-i')] = to; calc(); b.parentNode.querySelector('[data-v="' + to + '"]').focus();
-  });
-  paint(); render(false); measure(); calc();
+  paint(); render(false); measure();
   function onSize() { var w = root.clientWidth; if (w === lastW) return; lastW = w; requestAnimationFrame(measure); }
   if (window.ResizeObserver) new ResizeObserver(onSize).observe(root); else window.addEventListener('resize', onSize);
   lastW = root.clientWidth;

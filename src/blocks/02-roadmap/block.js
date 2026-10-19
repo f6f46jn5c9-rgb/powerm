@@ -1,47 +1,36 @@
-/* Здесь правятся тексты этапов, сроки (поля term: «typ» — типовой цикл, «y26» — ДБВ‑2026), подписи второй дорожки и сноска. Меняйте только текст между кавычками. */
+/* Здесь правятся тексты этапов, сроки (поле term), подписи второй дорожки. Меняйте только текст между кавычками. */
 var DATA = {
   title: 'Путь проекта: 5 этапов и 5 контрольных точек',
   lead: 'Каждый этап заканчивается контрольной точкой (КТ): без положительного решения проект на следующий этап не переходит. Решение по каждой КТ принимает ЛПР.',
-  modes: [{ id: 'typ', label: 'Типовой цикл' }, { id: 'y26', label: 'ДБВ‑2026' }],
-  defaultMode: 'y26',
   stages: [
     { n: 1, name: 'Подготовка программы',
-      what: 'Приказ о запуске, сбор предложений, входной отсев, утверждение портфеля проектов. Роль, календарь и правила направляются участнику не позднее чем через 3 рабочих дня после утверждения состава участников.',
+      what: 'Запуск, сбор предложений, входной отсев, утверждение портфеля проектов. Роль, календарь и правила направляются участнику не позднее чем через 3 рабочих дня после утверждения состава участников.',
       kt: 'Проект включён в портфель', who: 'комиссия по портфелю',
-      term: { typ: 'до первого модуля академического трека', y26: 'март' } },
+      term: 'До первого модуля академического трека' },
     { n: 2, name: 'Запуск проектов',
       what: 'Формирование требований заказчиком проекта; замер исходных значений руководителем проекта; формулирование КР; создание карточки проекта в ПЗ; согласование требований с ЛСП.',
       kt: 'Проект допущен к реализации', who: 'координатор проектного трека',
-      term: { typ: 'около 3 недель (10 + 5 рабочих дней) после утверждения портфеля', y26: 'март–апрель' } },
+      term: 'Около 3 недель (10 + 5 рабочих дней) после утверждения портфеля' },
     { n: 3, name: 'Реализация',
       what: 'Создание активов; ведение карточки проекта в ПЗ; еженедельная публикация отчётов; еженедельные встречи команды и планёрки с координатором; ежемесячные демонстрационные дни.',
       kt: 'Активы проекта приняты', who: 'заказчик проекта',
-      term: { typ: 'основная часть цикла', y26: 'апрель–июль' } },
+      term: 'Основная часть цикла' },
     { n: 4, name: 'Подготовка к защите',
       what: 'Презентация PPTX по корпоративному шаблону; актуализация карточки проекта в ПЗ; публикация заключительного отчёта; подготовка устного доклада; предзащита у координаторов.',
       kt: 'Проект допущен к финальной защите', who: 'ЛСП по заключению координаторов',
-      term: { typ: 'перед защитой', y26: 'август' } },
+      term: 'Перед защитой' },
     { n: 5, name: 'Защита и приёмка',
       what: 'Защита проекта перед жюри; приёмка результата заказчиком проекта.',
       kt: 'Результат проекта принят', who: 'заказчик проекта с учётом оценки жюри',
-      term: { typ: 'завершает цикл', y26: 'сентябрь' } }
+      term: 'Завершает цикл' }
   ],
   after: { n: 0, name: 'После цикла',
-    what: 'Ретроспектива: опрос участников, встречи с командами, отчёт.',
-    term: { y26: 'сентябрь–октябрь' } },
-  laneLabel: 'Параллельно',
+    what: 'Ретроспектива: опрос участников, встречи с командами, отчёт.' },
+  laneLabel: 'Параллельно проекту',
   lane: [
-    { from: 1, to: 1,
-      typ: { t: 'Академический трек (5 модулей, организует ДРП)' },
-      y26: { t: 'Академический трек: модуль 1', m: 'март' } },
-    { from: 2, to: 3,
-      typ: { t: 'Обучение управлению проектами (организует ЦРБС): два вебинара и практикумы по работе в ПЗ' },
-      y26: { t: 'Вебинары и практикумы по управлению проектами', m: 'апрель' } },
-    { from: 5, to: 5,
-      typ: null,
-      y26: { t: 'Модуль 5 вместе с защитой', m: 'сентябрь' } }
-  ],
-  note: 'Месяцы 2026 года — пример. Даты каждого цикла устанавливает приказ о запуске; порядок и правила остаются прежними.'
+    { icon: 'cap', t: 'Академический трек — 5 модулей по развитию управленческих компетенций (организует ДРП)' },
+    { icon: 'web', t: 'Обучение управлению проектами — вебинары и практикумы по работе в ПЗ (организует ЦРБС)' }
+  ]
 };
 /* Адрес для кнопки «Подробно про этап» берётся из общего файла ссылок src/core/dbv-pages.js (DBV_PAGES.stages.url); пока пусто — кнопка не показывается. */
 /*%%PAGES%%*/
@@ -50,20 +39,24 @@ function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').
 var SVGO = '<svg class="dbv-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">';
 var ICON_DIA = SVGO + '<path d="M12 2.5 21.5 12 12 21.5 2.5 12z"/></svg>';
 var ICON_ARROW = SVGO + '<path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var LANE_ICO = {
+  cap: SVGO + '<path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11.5v4.5c0 1.2 2.5 2.5 5.5 2.5s5.5-1.3 5.5-2.5v-4.5M21.5 9v6"/></svg>',
+  web: SVGO + '<rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 20.5h8M12 16.5v4M8.5 11.5l2-2.5 2 1.5 3-3.5"/></svg>'
+};
 var ICON_AFTER = SVGO + '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 8v4l3 2"/></svg>';
 
 function init(root, uid) {
   var items = DATA.stages.concat([DATA.after]);
-  var mode = DATA.defaultMode, cur = 0, lastW = -1;
+  var cur = 0, lastW = -1;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function cardHtml(it) {
     var h = '<h3 class="dbv-h3 dbv-pc__h">' + (it.n ? '<span class="dbv-pc__n">Э' + it.n + '</span>' : '') + esc(it.name) + '</h3>';
-    h += '<div class="dbv-pc__main" data-gl><div class="dbv-pc__lab">Что делаем</div><p class="dbv-pc__row">' + esc(it.what) + '</p></div>';
+    h += '<div class="dbv-pc__main" data-gl><div class="dbv-pc__lab">Ключевые действия</div><p class="dbv-pc__row">' + esc(it.what) + '</p></div>';
     h += '<div class="dbv-pc__side">';
     if (it.kt) h += '<div class="dbv-ktb">' + ICON_DIA + '<span>КТ' + it.n + ' · ' + esc(it.kt) + '</span></div>';
     if (it.who) h += '<p class="dbv-pc__row" data-gl><b>Решает:</b>' + esc(it.who) + '</p>';
-    if (it.term && it.term[mode]) h += '<p class="dbv-pc__row"><b>Срок:</b>' + esc(it.term[mode]) + '</p>';
+    if (it.term) h += '<p class="dbv-pc__row"><b>Срок:</b>' + esc(it.term) + '</p>';
     if (it.n && DBV_PAGES.stages.url) h += '<a class="dbv-go" href="' + esc(DBV_PAGES.stages.url + '#e' + it.n) + '">Подробно про этап ' + ICON_ARROW + '</a>';
     return h + '</div>';
   }
@@ -82,9 +75,6 @@ function init(root, uid) {
   root.innerHTML =
     '<h2 class="dbv-h2">' + esc(DATA.title) + '</h2>' +
     '<p class="dbv-body dbv-road__lead" data-gl>' + esc(DATA.lead) + '</p>' +
-    '<div class="dbv-seg-row"><span class="dbv-seg-lab">Сроки:</span><div class="dbv-seg" role="radiogroup" aria-label="Календарь сроков">' +
-    DATA.modes.map(function (m) { return '<button type="button" class="dbv-seg__b" role="radio" data-m="' + m.id + '" aria-checked="false" tabindex="-1">' + esc(m.label) + '</button>'; }).join('') +
-    '</div></div>' +
     '<div class="dbv-road__body">' +
       '<div class="dbv-map">' +
         '<svg class="dbv-orbs" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">' +
@@ -93,16 +83,14 @@ function init(root, uid) {
         '<div class="dbv-line" aria-hidden="true"></div>' +
         '<div class="dbv-tabs" role="tablist" aria-label="Этапы проекта">' + tabsHtml + '</div>' +
       '</div>' +
-      '<div class="dbv-lane" role="group" aria-label="' + esc(DATA.laneLabel) + '"><div class="dbv-lane__lab">' + esc(DATA.laneLabel) + '</div><div class="dbv-lane__row"><div class="dbv-lane__line" aria-hidden="true"></div><div data-lane style="display:contents"></div></div></div>' +
+      '<div class="dbv-lane" role="group" aria-label="' + esc(DATA.laneLabel) + '"><div class="dbv-lane__lab">' + esc(DATA.laneLabel) + '</div><div class="dbv-lane__row" data-lane></div></div>' +
       '<div class="dbv-panel" role="tabpanel" id="' + uid + '-p"><div class="dbv-pc" data-pc></div><div class="dbv-meas dbv-pc" aria-hidden="true" data-meas></div></div>' +
-    '</div>' +
-    '<p class="dbv-small dbv-road__note">' + esc(DATA.note) + '</p>';
+    '</div>';
 
   var gl = dbvGlossary(root);
   gl.apply(root);
   var tabs = [].slice.call(root.querySelectorAll('.dbv-node'));
   var cols = tabs.map(function (t) { return t.parentNode; });
-  var radios = [].slice.call(root.querySelectorAll('.dbv-seg__b'));
   var tablist = root.querySelector('.dbv-tabs');
   var panel = root.querySelector('.dbv-panel');
   var pc = root.querySelector('[data-pc]'), meas = root.querySelector('[data-meas]'), laneEl = root.querySelector('[data-lane]');
@@ -111,9 +99,7 @@ function init(root, uid) {
 
   function renderLane() {
     laneEl.innerHTML = DATA.lane.map(function (l) {
-      var v = l[mode];
-      if (!v) return '';
-      return '<div class="dbv-lane__i" style="grid-column:' + l.from + ' / ' + (l.to + 1) + '" data-gl>' + esc(v.t) + (v.m ? '<span class="dbv-lane__m">' + esc(v.m) + '</span>' : '') + '</div>';
+      return '<div class="dbv-lane__i" data-gl>' + LANE_ICO[l.icon] + '<span>' + esc(l.t) + '</span></div>';
     }).join('');
     gl.apply(laneEl);
   }
@@ -142,11 +128,6 @@ function init(root, uid) {
     if (i === cur) return;
     cur = i; paint(); renderCard(true);
   }
-  function setMode(m) {
-    mode = m;
-    radios.forEach(function (r) { var on = r.getAttribute('data-m') === m; r.setAttribute('aria-checked', on ? 'true' : 'false'); r.tabIndex = on ? 0 : -1; });
-    renderLane(); renderCard(false);
-  }
   function measure() {
     var cs = getComputedStyle(panel);
     var pl = parseFloat(cs.paddingLeft), pr = parseFloat(cs.paddingRight), pt = parseFloat(cs.paddingTop), pb = parseFloat(cs.paddingBottom);
@@ -154,11 +135,7 @@ function init(root, uid) {
     meas.style.left = pl + 'px'; meas.style.top = pt + 'px';
     meas.style.width = (panel.clientWidth - pl - pr) + 'px';
     var max = 0;
-    DATA.modes.forEach(function (m) {
-      var keep = mode; mode = m.id;
-      items.forEach(function (it) { meas.innerHTML = cardHtml(it); max = Math.max(max, meas.offsetHeight); });
-      mode = keep;
-    });
+    items.forEach(function (it) { meas.innerHTML = cardHtml(it); max = Math.max(max, meas.offsetHeight); });
     meas.innerHTML = '';
     panel.style.height = Math.ceil(max + pt + pb + bw + 6) + 'px';
     notch();
@@ -188,18 +165,7 @@ function init(root, uid) {
     if (to < 0) return;
     e.preventDefault(); select(to); tabs[to].focus();
   });
-  radios.forEach(function (r, i) {
-    r.addEventListener('click', function () { setMode(r.getAttribute('data-m')); });
-    r.addEventListener('keydown', function (e) {
-      var d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
-      if (!d) return;
-      e.preventDefault();
-      var nx = radios[(i + d + radios.length) % radios.length];
-      setMode(nx.getAttribute('data-m')); nx.focus();
-    });
-  });
-
-  setMode(mode); paint(); renderCard(false); measure();
+  renderLane(); paint(); renderCard(false); measure();
   function onSize() {
     var w = root.clientWidth;
     if (w === lastW) return;

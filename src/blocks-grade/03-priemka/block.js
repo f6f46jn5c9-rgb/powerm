@@ -1,5 +1,6 @@
 /* Здесь правятся критерии приёмки (t — название, w — вес в баллах, сумма 100), статусы (границы lo — в десятых долях балла) и текст критического нарушения. Меняйте только текст между кавычками. */
 var DATA = {
+  tag: 'Перед финальной защитой', tagSub: 'итоговая оценка результата',
   title: 'Приёмка результата заказчиком',
   lead: 'Заказчик оценивает заключительный отчёт по семи критериям, каждый по шкале 0–5. Итог — сумма взвешенных оценок из 100 возможных.',
   cH: 'Критерии и веса', pts: 'баллов',
@@ -38,7 +39,8 @@ function init(root) {
   var C = DATA.crit, S = DATA.statuses, sc = C.map(function () { return -1; });
   function status(p10) { var z = S[0]; S.forEach(function (x) { if (p10 >= x.lo) z = x; }); return z; }
   var segW = [47, 22, 16, 15];
-  root.innerHTML = '<h2 class="dbv-h2" id="dbv-accept">' + esc(DATA.title) + '</h2><p class="dbv-body dbv-acc__lead" data-gl>' + esc(DATA.lead) + '</p>' +
+  root.innerHTML = '<div class="dbv-eb"><span class="dbv-tagg">' + esc(DATA.tag) + '</span><span class="dbv-eb__s">' + esc(DATA.tagSub) + '</span></div>' +
+    '<h2 class="dbv-h2" id="dbv-accept">' + esc(DATA.title) + '</h2><p class="dbv-body dbv-acc__lead" data-gl>' + esc(DATA.lead) + '</p>' +
     '<h3 class="dbv-h3 dbv-acc__h3" style="margin-top:26px !important">' + esc(DATA.cH) + '</h3>' +
     '<div class="dbv-sb" aria-hidden="true">' + C.map(function (c, i) { return '<span class="dbv-sb__s" style="flex:' + c.w + ' 1 0">' + (i + 1) + '</span>'; }).join('') + '</div>' +
     '<div class="dbv-sl" role="list">' + C.map(function (c, i) { return '<div class="dbv-sr" role="listitem"><span class="dbv-sr__n" aria-hidden="true">' + (i + 1) + '</span><span class="dbv-sr__t" data-gl>' + esc(c.t) + '</span><span class="dbv-chip">' + c.w + ' ' + esc(DATA.pts) + '</span></div>'; }).join('') + '</div>' +
