@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Превью: подпись владельца страницы</title><style>body{margin:0;background:#fff;font-family:sans-serif}.col{width:1100px;max-width:100%;margin:0 auto;padding:24px 0 60px}</style></head><body><div class="col"><h2>Чужой заголовок</h2><p>Текст страницы и <a href="#x">чужая ссылка</a>.</p><style>
+.sm-owner{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-text:#1a1a2e;--sm-muted:#4b5563;--sm-border:#e7e9f0;--sm-radius:16px;--sm-shadow-sm:0 1px 3px rgba(26,42,94,.08),0 1px 2px rgba(26,42,94,.06);container-type:inline-size;display:block;margin:24px 0 0 !important;padding:0 !important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;box-sizing:border-box;word-break:normal;hyphens:manual}
+.sm-owner *,.sm-owner *::before,.sm-owner *::after{box-sizing:border-box}
+.sm-owner[hidden]{display:none !important}
+.sm-owner .sm-owner__card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--sm-border);border-left:0;border-radius:var(--sm-radius);box-shadow:var(--sm-shadow-sm);padding:14px 20px !important;position:relative;animation:sm-own-in .5s ease both}
+.sm-owner .sm-owner__card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#35b8b3,#0a5f5e);border-radius:var(--sm-radius) 0 0 var(--sm-radius)}
+.sm-owner .sm-owner__icon{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--sm-teal-light);color:var(--sm-teal-dark);display:flex;align-items:center;justify-content:center;margin-left:4px}
+.sm-owner .sm-owner__icon svg{width:18px;height:18px}
+.sm-owner .sm-owner__text{flex:1 1 auto;min-width:0;font-size:15px !important;color:var(--sm-text);margin:0 !important}
+.sm-owner .sm-owner__line{display:block;font-size:15px !important;line-height:1.4 !important;margin:0 !important;padding:0 !important}
+.sm-owner .sm-owner__line+.sm-owner__line{margin-top:2px !important}
+.sm-owner .sm-owner__name{font-weight:700;color:var(--sm-navy-dark) !important}
+.sm-owner a.sm-owner__mail{display:inline-block;font-size:15px !important;font-weight:600;color:var(--sm-teal-dark) !important;text-decoration:none !important;overflow-wrap:anywhere;border-radius:6px}
+.sm-owner a.sm-owner__mail:hover{text-decoration:underline !important}
+.sm-owner a.sm-owner__mail:focus-visible{outline:3px solid #f5a623;outline-offset:2px}
+@container (max-width:520px){.sm-owner .sm-owner__icon{width:32px;height:32px}.sm-owner .sm-owner__card{gap:12px;padding:14px 16px !important}}
+@keyframes sm-own-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.sm-owner .sm-owner__card{animation:none}}
+</style>
+<div class="sm-owner" id="sm-owner" role="note" aria-label="Контакты владельца страницы"><div class="sm-owner__card"><span class="sm-owner__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div class="sm-owner__text"></div></div></div>
+<script>
+(function () {
+  // ============ ЧТО МЕНЯТЬ (только то, что внутри кавычек) ============
+  var OWNER_NAME  = 'Лунева Инна Максимовна';
+  var OWNER_EMAIL = 'luneva_im@power-m.ru';
+  // ====================================================================
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  var name = String(OWNER_NAME).trim(), mail = String(OWNER_EMAIL).replace(/\s+/g, '');
+  var roots = document.querySelectorAll('.sm-owner:not([data-ready])');
+  for (var i = 0; i < roots.length; i++) {
+    var root = roots[i], box = root.querySelector('.sm-owner__text'), h = '';
+    root.setAttribute('data-ready', '1');
+    if (!name && !mail) { root.hidden = true; continue; }
+    if (name) h += '<span class="sm-owner__line">Владелец страницы: <b class="sm-owner__name">' + esc(name) + '</b></span>';
+    if (mail) h += '<span class="sm-owner__line">По вопросам по теме страницы и по актуализации её содержимого обращайтесь: <a class="sm-owner__mail" href="mailto:' + esc(mail) + '" aria-label="Написать владельцу страницы: ' + esc(name || mail) + '">' + esc(mail) + '</a></span>';
+    box.innerHTML = h;
+  }
+})();
+</script>
+</div></body></html>
