@@ -1,0 +1,9 @@
+/* Страница «Роли», блок 03: справочник ролей — одна таблица, без плашек */
+.ROOT th.dbv-w1{width:22%}
+.ROOT th.dbv-w2{width:40%}
+.ROOT .dbv-tbl tr.is-flash th,.ROOT .dbv-tbl tr.is-flash td{background:var(--dbv-tint) !important}
+.ROOT .dbv-tbl tbody tr th,.ROOT .dbv-tbl tbody tr td{transition:background-color .4s}
+@container (max-width:639px){
+  .ROOT .dbv-tbl tr.is-flash th,.ROOT .dbv-tbl tr.is-flash td{background:none !important}
+  .ROOT .dbv-tbl tr.is-flash{background:var(--dbv-tint)}
+}

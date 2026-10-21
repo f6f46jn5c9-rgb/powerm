@@ -3,6 +3,6 @@
 .ROOT h2.dbv-h2+.dbv-oops__g{margin-top:0 !important}
 .ROOT .dbv-oops__l{margin:10px 0 4px !important;font:700 14px/1.3 var(--dbv-font) !important;color:var(--dbv-ink) !important}
 .ROOT .dbv-oops__d{margin:10px 0 0 !important}
-.ROOT .dbv-oops .dbv-acc__p>.dbv-stack{padding-right:34px}
+.ROOT .dbv-acc__p>.dbv-stack{padding-right:34px}
 .ROOT .dbv-oops__p p{margin:0 !important}
-@container (max-width:640px){.ROOT .dbv-oops .dbv-acc__p>.dbv-stack{padding-right:0}}
+@container (max-width:640px){.ROOT .dbv-acc__p>.dbv-stack{padding-right:0}}

@@ -1,0 +1,30 @@
+/* Страница «Роли», блок 02: матрица. Без плашек; подсветка выбранной роли — тинт строки и жирное имя */
+.ROOT .dbv-pick__l{margin:0 0 4px !important}
+.ROOT .dbv-leg{display:flex;flex-wrap:wrap;gap:4px 22px;margin:0;padding:0}
+.ROOT .dbv-leg__i{display:inline-flex;align-items:center;gap:6px;font:400 14px/1.4 var(--dbv-font);color:var(--dbv-muted)}
+.ROOT .dbv-mk{flex:0 0 auto;width:14px !important;height:14px !important;display:inline-block;vertical-align:-2px;margin-right:6px}
+.ROOT .dbv-leg__i .dbv-mk{margin-right:0}
+.ROOT .dbv-mk--d{fill:var(--dbv-red);stroke:none}
+.ROOT .dbv-mk--x{fill:var(--dbv-teal);stroke:none}
+.ROOT .dbv-mk--a{fill:none;stroke:var(--dbv-teal);stroke-width:2}
+.ROOT .dbv-mk--i{fill:none;stroke:var(--dbv-muted);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ROOT .dbv-sum__row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px}
+.ROOT .dbv-sum__t{flex:1 1 320px;min-width:0;font:400 14px/1.4 var(--dbv-font);color:var(--dbv-muted)}
+.ROOT .dbv-sum__t.is-on{color:var(--dbv-ink)}
+.ROOT label.dbv-only{display:inline-flex;align-items:center;gap:8px;margin:0 !important;font:400 15px/1.4 var(--dbv-font) !important;color:var(--dbv-ink) !important;cursor:pointer}
+.ROOT label.dbv-only input{width:18px !important;height:18px !important;margin:0 !important;accent-color:var(--dbv-teal);cursor:pointer}
+.ROOT .dbv-r{display:block;margin:0 0 3px;font-weight:400}
+.ROOT .dbv-r:last-child{margin-bottom:0}
+.ROOT .dbv-r.is-sel{font-weight:700}
+.ROOT td .dbv-no{color:var(--dbv-muted) !important}
+.ROOT .dbv-joint{display:block;margin-top:2px;font:400 13px/1.3 var(--dbv-font);color:var(--dbv-muted)}
+.ROOT .dbv-tbl th.dbv-wa{width:25%}
+@container (max-width:759px){
+  .ROOT .dbv-tbl thead{position:absolute !important;width:1px !important;height:1px !important;overflow:hidden !important;clip:rect(0 0 0 0) !important}
+  .ROOT table.dbv-tbl,.ROOT .dbv-tbl tbody,.ROOT .dbv-tbl tr,.ROOT .dbv-tbl th,.ROOT .dbv-tbl td{display:block !important;width:auto !important}
+  .ROOT .dbv-tbl tr{padding:10px 8px;border-bottom:1px solid var(--dbv-line)}
+  .ROOT .dbv-tbl th,.ROOT .dbv-tbl td{padding:3px 0 !important;border:0 !important}
+  .ROOT .dbv-tbl td[data-label]::before,.ROOT .dbv-tbl th[data-label]::before{content:attr(data-label);display:block;font:600 13px/1.3 var(--dbv-font);color:var(--dbv-muted)}
+  .ROOT .dbv-tbl tr.is-on th,.ROOT .dbv-tbl tr.is-on td{background:none !important}
+  .ROOT .dbv-tbl tr.is-on{background:var(--dbv-tint)}
+}
