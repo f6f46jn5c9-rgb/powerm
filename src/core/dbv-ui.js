@@ -26,9 +26,10 @@ function tbl(head, rows, o) {
 }
 function list(items) { return '<ul class="dbv-list">' + items.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
 function flow(items) {
-  return '<ol class="dbv-flow">' + items.map(function (t, i) {
-    var cap = typeof t === 'string' ? null : t[1], name = typeof t === 'string' ? t : t[0];
-    return (i ? '<li class="dbv-flow__a" aria-hidden="true">' + ico('arrow') + '</li>' : '') + '<li><span class="dbv-flow__t">' + esc(name) + '</span>' + (cap ? '<span class="dbv-flow__c">' + esc(cap) + '</span>' : '') + '</li>';
+  var cap = items.some(function (t) { return typeof t !== 'string' && t[1]; });
+  return '<ol class="dbv-flow' + (cap ? ' dbv-flow--cap' : '') + '">' + items.map(function (t, i) {
+    var c = typeof t === 'string' ? null : t[1], name = typeof t === 'string' ? t : t[0];
+    return (i ? '<li class="dbv-flow__a" aria-hidden="true">' + ico('arrow') + '</li>' : '') + '<li><span class="dbv-flow__t">' + esc(name) + '</span>' + (c ? '<span class="dbv-flow__c">' + esc(c) + '</span>' : '') + '</li>';
   }).join('') + '</ol>';
 }
 /* ссылка на другую страницу комплекса: DBV_PAGES.<ключ>.url + '#якорь'; пустой url — только текст */
