@@ -122,8 +122,10 @@ def pages_for(js, nav):
     keep = {'hub', 'stages', 'rhythm', 'assets', 'roles', 'grade'} if nav else set()
     out = []
     for line in CORE_PAGES.split('\n'):
+        if line.startswith('/*'):
+            continue
         m = re.match(r"\s+(\w+):\s*\{", line)
-        if m and not (m.group(1) in keep or re.search(r"[\.'\"]" + m.group(1) + r"\b", js)):
+        if m and not (m.group(1) in keep or re.search(r'[.\'"{|(]' + m.group(1) + r'\b', js)):
             continue
         out.append(line)
     return re.sub(r",(\s*\n\};)", r"\1", '\n'.join(out))
@@ -152,7 +154,7 @@ def build_block(src, folder, root, sections):
         parts.append(squeeze(prune_glossary(CORE_GL, js)))
     if nav:
         parts.append(squeeze(CORE_NAV_JS))
-    parts.append(js)
+    parts.append('\n'.join(l.strip() for l in js.split('\n') if l.strip()))
     body = '\n'.join(parts)
     body = '\n'.join('  ' + l if l else l for l in body.split('\n'))
     return f'<style>\n{css}\n</style>\n{html}\n<script>\n(function () {{\n  "use strict";\n{body}\n}})();\n</script>\n'
