@@ -1,0 +1,21 @@
+/* Страница «Оценка и защита», блок 03: защита, оценка участников, «Важно знать». Единственная плашка — .dbv-note */
+.ROOT .dbv-tm{display:flex;gap:2px;height:6px;margin:2px 0 6px !important}
+.ROOT .dbv-tm i{display:block;height:100%}
+.ROOT .dbv-tml{display:flex;flex-wrap:wrap;gap:2px 22px;margin:0 !important;padding:0 !important}
+.ROOT .dbv-tml li{list-style:none !important;min-width:0;white-space:nowrap;margin:0 !important;padding:0 !important;font:400 14px/1.35 var(--dbv-font) !important;color:var(--dbv-ink) !important}
+.ROOT .dbv-tml li:before{display:none}
+.ROOT .dbv-sw{display:inline-block;width:10px;height:3px;margin:0 6px 3px 0;vertical-align:middle}
+.ROOT th.dbv-w1{width:56px}
+.ROOT th.dbv-w2{width:28%}
+.ROOT th.dbv-wa{width:24%}
+.ROOT th.dbv-wb{width:18%}
+.ROOT th.dbv-wc{width:22%}
+.ROOT .dbv-zn{display:inline-flex;align-items:center;gap:6px;margin:0 14px 2px 0}
+.ROOT .dbv-dot{flex:0 0 auto;display:inline-block;width:10px;height:10px;border-radius:50%}
+.ROOT dl.dbv-dl dd ul.dbv-list{margin:0 0 6px !important}
+.ROOT .dbv-dl__r{grid-template-columns:minmax(150px,210px) minmax(0,1fr)}
+@container (max-width:640px){
+  .ROOT .dbv-tml{flex-direction:column;gap:3px}
+  .ROOT .dbv-tml li{white-space:normal}
+  .ROOT .dbv-dl__r{grid-template-columns:minmax(0,1fr)}
+}
