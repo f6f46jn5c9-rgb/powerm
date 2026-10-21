@@ -13,13 +13,15 @@ var IC = {
 function ico(n, cls) { return '<svg class="dbv-svg' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true" focusable="false">' + IC[n] + '</svg>'; }
 function dia() { return '<svg class="dbv-svg dbv-dia" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2 22 12 12 22 2 12z"/></svg>'; }
 function reduced() { return !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches); }
-/* таблица: head — массив подписей, rows — массив массивов HTML-ячеек; опции: first ('th' — первая ячейка заголовок строки), cls — классы колонок */
+/* таблица: head — массив подписей (или [html, подпись]), rows — массив массивов HTML-ячеек; опции: first ('th' — первая ячейка заголовок строки), cls — классы колонок */
 function tbl(head, rows, o) {
   o = o || {};
   var cls = o.cls || [];
-  function c(h, i, th) { return '<' + (th ? 'th scope="row" role="rowheader"' : 'td role="cell"') + ' data-label="' + esc(head[i]) + '"' + (cls[i] ? ' class="' + cls[i] + '"' : '') + '>' + h + '</' + (th ? 'th' : 'td') + '>'; }
+  function hl(h) { return typeof h === 'string' ? h : h[1]; }
+  function hh(h) { return typeof h === 'string' ? esc(h) : h[0]; }
+  function c(h, i, th) { return '<' + (th ? 'th scope="row" role="rowheader"' : 'td role="cell"') + ' data-label="' + esc(hl(head[i])) + '"' + (cls[i] ? ' class="' + cls[i] + '"' : '') + '>' + h + '</' + (th ? 'th' : 'td') + '>'; }
   return '<table class="dbv-tbl" role="table"' + (o.gl ? ' data-gl' : '') + '>' + (o.cap ? '<caption class="dbv-sr">' + esc(o.cap) + '</caption>' : '') +
-    '<thead><tr role="row">' + head.map(function (h, i) { return '<th scope="col" role="columnheader"' + (cls[i] ? ' class="' + cls[i] + '"' : '') + '>' + esc(h) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+    '<thead><tr role="row">' + head.map(function (h, i) { return '<th scope="col" role="columnheader"' + (cls[i] ? ' class="' + cls[i] + '"' : '') + '>' + hh(h) + '</th>'; }).join('') + '</tr></thead><tbody>' +
     rows.map(function (r) { return '<tr role="row">' + r.map(function (h, i) { return c(h, i, o.first === 'th' && i === 0); }).join('') + '</tr>'; }).join('') + '</tbody></table>';
 }
 function list(items) { return '<ul class="dbv-list">' + items.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
