@@ -1,10 +1,16 @@
-/* Блок 01: навигация и заголовок страницы */
-.ROOT .dbv-nav__head{position:relative;margin-top:26px}
-.ROOT .dbv-nav__clip{position:absolute;left:0;right:0;top:-10px;bottom:-10px;overflow:hidden;pointer-events:none}
-.ROOT .dbv-nav__orb{position:absolute;right:-30px;top:0;width:220px !important;height:160px !important}
-.ROOT .dbv-nav__txt{position:relative}
-.ROOT h2.dbv-nav__h2 .dbv-nav__acc{color:var(--dbv-teal) !important}
-.ROOT p.dbv-nav__lead{text-wrap:wrap !important}
+/* Навигация страницы «Оценка и защита», заголовок и линия-шкала из трёх точек (без карточек) */
+.ROOT .dbv-sc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:0 20px;margin:14px 0 0 !important;padding:0}
+.ROOT .dbv-sc__i{position:relative;min-width:0}
+.ROOT .dbv-sc__m{display:flex;align-items:center;gap:8px;height:16px;margin-bottom:6px}
+.ROOT .dbv-sc__d{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:var(--dbv-teal)}
+.ROOT .dbv-sc__ln{flex:1 1 auto;height:2px;background:var(--dbv-cyan)}
+.ROOT .dbv-sc__t{display:block;font:700 16px/1.35 var(--dbv-font);color:var(--dbv-ink)}
+.ROOT .dbv-sc__s{display:block;font:400 14px/1.35 var(--dbv-font);color:var(--dbv-muted)}
 @container (max-width:759px){
-  .ROOT .dbv-nav__clip{display:none}
+  .ROOT .dbv-sc{grid-template-columns:minmax(0,1fr);gap:0}
+  .ROOT .dbv-sc__i{padding:0 0 12px 22px}
+  .ROOT .dbv-sc__m{position:absolute;left:0;top:3px;margin:0;height:auto;flex-direction:column;align-items:center;bottom:0}
+  .ROOT .dbv-sc__ln{flex:1 1 auto;width:2px;height:auto}
+  .ROOT .dbv-sc__i:last-child{padding-bottom:0}
 }
+.ROOT p.dbv-nav__lead{font-size:15px !important}

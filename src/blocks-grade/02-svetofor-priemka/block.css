@@ -1,0 +1,14 @@
+/* Страница «Оценка и защита», блок 02: светофор и приёмка. Плашки: .dbv-key (светофор) и .dbv-warn (приёмка) — в разных разделах.
+   Цвета зон и статусов — только маркер-точка рядом с текстом. */
+.ROOT .dbv-tag{margin:0 0 -4px !important}
+.ROOT .dbv-wt{display:flex;align-items:center;gap:10px}
+.ROOT .dbv-wt__n{flex:0 0 3.2em;font-weight:600}
+.ROOT .dbv-wt__b{flex:1 1 60px;max-width:120px;height:3px;background:var(--dbv-line)}
+.ROOT .dbv-wt__b i{display:block;height:100%;background:var(--dbv-cyan)}
+.ROOT .dbv-zn{display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.ROOT .dbv-dot{flex:0 0 auto;display:inline-block;width:10px;height:10px;border-radius:50%}
+.ROOT th.dbv-w1{width:26%}
+.ROOT th.dbv-w2{width:20%}
+.ROOT th.dbv-wp{width:60%}
+.ROOT th.dbv-wq{width:22%}
+.ROOT .dbv-warn__l{font-weight:700}

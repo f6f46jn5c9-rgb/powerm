@@ -1,0 +1,17 @@
+/* Страница «Этапы», блок 03: первые 30 дней и критерии включения. Плашки: .dbv-warn (перед таблицей шагов) и .dbv-key (правило критериев) */
+.ROOT .dbv-scale{display:flex;align-items:center;gap:10px;margin:2px 0 0 !important;font:600 14px/1.35 var(--dbv-font);color:var(--dbv-ink)}
+.ROOT .dbv-scale__ln{flex:1 1 24px;min-width:24px;height:2px;background:var(--dbv-cyan)}
+.ROOT .dbv-scale__t{white-space:nowrap}
+.ROOT .dbv-scale__kt{white-space:nowrap;font-weight:700}
+.ROOT .dbv-sn{color:var(--dbv-teal);font-weight:700;margin-right:.5em}
+.ROOT th.dbv-w1{width:19%}
+.ROOT th.dbv-w3{width:17%}
+.ROOT th.dbv-w4{width:19%}
+.ROOT th.dbv-wc{width:30%}
+.ROOT .dbv-t2{font-weight:700}
+.ROOT .dbv-pz3{margin:6px 0 0 !important}
+@container (max-width:759px){
+  .ROOT .dbv-scale{flex-direction:column;align-items:flex-start;gap:4px}
+  .ROOT .dbv-scale__ln{flex:0 0 14px;width:2px;height:14px;min-width:0;margin-left:6px}
+  .ROOT .dbv-scale__t,.ROOT .dbv-scale__kt{white-space:normal}
+}

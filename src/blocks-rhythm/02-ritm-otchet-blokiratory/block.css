@@ -1,0 +1,8 @@
+/* Страница «Ритм», блок 02: таблица встреч, демонстрационный день, пятничный отчёт, блокиратор. Плашки: .dbv-key (демо-день) и .dbv-warn (блокиратор) */
+.ROOT .dbv-xr{color:var(--dbv-red-ink);font-weight:700}
+.ROOT .dbv-ok{color:var(--dbv-teal);font-weight:700}
+.ROOT th.dbv-w1{width:20%}
+.ROOT th.dbv-w3{width:15%}
+.ROOT th.dbv-w4{width:22%}
+.ROOT th.dbv-wh{width:50%}
+

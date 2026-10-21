@@ -27,7 +27,7 @@ function dbvGlossary(root) {
   tip.appendChild(tT); tip.appendChild(tD);
   root.appendChild(tip);
   var cur = null, lastType = 'mouse';
-  var SKIP = 'button,summary,a,.dbv-ab,script,style';
+  var SKIP = 'button,summary,a,h1,h2,h3,h4,[role=tab],.dbv-ab,script,style';
 
   function apply(scope) {
     var list = [].slice.call(scope.querySelectorAll('[data-gl]'));

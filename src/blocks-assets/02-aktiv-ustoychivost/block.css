@@ -1,0 +1,10 @@
+/* Страница «Активы», блок 02: единственная плашка — .dbv-key (определение актива) */
+.ROOT .dbv-xr{color:var(--dbv-red-ink);font-weight:700}
+.ROOT .dbv-ok{color:var(--dbv-teal);font-weight:700}
+.ROOT .dbv-cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 32px}
+.ROOT .dbv-cols3 p.dbv-body{margin:0 !important}
+.ROOT .dbv-cols3 .dbv-t{display:block;font-weight:700;margin-bottom:2px}
+.ROOT th.dbv-wh{width:50%}
+.ROOT th.dbv-w1{width:20%}
+.ROOT th.dbv-w2{width:34%}
+@container (max-width:759px){.ROOT .dbv-cols3{grid-template-columns:minmax(0,1fr);gap:10px}}

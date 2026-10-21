@@ -1,0 +1,9 @@
+/* Страница «Активы», блок 03: единственная плашка — .dbv-warn (формулировки КР) */
+.ROOT .dbv-xr{color:var(--dbv-red-ink);font-weight:700}
+.ROOT .dbv-ok{color:var(--dbv-teal);font-weight:700}
+.ROOT th.dbv-w1{width:30%}
+.ROOT th.dbv-w2{width:36%}
+.ROOT th.dbv-wn{width:54px}
+.ROOT th.dbv-we{width:36%}
+.ROOT .dbv-where .dbv-svg{width:15px !important;height:15px !important;margin-left:4px;vertical-align:-2px;stroke-width:2}
+.ROOT .dbv-tbl .dbv-rem{color:var(--dbv-muted) !important}
