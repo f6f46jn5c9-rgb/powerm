@@ -1,4 +1,4 @@
-/* Здесь правятся тексты этапов, сроки (поле term), подписи второй дорожки. Меняйте только текст между кавычками. */
+/* Здесь правятся тексты этапов (what — ключевые действия, kt, who, term — срок) и подпись второй дорожки. Меняйте только текст между кавычками. */
 var DATA = {
   title: 'Путь проекта: 5 этапов и 5 контрольных точек',
   lead: 'Каждый этап заканчивается контрольной точкой (КТ): без положительного решения проект на следующий этап не переходит. Решение по каждой КТ принимает ЛПР.',
@@ -24,96 +24,59 @@ var DATA = {
       kt: 'Результат проекта принят', who: 'заказчик проекта с учётом оценки жюри',
       term: 'Завершает цикл' }
   ],
-  after: { n: 0, name: 'После цикла',
-    what: 'Ретроспектива: опрос участников, встречи с командами, отчёт.' },
-  laneLabel: 'Параллельно проекту',
-  lane: [
-    { icon: 'cap', t: 'Академический трек — 5 модулей по развитию управленческих компетенций (организует ДРП)' },
-    { icon: 'web', t: 'Обучение управлению проектами — вебинары и практикумы по работе в ПЗ (организует ЦРБС)' }
-  ]
+  after: { name: 'После цикла', what: 'Ретроспектива: опрос участников, встречи с командами, отчёт.' },
+  labels: { what: 'Ключевые действия', who: 'Решает', term: 'Срок', go: 'Подробно про этап' },
+  lane: 'Параллельно проекту: академический трек — 5 модулей по развитию управленческих компетенций (организует ДРП); обучение управлению проектами — вебинары и практикумы по работе в ПЗ (организует ЦРБС)'
 };
-/* Адрес для кнопки «Подробно про этап» берётся из общего файла ссылок src/core/dbv-pages.js (DBV_PAGES.stages.url); пока пусто — кнопка не показывается. */
-/*%%PAGES%%*/
-/*%%GLOSSARY%%*/
-function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
-var SVGO = '<svg class="dbv-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">';
-var ICON_DIA = SVGO + '<path d="M12 2.5 21.5 12 12 21.5 2.5 12z"/></svg>';
-var ICON_ARROW = SVGO + '<path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-var LANE_ICO = {
-  cap: SVGO + '<path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11.5v4.5c0 1.2 2.5 2.5 5.5 2.5s5.5-1.3 5.5-2.5v-4.5M21.5 9v6"/></svg>',
-  web: SVGO + '<rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 20.5h8M12 16.5v4M8.5 11.5l2-2.5 2 1.5 3-3.5"/></svg>'
-};
-var ICON_AFTER = SVGO + '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 8v4l3 2"/></svg>';
-
+/* адрес кнопки «Подробно про этап» — DBV_PAGES.stages.url (src/core/dbv-pages.js) + '#e' + номер; пустой адрес — кнопка не выводится */
+function cap1(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 function init(root, uid) {
-  var items = DATA.stages.concat([DATA.after]);
-  var cur = 0, lastW = -1;
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = DATA.stages.concat([{ n: 0, name: DATA.after.name, what: DATA.after.what }]);
+  var L = DATA.labels, cur = 0, lastW = -1;
+  var DIAM = '<path d="M22 1 43 22 22 43 1 22z" fill="#E01828"/>';
 
   function cardHtml(it) {
-    var h = '<h3 class="dbv-h3 dbv-pc__h">' + (it.n ? '<span class="dbv-pc__n">Э' + it.n + '</span>' : '') + esc(it.name) + '</h3>';
-    h += '<div class="dbv-pc__main" data-gl><div class="dbv-pc__lab">Ключевые действия</div><p class="dbv-pc__row">' + esc(it.what) + '</p></div>';
-    h += '<div class="dbv-pc__side">';
-    if (it.kt) h += '<div class="dbv-ktb">' + ICON_DIA + '<span>КТ' + it.n + ' · ' + esc(it.kt) + '</span></div>';
-    if (it.who) h += '<p class="dbv-pc__row" data-gl><b>Решает:</b>' + esc(it.who) + '</p>';
-    if (it.term) h += '<p class="dbv-pc__row"><b>Срок:</b>' + esc(it.term) + '</p>';
-    if (it.n && DBV_PAGES.stages.url) h += '<a class="dbv-go" href="' + esc(DBV_PAGES.stages.url + '#e' + it.n) + '">Подробно про этап ' + ICON_ARROW + '</a>';
-    return h + '</div>';
+    var row = function (k, v) { return '<div class="dbv-dl__r"><dt>' + k + '</dt><dd data-gl>' + v + '</dd></div>'; };
+    var head = '<div class="dbv-pc__h"><h3 class="dbv-h3">' + (it.n ? '<span class="dbv-pc__n">Э' + it.n + '</span> · ' : '') + esc(it.name) + '</h3>' +
+      (it.n && DBV_PAGES.stages.url ? '<a class="dbv-btn" href="' + esc(DBV_PAGES.stages.url + '#e' + it.n) + '" rel="noopener">' + esc(L.go) + ico('arrow') + '</a>' : '') + '</div>';
+    var dl = row(L.what, esc(it.what));
+    if (it.kt) dl += row(L.who, '<p>' + esc(cap1(it.who)) + '</p><p class="dbv-small">' + dia() + 'КТ' + it.n + ' · ' + esc(it.kt) + '</p>') + row(L.term, esc(it.term));
+    return head + '<dl class="dbv-dl dbv-dl--v">' + dl + '</dl>';
   }
 
   var tabsHtml = items.map(function (it, i) {
     var id = uid + '-t' + i;
     if (!it.n) {
       return '<div class="dbv-after" role="presentation"><button type="button" class="dbv-node" role="tab" id="' + id + '" data-i="' + i + '" aria-controls="' + uid + '-p" aria-selected="false" tabindex="-1">' +
-        '<span class="dbv-node__c">' + ICON_AFTER + '</span><span class="dbv-node__t">' + esc(it.name) + '</span></button></div>';
+        '<span class="dbv-node__c">' + ico('hist') + '</span><span class="dbv-node__t">' + esc(it.name) + '</span></button></div>';
     }
     return '<div class="dbv-col" role="presentation"><button type="button" class="dbv-node" role="tab" id="' + id + '" data-i="' + i + '" aria-controls="' + uid + '-p" aria-selected="false" tabindex="-1">' +
       '<span class="dbv-node__c">Э' + it.n + '</span><span class="dbv-node__t">' + esc(it.name) + '</span></button>' +
-      '<span class="dbv-kt" data-i="' + i + '" aria-hidden="true"><span class="dbv-kt__box"><span class="dbv-kt__d"></span><span class="dbv-kt__l">КТ' + it.n + '</span></span><span class="dbv-kt__n">' + esc(it.kt) + '</span></span></div>';
+      '<span class="dbv-kt" data-i="' + i + '" aria-hidden="true"><svg viewBox="0 0 44 44" focusable="false">' + DIAM + '<text x="22" y="26.5" text-anchor="middle">КТ' + it.n + '</text></svg><span class="dbv-kt__n">' + esc(it.kt) + '</span></span></div>';
   }).join('');
 
   root.innerHTML =
     '<h2 class="dbv-h2">' + esc(DATA.title) + '</h2>' +
     '<p class="dbv-body dbv-road__lead" data-gl>' + esc(DATA.lead) + '</p>' +
-    '<div class="dbv-road__body">' +
-      '<div class="dbv-map">' +
-        '<svg class="dbv-orbs" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">' +
-        '<ellipse cx="500" cy="50" rx="490" ry="40" transform="rotate(-1.5 500 50)" fill="none" stroke="#007890" stroke-width="1.5" opacity=".35" vector-effect="non-scaling-stroke"/>' +
-        '<ellipse cx="520" cy="50" rx="400" ry="30" transform="rotate(2 520 50)" fill="none" stroke="#E01828" stroke-width="1.5" opacity=".3" vector-effect="non-scaling-stroke"/></svg>' +
-        '<div class="dbv-line" aria-hidden="true"></div>' +
-        '<div class="dbv-tabs" role="tablist" aria-label="Этапы проекта">' + tabsHtml + '</div>' +
-      '</div>' +
-      '<div class="dbv-lane" role="group" aria-label="' + esc(DATA.laneLabel) + '"><div class="dbv-lane__lab">' + esc(DATA.laneLabel) + '</div><div class="dbv-lane__row" data-lane></div></div>' +
-      '<div class="dbv-panel" role="tabpanel" id="' + uid + '-p"><div class="dbv-pc" data-pc></div><div class="dbv-meas dbv-pc" aria-hidden="true" data-meas></div></div>' +
-    '</div>';
+    '<div class="dbv-map"><div class="dbv-line" aria-hidden="true"></div><div class="dbv-nodes" role="tablist" aria-label="Этапы проекта">' + tabsHtml + '</div></div>' +
+    '<div class="dbv-panel dbv-road__p" role="tabpanel" id="' + uid + '-p"><div class="dbv-pc" data-pc></div><div class="dbv-meas dbv-pc" aria-hidden="true" data-meas></div></div>' +
+    '<p class="dbv-small dbv-lane" data-gl>' + esc(DATA.lane) + '</p>';
 
   var gl = dbvGlossary(root);
   gl.apply(root);
   var tabs = [].slice.call(root.querySelectorAll('.dbv-node'));
   var cols = tabs.map(function (t) { return t.parentNode; });
-  var tablist = root.querySelector('.dbv-tabs');
+  var tablist = root.querySelector('.dbv-nodes');
   var panel = root.querySelector('.dbv-panel');
-  var pc = root.querySelector('[data-pc]'), meas = root.querySelector('[data-meas]'), laneEl = root.querySelector('[data-lane]');
+  var pc = root.querySelector('[data-pc]'), meas = root.querySelector('[data-meas]');
 
   function isVert() { return root.clientWidth < 760; }
-
-  function renderLane() {
-    laneEl.innerHTML = DATA.lane.map(function (l) {
-      return '<div class="dbv-lane__i" data-gl>' + LANE_ICO[l.icon] + '<span>' + esc(l.t) + '</span></div>';
-    }).join('');
-    gl.apply(laneEl);
-  }
   function renderCard(fade) {
     gl.hide();
     pc.innerHTML = cardHtml(items[cur]);
     gl.apply(pc);
     panel.setAttribute('aria-labelledby', tabs[cur].id);
-    if (fade && !reduce) { pc.classList.remove('is-new'); void pc.offsetWidth; pc.classList.add('is-new'); }
-  }
-  function notch() {
-    var r = tabs[cur].getBoundingClientRect(), p = panel.getBoundingClientRect();
-    var node = tabs[cur].querySelector('.dbv-node__c').getBoundingClientRect();
-    panel.style.setProperty('--nx', Math.round(node.left + node.width / 2 - p.left) + 'px');
+    if (fade && !reduced()) { pc.classList.remove('is-new'); void pc.offsetWidth; pc.classList.add('is-new'); }
   }
   function paint() {
     tabs.forEach(function (t, i) {
@@ -122,7 +85,6 @@ function init(root, uid) {
       t.tabIndex = on ? 0 : -1;
       cols[i].classList.toggle('is-sel', on);
     });
-    notch();
   }
   function select(i) {
     if (i === cur) return;
@@ -137,8 +99,7 @@ function init(root, uid) {
     var max = 0;
     items.forEach(function (it) { meas.innerHTML = cardHtml(it); max = Math.max(max, meas.offsetHeight); });
     meas.innerHTML = '';
-    panel.style.height = Math.ceil(max + pt + pb + bw + 6) + 'px';
-    notch();
+    panel.style.height = Math.ceil(max + pt + pb + bw + 2) + 'px';
   }
 
   tablist.setAttribute('aria-orientation', isVert() ? 'vertical' : 'horizontal');
@@ -150,7 +111,7 @@ function init(root, uid) {
     var t = e.target.closest && e.target.closest('[data-i]');
     if (!t) return;
     select(+t.getAttribute('data-i'));
-    if (isVert()) panel.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+    if (isVert()) panel.scrollIntoView({ block: 'nearest', behavior: reduced() ? 'auto' : 'smooth' });
   });
   tablist.addEventListener('focusin', function (e) {
     var t = e.target.closest && e.target.closest('.dbv-node');
@@ -165,7 +126,7 @@ function init(root, uid) {
     if (to < 0) return;
     e.preventDefault(); select(to); tabs[to].focus();
   });
-  renderLane(); paint(); renderCard(false); measure();
+  paint(); renderCard(false); measure();
   function onSize() {
     var w = root.clientWidth;
     if (w === lastW) return;

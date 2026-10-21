@@ -1,12 +1,7 @@
-/* Навигация дочерних страниц */
-.ROOT .dbv-nav__bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.ROOT .dbv-nav__sep{width:1px;height:26px;background:rgba(0,120,144,.3);margin:0 2px}
-.ROOT .dbv-pill{display:inline-flex;align-items:center;gap:8px;padding:9px 16px !important;margin:0 !important;border-radius:999px;border:1.5px solid rgba(0,120,144,.3);
-  background:linear-gradient(135deg,#fff,var(--dbv-tint-cyan));box-shadow:0 3px 12px rgba(0,120,144,.08);font:600 14px/1.3 var(--dbv-font) !important;color:var(--dbv-ink) !important;
-  text-decoration:none !important;transition:transform .2s ease,box-shadow .25s ease}
-.ROOT .dbv-pill .dbv-svg{width:18px !important;height:18px !important;color:var(--dbv-teal)}
-.ROOT a.dbv-pill,.ROOT a.dbv-pill:visited,.ROOT a.dbv-pill:hover,.ROOT a.dbv-pill:focus,.ROOT a.dbv-pill:active{color:var(--dbv-ink) !important;text-decoration:none !important}
-.ROOT a.dbv-pill:hover{transform:translateY(-2px);box-shadow:var(--dbv-shadow-hover)}
-.ROOT .dbv-pill--cur,.ROOT span.dbv-pill--cur{background:var(--dbv-teal);border-color:var(--dbv-teal);color:#fff !important;box-shadow:var(--dbv-shadow)}
-.ROOT .dbv-pill--off,.ROOT span.dbv-pill--off{background:#F4F7F8;border:1.5px dashed rgba(91,102,112,.4);box-shadow:none;color:var(--dbv-muted) !important;cursor:default}
-.ROOT .dbv-pill--off .dbv-svg{color:var(--dbv-muted)}
+/* Навигация страницы: одна полоса; заливка только у текущей страницы */
+.ROOT .dbv-nav__bar{display:flex;flex-wrap:wrap;align-items:center;gap:2px 2px;margin:0 0 16px !important;padding:0 0 8px !important;border-bottom:1px solid var(--dbv-line)}
+.ROOT .dbv-nav__bar a.dbv-nav__i,.ROOT .dbv-nav__bar a.dbv-nav__i:visited,.ROOT .dbv-nav__bar span.dbv-nav__i{display:inline-block;margin:0 !important;padding:6px 9px !important;border-radius:8px;
+  font:600 15px/1.3 var(--dbv-font) !important;color:var(--dbv-ink) !important;text-decoration:none !important;background:none}
+.ROOT .dbv-nav__bar a.dbv-nav__i:hover,.ROOT .dbv-nav__bar a.dbv-nav__i:focus{color:var(--dbv-ink) !important;text-decoration:underline !important;text-decoration-color:var(--dbv-teal) !important;text-decoration-thickness:2px !important;text-underline-offset:4px}
+.ROOT .dbv-nav__bar span.dbv-nav__cur{background:var(--dbv-teal);color:#fff !important}
+.ROOT .dbv-nav__h .dbv-nav__lead{max-width:860px}

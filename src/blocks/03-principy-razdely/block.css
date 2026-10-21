@@ -1,0 +1,18 @@
+/* Блок 03: принципы, разделы, где что искать. Информация — обычный текст, единственная плашка — .dbv-warn */
+.ROOT .dbv-pr3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 32px;margin:0 0 14px !important}
+.ROOT .dbv-pr__n{color:var(--dbv-teal);margin-right:.35em}
+.ROOT .dbv-pr3 h3.dbv-h3{margin:0 0 6px !important}
+.ROOT ul.dbv-sect>li{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:2px 20px;margin-bottom:8px !important}
+.ROOT .dbv-sect a{font:700 17px/1.35 var(--dbv-font) !important}
+.ROOT .dbv-sect a .dbv-svg{width:16px !important;height:16px !important;margin-left:6px;vertical-align:-2px;stroke-width:2}
+.ROOT .dbv-sect .dbv-small{align-self:center}
+.ROOT .dbv-prin .dbv-dl__r{grid-template-columns:minmax(200px,300px) minmax(0,1fr)}
+.ROOT dl.dbv-dl dd p.dbv-ctl{margin-top:8px !important}
+@container (max-width:759px){
+  .ROOT .dbv-pr3{grid-template-columns:minmax(0,1fr);gap:14px}
+  .ROOT ul.dbv-sect>li{grid-template-columns:minmax(0,1fr);gap:0}
+}
+@container (max-width:640px){
+  .ROOT .dbv-prin .dbv-dl__r{grid-template-columns:minmax(0,1fr)}
+  .ROOT .dbv-sect a{font-size:16px !important}
+}

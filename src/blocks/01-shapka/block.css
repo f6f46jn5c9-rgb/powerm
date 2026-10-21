@@ -1,33 +1,28 @@
-/* Блок 01: шапка */
-.ROOT{background:#fff;border:1px solid rgba(0,120,144,.18);border-radius:var(--dbv-radius);box-shadow:var(--dbv-shadow);padding-bottom:4px}
-.ROOT::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;border-radius:0 0 15px 15px;background:linear-gradient(90deg,var(--dbv-red),var(--dbv-teal),var(--dbv-cyan))}
-.ROOT .dbv-hero__clip{position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+/* Блок 01: навигация и шапка хаба (единственная «карточка» шапки) */
+.ROOT .dbv-hero__card{position:relative;overflow:hidden;background:#fff;border:1px solid var(--dbv-line);border-radius:16px;box-shadow:0 4px 16px rgba(31,42,51,.08);padding-bottom:3px}
+.ROOT .dbv-hero__card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--dbv-red),var(--dbv-teal),var(--dbv-cyan))}
+.ROOT .dbv-hero__clip{position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none}
 .ROOT .dbv-hero__orb{position:absolute;right:-40px;top:0;width:240px !important;height:180px !important}
-.ROOT .dbv-hero__in{position:relative;padding:28px 32px 30px}
-.ROOT .dbv-hero__head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 32px;align-items:center}
-.ROOT .dbv-hero__txt{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding-right:140px;min-width:0}
-.ROOT .dbv-hero__eyebrow{font:600 14px/1.4 var(--dbv-font);letter-spacing:.06em;text-transform:uppercase;color:var(--dbv-muted)}
+.ROOT .dbv-hero__in{position:relative;padding:16px 24px 14px}
+.ROOT .dbv-hero__head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 24px;align-items:center}
+.ROOT .dbv-hero__txt{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding-right:70px;min-width:0}
+.ROOT .dbv-hero__eyebrow{font:600 13px/1.4 var(--dbv-font);letter-spacing:.06em;text-transform:uppercase;color:var(--dbv-muted)}
 .ROOT h2.dbv-hero__h2{font-size:30px !important;margin:0 !important}
-.ROOT h2.dbv-hero__h2 .dbv-hero__acc{color:var(--dbv-teal) !important}
-.ROOT p.dbv-hero__sub{margin:0 !important}
-.ROOT .dbv-hero__chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.ROOT .dbv-hero__info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
-.ROOT .dbv-hero__box{padding:14px 18px !important;border-radius:12px;background:var(--dbv-tint-cyan);border:1px solid rgba(0,120,144,.16);min-width:0}
-.ROOT .dbv-hero__lab{margin:0 0 6px !important;font:600 14px/1.3 var(--dbv-font);letter-spacing:.06em;text-transform:uppercase;color:var(--dbv-teal)}
+.ROOT .dbv-hero__info{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;margin-top:12px;padding-top:10px;border-top:1px solid var(--dbv-line)}
+.ROOT .dbv-logo{--mk:76px;gap:12px}
+.ROOT .dbv-hero__lab{margin:0 0 2px !important;font:600 14px/1.3 var(--dbv-font);color:var(--dbv-teal)}
 .ROOT p.dbv-hero__t{font-size:15px !important;line-height:1.45 !important}
-.ROOT .dbv-hero__box{animation:ROOTK-in .5s ease backwards;animation-delay:calc(var(--i,0)*60ms)}
 @container (max-width:900px){
-  .ROOT .dbv-hero__info{grid-template-columns:1fr}
-  .ROOT .dbv-hero__txt{padding-right:90px}
+  .ROOT .dbv-hero__txt{padding-right:60px}
 }
 @container (max-width:759px){
-  .ROOT .dbv-hero__in{padding:22px 20px 24px}
+  .ROOT .dbv-logo{--mk:60px}
+  .ROOT .dbv-hero__in{padding:18px 18px 18px}
   .ROOT .dbv-hero__head{grid-template-columns:1fr}
   .ROOT .dbv-hero__txt{padding-right:0}
-  .ROOT .dbv-hero__orb{height:130px !important;width:174px !important;right:-30px}
+  .ROOT .dbv-hero__info{grid-template-columns:1fr}
+  .ROOT .dbv-hero__orb{height:120px !important;width:160px !important;right:-30px}
 }
 @container (max-width:640px){
   .ROOT h2.dbv-hero__h2{font-size:24px !important}
-  .ROOT .dbv-hero__eyebrow{letter-spacing:.04em}
-  .ROOT .dbv-hero__info{margin-top:18px}
 }
