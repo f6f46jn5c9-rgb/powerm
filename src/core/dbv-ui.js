@@ -26,7 +26,7 @@ function tbl(head, rows, o) {
 }
 function list(items) { return '<ul class="dbv-list">' + items.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
 function flow(items) {
-  var cap = items.some(function (t) { return typeof t !== 'string' && t[1]; });
+  var cap = items.every(function (t) { return typeof t !== 'string' && t[1]; });
   return '<ol class="dbv-flow' + (cap ? ' dbv-flow--cap' : '') + '">' + items.map(function (t, i) {
     var c = typeof t === 'string' ? null : t[1], name = typeof t === 'string' ? t : t[0];
     return (i ? '<li class="dbv-flow__a" aria-hidden="true">' + ico('arrow') + '</li>' : '') + '<li><span class="dbv-flow__t">' + esc(name) + '</span>' + (c ? '<span class="dbv-flow__c">' + esc(c) + '</span>' : '') + '</li>';

@@ -104,6 +104,30 @@ def squeeze(js):
     return '\n'.join(l.strip() for l in js.split('\n') if l.strip() and not l.strip().startswith('//') and not l.strip().startswith('/*'))
 
 
+def prune_ui(ui, js):
+    # из dbv-ui.js в блок попадают только функции и иконки, которыми блок реально пользуется
+    chunks = re.split(r'\n(?=function |var IC)', ui)
+    named = {}
+    for c in chunks:
+        m = re.match(r'function (\w+)', c)
+        named[m.group(1) if m else '#IC'] = c
+    used, todo = set(), []
+    def scan(text):
+        for n in named:
+            if n != '#IC' and n not in used and re.search(r'\b' + n + r'\(', text):
+                used.add(n); todo.append(n)
+    scan(js)
+    while todo:
+        scan(named[todo.pop()])
+    body = js + ''.join(named[n] for n in used)
+    ic = named['#IC']
+    keys = [k for k in re.findall(r"^  (\w+):", ic, re.M) if re.search(r"ico\('" + k + r"'", body)]
+    ic = re.sub(r"^  (\w+): .*?,?\n", lambda m: m.group(0) if m.group(1) in keys else '', ic, flags=re.M)
+    ic = re.sub(r",(\s*\n\};)", r"\1", ic)
+    out = [named[n] for n in named if n in used or n == 'esc']
+    return ic + '\n' + '\n'.join(out) if keys else '\n'.join(out)
+
+
 def core_for(sections):
     return SECTION.sub(lambda m: m.group(2) if m.group(1) in sections else '', CORE_CSS)
 
@@ -149,7 +173,7 @@ def build_block(src, folder, root, sections):
     parts = []
     if re.search(r'DBV_PAGES', js + (CORE_NAV_JS if nav else '') + CORE_UI):
         parts.append(pages_for(js + (CORE_NAV_JS if nav else ''), nav).replace(chr(10) + '  ', chr(10)))
-    parts.append(squeeze(CORE_UI))
+    parts.append(squeeze(prune_ui(CORE_UI, js + (CORE_NAV_JS if nav else ''))))
     if uses_gl:
         parts.append(squeeze(prune_glossary(CORE_GL, js)))
     if nav:

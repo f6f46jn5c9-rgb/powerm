@@ -40,13 +40,13 @@ function init(root) {
   var tot = DATA.steps.reduce(function (a, s) { return a + s.m; }, 0);
   var slides = tbl(DATA.sHead, DATA.slides.map(function (s, i) { return [String(i + 1), '<b>' + esc(s[0]) + '</b>', esc(s[1]) + ' ' + esc(s[2])]; }), { gl: 1, cap: DATA.sH, cls: ['dbv-n dbv-w1', 'dbv-w2', ''] });
   var people = tbl(DATA.pHead, DATA.people.map(function (p) {
-    var sc = typeof p[3] === 'string' ? esc(p[3]) : p[3].scale.map(function (s) { return '<span class="dbv-zn"><span class="dbv-dot" style="background:' + s[1] + '" aria-hidden="true"></span>' + esc(s[0]) + '</span>'; }).join('') + '<span class="dbv-small">' + esc(p[3].note) + '</span>';
+    var sc = typeof p[3] === 'string' ? esc(p[3]) : p[3].scale.map(function (s) { return '<span class="dbv-zn"><span class="dbv-dot" style="background:' + s[1] + '" aria-hidden="true"></span>' + esc(s[0]) + '</span>'; }).join('') + ' <span class="dbv-small">' + esc(p[3].note) + '</span>';
     return ['<b>' + esc(p[0]) + '</b>', esc(p[1]), esc(p[2]), sc];
   }), { gl: 1, cap: DATA.pH, cls: ['dbv-wa', 'dbv-wb', 'dbv-wc', ''] });
   var jury = DATA.jury.map(function (j) {
     var d = j.p ? '<p>' + esc(j.p) + '</p>' : '';
-    if (j.items) d += list(j.items.map(esc)) + '<p><b>' + esc(j.strong) + '</b></p>';
-    if (j.p2) d += '<p>' + esc(j.p2) + '</p>';
+    if (j.items) d += '<p>' + esc(j.items.join(' ')) + '</p><p><b>' + esc(j.strong) + '</b></p>';
+    if (j.p2) d = '<p>' + esc(j.p + ' ' + j.p2) + '</p>';
     return '<div class="dbv-dl__r"><dt>' + esc(j.k) + '</dt><dd data-gl>' + d + '</dd></div>';
   }).join('');
   root.innerHTML =

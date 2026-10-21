@@ -25,7 +25,7 @@
 .ROOT .dbv-pc__h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin:0 0 6px !important}
 .ROOT .dbv-pc__h h3.dbv-h3{margin:0 !important}
 .ROOT .dbv-pc__h .dbv-pc__n{color:var(--dbv-teal);margin-right:.3em}
-.ROOT .dbv-pc.is-new{animation:ROOTK-fade .15s ease}
+.ROOT .dbv-pc.is-new{animation:dbv-fade .15s ease}
 .ROOT dl.dbv-dl--v{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:0 32px}
 .ROOT dl.dbv-dl--v dd{font-size:15px !important}
 .ROOT .dbv-panel.dbv-road__p{padding:12px 20px 10px !important}
@@ -34,7 +34,7 @@
 .ROOT .dbv-dl--v dd p{margin:0 !important}
 .ROOT .dbv-meas{position:absolute;left:20px;top:12px;visibility:hidden;pointer-events:none}
 .ROOT .dbv-lane{margin:10px 0 0 !important}
-@keyframes ROOTK-fade{from{opacity:0}to{opacity:1}}
+@keyframes dbv-fade{from{opacity:0}to{opacity:1}}
 
 @container (max-width:900px){.ROOT .dbv-node__t{font-size:14px}}
 @container (max-width:859px){

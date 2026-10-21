@@ -26,7 +26,7 @@ var DATA = {
   ],
   susH: 'Что делает результат устойчивым',
   susLead: 'Устойчивость результата обеспечивается тремя компонентами.',
-  pillars: [
+  comps: [
     ['Процесс', 'Карта процесса или плейбук — шаги, входы и выходы, точки контроля.'],
     ['Роли', 'Матрица ролей, описание функций, владелец результата после проекта.'],
     ['Инфраструктура', 'Система, дашборд, шаблоны, доступы.']
@@ -45,7 +45,7 @@ function init(root) {
     '<p class="dbv-small" data-gl>' + esc(DATA.note) + '</p></section>' +
     '<section class="dbv-sec dbv-stack"><h3 class="dbv-h3">' + esc(DATA.typesH) + '</h3><p class="dbv-small">' + esc(DATA.typesLead) + '</p>' + types + '</section>' +
     '<section class="dbv-sec dbv-stack" data-gl><h3 class="dbv-h3">' + esc(DATA.susH) + '</h3><p class="dbv-body">' + esc(DATA.susLead) + '</p>' +
-    '<div class="dbv-cols3">' + DATA.pillars.map(function (p) { return '<p class="dbv-body"><span class="dbv-t">' + esc(p[0]) + '</span>' + esc(p[1]) + '</p>'; }).join('') + '</div>' +
+    '<div class="dbv-cols3">' + DATA.comps.map(function (p) { return '<p class="dbv-body"><span class="dbv-t">' + esc(p[0]) + '</span>' + esc(p[1]) + '</p>'; }).join('') + '</div>' +
     '<p class="dbv-body"><b>' + esc(DATA.susWarn) + '</b></p>' +
     '<p class="dbv-body">' + esc(DATA.levelsCap) + '</p>' + flow(DATA.levels) +
     '<p class="dbv-body">' + esc(DATA.fin) + '</p></section>';

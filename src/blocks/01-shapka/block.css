@@ -26,3 +26,4 @@
 @container (max-width:640px){
   .ROOT h2.dbv-hero__h2{font-size:24px !important}
 }
+@container (max-width:520px){.ROOT .dbv-hero__orb{display:none}}

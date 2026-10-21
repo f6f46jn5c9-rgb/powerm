@@ -48,7 +48,7 @@ function init(root, uid) {
     return '<section class="dbv-sec dbv-oops__g"><h3 class="dbv-h3">' + esc(g.h) + '</h3>' + g.items.map(function (it) {
       n++; all.push(it);
       var id = uid + '-a' + n;
-      return '<div class="dbv-acc" id="oops' + n + '"><h4 class="dbv-acc__h" style="margin:0;font-size:inherit">' +
+      return '<div class="dbv-acc" id="oops' + n + '"><h4 class="dbv-acc__h">' +
         '<button type="button" class="dbv-acc__b" aria-expanded="false" aria-controls="' + id + '"><span><span class="dbv-acc__n">' + n + '</span>' + esc(it.t) + '</span>' + ico('chev') + '</button></h4>' +
         '<div class="dbv-acc__p" id="' + id + '"><div class="dbv-stack" data-gl>' + body(it) + '</div></div></div>';
     }).join('') + '</section>';

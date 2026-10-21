@@ -19,3 +19,4 @@
   .ROOT .dbv-tml li{white-space:normal}
   .ROOT .dbv-dl__r{grid-template-columns:minmax(0,1fr)}
 }
+.ROOT td span.dbv-small{display:inline;font:400 14px/1.4 var(--dbv-font);color:var(--dbv-muted)}
