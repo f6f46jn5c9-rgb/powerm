@@ -1,0 +1,2 @@
+/* страница 1: «Цель» — обычный абзац с жирной подписью (плашка .chp-key заняла бы >20 % площади блока) */
+.ROOT p.chp-goal .chp-goal__l{display:block;margin:0 0 2px !important;color:var(--chp-navy) !important}
