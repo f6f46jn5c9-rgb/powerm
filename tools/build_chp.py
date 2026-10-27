@@ -1,11 +1,11 @@
 """Сборка комплекса «Чемпионат лучших практик»: src/chp -> dist/chp/{hub,voting}.html (один HTML-макрос на страницу).
 Адреса берутся из src/chp/chp-pages.js (пустой адрес = вкладка/кнопка неактивны, подпись «Скоро»).
 Другие комплексы не трогает. Запуск: python3 tools/build_chp.py"""
-import html, pathlib, re, sys
+import html, os, pathlib, re, sys
 
 R = pathlib.Path(__file__).resolve().parent.parent
 S = R / 'src/chp'
-OUT = R / 'dist/chp'
+OUT = pathlib.Path(os.environ['CHP_OUT']) if os.environ.get('CHP_OUT') else R / 'dist/chp'  # CHP_OUT/CHP_PAGES_JS — только для проверок
 MAX_KB = 38
 ROOT = 'chp-root'
 ARROW = '<svg class="chp-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
@@ -17,7 +17,7 @@ PAGES = {  # ключ страницы -> (файл разметки, css стр
 
 
 def load_pages():
-    js = (S / 'chp-pages.js').read_text(encoding='utf-8')
+    js = pathlib.Path(os.environ.get('CHP_PAGES_JS') or S / 'chp-pages.js').read_text(encoding='utf-8')
     res = {}
     for key, body in re.findall(r"(\w+):\s*\{([^}]*)\}", js):
         t = re.search(r"title:\s*'([^']*)'", body).group(1)
@@ -66,7 +66,7 @@ def build():
         (OUT / dst).write_text(text, encoding='utf-8', newline='\n')
         kb = len(text.encode('utf-8')) / 1024
         bad |= kb > MAX_KB
-        print(f'dist/chp/{dst}  {kb:.1f} КБ' + (f'  !! больше {MAX_KB} КБ' if kb > MAX_KB else ''))
+        print(f'{OUT.relative_to(R) if OUT.is_relative_to(R) else OUT}/{dst}  {kb:.1f} КБ' + (f'  !! больше {MAX_KB} КБ' if kb > MAX_KB else ''))
     return 1 if bad else 0
 
 
