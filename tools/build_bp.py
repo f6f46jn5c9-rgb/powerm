@@ -11,6 +11,7 @@ SECTION = re.compile(r'/\*@(\w+)\*/(.*?)/\*@end\*/', re.S)
 # (исходник, файл в dist, корневой класс, секции core сверх базы)
 BLOCKS = [
     ('hero', '1-shapka', 'bp-hero-root', {'hero'}),
+    ('welcome', 'welcome', 'bp-welcome-root', {'welcome'}),
     ('programma', '2-programma-dbv', 'bp-prog-root', {'prog'}),
     ('shkola', '3-shkola-v-razrabotke', 'bp-school-root', {'note'}),
 ]
