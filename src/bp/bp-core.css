@@ -68,3 +68,10 @@
 .ROOT .bp-note p.bp-body{flex:1 1 240px;min-width:0}
 @container (max-width:719px){.ROOT .bp-note{padding:12px 14px !important}}
 /*@end*/
+/*@welcome*/
+/* приветствие: не плашка, а одна линия слева; шапка остаётся главным элементом */
+.ROOT{margin:24px 0 !important;padding:0 0 0 20px !important;border:0 !important;border-left:4px solid var(--bp-teal) !important;background:none !important;box-shadow:none !important}
+.ROOT h2.bp-h2{margin-bottom:8px !important}
+.ROOT p.bp-wp{margin:0 !important;padding:0 !important;font:500 18px/1.5 var(--bp-font) !important;color:var(--bp-navy) !important;text-align:left !important}
+@container (max-width:719px){.ROOT p.bp-wp{font-size:16px !important}}
+/*@end*/
