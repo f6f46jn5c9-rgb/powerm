@@ -1,0 +1,180 @@
+<style>
+/* страховка от чужих стилей: Confluence и темы задают !important на p, a, span, div, ul, li, button, h3 */
+.dbv-mat{margin:0 !important;border:0 !important;background:none !important;font:400 16px/1.4 var(--dbv-font) !important;color:var(--dbv-ink) !important;text-align:left !important;text-transform:none !important;letter-spacing:normal !important;font-style:normal !important}
+.dbv-mat :is(p,span,div,a,ul,li,h3,button){margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font:inherit !important;color:inherit !important;text-transform:none !important;letter-spacing:normal !important;font-style:normal !important;text-shadow:none !important;box-shadow:none !important;float:none !important}
+/*CORE*/
+.dbv-mat{padding:26px 0 !important}
+.dbv-mat p.dbv-mat__intro{margin:0 0 18px !important;padding:0 !important;font:400 16px/1.4 var(--dbv-font) !important;color:var(--dbv-ink) !important}
+.dbv-mat p.dbv-mat__msg{margin:0 !important;padding:0 !important;font:400 16px/1.4 var(--dbv-font) !important;color:var(--dbv-muted) !important}
+.dbv-mat div.dbv-acc{border-bottom:1px solid var(--dbv-line) !important}
+.dbv-mat span.dbv-mat__t{min-width:0}
+.dbv-mat span.dbv-mat__c{margin-left:.5em !important;font-weight:400 !important;color:var(--dbv-muted) !important}
+.dbv-mat ul.dbv-mat__l{margin:0 !important;padding:0 !important;list-style:none !important}
+.dbv-mat ul.dbv-mat__l>li{display:flex !important;justify-content:space-between;align-items:baseline;gap:2px 24px;margin:0 !important;padding:5px 0 !important;list-style:none !important;background:none !important;border:0 !important;font:400 16px/1.4 var(--dbv-font) !important;color:var(--dbv-ink) !important}
+.dbv-mat ul.dbv-mat__l>li::before{content:none !important}
+.dbv-mat a.dbv-mat__f{flex:1 1 auto;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.dbv-mat span.dbv-mat__x{flex:0 0 auto;font:400 14px/1.4 var(--dbv-font) !important;color:var(--dbv-muted) !important;white-space:nowrap;text-align:right}
+@container (max-width:559px){
+.dbv-mat p.dbv-mat__intro,.dbv-mat p.dbv-mat__msg,.dbv-mat ul.dbv-mat__l>li{font-size:15px !important}
+.dbv-mat ul.dbv-mat__l>li{flex-direction:column;align-items:flex-start}
+.dbv-mat span.dbv-mat__x{text-align:left}
+}
+</style>
+<div class="dbv-mat">
+<p class="dbv-mat__intro">Записи вебинаров, обучающие материалы и презентации выступлений программы «Достичь большего вместе»</p>
+<div class="dbv-mat__menu" role="group" aria-label="Материалы программы ДБВ"><p class="dbv-mat__msg">Загрузка…</p></div>
+</div>
+<script>
+(function () {
+  "use strict";
+
+  // ПРАВИЛА РАСПРЕДЕЛЕНИЯ ПО РАЗДЕЛАМ. Файл попадает в раздел первого сработавшего правила.
+  // sec — номер раздела из SECTIONS (0, 1, 2); ext — расширения файла; start — с чего начинается название (без учёта регистра).
+  // Правило без ext и start подходит любому файлу, поэтому оно всегда последнее.
+  var RULES = [
+    { sec: 0, ext: ['mp4', 'mov', 'avi', 'mkv', 'webm', 'wmv'] },
+    { sec: 1, start: ['актив проекта', 'вопросы для самопроверки'] },
+    { sec: 2 }
+  ];
+  var SECTIONS = ['Записи обучающих вебинаров', 'Обучающие материалы', 'Презентации выступлений'];
+
+  var TYPES = { pdf: 'PDF', ppt: 'Презентация', pptx: 'Презентация', mp4: 'Видео', mov: 'Видео', avi: 'Видео', mkv: 'Видео', webm: 'Видео', wmv: 'Видео', doc: 'Word', docx: 'Word', xls: 'Excel', xlsx: 'Excel' };
+  var TXT_EMPTY = 'Файлов пока нет';
+  var TXT_ERR = 'Список файлов не загрузился. ';
+  var TXT_ERR_LINK = 'Откройте вложения страницы';
+  var NS = 'http://www.w3.org/2000/svg';
+  var seq = 0;
+
+  function meta(name) {
+    var m = document.querySelector('meta[name="' + name + '"]');
+    return m ? (m.getAttribute('content') || '') : '';
+  }
+  function pageId() {
+    var id = meta('ajs-page-id');
+    if (/^\d+$/.test(id)) return id;
+    var m = /[?&]pageId=(\d+)/.exec(location.search) || /\/pages\/(\d+)/.exec(location.pathname);
+    return m ? m[1] : '';
+  }
+  function fileSize(b) {
+    if (typeof b !== 'number' || !isFinite(b) || b < 0) return '';
+    if (b < 1048576) return Math.round(b / 1024) + ' КБ';
+    return (Math.round(b / 104857.6) / 10).toFixed(1).replace('.', ',') + ' МБ';
+  }
+  function splitName(name) {
+    var m = /\.([a-z0-9]*[a-z][a-z0-9]*)$/i.exec(name);
+    if (!m || m[1].length > 5) return { title: name, ext: '' };
+    return { title: name.slice(0, m.index), ext: m[1].toLowerCase() };
+  }
+  function sectionOf(f) {
+    var low = f.title.toLowerCase();
+    for (var i = 0; i < RULES.length; i++) {
+      var r = RULES[i], hit = !r.ext && !r.start;
+      if (r.ext && r.ext.indexOf(f.ext) >= 0) hit = true;
+      if (r.start) for (var j = 0; j < r.start.length; j++) if (low.indexOf(r.start[j].toLowerCase()) === 0) hit = true;
+      if (hit) return r.sec;
+    }
+    return RULES[RULES.length - 1].sec;
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  }
+  function chevron() {
+    var s = document.createElementNS(NS, 'svg'), p = document.createElementNS(NS, 'path');
+    s.setAttribute('class', 'dbv-svg'); s.setAttribute('viewBox', '0 0 24 24');
+    s.setAttribute('aria-hidden', 'true'); s.setAttribute('focusable', 'false');
+    p.setAttribute('d', 'M6 9l6 6 6-6'); s.appendChild(p);
+    return s;
+  }
+  function msg(menu, text) {
+    menu.textContent = '';
+    menu.appendChild(el('p', 'dbv-mat__msg', text));
+  }
+  function fail(menu, id, ctx) {
+    var p = el('p', 'dbv-mat__msg', TXT_ERR);
+    if (id) {
+      var a = el('a', '', TXT_ERR_LINK);
+      a.href = ctx + '/pages/viewpageattachments.action?pageId=' + id;
+      p.appendChild(a);
+    } else p.textContent = TXT_ERR + TXT_ERR_LINK;
+    menu.textContent = '';
+    menu.appendChild(p);
+  }
+  function row(f) {
+    var li = el('li'), a = el('a', 'dbv-mat__f', f.title);
+    a.href = f.href; a.rel = 'noopener';
+    li.appendChild(a);
+    var parts = [f.type, f.size].filter(Boolean);
+    if (parts.length) li.appendChild(el('span', 'dbv-mat__x', parts.join(' · ')));
+    return li;
+  }
+  function toggle(btn, panel, on) {
+    btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    panel.hidden = !on;
+    panel.classList.toggle('is-open', on);
+  }
+  function render(menu, files) {
+    var coll = new Intl.Collator('ru', { numeric: true });
+    var groups = SECTIONS.map(function () { return []; });
+    files.forEach(function (f) { groups[sectionOf(f)].push(f); });
+    menu.textContent = '';
+    var shown = groups.filter(function (g) { return g.length; });
+    if (!shown.length) return msg(menu, TXT_EMPTY);
+    groups.forEach(function (g, i) {
+      if (!g.length) return;
+      g.sort(function (a, b) { return coll.compare(a.title, b.title); });
+      var n = ++seq, bid = 'dbv-mat-b' + n, pid = 'dbv-mat-p' + n;
+      var box = el('div', 'dbv-acc'), h = el('h3', 'dbv-acc__h'), btn = el('button', 'dbv-acc__b');
+      var t = el('span', 'dbv-mat__t', SECTIONS[i]);
+      t.appendChild(el('span', 'dbv-mat__c', String(g.length)));
+      btn.type = 'button'; btn.id = bid;
+      btn.setAttribute('aria-controls', pid);
+      btn.setAttribute('aria-label', SECTIONS[i] + ', файлов: ' + g.length);
+      btn.appendChild(t); btn.appendChild(chevron());
+      var panel = el('div', 'dbv-acc__p'), ul = el('ul', 'dbv-mat__l');
+      panel.id = pid;
+      panel.setAttribute('role', 'region'); panel.setAttribute('aria-labelledby', bid);
+      g.forEach(function (f) { ul.appendChild(row(f)); });
+      panel.appendChild(ul);
+      toggle(btn, panel, shown.length === 1);
+      btn.addEventListener('click', function () { toggle(btn, panel, btn.getAttribute('aria-expanded') !== 'true'); });
+      h.appendChild(btn); box.appendChild(h); box.appendChild(panel);
+      menu.appendChild(box);
+    });
+  }
+  function load(menu, id, ctx) {
+    var files = [], pages = 0;
+    function next(url) {
+      return fetch(url, { credentials: 'same-origin', headers: { Accept: 'application/json' } }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        return r.json();
+      }).then(function (data) {
+        var lk = data._links || {}, base = lk.base || (location.origin + ctx);
+        (data.results || []).forEach(function (it) {
+          var name = String(it.title || ''), dl = it._links && it._links.download;
+          if (!name || !dl) return;
+          var s = splitName(name), sz = it.extensions && it.extensions.fileSize;
+          files.push({ title: s.title, ext: s.ext, type: s.ext ? (TYPES[s.ext] || s.ext.toUpperCase()) : '', size: fileSize(Number(sz)), href: base + dl });
+        });
+        // следующая страница списка: адрес берём от корня этого же сайта, чужие домены не запрашиваем
+        var nx = lk.next;
+        if (nx && ++pages < 50 && nx.charAt(0) === '/') return next(nx.indexOf(ctx + '/rest/') === 0 ? nx : ctx + nx);
+      });
+    }
+    return next(ctx + '/rest/api/content/' + id + '/child/attachment?limit=100&expand=extensions').then(function () { render(menu, files); });
+  }
+
+  var roots = document.querySelectorAll('.dbv-mat');
+  for (var k = 0; k < roots.length; k++) {
+    (function (root) {
+      if (root.getAttribute('data-init')) return;
+      root.setAttribute('data-init', '1');
+      var menu = root.querySelector('.dbv-mat__menu'), id = pageId(), ctx = meta('ajs-context-path');
+      if (!id) return fail(menu, '', ctx);
+      load(menu, id, ctx).catch(function () { fail(menu, id, ctx); });
+    })(roots[k]);
+  }
+})();
+</script>
