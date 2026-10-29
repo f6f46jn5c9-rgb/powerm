@@ -1,7 +1,7 @@
 /* Лучшие практики проектов: токены и примитивы. .ROOT подставляет tools/build_bp.py (корень блока, класс удвоен для веса).
    Секции /*@имя*/ ... /*@end*/ подключаются только блокам из списка в build_bp.py, остальное (база) — всегда.
    Система «Спокойная иерархия»: информация без рамки и фона; структура — отступы и тонкие разделители.
-   Цветные контейнеры только два: .bp-hero (макрос 1) и .bp-note (макрос 3). */
+   Цветной контейнер один: .bp-hero (макрос 1). */
 .ROOT{
   --bp-ink:#1F2A33;--bp-muted:#5B6670;--bp-teal:#0e7c7b;--bp-teal-d:#0a5f5e;--bp-navy:#1a2a5e;
   --bp-tint:#e6f4f3;--bp-line:#dfe7e8;--bp-cyan:#35b8b3;
@@ -58,15 +58,6 @@
   .ROOT .bp-f{text-align:left}
   .ROOT .bp-v{font-size:22px !important}
 }
-/*@end*/
-/*@note*/
-/* мягкая плашка «в разработке»: неинтерактивная */
-.ROOT h2.bp-h2{margin-bottom:14px !important}
-.ROOT .bp-note{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin:0 !important;padding:14px 18px !important;background:#fff;border:1px solid var(--bp-line) !important;border-left:3px solid var(--bp-cyan) !important;border-radius:0}
-.ROOT .bp-note__l{display:inline-flex;align-items:center;gap:8px;font:700 14px/1.4 var(--bp-font) !important;color:var(--bp-teal) !important}
-.ROOT .bp-note__l::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--bp-teal)}
-.ROOT .bp-note p.bp-body{flex:1 1 240px;min-width:0}
-@container (max-width:719px){.ROOT .bp-note{padding:12px 14px !important}}
 /*@end*/
 /*@welcome*/
 /* приветствие: не плашка, а одна линия слева; шапка остаётся главным элементом */

@@ -8,12 +8,12 @@ SRC, OUT = R / 'src' / 'bp', R / 'dist' / 'bp'
 MAX_KB = 38
 CORE = (SRC / 'bp-core.css').read_text(encoding='utf-8')
 SECTION = re.compile(r'/\*@(\w+)\*/(.*?)/\*@end\*/', re.S)
-# (исходник, файл в dist, корневой класс, секции core сверх базы)
+# (исходник, файл в dist, корневой класс, секции core сверх базы, данные практик)
 BLOCKS = [
-    ('hero', '1-shapka', 'bp-hero-root', {'hero'}),
-    ('welcome', 'welcome', 'bp-welcome-root', {'welcome'}),
-    ('programma', '2-programma-dbv', 'bp-prog-root', {'prog'}),
-    ('shkola', '3-shkola-v-razrabotke', 'bp-school-root', {'note'}),
+    ('hero', '1-shapka', 'bp-hero-root', {'hero'}, None),
+    ('welcome', 'welcome', 'bp-welcome-root', {'welcome'}, None),
+    ('programma', '2-programma-dbv', 'bp-prog-root', {'prog'}, 'practices.json'),
+    ('praktiki-shkoly', '3-praktiki-shkoly', 'bp-school-root', {'prog'}, 'school.json'),
 ]
 
 
@@ -30,9 +30,9 @@ def css_for(root, sections):
     return mini(css).replace('.ROOT', f'.{root}.{root}')
 
 
-def rows():
+def rows(data_file):
     out = []
-    for p in json.loads((SRC / 'practices.json').read_text(encoding='utf-8')):
+    for p in json.loads((SRC / data_file).read_text(encoding='utf-8')):
         e = html.escape
         out.append(
             f'<li class="bp-row"><span class="bp-n">{e(p["n"])}</span>'
@@ -45,8 +45,8 @@ def rows():
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     ok = True
-    for src, name, root, sec in BLOCKS:
-        body = (SRC / f'{src}.html').read_text(encoding='utf-8').strip().replace('{{ROWS}}', rows().rstrip('\n'))
+    for src, name, root, sec, data in BLOCKS:
+        body = (SRC / f'{src}.html').read_text(encoding='utf-8').strip().replace('{{ROWS}}', rows(data).rstrip('\n') if data else '')
         text = f'<style>\n{css_for(root, sec)}\n</style>\n{body}\n'
         (OUT / f'{name}.html').write_text(text, encoding='utf-8')
         kb = len(text.encode('utf-8')) / 1024

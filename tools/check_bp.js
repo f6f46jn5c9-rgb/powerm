@@ -2,9 +2,10 @@
 const { chromium } = require('playwright');
 const fs = require('fs'), path = require('path');
 const R = path.resolve(__dirname, '..');
-const NAMES = ['1-shapka', 'welcome', '2-programma-dbv', '3-shkola-v-razrabotke'];
+const NAMES = ['1-shapka', 'welcome', '2-programma-dbv', '3-praktiki-shkoly'];
 const blocks = NAMES.map(n => fs.readFileSync(path.join(R, 'dist/bp', n + '.html'), 'utf8'));
 const data = JSON.parse(fs.readFileSync(path.join(R, 'src/bp/practices.json'), 'utf8'));
+const school = JSON.parse(fs.readFileSync(path.join(R, 'src/bp/school.json'), 'utf8'));
 const HOSTILE = `a,a:visited,a:hover{color:#f00 !important;font-size:31px !important;text-decoration:none !important;font-weight:400 !important;background:#ff0 !important}
 h1,h2,h3{color:#f00 !important;font-size:47px !important;margin:33px !important;padding:19px !important;border-bottom:5px solid #f00 !important;background:#0f0 !important;text-transform:uppercase !important}
 p{color:#f00 !important;font-size:29px !important;margin:31px !important;padding:17px !important;line-height:2.5 !important}
@@ -65,7 +66,7 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
       const own = [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
       if (own) out.push({ cls: e.className || e.tagName, fg: parse(getComputedStyle(e).color).slice(0, 3), bg: bgOf(e), op: getComputedStyle(e).opacity, size: getComputedStyle(e).fontSize });
     });
-    document.querySelectorAll('#c .bp-arr,#c .bp-note__l').forEach(e => { const s = getComputedStyle(e, '::before'); if (s.content !== 'none') out.push({ cls: e.className + '::before', fg: parse(s.backgroundColor).slice(0, 3), bg: bgOf(e), op: '1', size: '8' }); });
+    document.querySelectorAll('#c .bp-arr').forEach(e => { const s = getComputedStyle(e, '::before'); if (s.content !== 'none') out.push({ cls: e.className + '::before', fg: parse(s.backgroundColor).slice(0, 3), bg: bgOf(e), op: '1', size: '8' }); });
     return out;
   });
   let minC = 99, worst = '';
@@ -97,7 +98,7 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
     return out;
   });
   const colored = [...new Set(au.colored)];
-  ok('цветных плашек ровно 2 по реестру (bp-hero, bp-note)', JSON.stringify(colored.sort()) === JSON.stringify(['bp-hero', 'bp-note']), colored.join(','));
+  ok('цветная плашка ровно одна по реестру (bp-hero); у блока школы плашек нет', JSON.stringify(colored.sort()) === JSON.stringify(['bp-hero']), colored.join(','));
   ok('нет градиентов/фоновых картинок', au.bgimg.length === 0, au.bgimg.join(','));
   ok('нет теней', au.shadow.length === 0, au.shadow.join(','));
   ok('нет cursor:pointer вне ссылок', au.pointer.length === 0, au.pointer.join(','));
@@ -106,14 +107,11 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
   ok('нет position:fixed', au.fixed.length === 0);
   ok('скругления только у точки-маркера (::before, не элемент)', au.radius.length === 0, au.radius.join(','));
   // hover неинтерактивного: плашка и строки не меняются
-  const before = await pg.evaluate(() => { const e = document.querySelector('.bp-note'); const s = getComputedStyle(e); return s.backgroundColor + s.boxShadow + s.transform + s.cursor; });
-  await pg.hover('.bp-note'); const after = await pg.evaluate(() => { const e = document.querySelector('.bp-note'); const s = getComputedStyle(e); return s.backgroundColor + s.boxShadow + s.transform + s.cursor; });
-  ok('hover на плашке без изменений', before === after);
   const rb = await pg.evaluate(() => { const e = document.querySelector('.bp-row'); const s = getComputedStyle(e); return s.backgroundColor + s.boxShadow + s.transform + s.cursor; });
   await pg.hover('.bp-row .bp-d'); const ra = await pg.evaluate(() => { const e = document.querySelector('.bp-row'); const s = getComputedStyle(e); return s.backgroundColor + s.boxShadow + s.transform + s.cursor; });
   ok('hover на строке без изменений (не интерактивна)', rb === ra);
-  ok('плашек в html: .bp-hero 1, .bp-note 1, прочих .bp-key/.bp-warn/.bp-panel 0', await pg.evaluate(() => document.querySelectorAll('.bp-hero').length === 1 && document.querySelectorAll('.bp-note').length === 1 && document.querySelectorAll('.bp-key,.bp-warn,.bp-panel').length === 0));
-  ok('в плашке .bp-note нет ссылок/кнопок', await pg.evaluate(() => document.querySelectorAll('.bp-note a,.bp-note button,.bp-note [tabindex]').length === 0));
+  ok('плашек в html: .bp-hero 1, .bp-note 0, прочих .bp-key/.bp-warn/.bp-panel 0', await pg.evaluate(() => document.querySelectorAll('.bp-hero').length === 1 && document.querySelectorAll('.bp-note').length === 0 && document.querySelectorAll('.bp-key,.bp-warn,.bp-panel').length === 0));
+  ok('в блоке школы нет плашек/иконок/кнопок/картинок/script', await pg.evaluate(() => document.querySelectorAll('.bp-school-root button,.bp-school-root img,.bp-school-root svg,.bp-school-root script,.bp-school-root [tabindex],.bp-school-root [class*="note"]').length === 0));
   ok('блоков ровно 4, <script> нет, внешних ресурсов в разметке нет', await pg.evaluate(() => document.querySelectorAll('#c style').length === 4 && document.querySelectorAll('#c script,#c img,#c link,#c iframe').length === 0) && blocks.every(b => !/(@import|url\(|<script|src=)/.test(b)));
   ok('нет глобальных селекторов (все правила под корнем блока)', await pg.evaluate(() => {
     const bad = [], roots = ['bp-hero-root', 'bp-welcome-root', 'bp-prog-root', 'bp-school-root'];
@@ -124,33 +122,34 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
 
   // 4. ссылки и текст
   const links = await pg.evaluate(() => [...document.querySelectorAll('#c a')].map(a => ({ href: a.getAttribute('href'), t: a.target, rel: a.rel, text: a.childNodes[0].textContent })));
-  ok('ссылок ровно 11', links.length === 11);
-  ok('URL совпадают с заданием (символ в символ)', links.every((l, i) => l.href === data[i].url));
+  const all = data.concat(school);
+  ok('ссылок ровно 16 (11 + 5)', links.length === 16);
+  ok('URL совпадают с заданием (символ в символ)', links.every((l, i) => l.href === all[i].url));
   ok('target=_blank rel=noopener noreferrer', links.every(l => l.t === '_blank' && /noopener/.test(l.rel) && /noreferrer/.test(l.rel)));
-  ok('текст ссылки = название', links.every((l, i) => l.text === data[i].title));
-  ok('самопроверка: декодированный URL = название без скобок', links.every((l, i) => decodeURIComponent(l.href.split('/').pop().replace(/\+/g, ' ')) === data[i].title.replace(/[()]/g, '')));
+  ok('текст ссылки = название', links.every((l, i) => l.text === all[i].title));
+  const nz = s => s.replace(/[:«»()"'.,]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+  ok('самопроверка URL: декодированный путь = название без знаков препинания, в нижнем регистре', links.every((l, i) => nz(decodeURIComponent(l.href.split('/').pop().replace(/\+/g, ' '))) === nz(all[i].title)));
   ok('одна ссылка на строку', await pg.evaluate(() => [...document.querySelectorAll('.bp-row')].every(r => r.querySelectorAll('a').length === 1)));
   const t = await pg.evaluate(() => ({
     h1: document.querySelector('h1').textContent, lead: document.querySelector('.bp-hero p').textContent,
     h2: [...document.querySelectorAll('h2.bp-h2')].map(e => e.textContent), sub: document.querySelector('.bp-small').textContent,
     rows: [...document.querySelectorAll('.bp-row')].map(r => ({ n: r.querySelector('.bp-n').textContent, d: r.querySelector('.bp-d').textContent, v: r.querySelector('.bp-v').textContent, l: r.querySelector('.bp-l').textContent })),
-    wp: document.querySelector('.bp-welcome-root p').textContent, nl: document.querySelector('.bp-note__l').textContent, nt: document.querySelector('.bp-note p').textContent, arrows: [...document.querySelectorAll('.bp-arr')].map(e => getComputedStyle(e, '::after').content)
+    wp: document.querySelector('.bp-welcome-root p').textContent, sub2: document.querySelector('.bp-school-root .bp-small').textContent, arrows: [...document.querySelectorAll('.bp-arr')].map(e => getComputedStyle(e, '::after').content)
   }));
   const diffs = [];
   const eq = (a, b, n) => { if (a !== b) diffs.push(`${n}: «${a}» ≠ «${b}»`); };
   eq(t.h1, 'Лучшие практики проектов', 'h1');
   eq(t.lead, 'Что сработало в проектах программы «Достичь большего вместе»: коротко о каждой практике, её результат и ссылка на полное описание.', 'лид');
-  eq(t.h2[0], 'Добро пожаловать!', 'h2 приветствие'); eq(t.h2[1], 'Программа ДБВ', 'h2 программа'); eq(t.h2[2], 'Практики школы заместителей начальников цехов БС', 'h2 школа');
+  eq(t.h2[0], 'Добро пожаловать!', 'h2 приветствие'); eq(t.h2[1], 'Программа ДБВ', 'h2 программа'); eq(t.h2[2], 'Практики школы заместителей начальников цехов БС', 'h2 школа'); eq(t.sub2, '5 практик школы заместителей начальников цехов. Нажмите на название, чтобы открыть полное описание.', 'подпись школы');
   eq(t.wp, 'Мы рады приветствовать вас на странице, посвящённой практикам, которые родились в программе «Достичь большего вместе». Здесь собраны решения наших коллег из реализованных проектов. Мы уверены, что некоторые из них окажутся полезными и в вашей работе.', 'абзац приветствия');
   eq(t.sub, '11 практик проектов. Нажмите на название, чтобы открыть полное описание.', 'подпись');
-  data.forEach((d, i) => { eq(t.rows[i].n, d.n, 'номер ' + d.n); eq(t.rows[i].d, d.digest, 'дайджест ' + d.n); eq(t.rows[i].v, d.value, 'цифра ' + d.n); eq(t.rows[i].l, d.label, 'подпись цифры ' + d.n); });
-  eq(t.nl, 'В разработке', 'метка'); eq(t.nt, 'Раздел готовится. Практики школы появятся здесь.', 'текст плашки');
+  all.forEach((d, i) => { eq(t.rows[i].n, d.n, 'номер ' + i); eq(t.rows[i].d, d.digest, 'дайджест ' + d.n); eq(t.rows[i].v, d.value, 'цифра ' + d.n); eq(t.rows[i].l, d.label, 'подпись цифры ' + d.n); });
   ok('тексты побайтно совпадают с заданием (отличий ' + diffs.length + ')', diffs.length === 0, diffs.join(' | '));
-  ok('порядок практик 01…11', t.rows.map(r => r.n).join() === '01,02,03,04,05,06,07,08,09,10,11');
-  ok('стрелка → в каждой ссылке', t.arrows.length === 11 && t.arrows.every(a => a.includes('→')));
+  ok('порядок практик 01…11 и 01…05', t.rows.map(r => r.n).join() === '01,02,03,04,05,06,07,08,09,10,11,01,02,03,04,05');
+  ok('стрелка → в каждой ссылке', t.arrows.length === 16 && t.arrows.every(a => a.includes('→')));
   // размеры шрифтов
-  const fs_ = await pg.evaluate(() => { const f = s => { const e = document.querySelector(s), c = getComputedStyle(e); return c.fontSize + '/' + c.fontWeight; }; return { h1: f('h1'), h2: f('h2.bp-h2'), h3: f('h3'), d: f('.bp-d'), n: f('.bp-n'), v: f('.bp-v'), l: f('.bp-l'), s: f('.bp-small'), nl: f('.bp-note__l') }; });
-  ok('типографика 1100: h1 26/800, h2 21/800, практика 18/700, текст 16, номер 14/700, цифра 26/800, подпись 14', JSON.stringify(fs_) === JSON.stringify({ h1: '26px/800', h2: '21px/800', h3: '18px/700', d: '16px/400', n: '14px/700', v: '26px/800', l: '14px/400', s: '14px/400', nl: '14px/700' }), JSON.stringify(fs_));
+  const fs_ = await pg.evaluate(() => { const f = s => { const e = document.querySelector(s), c = getComputedStyle(e); return c.fontSize + '/' + c.fontWeight; }; return { h1: f('h1'), h2: f('h2.bp-h2'), h3: f('h3'), d: f('.bp-d'), n: f('.bp-n'), v: f('.bp-v'), l: f('.bp-l'), s: f('.bp-small'), sh2: f('.bp-school-root h2.bp-h2'), sh3: f('.bp-school-root h3'), sd: f('.bp-school-root .bp-d'), sn: f('.bp-school-root .bp-n'), sv: f('.bp-school-root .bp-v'), sl: f('.bp-school-root .bp-l'), ss: f('.bp-school-root .bp-small') }; });
+  ok('типографика 1100: h1 26/800, h2 21/800, практика 18/700, текст 16, номер 14/700, цифра 26/800, подпись 14', JSON.stringify(fs_) === JSON.stringify({ h1: '26px/800', h2: '21px/800', h3: '18px/700', d: '16px/400', n: '14px/700', v: '26px/800', l: '14px/400', s: '14px/400', sh2: '21px/800', sh3: '18px/700', sd: '16px/400', sn: '14px/700', sv: '26px/800', sl: '14px/400', ss: '14px/400' }), JSON.stringify(fs_));
 
   // 4a. приветствие: линия слева, без плашки, не интерактивно, не ярче шапки
   const w = await pg.evaluate(() => { const r = document.querySelector('.bp-welcome-root'), s = getComputedStyle(r), h = getComputedStyle(r.querySelector('h2')), p = getComputedStyle(r.querySelector('p')), hr = getComputedStyle(document.querySelector('h1'));
@@ -162,17 +161,31 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
   ok('приветствие: только h2 и p, ссылок/кнопок нет', w.hh === 'H2,P' && w.inter === 0, w.hh);
   ok('приветствие меньше шапки: заголовок 21 < h1 26', parseFloat(w.h) < parseFloat(w.h1));
   ok('контраст линии teal/белый ≥ 3 и текста navy/белый ≥ 4.5 (расчёт)', cr([14, 124, 123], [255, 255, 255]) >= 4.5 && cr([26, 42, 94], [255, 255, 255]) >= 4.5, cr([14, 124, 123], [255, 255, 255]).toFixed(2) + ' / ' + cr([26, 42, 94], [255, 255, 255]).toFixed(2));
+
+  // 4b. блок школы = «Программа ДБВ»: те же стили и геометрия строк на всех ширинах колонки
+  for (const w of [1100, 820, 700, 560]) {
+    const pw = await mk(); await load(pw, w, false);
+    const g = await pw.evaluate(() => {
+      const pr = ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'color', 'paddingTop', 'paddingBottom', 'borderBottomWidth', 'borderBottomColor', 'marginTop', 'gridTemplateColumns', 'textAlign', 'columnGap', 'rowGap'];
+      const sig = root => ['.bp-rows', '.bp-row', '.bp-n', '.bp-h3', '.bp-h3 a', '.bp-d', '.bp-f', '.bp-v', '.bp-l', '.bp-h2', '.bp-small'].map(s => { const c = getComputedStyle(document.querySelector(root + ' ' + s)); return s + ':' + pr.map(p => c[p]).join('|'); }).join('\n');
+      const box = root => { const r = document.querySelector(root + ' .bp-row'); const b = r.getBoundingClientRect(); return [Math.round(b.width), ['.bp-n', '.bp-h3', '.bp-f'].map(s => Math.round(r.querySelector(s).getBoundingClientRect().width)).join()]; };
+      return { a: sig('.bp-prog-root'), b: sig('.bp-school-root'), ba: box('.bp-prog-root'), bb: box('.bp-school-root') };
+    });
+    ok(`школа = ДБВ: те же шрифты/отступы/разделители (колонка ${w})`, g.a === g.b, g.a === g.b ? '' : g.a + '\n!=\n' + g.b);
+    ok(`школа = ДБВ: ширины строки и колонок (колонка ${w})`, JSON.stringify(g.ba) === JSON.stringify(g.bb), JSON.stringify(g.ba) + JSON.stringify(g.bb));
+    await pw.context().close();
+  }
   // 5. клавиатура
   await pg.evaluate(() => { document.activeElement.blur(); window.scrollTo(0, 0); });
   let kb = [];
-  for (let i = 0; i < 11; i++) { await pg.keyboard.press('Tab'); kb.push(await pg.evaluate(() => { const a = document.activeElement, s = getComputedStyle(a); return { idx: [...document.querySelectorAll('#c a')].indexOf(a), ow: s.outlineWidth, os: s.outlineStyle, vis: a.matches(':focus-visible') }; })); }
-  ok('Tab проходит по 11 ссылкам по порядку', kb.every((k, i) => k.idx === i));
+  for (let i = 0; i < 16; i++) { await pg.keyboard.press('Tab'); kb.push(await pg.evaluate(() => { const a = document.activeElement, s = getComputedStyle(a); return { idx: [...document.querySelectorAll('#c a')].indexOf(a), ow: s.outlineWidth, os: s.outlineStyle, vis: a.matches(':focus-visible') }; })); }
+  ok('Tab проходит по 16 ссылкам по порядку', kb.every((k, i) => k.idx === i));
   ok('видимый :focus-visible (outline 3px solid)', kb.every(k => k.vis && k.ow === '3px' && k.os === 'solid'));
-  await pg.keyboard.press('Tab'); ok('12-й Tab уходит за пределы блоков', await pg.evaluate(() => document.querySelectorAll('#c a:focus').length === 0));
+  await pg.keyboard.press('Tab'); ok('17-й Tab уходит за пределы блоков', await pg.evaluate(() => document.querySelectorAll('#c a:focus').length === 0));
 
   // 6. изоляция: жёсткие чужие стили
   const props = ['color', 'fontSize', 'fontWeight', 'textDecorationLine', 'marginTop', 'marginBottom', 'marginLeft', 'paddingTop', 'paddingLeft', 'lineHeight', 'backgroundColor', 'textTransform', 'borderBottomWidth', 'borderLeftWidth', 'borderLeftColor', 'paddingLeft', 'listStyleType'];
-  const snap = () => pg2.evaluate(ps => { const out = {}; const sel = { h1: 'h1', h2a: '.bp-prog-root h2', h2b: '.bp-school-root h2', h3: 'h3', p: '.bp-hero p', pd: '.bp-d', a: '.bp-row a', li: '.bp-row', ol: 'ol.bp-rows', n: '.bp-n', v: '.bp-v', l: '.bp-l', sm: '.bp-small', nl: '.bp-note__l', np: '.bp-note p', w: '.bp-welcome-root', wh: '.bp-welcome-root h2', wp: '.bp-welcome-root p' }; for (const k in sel) { const c = getComputedStyle(document.querySelector('#c ' + sel[k]) || document.querySelector(sel[k])); out[k] = ps.map(p => c[p]).join('|'); } return out; }, props);
+  const snap = () => pg2.evaluate(ps => { const out = {}; const sel = { h1: 'h1', h2a: '.bp-prog-root h2', h2b: '.bp-school-root h2', h3: 'h3', p: '.bp-hero p', pd: '.bp-d', a: '.bp-row a', li: '.bp-row', ol: 'ol.bp-rows', n: '.bp-n', v: '.bp-v', l: '.bp-l', sm: '.bp-small', sa: '.bp-school-root .bp-row a', sli: '.bp-school-root .bp-row', sol: '.bp-school-root ol.bp-rows', sn: '.bp-school-root .bp-n', sv: '.bp-school-root .bp-v', sl: '.bp-school-root .bp-l', sd: '.bp-school-root .bp-d', ss: '.bp-school-root .bp-small', w: '.bp-welcome-root', wh: '.bp-welcome-root h2', wp: '.bp-welcome-root p' }; for (const k in sel) { const c = getComputedStyle(document.querySelector('#c ' + sel[k]) || document.querySelector(sel[k])); out[k] = ps.map(p => c[p]).join('|'); } return out; }, props);
   var pg2 = await mk(); await load(pg2, 1100, false); const clean = await snap();
   await load(pg2, 1100, true); const hostile = await snap();
   const bad = Object.keys(clean).filter(k => clean[k] !== hostile[k]);
