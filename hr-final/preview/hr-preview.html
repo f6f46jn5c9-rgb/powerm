@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Предпросмотр: HR / Команда</title>
+<style>
+.pv-b{margin:0;background:#f4f6f8;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
+.pv-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 16px;background:#fff;border-bottom:1px solid #E3EAED}
+.pv-bar button{padding:6px 12px;border:1px solid #5B6670;border-radius:6px;background:#fff;color:#1F2A33;font:600 14px Arial,sans-serif;cursor:pointer}
+.pv-bar button[aria-pressed="true"]{background:#a03060;border-color:#a03060;color:#fff}
+.pv-body{padding:16px}
+#pv-col{width:1000px;max-width:100%;margin:0 auto;padding:16px;background:#fff}
+.pv-cap{margin:16px 0 8px;font:600 12px Arial,sans-serif;color:#5B6670}
+.pv-cap:first-child{margin-top:0}
+</style></head>
+<body class="pv-b">
+<div class="pv-bar"><span>Ширина колонки:</span>
+<button type="button" data-w="1100" aria-pressed="false">1100</button><button type="button" data-w="820" aria-pressed="false">820</button><button type="button" data-w="560" aria-pressed="false">560</button><button type="button" data-w="375" aria-pressed="false">375</button><button type="button" data-w="1000" aria-pressed="true">1000</button></div>
+<div class="pv-body"><div id="pv-col">
+<div class="pv-cap">HTML-макрос 1 — hero + миссия (1-hr-hero.html)</div>
+<!-- HTML-МАКРОС 1: HERO + БЛОК МИССИИ. Страница «HR / Команда», комплекс .hr-* -->
+<style>
+.hr-hero{--hr-accent:#a03060;--hr-dark1:#0d0308;--hr-dark2:#200818;--hr-dark3:#3a1030;--hr-ink:#1F2A33;--hr-muted:#5B6670;--hr-line:#E3EAED;--hr-white:#ffffff;
+  display:block;position:relative;container-type:inline-size;container-name:hrhero;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--hr-ink);text-align:left;
+  word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual;text-wrap:wrap;-webkit-text-size-adjust:100%}
+.hr-hero *,.hr-hero *::before,.hr-hero *::after{box-sizing:border-box}
+.hr-hero svg{display:block;max-width:none}
+.hr-hero [hidden]{display:none !important}
+
+/* тёмный компактный hero */
+.hr-hero .hr-top{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:160px;margin:0 0 20px !important;padding:24px 32px !important;border:0 !important;border-radius:12px;overflow:hidden;
+  background:linear-gradient(140deg,#0d0308 0%,#200818 40%,#3a1030 72%,#a03060 100%) !important}
+.hr-hero .hr-fx{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;z-index:0;inset:0;display:block;border-radius:inherit;contain:paint;pointer-events:none}
+.hr-hero .hr-b1,.hr-hero .hr-b2{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;display:block;border-radius:50%;pointer-events:none}
+.hr-hero .hr-b1{width:196px;height:196px;top:-35px;right:-28px;background:radial-gradient(circle,rgba(255,140,180,.85) 0%,transparent 70%) !important}
+.hr-hero .hr-b2{width:140px;height:140px;bottom:-21px;left:14px;background:radial-gradient(circle,rgba(160,48,96,.50) 0%,transparent 70%) !important}
+.hr-hero .hr-in{position:relative;z-index:1;display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.hr-hero .hr-crumb{display:block;margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important}
+.hr-hero .hr-crumb a,.hr-hero .hr-crumb a:visited{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;border-radius:3px}
+.hr-hero .hr-crumb a:hover{text-decoration:underline !important}
+.hr-hero h2.hr-title{margin:0 0 6px !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:#ffffff !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;text-wrap:balance}
+.hr-hero p.hr-sub{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:15px !important;font-weight:400 !important;line-height:1.4 !important;color:rgba(255,255,255,0.75) !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important}
+
+/* белый блок миссии: обычный текст */
+.hr-hero .hr-mission{display:block;margin:0 !important;padding:20px 0 !important;border:0 !important;border-bottom:1px solid #E3EAED !important;background:#ffffff !important;font-size:16px;line-height:1.4;color:#1F2A33}
+.hr-hero p.hr-lead{margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;font-size:16px !important;font-weight:700 !important;line-height:1.4 !important;color:#1F2A33 !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important}
+.hr-hero ul.hr-list{margin:0 !important;padding:0 !important;list-style:none !important;border:0 !important;background:none !important}
+.hr-hero ul.hr-list>li{position:relative;margin:0 0 6px !important;padding:0 0 0 16px !important;list-style:none !important;border:0 !important;background:none !important;font-size:16px !important;font-weight:400 !important;line-height:1.4 !important;color:#1F2A33 !important}
+.hr-hero ul.hr-list>li:last-child{margin-bottom:0 !important}
+.hr-hero ul.hr-list>li::before{content:"";position:absolute;left:2px;top:.66em;width:6px;height:6px;border-radius:50%;background:#a03060}
+
+/* фокус и движение */
+.hr-hero a:focus-visible{outline:3px solid #ffffff !important;outline-offset:3px !important}
+@media (prefers-reduced-motion:reduce){.hr-hero *,.hr-hero *::before,.hr-hero *::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+
+/* адаптив по ширине контейнера */
+@container hrhero (max-width:560px){
+  .hr-hero .hr-top{padding:20px 20px !important}
+  .hr-hero h2.hr-title{font-size:22px !important}
+  .hr-hero p.hr-sub{font-size:14px !important}
+  .hr-hero .hr-b1{top:-75px;right:-70px}
+  .hr-hero p.hr-lead,.hr-hero ul.hr-list>li{font-size:15px !important}
+}
+@supports not (container-type:inline-size){@media (max-width:560px){.hr-hero .hr-top{padding:20px 20px !important}.hr-hero h2.hr-title{font-size:22px !important}}}
+</style>
+<div class="hr-hero">
+  <div class="hr-top">
+    <span class="hr-fx" aria-hidden="true"><span class="hr-b1"></span><span class="hr-b2"></span></span>
+    <div class="hr-in">
+      <div class="hr-crumb"><a href="URL_PLACEHOLDER_STARTOVAYA" aria-label="Назад к стартовой странице Базы успешных практик">&larr; БУП</a></div>
+      <h2 class="hr-title">HR / Команда</h2>
+      <p class="hr-sub">Экспертные практики управления персоналом</p>
+    </div>
+  </div>
+  <div class="hr-mission">
+    <p class="hr-lead">Ключевая задача службы HR — совместно с руководителями подразделений создать условия, в которых сотрудники компании:</p>
+    <ul class="hr-list" aria-label="Условия, которые создаёт служба HR">
+      <li>соответствуют ценностям компании;</li>
+      <li>вовлечены в достижение целей компании и показывают высокие результаты;</li>
+      <li>обладают требуемой квалификацией;</li>
+      <li>обеспечивают кадровый резерв нужного количества и качества;</li>
+      <li>показывают высокую производительность.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="pv-cap">HTML-макрос 2 — метка «Практики» + открывающий div (2-hr-cbl-open.html); ниже — имитация нативного макроса «Содержимое по меткам», метка см_персонал</div>
+<!-- HTML-МАКРОС 2: МЕТКА «ПРАКТИКИ» + ОТКРЫВАЮЩИЙ DIV. Дальше — нативный макрос «Содержимое по меткам» (метка: см_персонал), затем макрос 3 -->
+<style>
+.hr-seclabel{display:block;margin:0 0 12px !important;padding:0 0 6px !important;border:0 !important;border-bottom:1px solid #E3EAED !important;background:none !important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:11px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;letter-spacing:0.08em !important;text-transform:none !important;text-align:left !important}
+</style>
+<div class="hr-seclabel">Практики</div>
+<div class="hr-cbylabel">
+<style>
+  .hr-cbylabel { font-size:15px !important; line-height:1.4 !important; color:#1F2A33 !important; }
+  .hr-cbylabel ul { padding-left:0 !important; list-style:none !important; }
+  .hr-cbylabel li { padding:10px 0 !important; margin:0 !important; font-size:15px !important; color:#1F2A33 !important;
+                    border-bottom:1px solid #E3EAED !important; }
+  .hr-cbylabel a  { color:#a03060 !important; font-size:15px !important;
+                    text-decoration:none !important; }
+  .hr-cbylabel a:hover { text-decoration:underline !important; }
+  .hr-cbylabel a:focus-visible { outline:3px solid #a03060 !important; outline-offset:3px !important; }
+</style>
+<ul><li><a href="#">Адаптация нового сотрудника</a></li><li><a href="#">Оценка и развитие персонала</a></li><li><a href="#">Кадровый резерв: как мы его строим</a></li><li><a href="#">Вовлечённость и обратная связь</a></li></ul>
+<div class="pv-cap">HTML-макрос 3 — закрывающий div (3-hr-cbl-close.html)</div>
+</div>
+
+</div></div>
+<script>(function(){var c=document.getElementById('pv-col'),bs=document.querySelectorAll('.pv-bar button');
+bs.forEach(function(b){b.addEventListener('click',function(){c.style.width=b.getAttribute('data-w')+'px';bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})})})();</script>
+</body></html>
