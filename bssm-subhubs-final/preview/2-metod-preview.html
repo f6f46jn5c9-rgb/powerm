@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Предпросмотр: БССМ. Методология</title>
+<style>
+body{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
+.pv-bar{padding:12px 16px;background:#fff;border-bottom:1px solid #d5dbe0}
+.pv-bar button{margin:0 6px 0 0;padding:6px 12px;border:1px solid #5B6670;border-radius:6px;background:#fff;color:#1F2A33;font:inherit;cursor:pointer}
+.pv-bar button[aria-pressed=true]{background:#2a5ca8;border-color:#2a5ca8;color:#fff}
+#pv-col{width:1000px;max-width:100%;margin:16px auto;padding:0 16px;box-sizing:content-box;background:#fff}
+.pv-lbl{margin:20px 0 8px;padding:2px 8px;display:inline-block;background:#e8edf7;color:#1e4d8c;font:600 12px Arial,sans-serif}
+.pv-native{margin:0 0 12px;padding:10px 16px;border:1px dashed #5B6670;color:#5B6670;font-size:13px}
+</style></head><body>
+<div class="pv-bar"><span>Ширина колонки: </span><button data-w="1100" aria-pressed="false">1100</button><button data-w="820" aria-pressed="false">820</button><button data-w="560" aria-pressed="false">560</button><button data-w="375" aria-pressed="false">375</button><button data-w="1000" aria-pressed="true">1000</button></div>
+<div id="pv-col">
+<div class="pv-lbl">HTML-макрос 1 — hero</div>
+<!-- HTML-МАКРОС 1: HERO (Тип Б, синий) -->
+<style>
+.metod-hub{display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 16px !important;padding:0 !important;container-type:inline-size;container-name:metod-hub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.metod-hub *,.metod-hub *::before,.metod-hub *::after{box-sizing:border-box}
+.metod-hub .metod-hero{display:flex;flex-direction:column;justify-content:flex-start;min-height:160px;margin:0 !important;padding:24px 32px 28px !important;border:0 !important;border-radius:12px;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(100,180,255,0.88) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(42,92,168,0.52) 0%,transparent 65%),linear-gradient(140deg,#040810 0%,#08102a 40%,#152048 72%,#2a5ca8 100%) !important;color:#fff !important}
+.metod-hub .metod-crumb{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.metod-hub .metod-crumb a,.metod-hub .metod-crumb a:visited{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;border-radius:3px}
+.metod-hub .metod-crumb a:hover{text-decoration:underline !important}
+.metod-hub .metod-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.metod-hub .metod-crumb .metod-crumb__off{margin:0 !important;padding:2px 0 !important;color:rgba(255,255,255,0.65) !important}
+.metod-hub h1.metod-title{display:block;margin:10px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:22px !important;font-weight:700 !important;line-height:1.25 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;word-break:normal !important;overflow-wrap:normal !important}
+@container metod-hub (max-width:559px){.metod-hub .metod-hero{padding:20px 16px 24px !important}}
+@supports not (container-type:inline-size){@media (max-width:559px){.metod-hub .metod-hero{padding:20px 16px 24px !important}}}
+@media (prefers-reduced-motion:reduce){.metod-hub *{animation:none !important;transition:none !important}}
+</style>
+<div class="metod-hub">
+  <div class="metod-hero">
+    <div class="metod-crumb">&larr; <a href="https://kb.severstal.com/spaces/BSS/pages/161546386/" aria-label="Назад в БУП">БУП</a></div>
+    <h1 class="metod-title">БССМ. Методология</h1>
+  </div>
+</div>
+<script>
+(function () {
+  var links = document.querySelectorAll('.metod-hub .metod-crumb a');
+  for (var i = 0; i < links.length; i++) {
+    var a = links[i], h = a.getAttribute('href') || '';
+    if (h === '' || h.indexOf('URL_') === 0) {
+      var s = document.createElement('span');
+      s.className = 'metod-crumb__off';
+      s.textContent = a.textContent;
+      a.parentNode.replaceChild(s, a);
+    }
+  }
+})();
+</script>
+
+<div class="pv-lbl">HTML-макрос 2 — открывающая обёртка CBL</div>
+<!-- HTML-МАКРОС 2: открывающая обёртка CBL -->
+<div class="metod-cbl-wrap">
+<style>
+.metod-cbl-wrap{display:block;max-width:100%;margin:0 !important;padding:0 0 8px !important;border:0 !important;box-shadow:none !important;background:transparent !important}
+</style>
+
+<div class="pv-native">Макрос 3 (нативный) "Содержимое по меткам", метка бссм_методология — вставляется в Confluence вручную; ниже имитация списка</div>
+<ul><li><a href="#">Пример страницы 1 (имитация)</a></li><li><a href="#">Пример страницы 2 (имитация)</a></li></ul>
+<div class="pv-lbl">HTML-макрос 4 — закрывающая обёртка CBL</div>
+</div>
+
+</div>
+<script>
+(function(){var c=document.getElementById('pv-col'),b=document.querySelectorAll('.pv-bar button');
+for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){c.style.width=this.getAttribute('data-w')+'px';for(var j=0;j<b.length;j++)b[j].setAttribute('aria-pressed',b[j]===this?'true':'false');});}})();
+</script></body></html>
