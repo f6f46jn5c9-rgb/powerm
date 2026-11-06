@@ -36,26 +36,26 @@ const HOSTILE = '<style>.wiki-content *{color:red !important;font-size:40px !imp
     const h = document.querySelector('.zk-title'), back = document.querySelector('.zk-back'), cs = getComputedStyle(h);
     const soon = [...document.querySelectorAll('.zk-tile--soon')];
     const labels = [...document.querySelectorAll('.zk-label')].map(l => { const s=getComputedStyle(l); return { t:l.textContent, fs:s.fontSize, fw:s.fontWeight, c:s.color, bg:s.backgroundColor, bb:s.borderBottomWidth, up:s.textTransform }; });
-    return { title: h.textContent, tag: h.tagName, color: cs.color, back: back.getAttribute('href'), backc: getComputedStyle(back).color, tiles: document.querySelectorAll('.zk-tile').length, soon: soon.length, soonLbl: soon.filter(s=>s.querySelector('.zk-soon')?.textContent==='Скоро').length, cursor: [...new Set(soon.map(s=>getComputedStyle(s).cursor))], links: document.querySelectorAll('.zk-tile[href]').length, labels, bgHero: getComputedStyle(document.querySelector('.zk-hero')).backgroundColor, scripts: document.querySelectorAll('.zk-hub script').length };
+    return { title: h.textContent, tag: h.tagName, color: cs.color, back: back.getAttribute('href'), backc: getComputedStyle(back).color, tiles: document.querySelectorAll('.zk-tile').length, soon: soon.length, soonLbl: soon.filter(s=>s.querySelector('.zk-soon')?.textContent==='Скоро').length, cursor: [...new Set(soon.map(s=>getComputedStyle(s).cursor))], links: document.querySelectorAll('.zk-tile[href]').length, labels, bgHero: getComputedStyle(document.querySelector('.zk-hero')).backgroundColor, panelBg: [...document.querySelectorAll('.zk-panel')].every(p=>{const c=getComputedStyle(p);return c.backgroundImage==='none'&&c.backgroundColor==='rgba(0, 0, 0, 0)'}) && [...document.querySelectorAll('.zk-tile')].every(t=>getComputedStyle(t).backgroundImage==='none'&&t.querySelectorAll('.zk-fx,.zk-glass').length===2), scripts: document.querySelectorAll('.zk-hub script').length };
   });
   ok(d.title==='Закупки. Силовые машины' && d.color==='rgb(45, 106, 79)', 'заголовок и цвет #2d6a4f');
   ok(d.back==='https://kb.severstal.com/spaces/BSS/pages/161546386/', 'крошка → .../161546386/');
-  ok(d.tiles===16 && d.soon===16 && d.soonLbl===16 && d.links===0 && d.cursor.join()==='default', '16 плашек «Скоро» с подписью, cursor:default');
+  ok(d.panelBg && d.tiles===16 && d.soon===16 && d.soonLbl===16 && d.links===0 && d.cursor.join()==='default', '16 плашек «Скоро» с подписью, cursor:default');
   ok(d.labels.length===5 && d.labels.every(l=>l.fs==='11px'&&l.fw==='600'&&l.c==='rgb(91, 102, 112)'&&l.up==='uppercase'&&l.bg==='rgba(0, 0, 0, 0)'), '5 меток секций: стиль без заливки');
   // hover не поднимает «Скоро»
   const t0 = pg.locator('.zk-tile--soon').first(); await t0.hover(); await pg.waitForTimeout(300);
   ok(await t0.evaluate(e => getComputedStyle(e).transform==='none'), 'hover на «Скоро»: без подъёма');
   // контраст: фон плашек (текст скрыт) и крошка/метки на белом
-  await pg.addStyleTag({ content: 'html body .zk-hub .zk-tile,html body .zk-hub .zk-tile .zk-soon{color:transparent !important}' });
+  await pg.addStyleTag({ content: 'html body .zk-hub .zk-tile .zk-name,html body .zk-hub .zk-tile .zk-soon{color:transparent !important;text-shadow:none !important}' });
   let worst = 99, worstSoon = 99;
   const tiles = await pg.locator('.zk-tile').all();
   const dec = await b.newPage();
   for (const t of tiles) {
+    const reg = await t.evaluate(e => { const r = e.getBoundingClientRect(), q = [...e.querySelectorAll('.zk-name,.zk-soon')].map(x => x.getBoundingClientRect()); return { x: Math.min(...q.map(a=>a.left))-r.left, y: Math.min(...q.map(a=>a.top))-r.top, w: Math.max(...q.map(a=>a.right))-Math.min(...q.map(a=>a.left)), h: Math.max(...q.map(a=>a.bottom))-Math.min(...q.map(a=>a.top)) }; });
     const b64 = (await t.screenshot()).toString('base64');
-    const L = await dec.evaluate(async (b64) => { const im = new Image(); im.src = 'data:image/png;base64,' + b64; await im.decode(); const c = document.createElement('canvas'); c.width = im.width; c.height = im.height; const x = c.getContext('2d'); x.drawImage(im,0,0); const d = x.getImageData(0,0,c.width,c.height).data; let m = 0; for (let i=0;i<d.length;i+=4){ const px=i/4, X=px%c.width, Y=(px/c.width)|0; if(X<14||Y<14||X>c.width-14||Y>c.height-14) continue; const v=(d[i]+d[i+1]+d[i+2])/3; if(v>m)m=v; } return m; }, b64);
+    const L = await dec.evaluate(async ([b64, g]) => { const im = new Image(); im.src = 'data:image/png;base64,' + b64; await im.decode(); const c = document.createElement('canvas'); c.width = im.width; c.height = im.height; const x = c.getContext('2d'); x.drawImage(im,0,0); const d = x.getImageData(Math.max(0,g.x|0), Math.max(0,g.y|0), Math.max(1,g.w|0), Math.max(1,g.h|0)).data; let m = 0; for (let i=0;i<d.length;i+=4){ const v=0.2126*d[i]+0.7152*d[i+1]+0.0722*d[i+2]; if(v>m)m=v; } return m; }, [b64, reg]);
     const v = Math.round(L); const lightest = [v,v,v];
-    worst = Math.min(worst, cr([255,255,255], lightest));
-    const mix = 255; worstSoon = Math.min(worstSoon, cr([mix,mix,mix], lightest));
+    worst = Math.min(worst, cr([255,255,255], lightest)); worstSoon = worst;
   }
   console.log(`  худший контраст: текст ${worst.toFixed(2)}, «Скоро» ${worstSoon.toFixed(2)}`);
   ok(worst>=4.5 && worstSoon>=4.5, 'контраст плашек ≥ 4.5 (по самому светлому пикселю фона)');
@@ -70,6 +70,7 @@ const HOSTILE = '<style>.wiki-content *{color:red !important;font-size:40px !imp
   ok(await f.evaluate(() => { const e=document.activeElement; return e.classList.contains('zk-tile') && getComputedStyle(e).outlineStyle==='solid'; }), ':focus-visible виден');
   const hv = f.locator('a.zk-tile'); await hv.hover(); await f.waitForTimeout(300);
   ok(await hv.evaluate(e => getComputedStyle(e).transform!=='none'), 'активная плашка: hover-подъём');
+  ok(await hv.evaluate(e => { const r=e.getBoundingClientRect(); for(let p=e.parentElement;p;p=p.parentElement){const o=getComputedStyle(p).overflow; if(o!=='visible'&&p.id!=='col'&&p.tagName!=='HTML'&&p.tagName!=='BODY') return false;} return r.top>=0; }), 'hover без обрезки (нет overflow у предков)');
   await f.context().close();
   // изоляция
   const hs = await open(1100); const base = await open(1100, {});
