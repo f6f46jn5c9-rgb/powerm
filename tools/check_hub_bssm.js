@@ -87,7 +87,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     let res = pix(await p.screenshot({ fullPage: true }), rects); let worst = 99, wt = ''; for (const [c, t] of res) { const k = cr([255, 255, 255], c); if (k < worst) { worst = k; wt = t + ' bg ' + c; } }
     ok(worst >= 4.5, `${w}px: контраст заголовков плашек (белый на плашке), худший ${worst.toFixed(2)}:1 (${wt})`); await p.context().close();
     p = await open(w, vw, { html: live }); await bg(p, '#col .bssm-hero__title,#col .bssm-hero__sub{color:transparent !important}');
-    for (const [sel, al] of [['.bssm-hero__title', 1], ['.bssm-hero__sub', .75]]) {
+    for (const [sel, al] of [['.bssm-hero__title', 1], ['.bssm-hero__sub', .92]]) {
       rects = await p.evaluate(s => [...document.querySelectorAll(s)].map(e => { const r = document.createRange(); r.selectNodeContents(e); const q = r.getBoundingClientRect(); return { x: q.x, y: q.y + scrollY, w: q.width, h: q.height, t: e.textContent }; }), sel);
       res = pix(await p.screenshot({ fullPage: true }), rects); worst = 99; wt = ''; for (const [c, t] of res) { const fg = c.map(v => Math.round(255 * al + v * (1 - al))); const k = cr(fg, c); if (k < worst) { worst = k; wt = 'bg ' + c; } }
       ok(worst >= 4.5, `${w}px: контраст ${sel} в hero, худший ${worst.toFixed(2)}:1 (${wt})`);
