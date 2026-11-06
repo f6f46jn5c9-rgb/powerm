@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Предпросмотр: БССМ. Школа</title>
+<style>
+body{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
+.pv-bar{padding:12px 16px;background:#fff;border-bottom:1px solid #d5dbe0}
+.pv-bar button{margin:0 6px 0 0;padding:6px 12px;border:1px solid #5B6670;border-radius:6px;background:#fff;color:#1F2A33;font:inherit;cursor:pointer}
+.pv-bar button[aria-pressed=true]{background:#2a5ca8;border-color:#2a5ca8;color:#fff}
+#pv-col{width:1000px;max-width:100%;margin:16px auto;padding:0 16px;box-sizing:content-box;background:#fff}
+.pv-lbl{margin:20px 0 8px;padding:2px 8px;display:inline-block;background:#e8edf7;color:#1e4d8c;font:600 12px Arial,sans-serif}
+.pv-native{margin:0 0 12px;padding:10px 16px;border:1px dashed #5B6670;color:#5B6670;font-size:13px}
+.pv-ph{width:100%;height:200px;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;box-sizing:border-box;border:1px solid #E3EAED;border-radius:8px;background:#f3f5f8;color:#5B6670;font-size:14px}
+</style></head><body>
+<div class="pv-bar"><span>Ширина колонки: </span><button data-w="1100" aria-pressed="false">1100</button><button data-w="820" aria-pressed="false">820</button><button data-w="560" aria-pressed="false">560</button><button data-w="375" aria-pressed="false">375</button><button data-w="1000" aria-pressed="true">1000</button></div>
+<div id="pv-col">
+<div class="pv-lbl">HTML-макрос 1 — hero + изображения</div>
+<!-- HTML-МАКРОС 1: HERO + ИЗОБРАЖЕНИЯ -->
+<style>
+.shkola-hero{--shkola-accent:#2a5ca8;--shkola-ink:#1F2A33;--shkola-muted:#5B6670;--shkola-line:#E3EAED;
+  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:shkola;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--shkola-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.shkola-hero *,.shkola-hero *::before,.shkola-hero *::after{box-sizing:border-box}
+.shkola-hero .shkola-hero__top{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:160px;margin:0 !important;padding:20px 28px 24px !important;border:0 !important;border-radius:12px;
+  background:radial-gradient(ellipse 38% 35% at 78% 18%,rgba(100,180,255,0.88) 0%,transparent 65%),radial-gradient(ellipse 25% 25% at 14% 82%,rgba(42,92,168,0.52) 0%,transparent 65%),linear-gradient(140deg,#040810 0%,#08102a 40%,#152048 72%,#2a5ca8 100%) !important}
+.shkola-hero .shkola-hero__crumb{display:block;align-self:flex-start;margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;border-radius:3px}
+.shkola-hero a.shkola-hero__crumb:visited{color:rgba(255,255,255,0.75) !important}
+.shkola-hero a.shkola-hero__crumb:hover{color:#fff !important;text-decoration:underline !important}
+.shkola-hero a.shkola-hero__crumb:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.shkola-hero a.shkola-hero__crumb[href^="URL_"]{color:#b4bdd2 !important;cursor:default;pointer-events:none}
+.shkola-hero span.shkola-hero__crumb{color:#b4bdd2 !important}
+.shkola-hero h2.shkola-hero__title{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.shkola-hero .shkola-hero__mat{display:block;margin:24px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero h3.shkola-hero__label{display:block;margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;font-family:inherit !important;letter-spacing:0.05em !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.shkola-hero .shkola-hero__imgs{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero .shkola-hero__fig{display:block;min-width:0;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero img.shkola-hero__img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 !important;padding:0 !important;border:1px solid #E3EAED !important;border-radius:8px !important;background:#fff !important;box-shadow:none !important;color:#5B6670;font-size:14px}
+@container shkola (min-width:700px){.shkola-hero .shkola-hero__imgs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@supports not (container-type:inline-size){@media (min-width:700px){.shkola-hero .shkola-hero__imgs{grid-template-columns:repeat(2,minmax(0,1fr))}}}
+@container shkola (max-width:459px){.shkola-hero .shkola-hero__top{padding:16px 16px 20px !important}}
+</style>
+<div class="shkola-hero">
+  <div class="shkola-hero__top">
+    <a class="shkola-hero__crumb" href="URL_БУП" aria-label="Назад в БУП">&larr; БУП</a>
+    <h2 class="shkola-hero__title">БССМ. Школа</h2>
+  </div>
+  <section class="shkola-hero__mat" aria-label="Материалы программы">
+    <h3 class="shkola-hero__label">Материалы программы</h3>
+    <div class="shkola-hero__imgs">
+      <figure class="shkola-hero__fig"><div class="pv-ph">[Вложение: краткое описание.png]</div></figure>
+      <figure class="shkola-hero__fig"><div class="pv-ph">[Вложение: инструменты программы.png]</div></figure>
+    </div>
+  </section>
+</div>
+<script>
+(function () {
+  var c = document.querySelector('.shkola-hero a.shkola-hero__crumb');
+  if (!c || (c.getAttribute('href') || '').indexOf('URL_') !== 0) { return; }
+  var s = document.createElement('span');
+  s.className = 'shkola-hero__crumb';
+  s.textContent = c.textContent;
+  c.parentNode.replaceChild(s, c);
+})();
+</script>
+
+<div class="pv-lbl">HTML-макрос 2 — открывающая обёртка CBL</div>
+<div class="shkola-cbylabel">
+<style>
+  .shkola-cbylabel ul { padding-left:0 !important; list-style:none !important; }
+  .shkola-cbylabel li { padding:8px 0 !important;
+    border-bottom:1px solid #E3EAED !important; }
+  .shkola-cbylabel a { color:#2a5ca8 !important; font-size:15px !important;
+    text-decoration:none !important; }
+  .shkola-cbylabel a:hover { text-decoration:underline !important; }
+  .shkola-cbylabel a:focus-visible { outline:3px solid #2a5ca8 !important; outline-offset:2px !important; }
+</style>
+<p style="font-size:13px;font-weight:600;color:#5B6670;
+  letter-spacing:0.05em;margin:0 0 8px !important;">ПРАКТИКИ</p>
+
+<div class="pv-lbl">HTML-макрос 3 — нативный: Содержимое по меткам</div>
+<div class="pv-native">Нативный макрос «Содержимое по меткам» (метка: бссм_школа) — вставляется вручную между макросами 2 и 4</div>
+<div class="pv-lbl">HTML-макрос 4 — закрывающая обёртка CBL</div>
+<!-- закрывающий div: </div> -->
+</div>
+</div>
+<script>
+(function(){var c=document.getElementById('pv-col'),b=document.querySelectorAll('.pv-bar button');
+for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){c.style.width=this.getAttribute('data-w')+'px';for(var j=0;j<b.length;j++)b[j].setAttribute('aria-pressed',b[j]===this?'true':'false');});}})();
+</script></body></html>

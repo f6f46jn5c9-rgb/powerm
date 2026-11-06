@@ -1,0 +1,46 @@
+<!-- HTML-МАКРОС 1: HERO + ИЗОБРАЖЕНИЯ -->
+<style>
+.shkola-hero{--shkola-accent:#2a5ca8;--shkola-ink:#1F2A33;--shkola-muted:#5B6670;--shkola-line:#E3EAED;
+  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:shkola;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--shkola-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.shkola-hero *,.shkola-hero *::before,.shkola-hero *::after{box-sizing:border-box}
+.shkola-hero .shkola-hero__top{display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:160px;margin:0 !important;padding:20px 28px 24px !important;border:0 !important;border-radius:12px;
+  background:radial-gradient(ellipse 38% 35% at 78% 18%,rgba(100,180,255,0.88) 0%,transparent 65%),radial-gradient(ellipse 25% 25% at 14% 82%,rgba(42,92,168,0.52) 0%,transparent 65%),linear-gradient(140deg,#040810 0%,#08102a 40%,#152048 72%,#2a5ca8 100%) !important}
+.shkola-hero .shkola-hero__crumb{display:block;align-self:flex-start;margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;border-radius:3px}
+.shkola-hero a.shkola-hero__crumb:visited{color:rgba(255,255,255,0.75) !important}
+.shkola-hero a.shkola-hero__crumb:hover{color:#fff !important;text-decoration:underline !important}
+.shkola-hero a.shkola-hero__crumb:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.shkola-hero a.shkola-hero__crumb[href^="URL_"]{color:#b4bdd2 !important;cursor:default;pointer-events:none}
+.shkola-hero span.shkola-hero__crumb{color:#b4bdd2 !important}
+.shkola-hero h2.shkola-hero__title{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.shkola-hero .shkola-hero__mat{display:block;margin:24px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero h3.shkola-hero__label{display:block;margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;font-family:inherit !important;letter-spacing:0.05em !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.shkola-hero .shkola-hero__imgs{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero .shkola-hero__fig{display:block;min-width:0;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero img.shkola-hero__img{display:block;width:100% !important;max-width:100% !important;height:auto !important;margin:0 !important;padding:0 !important;border:1px solid #E3EAED !important;border-radius:8px !important;background:#fff !important;box-shadow:none !important;color:#5B6670;font-size:14px}
+@container shkola (min-width:700px){.shkola-hero .shkola-hero__imgs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@supports not (container-type:inline-size){@media (min-width:700px){.shkola-hero .shkola-hero__imgs{grid-template-columns:repeat(2,minmax(0,1fr))}}}
+@container shkola (max-width:459px){.shkola-hero .shkola-hero__top{padding:16px 16px 20px !important}}
+</style>
+<div class="shkola-hero">
+  <div class="shkola-hero__top">
+    <a class="shkola-hero__crumb" href="URL_БУП" aria-label="Назад в БУП">&larr; БУП</a>
+    <h2 class="shkola-hero__title">БССМ. Школа</h2>
+  </div>
+  <section class="shkola-hero__mat" aria-label="Материалы программы">
+    <h3 class="shkola-hero__label">Материалы программы</h3>
+    <div class="shkola-hero__imgs">
+      <figure class="shkola-hero__fig"><img class="shkola-hero__img" src="/download/attachments/SHKOLA_PAGE_ID/%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D0%B5%20%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5.png" alt="Краткое описание программы" loading="lazy"></figure>
+      <figure class="shkola-hero__fig"><img class="shkola-hero__img" src="/download/attachments/SHKOLA_PAGE_ID/%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B.png" alt="Инструменты программы" loading="lazy"></figure>
+    </div>
+  </section>
+</div>
+<script>
+(function () {
+  var c = document.querySelector('.shkola-hero a.shkola-hero__crumb');
+  if (!c || (c.getAttribute('href') || '').indexOf('URL_') !== 0) { return; }
+  var s = document.createElement('span');
+  s.className = 'shkola-hero__crumb';
+  s.textContent = c.textContent;
+  c.parentNode.replaceChild(s, c);
+})();
+</script>
