@@ -11,7 +11,7 @@ cbl = ('<ul><li><a href="#">Адаптация нового сотрудника
 cap = lambda t: '<div class="pv-cap">%s</div>' % t
 page = '''<!doctype html>
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Предпросмотр: HR / Команда</title>
+<title>Предпросмотр: HR. Силовые машины</title>
 <style>
 .pv-b{margin:0;background:#f4f6f8;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
 .pv-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 16px;background:#fff;border-bottom:1px solid #E3EAED}
@@ -33,7 +33,7 @@ bs.forEach(function(b){b.addEventListener('click',function(){c.style.width=b.get
 </body></html>
 '''
 open(os.path.join(F, 'preview/hr-preview.html'), 'w', encoding='utf-8').write(page)
-open(os.path.join(F, 'preview/index.html'), 'w', encoding='utf-8').write('<!doctype html><html lang="ru"><meta charset="utf-8"><title>Предпросмотр</title><body style="font:16px Arial;margin:24px"><h1 style="font-size:22px">Предпросмотр</h1><ul><li><a href="hr-preview.html">HR / Команда — все 3 макроса подряд</a></li></ul></body></html>\n')
+open(os.path.join(F, 'preview/index.html'), 'w', encoding='utf-8').write('<!doctype html><html lang="ru"><meta charset="utf-8"><title>Предпросмотр</title><body style="font:16px Arial;margin:24px"><h1 style="font-size:22px">Предпросмотр</h1><ul><li><a href="hr-preview.html">HR. Силовые машины — все 3 макроса подряд</a></li></ul></body></html>\n')
 # zip (после README и скриншота)
 def pack():
     z = os.path.join(F, 'hr-all.zip')

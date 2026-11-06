@@ -1,4 +1,4 @@
-// Проверка хаба «HR / Команда» (Chromium). Запуск: node tools/check_hr.js
+// Проверка хаба «HR. Силовые машины» (Chromium). Запуск: node tools/check_hr.js
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const R = path.resolve(__dirname, '..'), P = 'file://' + path.join(R, 'hr-final/preview/hr-preview.html');
 let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); if (!c) fails++; };
