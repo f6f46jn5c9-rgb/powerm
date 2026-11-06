@@ -57,8 +57,8 @@ def block1():
   <div class="sm-prod-hero__row">
     <span class="sm-prod-hero__ico" aria-hidden="true">{svg(GEAR,26,'1.7')}</span>
     <div class="sm-prod-hero__txt">
-      <h2 class="sm-prod-hero__title">Производство</h2>
-      <p class="sm-prod-hero__sub">Лучшие практики производственных площадок Силовых машин</p>
+      <h2 class="sm-prod-hero__title">Производство. Силовые машины</h2>
+      <p class="sm-prod-hero__sub">Лучшие практики производственных площадок</p>
     </div>
   </div>
   <span class="sm-prod-hero__line" aria-hidden="true"></span>
