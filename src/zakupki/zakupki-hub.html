@@ -1,0 +1,82 @@
+<!-- ZK:HUB Закупки. Силовые машины — 1 HTML-макрос. Адреса подставляет tools/build_zakupki.py -->
+<style>
+.zk-hub{--zk-a:#2d6a4f;display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 20px !important;padding:0 !important;container-type:inline-size;container-name:zkhub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.zk-hub *,.zk-hub *::before,.zk-hub *::after{box-sizing:border-box}
+.zk-hub .zk-hero{background:#ffffff;padding:20px 0 16px !important;margin:0 !important}
+.zk-hub a.zk-back{display:inline-block;margin:0 0 14px !important;padding:2px 0 !important;font-size:13px !important;line-height:1.3 !important;color:rgba(45,106,79,.9) !important;text-decoration:none !important;border-radius:3px}
+.zk-hub a.zk-back:visited{color:rgba(45,106,79,.9) !important}
+.zk-hub a.zk-back:hover{color:#2d6a4f !important;text-decoration:underline !important}
+.zk-hub a.zk-back:focus-visible{outline:3px solid #2d6a4f;outline-offset:3px}
+.zk-hub .zk-row{display:flex;align-items:center;gap:16px;margin:0 !important;padding:0 !important}
+.zk-hub .zk-ico{flex:0 0 56px;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#2d6a4f;color:#fff}
+.zk-hub .zk-ico svg{display:block;fill:#fff}
+.zk-hub h1.zk-title{flex:1 1 auto;min-width:0;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:#2d6a4f !important;letter-spacing:0 !important;text-transform:none !important}
+.zk-hub .zk-line{display:block;height:3px;margin:0 0 28px !important;background:linear-gradient(90deg,#2d6a4f,transparent)}
+.zk-hub .zk-sec{margin:0 0 28px !important;padding:0 !important}
+.zk-hub h2.zk-label{margin:0 0 16px !important;padding:0 0 6px !important;border:0 !important;border-bottom:1px solid #E3EAED !important;background:none !important;font-size:11px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;letter-spacing:.08em !important;text-transform:uppercase !important}
+.zk-hub .zk-panel{padding:28px 24px 36px !important;border-radius:12px;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(100,200,140,.80) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(45,106,79,.45) 0%,transparent 65%),linear-gradient(140deg,#040d08 0%,#071a0f 40%,#0f3020 72%,#2d6a4f 100%)}
+.zk-hub .zk-grid{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.zk-hub .zk-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:76px;margin:0 !important;padding:20px 24px !important;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff !important;font-size:15px !important;font-weight:600 !important;line-height:1.3 !important;text-align:center;text-decoration:none !important;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.zk-hub a.zk-tile{cursor:pointer;transition:transform .2s,box-shadow .2s}
+.zk-hub a.zk-tile:visited{color:#fff !important}
+.zk-hub a.zk-tile:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.zk-hub a.zk-tile:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.zk-hub .zk-tile--soon{cursor:default;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.10)}
+.zk-hub .zk-soon{display:block;margin:6px 0 0 !important;font-size:11px !important;font-weight:400 !important;line-height:1.3 !important;color:#fff !important}
+@container zkhub (min-width:600px){.zk-hub .zk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container zkhub (min-width:760px){.zk-hub .zk-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}.zk-hub .zk-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@container zkhub (max-width:459px){.zk-hub h1.zk-title{font-size:22px !important}.zk-hub .zk-panel{padding:20px 14px 24px !important}.zk-hub .zk-tile{padding:16px 14px !important}}
+@supports not (container-type:inline-size){@media (min-width:600px){.zk-hub .zk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:760px){.zk-hub .zk-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}.zk-hub .zk-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}}}
+@media (prefers-reduced-motion:reduce){.zk-hub a.zk-tile{transition:none}.zk-hub a.zk-tile:hover{transform:none}}
+</style>
+<div class="zk-hub">
+  <header class="zk-hero">
+    <a class="zk-back" href="{{bup}}" aria-label="Назад в БУП">&larr; БУП</a>
+    <div class="zk-row">
+      <span class="zk-ico" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" focusable="false"><path d="M1 2h3.4l.7 3H22l-2.4 9H7.6l.4 2H20v2H6.4L3.2 4H1z"/><circle cx="8.5" cy="20.5" r="1.7"/><circle cx="18" cy="20.5" r="1.7"/></svg></span>
+      <h1 class="zk-title">Закупки. Силовые машины</h1>
+    </div>
+  </header>
+  <div class="zk-line" aria-hidden="true"></div>
+  <section class="zk-sec" aria-labelledby="zk-l0">
+    <h2 class="zk-label" id="zk-l0">Ориентация</h2>
+    <div class="zk-panel"><div class="zk-grid zk-grid--3">
+      <span class="zk-tile" data-zk="novomu">Новому сотруднику</span>
+      <span class="zk-tile" data-zk="glosariy">Глоссарий и аббревиатуры</span>
+      <span class="zk-tile" data-zk="struktura">Структура дирекции</span>
+    </div></div>
+  </section>
+  <section class="zk-sec" aria-labelledby="zk-l1">
+    <h2 class="zk-label" id="zk-l1">Документы</h2>
+    <div class="zk-panel"><div class="zk-grid zk-grid--2">
+      <span class="zk-tile" data-zk="standarty">Стандарты и регламенты</span>
+      <span class="zk-tile" data-zk="shablony">Шаблоны документов</span>
+    </div></div>
+  </section>
+  <section class="zk-sec" aria-labelledby="zk-l2">
+    <h2 class="zk-label" id="zk-l2">Процессы</h2>
+    <div class="zk-panel"><div class="zk-grid zk-grid--4">
+      <span class="zk-tile" data-zk="planirov">Планирование потребности</span>
+      <span class="zk-tile" data-zk="vybor">Выбор контрагента и тендерные процедуры</span>
+      <span class="zk-tile" data-zk="dogovor">Договорная работа</span>
+      <span class="zk-tile" data-zk="etp">Работа на ЭТП</span>
+      <span class="zk-tile" data-zk="oplata">Оплата</span>
+      <span class="zk-tile" data-zk="postupl">Поступление</span>
+      <span class="zk-tile" data-zk="sklad">Управление складскими остатками, списание</span>
+    </div></div>
+  </section>
+  <section class="zk-sec" aria-labelledby="zk-l3">
+    <h2 class="zk-label" id="zk-l3">Системы</h2>
+    <div class="zk-panel"><div class="zk-grid zk-grid--2">
+      <span class="zk-tile" data-zk="sap">Управление основными данными в SAP</span>
+      <span class="zk-tile" data-zk="sups">Система управления поставщиками</span>
+    </div></div>
+  </section>
+  <section class="zk-sec" aria-labelledby="zk-l4">
+    <h2 class="zk-label" id="zk-l4">Развитие</h2>
+    <div class="zk-panel"><div class="zk-grid zk-grid--2">
+      <span class="zk-tile" data-zk="akademiya">Академия закупок</span>
+      <span class="zk-tile" data-zk="kategorii">Категорийные стратегии</span>
+    </div></div>
+  </section>
+</div>
