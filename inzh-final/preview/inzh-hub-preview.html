@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Предпросмотр: Инжиниринг. Силовые машины</title>
+<style>
+body{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
+.pv-bar{padding:12px 16px;background:#fff;border-bottom:1px solid #d5dbe0}
+.pv-bar button{margin:0 6px 0 0;padding:6px 12px;border:1px solid #546e7a;border-radius:6px;background:#fff;color:#1F2A33;font:inherit;cursor:pointer}
+.pv-bar button[aria-pressed=true]{background:#546e7a;border-color:#546e7a;color:#fff}
+#pv-col{width:1000px;max-width:100%;margin:16px auto;padding:0 16px;box-sizing:content-box;background:#fff}
+.pv-lbl{margin:20px 0 8px;padding:2px 8px;display:inline-block;background:#e3eaed;color:#37474f;font:600 12px Arial,sans-serif}
+.pv-native{margin:0 0 12px;padding:10px 16px;border:1px dashed #5B6670;color:#5B6670;font-size:13px}
+</style></head><body>
+<div class="pv-bar"><span>Ширина колонки: </span><button data-w="1100" aria-pressed="false">1100</button><button data-w="820" aria-pressed="false">820</button><button data-w="560" aria-pressed="false">560</button><button data-w="375" aria-pressed="false">375</button><button data-w="1000" aria-pressed="true">1000</button></div>
+<div id="pv-col">
+<div class="pv-lbl">HTML-макрос 1 — вся страница (hero + плашки)</div>
+<!-- HTML-МАКРОС 1: СТРАНИЦА ЦЕЛИКОМ (hero + плашки) -->
+<style>
+.inzh-hub-root{display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:inzhhubroot;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:#1F2A33;text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.inzh-hub-root *,.inzh-hub-root *::before,.inzh-hub-root *::after{box-sizing:border-box}
+.inzh-hub-root .inzh-hub-hero{display:block;margin:0 !important;padding:20px 0 16px !important;border:0 !important;background:#ffffff !important}
+.inzh-hub-root .inzh-hub-crumb{display:block;margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;line-height:1.3 !important;color:#546e7a !important;font-family:inherit !important;text-decoration:none !important}
+.inzh-hub-root .inzh-hub-crumb a{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:#546e7a !important;font-family:inherit !important;text-decoration:none !important;border-radius:3px}
+.inzh-hub-root .inzh-hub-crumb a:visited{color:#546e7a !important}
+.inzh-hub-root .inzh-hub-crumb a:hover{text-decoration:underline !important}
+.inzh-hub-root .inzh-hub-crumb a:focus-visible{outline:3px solid #546e7a;outline-offset:3px}
+.inzh-hub-root .inzh-hub-row{display:flex;align-items:center;gap:16px;margin:0 !important;padding:0 !important}
+.inzh-hub-root .inzh-hub-ico{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#546e7a;color:#fff}
+.inzh-hub-root .inzh-hub-ico svg{display:block;max-width:none;fill:#fff}
+.inzh-hub-root h1.inzh-hub-title{flex:1 1 auto;min-width:0;display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.2 !important;color:#546e7a !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;text-align:left !important;word-break:normal !important;overflow-wrap:normal !important;text-wrap:balance}
+.inzh-hub-root .inzh-hub-line{display:block;height:3px;margin:0 !important;padding:0 !important;background:linear-gradient(90deg,#546e7a,transparent)}
+.inzh-hub-root .inzh-hub-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:0 !important;padding:28px 24px 32px !important;border-radius:0 0 12px 12px;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(176,196,210,0.80) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(84,110,122,0.45) 0%,transparent 65%),linear-gradient(140deg,#0a0c0d 0%,#151d20 40%,#243038 72%,#546e7a 100%) !important}
+.inzh-hub-root a.inzh-hub-tile{display:flex;align-items:center;justify-content:center;flex:0 0 calc((100% - 28px) / 3);min-width:0;margin:0 !important;padding:20px 24px !important;border:1px solid rgba(255,255,255,0.15) !important;border-radius:12px;background:linear-gradient(rgba(8,12,14,0.55),rgba(8,12,14,0.55)),rgba(255,255,255,0.08) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#ffffff !important;font-size:15px !important;font-weight:600 !important;line-height:1.3 !important;text-align:center !important;text-decoration:none !important;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+.inzh-hub-root a.inzh-hub-tile:visited{color:#ffffff !important}
+.inzh-hub-root a.inzh-hub-tile:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3);text-decoration:none !important}
+.inzh-hub-root a.inzh-hub-tile:focus-visible{outline:3px solid #ffffff;outline-offset:3px}
+@container inzhhubroot (max-width:599px){.inzh-hub-root .inzh-hub-tiles{padding:20px 16px 24px !important}.inzh-hub-root a.inzh-hub-tile{flex:0 0 100%}.inzh-hub-root h1.inzh-hub-title{font-size:22px !important}.inzh-hub-root .inzh-hub-ico{width:48px;height:48px}}
+@media (prefers-reduced-motion:reduce){.inzh-hub-root,.inzh-hub-root *{transition:none !important;animation:none !important}.inzh-hub-root a.inzh-hub-tile:hover{transform:none}}
+</style>
+<div class="inzh-hub-root">
+  <div class="inzh-hub-hero">
+    <div class="inzh-hub-crumb">&larr; <a href="https://kb.severstal.com/spaces/BSS/pages/161546386/" aria-label="Назад в БУП">БУП</a></div>
+    <div class="inzh-hub-row">
+      <span class="inzh-hub-ico" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M10.3 2h3.4l.5 2.6c.6.2 1.1.5 1.6.9l2.5-.9 1.7 3-2 1.7c.1.6.1 1.1 0 1.7l2 1.7-1.7 3-2.5-.9c-.5.4-1 .7-1.6.9l-.5 2.6h-3.4l-.5-2.6c-.6-.2-1.1-.5-1.6-.9l-2.5.9-1.7-3 2-1.7a5 5 0 0 1 0-1.7l-2-1.7 1.7-3 2.5.9c.5-.4 1-.7 1.6-.9zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" transform="translate(0 1.5) scale(1)"/></svg></span>
+      <h1 class="inzh-hub-title">Инжиниринг. Силовые машины</h1>
+    </div>
+  </div>
+  <span class="inzh-hub-line" aria-hidden="true"></span>
+  <nav class="inzh-hub-tiles" aria-label="Разделы комплекса «Инжиниринг»">
+    <a class="inzh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/523076665/" aria-label="Практики">Практики</a>
+    <a class="inzh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/168886525/" aria-label="Совершенствование процессов">Совершенствование процессов</a>
+    <a class="inzh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/168886501/" aria-label="Новые продукты">Новые продукты</a>
+    <a class="inzh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/168886549/" aria-label="Центр технологических решений">Центр технологических решений</a>
+    <a class="inzh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/168886475/" aria-label="Надежность">Надежность</a>
+  </nav>
+</div>
+
+</div>
+<script>
+(function(){var c=document.getElementById('pv-col'),b=document.querySelectorAll('.pv-bar button');
+for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){c.style.width=this.getAttribute('data-w')+'px';for(var j=0;j<b.length;j++)b[j].setAttribute('aria-pressed',b[j]===this?'true':'false');});}})();
+</script></body></html>
