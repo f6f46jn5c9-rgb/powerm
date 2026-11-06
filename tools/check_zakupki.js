@@ -80,7 +80,6 @@ const HOSTILE = '<style>.wiki-content *{color:red !important;font-size:40px !imp
     const a = await g(h), c = await g(n);
     if(a.t!==c.t||a.l!==c.l||a.c!==c.c||a.hs) console.log(JSON.stringify([a,c]));
     ok(a.t===c.t && a.l===c.l && a.c===c.c && !a.hs, `изоляция при чужих жёстких стилях (w=${w})`);
-    if (w===1100) { await h.locator('#col').screenshot({ path: path.join(R, '.hostile.png') }); }
   }
   const rm = await open(1100, { rm:true });
   ok(await rm.evaluate(() => getComputedStyle(document.querySelector('.zk-tile')).transitionDuration), 'reduced-motion ok');
