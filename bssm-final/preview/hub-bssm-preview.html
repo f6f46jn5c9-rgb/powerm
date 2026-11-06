@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Предпросмотр: Бизнес-система. СМ</title>
+<style>
+body{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
+.pv-bar{padding:12px 16px;background:#fff;border-bottom:1px solid #d5dbe0}
+.pv-bar button{margin:0 6px 0 0;padding:6px 12px;border:1px solid #5B6670;border-radius:6px;background:#fff;color:#1F2A33;font:inherit;cursor:pointer}
+.pv-bar button[aria-pressed=true]{background:#2a5ca8;border-color:#2a5ca8;color:#fff}
+#pv-col{width:1000px;max-width:100%;margin:16px auto;padding:0 16px;box-sizing:content-box;background:#fff}
+.pv-lbl{margin:20px 0 8px;padding:2px 8px;display:inline-block;background:#e8edf7;color:#1e4d8c;font:600 12px Arial,sans-serif}
+.pv-native{margin:0 0 12px;padding:10px 16px;border:1px dashed #5B6670;color:#5B6670;font-size:13px}
+</style></head><body>
+<div class="pv-bar"><span>Ширина колонки: </span><button data-w="1100" aria-pressed="false">1100</button><button data-w="820" aria-pressed="false">820</button><button data-w="560" aria-pressed="false">560</button><button data-w="375" aria-pressed="false">375</button><button data-w="1000" aria-pressed="true">1000</button></div>
+<div id="pv-col">
+<div class="pv-lbl">HTML-макрос 1 — hero + плашки</div>
+<!-- HTML-МАКРОС 1: HERO + ПЛАШКИ -->
+<style>
+.bssm-hub{--bssm-accent:#2a5ca8;--bssm-ink:#1F2A33;--bssm-muted:#5B6670;--bssm-line:#E3EAED;
+  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:bssmhub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--bssm-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.bssm-hub *,.bssm-hub *::before,.bssm-hub *::after{box-sizing:border-box}
+.bssm-hub svg{display:block;max-width:none}
+.bssm-hub .bssm-crumb{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;margin:0 0 12px !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:#5B6670 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;}
+.bssm-hub .bssm-crumb a{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:#2a5ca8 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;border-radius:3px}
+.bssm-hub .bssm-crumb a:visited{color:#2a5ca8 !important}
+.bssm-hub .bssm-crumb a:hover{text-decoration:underline !important}
+.bssm-hub .bssm-crumb a:focus-visible{outline:3px solid #2a5ca8;outline-offset:3px}
+.bssm-hub .bssm-hero{position:relative;display:block;margin:0 0 20px !important;padding:28px 32px !important;border:0 !important;border-radius:12px;background:linear-gradient(135deg,#071020 0%,#0c1e3e 35%,#172f6a 65%,#2a5ca8 100%) !important}
+.bssm-hub .bssm-hero__fx{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;z-index:0;inset:0;display:block;border-radius:inherit;contain:paint;pointer-events:none}
+.bssm-hub .bssm-hero__b1{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;display:block;border-radius:50%;pointer-events:none;width:420px;height:420px;top:-80px;right:-60px;background:radial-gradient(circle,rgba(42,92,168,.65) 0%,transparent 70%) !important}
+.bssm-hub .bssm-hero__b2{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;display:block;border-radius:50%;pointer-events:none;width:300px;height:300px;bottom:-50px;left:40px;background:radial-gradient(circle,rgba(26,58,114,.55) 0%,transparent 70%) !important}
+.bssm-hub .bssm-hero__b3{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;display:block;border-radius:50%;pointer-events:none;width:220px;height:220px;top:40%;left:50%;background:radial-gradient(circle,rgba(42,92,168,.45) 0%,transparent 70%) !important}
+.bssm-hub .bssm-hero__in{position:relative;z-index:1;display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;}
+.bssm-hub h1.bssm-hero__title{margin:0 0 6px !important;padding:0 !important;border:0 !important;background:none !important;font-size:28px !important;font-weight:800 !important;line-height:1.15 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;text-wrap:balance}
+.bssm-hub p.bssm-hero__sub{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:15px !important;font-weight:400 !important;line-height:1.4 !important;color:rgba(255,255,255,.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;}
+.bssm-hub .bssm-navw{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;}
+.bssm-hub .bssm-grid{display:grid;gap:12px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;margin:0 0 12px !important}
+.bssm-hub .bssm-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bssm-hub .bssm-grid--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bssm-hub .bssm-prog{display:block;margin:32px 0 0 !important;padding:24px 0 0 !important;border:0 !important;border-top:1px solid #E3EAED !important;background:none !important}
+.bssm-hub h3.bssm-prog__h{margin:0 0 16px !important;padding:0 !important;border:0 !important;background:none !important;font-size:14px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;}
+.bssm-hub .bssm-prog .bssm-grid{margin:0 !important}
+.bssm-hub a.bssm-tile{position:relative;isolation:isolate;display:flex !important;flex-direction:column;justify-content:space-between;gap:16px;min-width:0;min-height:130px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;padding:20px !important;border-radius:12px;cursor:pointer;color:#fff !important;font-size:16px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;transition:transform .2s ease}
+.bssm-hub .bssm-prog a.bssm-tile{min-height:110px}
+.bssm-hub a.bssm-tile:visited,.bssm-hub a.bssm-tile:active{color:#fff !important}
+.bssm-hub .bssm-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;z-index:0;inset:0;display:block;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at 88% 8%,rgba(42,92,168,.65) 0,transparent 55%),radial-gradient(circle at 8% 100%,rgba(26,58,114,.55) 0,transparent 55%),linear-gradient(135deg,#071020 0%,#0c1e3e 35%,#172f6a 65%,#2a5ca8 100%) !important}
+.bssm-hub .bssm-tile__glass{position:absolute;z-index:1;inset:0;display:block;margin:0 !important;padding:0 !important;border-radius:inherit;pointer-events:none;background:rgba(8,20,50,.65) !important;border:1px solid rgba(42,92,168,.45) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.bssm-hub a.bssm-tile[href]:not([href^="URL_PLACEHOLDER"]):hover{transform:translateY(-3px)}
+.bssm-hub a.bssm-tile:focus-visible{outline:3px solid #2a5ca8;outline-offset:3px}
+.bssm-hub a.bssm-tile:is(.bssm-is-soon,[href^="URL_PLACEHOLDER"]){cursor:default;opacity:.6;transform:none}
+.bssm-hub a.bssm-tile:is(.bssm-is-soon,[href^="URL_PLACEHOLDER"]):hover{transform:none}
+.bssm-hub .bssm-tile__top{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;}
+.bssm-hub .bssm-tile__ico{flex:0 0 auto;display:block;width:40px;height:40px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;}
+.bssm-hub .bssm-tile__side{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;}
+.bssm-hub .bssm-tile__arrow{display:block;margin:10px 0 0 !important}
+.bssm-hub .bssm-tile__soon{display:none !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;margin:10px 0 0 !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;}
+.bssm-hub a.bssm-tile:is(.bssm-is-soon,[href^="URL_PLACEHOLDER"]) .bssm-tile__arrow{display:none}
+.bssm-hub a.bssm-tile:is(.bssm-is-soon,[href^="URL_PLACEHOLDER"]) .bssm-tile__soon{display:block !important}
+.bssm-hub .bssm-tile__name{position:relative;z-index:2;display:block !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:17px !important;font-weight:700 !important;line-height:1.25 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;}
+@container bssmhub (max-width:900px){.bssm-hub .bssm-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}.bssm-hub .bssm-grid--3>a.bssm-tile:last-child{grid-column:1 / -1}}
+@container bssmhub (max-width:700px){.bssm-hub .bssm-grid--3,.bssm-hub .bssm-grid--2{grid-template-columns:minmax(0,1fr)}.bssm-hub .bssm-grid--3>a.bssm-tile:last-child{grid-column:auto}.bssm-hub .bssm-hero{padding:24px 20px !important}}
+@supports not (container-type:inline-size){@media (max-width:900px){.bssm-hub .bssm-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:700px){.bssm-hub .bssm-grid--3,.bssm-hub .bssm-grid--2{grid-template-columns:minmax(0,1fr)}}}
+@media (prefers-reduced-motion:reduce){.bssm-hub a.bssm-tile{transition:none !important}.bssm-hub a.bssm-tile,.bssm-hub a.bssm-tile:hover{transform:none !important}}
+</style>
+<div class="bssm-hub">
+  <div class="bssm-crumb">&larr; <a href="https://kb.severstal.com/spaces/BSS/" aria-label="Назад в БУП">БУП</a></div>
+  <div class="bssm-hero">
+    <span class="bssm-hero__fx" aria-hidden="true"><span class="bssm-hero__b1"></span><span class="bssm-hero__b2"></span><span class="bssm-hero__b3"></span></span>
+    <div class="bssm-hero__in">
+      <h1 class="bssm-hero__title">Бизнес-система. СМ</h1>
+      <p class="bssm-hero__sub">Методология и программы трансформации</p>
+    </div>
+  </div>
+  <nav class="bssm-navw" aria-label="Разделы">
+    <div class="bssm-grid bssm-grid--3">
+      <a class="bssm-tile" href="URL_PLACEHOLDER_PRAKTIKI" target="_blank" rel="noopener">
+        <span class="bssm-tile__fx" aria-hidden="true"></span><span class="bssm-tile__glass" aria-hidden="true"></span>
+        <span class="bssm-tile__top"><span class="bssm-tile__ico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M14 15h12M14 20h12M14 25h12"/></g></svg></span><span class="bssm-tile__side"><svg class="bssm-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg><span class="bssm-tile__soon">Скоро</span></span></span>
+        <span class="bssm-tile__name">Практики</span>
+      </a>
+      <a class="bssm-tile" href="URL_PLACEHOLDER_UP" target="_blank" rel="noopener">
+        <span class="bssm-tile__fx" aria-hidden="true"></span><span class="bssm-tile__glass" aria-hidden="true"></span>
+        <span class="bssm-tile__top"><span class="bssm-tile__ico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M15 27V14"/><path d="M15 14l11 4-11 4"/></g></svg></span><span class="bssm-tile__side"><svg class="bssm-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg><span class="bssm-tile__soon">Скоро</span></span></span>
+        <span class="bssm-tile__name">Управление проектами</span>
+      </a>
+      <a class="bssm-tile" href="URL_PLACEHOLDER_USTOICHIVOST" target="_blank" rel="noopener">
+        <span class="bssm-tile__fx" aria-hidden="true"></span><span class="bssm-tile__glass" aria-hidden="true"></span>
+        <span class="bssm-tile__top"><span class="bssm-tile__ico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M25.5 20a5.5 5.5 0 1 1-1.6-3.9"/><path d="M24.5 12.8v3.5h-3.5"/></g></svg></span><span class="bssm-tile__side"><svg class="bssm-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg><span class="bssm-tile__soon">Скоро</span></span></span>
+        <span class="bssm-tile__name">Устойчивость изменений</span>
+      </a>
+    </div>
+    <div class="bssm-grid bssm-grid--2">
+      <a class="bssm-tile" href="URL_PLACEHOLDER_MINI_T" target="_blank" rel="noopener">
+        <span class="bssm-tile__fx" aria-hidden="true"></span><span class="bssm-tile__glass" aria-hidden="true"></span>
+        <span class="bssm-tile__top"><span class="bssm-tile__ico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M20 14l6 6-6 6-6-6z"/></g></svg></span><span class="bssm-tile__side"><svg class="bssm-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg><span class="bssm-tile__soon">Скоро</span></span></span>
+        <span class="bssm-tile__name">Мини-Т</span>
+      </a>
+      <a class="bssm-tile" href="URL_PLACEHOLDER_SHKOLA" target="_blank" rel="noopener">
+        <span class="bssm-tile__fx" aria-hidden="true"></span><span class="bssm-tile__glass" aria-hidden="true"></span>
+        <span class="bssm-tile__top"><span class="bssm-tile__ico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="13.5" y="14.5" width="13" height="3"/><path d="M16 19l1 5h6l1-5"/></g></svg></span><span class="bssm-tile__side"><svg class="bssm-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg><span class="bssm-tile__soon">Скоро</span></span></span>
+        <span class="bssm-tile__name">Школа</span>
+      </a>
+    </div>
+  </nav>
+  <section class="bssm-prog" aria-labelledby="bssm-prog-h">
+    <h3 class="bssm-prog__h" id="bssm-prog-h">Программы трансформации</h3>
+    <div class="bssm-grid bssm-grid--2">
+      <a class="bssm-tile" href="URL_PLACEHOLDER_SM2" target="_blank" rel="noopener">
+        <span class="bssm-tile__fx" aria-hidden="true"></span><span class="bssm-tile__glass" aria-hidden="true"></span>
+        <span class="bssm-tile__top"><span class="bssm-tile__ico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><text x="20" y="23.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" fill="#fff">2.0</text></svg></span><span class="bssm-tile__side"><svg class="bssm-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg><span class="bssm-tile__soon">Скоро</span></span></span>
+        <span class="bssm-tile__name">СМ 2.0</span>
+      </a>
+      <a class="bssm-tile" href="URL_PLACEHOLDER_SM3" target="_blank" rel="noopener">
+        <span class="bssm-tile__fx" aria-hidden="true"></span><span class="bssm-tile__glass" aria-hidden="true"></span>
+        <span class="bssm-tile__top"><span class="bssm-tile__ico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><text x="20" y="23.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" fill="#fff">3.0</text></svg></span><span class="bssm-tile__side"><svg class="bssm-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg><span class="bssm-tile__soon">Скоро</span></span></span>
+        <span class="bssm-tile__name">СМ 3.0</span>
+      </a>
+    </div>
+  </section>
+</div>
+<script>
+(function () {
+  var tiles = document.querySelectorAll('.bssm-hub a.bssm-tile');
+  function soon(t) {
+    t.classList.add('bssm-is-soon');
+    t.setAttribute('aria-disabled', 'true');
+    t.setAttribute('tabindex', '-1');
+    t.addEventListener('click', function (e) { e.preventDefault(); });
+  }
+  for (var i = 0; i < tiles.length; i++) {
+    if ((tiles[i].getAttribute('href') || '').indexOf('URL_PLACEHOLDER') === 0) { soon(tiles[i]); }
+  }
+})();
+</script>
+
+<div class="pv-lbl">HTML-макрос 2 — открывающий div</div>
+<!-- HTML-МАКРОС 2: ОТКРЫВАЮЩИЙ DIV. Дальше — нативный макрос Content by Label, затем макрос 3 -->
+<div class="bssm-hub"><div class="bssm-cbylabel">
+
+<div class="pv-native">Нативный макрос "Содержимое по меткам" (вставляется вручную между макросами 2 и 3)</div>
+<div class="pv-lbl">HTML-макрос 3 — закрывающий div</div>
+</div></div>
+<style>.bssm-hub .bssm-cbylabel { font-size:14px !important; color:#1F2A33 !important; }</style>
+
+</div>
+<script>
+(function(){var c=document.getElementById('pv-col'),b=document.querySelectorAll('.pv-bar button');
+for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){c.style.width=this.getAttribute('data-w')+'px';for(var j=0;j<b.length;j++)b[j].setAttribute('aria-pressed',b[j]===this?'true':'false');});}})();
+</script></body></html>
