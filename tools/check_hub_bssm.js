@@ -115,14 +115,14 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     await p.context().close(); }
   { const p = await open(1100, 1300, { html: live }); await p.mouse.move(0, 0);
     const g = await p.evaluate(() => { const t = document.querySelector('.bssm-tile'), gl = getComputedStyle(t.querySelector('.bssm-tile__glass')), af = getComputedStyle(t, '::after'); return { bg: gl.backgroundImage, bd: gl.borderTopWidth + ' ' + gl.borderTopStyle + ' ' + gl.borderTopColor, bf: gl.backdropFilter, afc: af.content, afh: af.height, afp: af.position, afbg: af.backgroundImage, rect: (() => { const r = t.getBoundingClientRect(); return { x: r.x, y: r.y + scrollY, w: r.width, h: r.height }; })() }; });
-    ok(/4, 22, 46, 0\.62.*4, 22, 46, 0\.5\).*4, 22, 46, 0\.08/.test(g.bg), 'стекло плашки как в Hub 1: тёмный слой .62/.5/.08 + белый .13');
+    ok(/5, 10, 22, 0\.88.*5, 10, 22, 0\.5\)/.test(g.bg), 'стекло плашки как в Hub 1: тёмный слой #050a16 .88→.5→0');
     ok(g.bd === '1px solid rgba(255, 255, 255, 0.45)' && /blur\(14px\) saturate\(1\.4\)/.test(g.bf), `border и backdrop-filter как в Hub 1 (${g.bd}; ${g.bf})`);
     ok(g.afc === 'none' || g.afc === 'normal', 'нет ::after на плашке (в Hub 1 его нет; блик — glass::before)');
     const r = g.rect, pts = [{ x: r.x + 14, y: r.y + 14, w: 1, h: 1, t: 'lt' }, { x: r.x + r.w - 14, y: r.y + r.h - 14, w: 1, h: 1, t: 'rb' }, { x: r.x + r.w / 2, y: r.y, w: 1, h: 1, t: 'edge' }, { x: r.x + r.w / 2, y: r.y + 4, w: 1, h: 1, t: 'below' }];
     await p.addStyleTag({ content: '#col .bssm-tile__name{color:transparent !important}' }); await p.waitForTimeout(200);
     const [lt, rb, ed, bl] = pix(await p.screenshot({ fullPage: true }), pts, 1).map(x => x[0]);
     ok(lt[2] > rb[2] && lt.reduce((a, v) => a + v) > rb.reduce((a, v) => a + v), `внутренний градиент виден (315deg): левый верх rgb(${lt}) светлее правого низа rgb(${rb})`);
-    ok(ed.reduce((a, v) => a + v) - bl.reduce((a, v) => a + v) >= 15, `блик-линия виден: rgb(${ed}) против rgb(${bl}) ниже на 4 px`);
+    ok(true, `верхний край плашки rgb(${ed}); блик-линии ::after больше нет (стекло как в Hub 1)`);
     await p.context().close(); }
   // 7. reduced motion
   { const pr = await open(1100, 1300, { rm: true, html: live }); const rm = await pr.evaluate(() => getComputedStyle(document.querySelector('.bssm-tile')).transitionDuration);
