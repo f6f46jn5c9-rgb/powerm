@@ -12,20 +12,37 @@
 .vnesh-hub-hero .vnesh-hub-ico svg{display:block;fill:#fff}
 .vnesh-hub-hero h1.vnesh-hub-title{flex:1 1 auto;min-width:0;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:#c45e1a !important;letter-spacing:0 !important;text-transform:none !important}
 .vnesh-hub .vnesh-hub-line{display:block;height:3px;background:linear-gradient(90deg,#c45e1a,transparent)}
-.vnesh-hub-tiles-section{margin:0 !important;padding:28px 24px 36px !important;
-  background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(255,180,100,0.80) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(196,94,26,0.45) 0%,transparent 65%),linear-gradient(140deg,#0d0804 0%,#1a0e06 40%,#2d1a0a 72%,#c45e1a 100%) !important}
+.vnesh-hub-tiles-section{margin:0 !important;padding:24px 0 0 !important;background:none !important}
 .vnesh-hub-tiles-section h2.vnesh-hub-sr{position:absolute;width:1px;height:1px;margin:-1px !important;padding:0 !important;overflow:hidden;clip:rect(0 0 0 0);border:0 !important;white-space:nowrap}
-.vnesh-hub .vnesh-hub-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:0 !important;padding:0 !important;list-style:none}
-.vnesh-hub .vnesh-hub-grid>*{flex:0 0 calc((100% - 32px)/3);max-width:calc((100% - 32px)/3);min-width:0}
-.vnesh-hub .vnesh-hub-tile{display:block;margin:0 !important;background:rgba(255,255,255,0.08) !important;border:1px solid rgba(255,255,255,0.15) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:12px !important;padding:20px 24px !important;color:#fff !important;font-size:15px !important;font-weight:600 !important;line-height:1.3 !important;text-align:center;text-decoration:none !important;letter-spacing:normal !important;text-transform:none !important;transition:transform .2s,box-shadow .2s}
-.vnesh-hub a.vnesh-hub-tile:visited{color:#fff !important}
-.vnesh-hub a.vnesh-hub-tile:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
-.vnesh-hub a.vnesh-hub-tile:focus-visible{outline:3px solid #fff;outline-offset:3px}
-.vnesh-hub .vnesh-hub-tile--soon{opacity:.45;cursor:default}
-.vnesh-hub .vnesh-hub-soon{display:block;margin-top:6px;font-size:11px;font-weight:600;line-height:1.3;color:rgba(255,255,255,0.55)}
-@container vneshhub (max-width:599px){.vnesh-hub-tiles-section{padding:20px 16px 28px !important}.vnesh-hub .vnesh-hub-grid>*{flex:0 0 100%;max-width:100%}.vnesh-hub-hero h1.vnesh-hub-title{font-size:22px !important}}
-.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid>*{flex:0 0 100%;max-width:100%}
-@media (prefers-reduced-motion:reduce){.vnesh-hub .vnesh-hub-tile,.vnesh-hub-hero a.vnesh-hub-back{transition:none}.vnesh-hub a.vnesh-hub-tile:hover{transform:none}}
+.vnesh-hub .vnesh-hub-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin:0 !important;padding:0 !important}
+.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile{grid-column:span 2}
+.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(4),.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(5){grid-column:span 3}
+.vnesh-hub a.vnesh-hub-tile{position:relative !important;isolation:isolate;display:flex !important;flex-direction:column;justify-content:space-between;gap:14px;min-width:0;min-height:128px;margin:0 !important;padding:16px !important;border:0 !important;background:none !important;border-radius:16px;cursor:pointer;box-shadow:0 10px 26px rgba(196,94,26,.30),0 2px 6px rgba(40,20,5,.12);color:#fff !important;font-size:16px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;transition:transform .25s ease,box-shadow .25s ease}
+.vnesh-hub a.vnesh-hub-tile:visited,.vnesh-hub a.vnesh-hub-tile:active{color:#fff !important}
+.vnesh-hub .vnesh-hub-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;z-index:0;inset:0;display:block;overflow:hidden;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(255,180,100,0.88) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(196,94,26,0.52) 0%,transparent 65%),linear-gradient(140deg,#100803 0%,#1f1008 40%,#4a2410 72%,#c45e1a 100%) !important}
+.vnesh-hub .vnesh-hub-tile__glass{position:absolute;z-index:1;inset:0;display:block;overflow:hidden;margin:0 !important;padding:0 !important;border-radius:inherit;pointer-events:none;background:linear-gradient(0deg,rgba(14,7,3,.97) 0,rgba(14,7,3,.9) 40%,rgba(14,7,3,.2) 92%),linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.08)) !important;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,.45) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 0 26px rgba(255,255,255,.14);transition:border-color .25s ease}
+.vnesh-hub .vnesh-hub-tile__glass::before{content:"";position:absolute;inset:-14px;background:linear-gradient(135deg,rgba(255,255,255,.3) 0,rgba(255,255,255,0) 42%)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.vnesh-hub .vnesh-hub-tile__glass{background:linear-gradient(0deg,rgba(14,7,3,.97) 0,rgba(14,7,3,.9) 40%,rgba(14,7,3,.2) 92%),linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16)) !important}}
+.vnesh-hub a.vnesh-hub-tile[href]:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(196,94,26,.38),0 3px 8px rgba(40,20,5,.14)}
+.vnesh-hub a.vnesh-hub-tile[href]:hover .vnesh-hub-tile__glass{border-color:rgba(255,255,255,.85) !important}
+.vnesh-hub a.vnesh-hub-tile[href]:hover .vnesh-hub-tile__arrow{transform:translateX(4px);opacity:1}
+.vnesh-hub a.vnesh-hub-tile:focus-visible{outline:3px solid #9c470d;outline-offset:3px}
+.vnesh-hub a.vnesh-hub-tile--soon{cursor:default}
+.vnesh-hub a.vnesh-hub-tile--soon .vnesh-hub-tile__fx{opacity:.7}
+.vnesh-hub .vnesh-hub-tile__top{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.vnesh-hub .vnesh-hub-tile__ico{flex:0 0 auto;display:block;width:48px;height:48px;margin:0 !important;padding:0 !important;border:1px solid rgba(255,255,255,.5) !important;border-radius:50%;background:rgba(255,255,255,.18) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.vnesh-hub .vnesh-hub-tile__ico svg{display:block;width:46px;height:46px}
+.vnesh-hub .vnesh-hub-tile__side{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;text-align:right !important}
+.vnesh-hub .vnesh-hub-tile__arrow{display:block;width:24px;height:24px;margin:12px 0 0 auto !important;opacity:.9;transition:transform .25s ease,opacity .25s ease}
+.vnesh-hub a.vnesh-hub-tile--soon .vnesh-hub-tile__arrow{display:none}
+.vnesh-hub .vnesh-hub-tile__bot{position:relative;z-index:2;display:block;margin:0 !important;padding:0 !important}
+.vnesh-hub .vnesh-hub-tile__soon{display:none !important;margin:6px 0 0 !important;padding:0 !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#fff !important;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.vnesh-hub a.vnesh-hub-tile--soon .vnesh-hub-tile__soon{display:block !important}
+.vnesh-hub .vnesh-hub-tile__name{position:relative;z-index:2;display:block !important;margin:0 !important;padding:0 !important;font-size:16px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+@container vneshhub (max-width:599px){.vnesh-hub .vnesh-hub-grid{grid-template-columns:minmax(0,1fr)}.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile,.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(4),.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(5){grid-column:auto}.vnesh-hub-hero h1.vnesh-hub-title{font-size:22px !important}.vnesh-hub a.vnesh-hub-tile{padding:12px !important;min-height:116px}.vnesh-hub .vnesh-hub-tile__ico{width:40px;height:40px}.vnesh-hub .vnesh-hub-tile__ico svg{width:38px;height:38px}}
+.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid{grid-template-columns:minmax(0,1fr)}
+.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid>a.vnesh-hub-tile,.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(n){grid-column:auto}
+@media (prefers-reduced-motion:reduce){.vnesh-hub a.vnesh-hub-tile,.vnesh-hub-hero a.vnesh-hub-back{transition:none !important;animation:none !important}.vnesh-hub .vnesh-hub-tile__glass,.vnesh-hub .vnesh-hub-tile__arrow{transition:none !important}.vnesh-hub a.vnesh-hub-tile:hover,.vnesh-hub a.vnesh-hub-tile:hover .vnesh-hub-tile__arrow{transform:none !important}}
 </style>
 <div class="vnesh-hub" id="vnesh-hub-root">
   <div class="vnesh-hub-hero">
@@ -39,11 +56,31 @@
   <nav class="vnesh-hub-tiles-section" aria-label="Внешние практики">
     <h2 class="vnesh-hub-sr">Разделы</h2>
     <div class="vnesh-hub-grid">
-      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">ТМХ АО "Метровагонмаш"<span class="vnesh-hub-soon">Скоро</span></div>
-      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">АО "Армалит"<span class="vnesh-hub-soon">Скоро</span></div>
-      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">ОМК, Выксунский завод<span class="vnesh-hub-soon">Скоро</span></div>
-      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">Проект РЭЦЦА/Всемирного банка<span class="vnesh-hub-soon">Скоро</span></div>
-      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">Цифровая трансформация<span class="vnesh-hub-soon">Скоро</span></div>
+      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+        <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
+        <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="12" y="13" width="24" height="18" rx="4"/><path d="M12 24h24M18 36l-3 4M30 36l3 4M16 31h.01M32 31h.01"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
+        <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">ТМХ АО "Метровагонмаш"</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
+      </a>
+      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+        <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
+        <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M24 11l10 6v12l-10 6-10-6V17z"/><circle cx="24" cy="23" r="4"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
+        <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">АО "Армалит"</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
+      </a>
+      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+        <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
+        <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M11 37V20l9 5v-5l9 5v-5l8 4v13z"/><path d="M15 37v-4M24 37v-4M33 37v-4"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
+        <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">ОМК, Выксунский завод</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
+      </a>
+      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+        <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
+        <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="24" cy="24" r="12"/><path d="M12 24h24M24 12c-4 4-4 20 0 24M24 12c4 4 4 20 0 24"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
+        <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">Проект РЭЦЦА/Всемирного банка</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
+      </a>
+      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+        <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
+        <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="16" y="16" width="16" height="16" rx="2"/><rect x="21" y="21" width="6" height="6"/><path d="M20 12v4M28 12v4M20 32v4M28 32v4M12 20h4M12 28h4M32 20h4M32 28h4"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
+        <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">Цифровая трансформация</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
+      </a>
     </div>
   </nav>
 </div>

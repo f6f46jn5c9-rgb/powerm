@@ -8,13 +8,13 @@ pages = dict(re.findall(r"(\w+)\s*:\s*'([^']*)'", js))
 src = (R / 'src/vnesh/vnesh-hub.html').read_text(encoding='utf-8')
 
 def tile(m):
-    key, name = m.group(1), m.group(2)
+    key = m.group(1)
     url = pages.get(key, '')
     if url:
-        return f'<a class="vnesh-hub-tile" href="{html.escape(url, quote=True)}" target="_blank" rel="noopener">{name}</a>'
-    return f'<div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">{name}<span class="vnesh-hub-soon">Скоро</span></div>'
+        return f'<a class="vnesh-hub-tile" href="{html.escape(url, quote=True)}" target="_blank" rel="noopener"'
+    return '<a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true"'
 
-out = re.sub(r'<div class="vnesh-hub-tile" data-key="(\w+)">(.*?)</div>', tile, out := src)
+out = re.sub(r'<a class="vnesh-hub-tile" data-key="(\w+)"', tile, src)
 out = re.sub(r'\{\{(\w+)\}\}', lambda m: html.escape(pages[m.group(1)], quote=True), out)
 dst = R / 'dist/vnesh-hub.html'
 dst.write_text(out, encoding='utf-8')
