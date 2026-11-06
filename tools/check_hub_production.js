@@ -21,8 +21,8 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
     const pg = await open(w, vw);
     const r = await pg.evaluate(() => {
       const col = document.getElementById('col'), cw = col.getBoundingClientRect().width;
-      const over = []; col.querySelectorAll('*').forEach(e => { const b = e.getBoundingClientRect(); if (b.width && (b.right > cw + 0.5 || b.left < -0.5) && !e.closest('.sm-prod-suzhety__fx,.sm-prod-suzhety__glass,svg,.sm-prod-cta a::before')) over.push(e.className || e.tagName); });
-      const clip = []; col.querySelectorAll('h2,h3,p,.sm-prod-suzhety__name,.sm-prod-areas__stub,.sm-prod-cta__title,.sm-prod-cta__hint').forEach(e => { if (e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1) clip.push(e.className + ':' + e.textContent.slice(0, 20)); });
+      const over = []; col.querySelectorAll('*').forEach(e => { const b = e.getBoundingClientRect(); if (b.width && (b.right > cw + 0.5 || b.left < -0.5) && !e.closest('.sm-prod-suzhety__fx,.sm-prod-suzhety__glass,svg')) over.push(e.className || e.tagName); });
+      const clip = []; col.querySelectorAll('h2,h3,p,a.sm-prod-hero__back,.sm-prod-suzhety__name,.sm-prod-areas__stub').forEach(e => { if (e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1) clip.push(e.className + ':' + e.textContent.slice(0, 20)); });
       const cols = getComputedStyle(document.querySelector('.sm-prod-suzhety__grid')).gridTemplateColumns.split(' ').length;
       const acols = getComputedStyle(document.querySelector('.sm-prod-areas__grid')).gridTemplateColumns.split(' ').length;
       const stubs = [...document.querySelectorAll('.sm-prod-areas__stub')].map(e => { const b = e.getBoundingClientRect(); return b.width > 100 && b.height > 20; });
@@ -33,7 +33,7 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
     ok(!r.clip.length, `${w}px: текст не обрезан ${r.clip.slice(0, 3)}`);
     ok(r.cols === (w >= 700 ? 3 : 2) && r.acols === (w >= 700 ? 2 : 1), `${w}px: колонки сюжетов ${r.cols}, площадок ${r.acols}`);
     ok(r.stubsVisible, `${w}px: заглушки видны`);
-    console.log('     высоты плашек', r.tiles.join(','));
+    ok(r.tiles.every(h => h === 110), `${w}px: высота плашек 110 (${r.tiles.join(',')})`);
     await pg.context().close();
   }
   // основной прогон 1100
@@ -52,7 +52,7 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
   for (const [c, t] of res) { const k = cr([255, 255, 255], c); if (k < worst) { worst = k; worstT = t + ' rgb ' + c; } }
   ok(worst >= 4.5, `контраст белого названия на плашках, худший пиксель ${worst.toFixed(2)}:1 (${worstT})`);
   // расчётные контрасты палитры
-  const pairs = [['#0a5f5e', '#ffffff', 'заголовок-градиент (светлый край #0e7c7b)'], ['#0e7c7b', '#ffffff', 'градиент заголовка'], ['#6b7280', '#ffffff', 'подзаголовок/«Сюжеты»'], ['#6b7280', '#f7f9fb', 'заглушка'], ['#1a2a5e', '#ffffff', 'заголовки'], ['#4a5a85', '#f1f6fb', 'подсказка CTA'], ['#0a5f5e', '#f7f9fb', 'тег в заглушке']];
+  const pairs = [['#0a5f5e', '#ffffff', 'заголовок-градиент (тёмный край)'], ['#0e7c7b', '#ffffff', 'градиент заголовка (hub-accent)'], ['#6b7280', '#ffffff', 'крошка ← БУП'], ['#6b7280', '#ffffff', 'подзаголовок/«Сюжеты»'], ['#6b7280', '#f7f9fb', 'заглушка'], ['#1a2a5e', '#ffffff', 'заголовки'], ['#0a5f5e', '#f7f9fb', 'тег в заглушке']];
   const hx = s => [1, 3, 5].map(i => parseInt(s.slice(i, i + 2), 16));
   pairs.forEach(([f, bg, n]) => ok(cr(hx(f), hx(bg)) >= 4.5, `контраст ${f} на ${bg} = ${cr(hx(f), hx(bg)).toFixed(2)}:1 (${n})`));
   // hover
@@ -60,30 +60,27 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
   const th = await pg.evaluate(() => { const t = document.querySelector('.sm-prod-suzhety__tile'); return { tr: getComputedStyle(t).transform, sh: getComputedStyle(t).boxShadow, ar: getComputedStyle(t.querySelector('.sm-prod-suzhety__arrow')).transform }; });
   ok(/matrix\(1, 0, 0, 1, 0, -3\)/.test(th.tr), 'hover плашки: подъём -3px (' + th.tr + ')');
   ok(/matrix\(1, 0, 0, 1, 4, 0\)/.test(th.ar), 'hover плашки: стрелка +4px');
-  const btn = pg.locator('.sm-prod-cta__btn'); await btn.scrollIntoViewIfNeeded(); await btn.hover(); await pg.waitForTimeout(450);
-  const ch = await pg.evaluate(() => { const a = document.querySelector('.sm-prod-cta__btn'); return { tr: getComputedStyle(a).transform, sh: getComputedStyle(a).boxShadow, ar: getComputedStyle(a.querySelector('.sm-prod-cta__arrow')).transform }; });
-  ok(/matrix\(1, 0, 0, 1, 0, -3\)/.test(ch.tr) && /30px/.test(ch.sh), 'hover CTA: подъём + тень (' + ch.tr + ')');
-  ok(/matrix\(1, 0, 0, 1, 5, 0\)/.test(ch.ar), 'hover CTA: стрелка +5px');
   // курсор, backdrop, фокус, ссылки
   const m = await pg.evaluate(() => {
     const cur = []; document.querySelectorAll('#col *').forEach(e => { if (getComputedStyle(e).cursor === 'pointer' && !e.closest('a')) cur.push(e.className || e.tagName); });
     const g = getComputedStyle(document.querySelector('.sm-prod-suzhety__glass'));
     const links = [...document.querySelectorAll('a')].map(a => [a.getAttribute('href'), a.target]);
-    return { cur, bf: g.backdropFilter || g.webkitBackdropFilter, links, svgHidden: [...document.querySelectorAll('svg')].every(s => s.getAttribute('aria-hidden') === 'true'), title: getComputedStyle(document.querySelector('.sm-prod-hero__title')).webkitTextFillColor, fs: getComputedStyle(document.querySelector('.sm-prod-hero__title')).fontSize };
+    return { cur, bf: g.backdropFilter || g.webkitBackdropFilter, links, svgHidden: [...document.querySelectorAll('svg')].every(s => s.getAttribute('aria-hidden') === 'true'), title: getComputedStyle(document.querySelector('.sm-prod-hero__title')).webkitTextFillColor, fs: getComputedStyle(document.querySelector('.sm-prod-hero__title')).fontSize, sizes: (() => { const g = (q, p) => getComputedStyle(document.querySelector(q))[p]; const i = document.querySelector('.sm-prod-hero__ico').getBoundingClientRect(); return { ico: Math.round(i.width) + 'x' + Math.round(i.height), back: g('.sm-prod-hero__back', 'fontSize'), sub: g('.sm-prod-hero__sub', 'fontSize'), line: g('.sm-prod-hero__line', 'height'), name: g('.sm-prod-suzhety__name', 'fontSize'), lab: g('.sm-prod-suzhety__title', 'fontSize'), at: g('.sm-prod-areas__title', 'fontSize'), an: g('.sm-prod-areas__name', 'fontSize') }; })() };
   });
   ok(!m.cur.length, 'cursor:pointer только у ссылок ' + m.cur.slice(0, 3));
   ok(/blur\(14px\)/.test(m.bf), 'backdrop-filter в Chromium: ' + m.bf);
-  ok(m.links.length === 7 && m.links.every(l => l[1] === '_blank'), 'ссылок 7, все target=_blank');
-  ok(m.links[6][0] === 'https://allforms.severstal.com/passing/787f04af-5596-4227-96df-f37d6604ec30', 'URL формы точный');
-  ok(m.fs === '30px', 'размер заголовка 30px');
-  await pg.keyboard.press('Tab'); await pg.keyboard.press('Tab');
+  ok(m.links.length === 7 && m.links.slice(1).every(l => l[1] === '_blank'), 'ссылок 7 (крошка + 6 плашек), плашки target=_blank');
+  ok(m.links[0][0] === 'URL_PLACEHOLDER_STARTOVAYA', 'крошка → URL_PLACEHOLDER_STARTOVAYA');
+  ok(m.fs === '26px', 'размер заголовка 26px');
+  ok(m.sizes.ico === '44x44' && m.sizes.back === '13px' && m.sizes.sub === '14px' && m.sizes.line === '4px' && m.sizes.name === '15px' && m.sizes.lab === '11px' && m.sizes.at === '20px' && m.sizes.an === '15px', 'размеры по ТЗ ' + JSON.stringify(m.sizes));
+  await pg.keyboard.press('Tab');
   const fo = await pg.evaluate(() => { const e = document.activeElement; return getComputedStyle(e).outlineStyle + ' ' + getComputedStyle(e).outlineWidth + ' ' + e.className; });
   ok(/solid 3px/.test(fo), 'focus-visible: ' + fo);
   await pg.screenshot({ path: path.join(R, 'tools/_hub_tile.png'), clip: { x: 0, y: 0, width: 10, height: 10 } }).catch(() => {});
   await pg.context().close();
   // reduced motion
   const rm = await open(1100, 1300, { rm: true });
-  const an = await rm.evaluate(() => [...document.querySelectorAll('.sm-prod-suzhety__tile,.sm-prod-cta__btn')].map(e => getComputedStyle(e).animationName));
+  const an = await rm.evaluate(() => [...document.querySelectorAll('.sm-prod-suzhety__tile')].map(e => getComputedStyle(e).animationName));
   ok(an.every(n => n === 'none'), 'prefers-reduced-motion: анимации входа выключены (' + [...new Set(an)] + ')');
   await rm.context().close();
   ok(!reqs.length, 'внешние запросы: ' + (reqs.length ? reqs.join(',') : 'нет'));

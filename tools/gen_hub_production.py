@@ -1,4 +1,4 @@
-"""Генератор src/hub-production.html (4 блока в одном файле). Запуск: python3 tools/gen_hub_production.py
+"""Генератор src/hub-production.html (3 блока в одном файле). Запуск: python3 tools/gen_hub_production.py
 Источник правды — этот шаблон; сборка (tools/build_hub_production.py) копирует src -> dist и проверяет размер."""
 import pathlib
 R = pathlib.Path(__file__).resolve().parent.parent
@@ -6,7 +6,7 @@ R = pathlib.Path(__file__).resolve().parent.parent
 FONT = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif'
 def svg(p, w, sw='1.7'):
     return f'<svg width="{w}" height="{w}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{p}</svg>'
-ARROW = '<svg class="sm-prod-suzhety__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg>'
+ARROW = '<svg class="sm-prod-suzhety__arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg>'
 
 GEAR = '<circle cx="12" cy="12" r="3"/><path d="M12 2.5l1.5 2.4 2.7-.7.8 2.7 2.7.8-.7 2.7 2.4 1.5-2.4 1.5.7 2.7-2.7.8-.8 2.7-2.7-.7L12 21.5l-1.5-2.4-2.7.7-.8-2.7-2.7-.8.7-2.7L2.6 12l2.4-1.5-.7-2.7 2.7-.8.8-2.7 2.7.7z"/>'
 ICON = {
@@ -28,31 +28,34 @@ TILES = [
  ('Фабрика идей','URL_PLACEHOLDER_ИДЕИ','bulb','#4a9e96','#0e7c7b','#0a5f5e',' sm-prod-suzhety__tile--span2'),
  ('Все практики раздела','URL_PLACEHOLDER_ВСЕ','list','#2b4fa8','#1a2a5e','#0e2255',' sm-prod-suzhety__tile--all'),
 ]
+VARS_ = '--hub-accent:#0e7c7b;--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-muted:#6b7280;--sm-border:#e7e9f0;'
 AREAS = [('ЛМЗ','лмз'),('ЛМЗ ТАГ','таг'),('ЛМЗ ПТЛ','птл'),('Электросила (ЭЛС)','элс'),('КТЗ','ктз'),('ТКЗ','ткз'),('Реостат','реостат')]
-FORM = 'https://allforms.severstal.com/passing/787f04af-5596-4227-96df-f37d6604ec30'
 
 def block1():
     return f'''<!-- БЛОК 1 -->
 <style>
-.sm-prod-hero{{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-muted:#6b7280;--sm-border:#e7e9f0;
-  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;font-family:{FONT};line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
+.sm-prod-hero{{{VARS_}
+  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 20px !important;padding:0 !important;font-family:{FONT};line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
 .sm-prod-hero *,.sm-prod-hero *::before,.sm-prod-hero *::after{{box-sizing:border-box}}
-.sm-prod-hero .sm-prod-hero__row{{display:flex;align-items:center;gap:18px;padding:0 0 18px !important}}
-.sm-prod-hero .sm-prod-hero__ico{{flex:0 0 auto;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;
-  background:linear-gradient(135deg,#0e7c7b,#1a2a5e);box-shadow:0 6px 16px rgba(26,42,94,.22)}}
+.sm-prod-hero a.sm-prod-hero__back{{display:inline-block;margin:0 0 16px !important;padding:2px 0 !important;font-size:13px !important;line-height:1.3 !important;color:var(--sm-muted) !important;text-decoration:none !important;border-radius:3px;transition:color .2s ease}}
+.sm-prod-hero a.sm-prod-hero__back:visited{{color:var(--sm-muted) !important}}
+.sm-prod-hero a.sm-prod-hero__back:hover{{color:var(--sm-navy-dark) !important;text-decoration:underline !important}}
+.sm-prod-hero a.sm-prod-hero__back:focus-visible{{outline:3px solid var(--sm-navy-dark);outline-offset:3px}}
+.sm-prod-hero .sm-prod-hero__row{{display:flex;align-items:center;gap:14px;padding:0 0 14px !important}}
+.sm-prod-hero .sm-prod-hero__ico{{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;
+  background:linear-gradient(135deg,var(--hub-accent),var(--sm-navy-dark));box-shadow:0 5px 14px rgba(26,42,94,.22)}}
 .sm-prod-hero .sm-prod-hero__ico svg{{display:block}}
 .sm-prod-hero .sm-prod-hero__txt{{flex:1 1 auto;min-width:0}}
-.sm-prod-hero h2.sm-prod-hero__title{{margin:0 0 4px !important;padding:0 !important;border:0 !important;background:none;font-size:30px !important;font-weight:800 !important;line-height:1.15 !important;color:#1a2a5e !important;letter-spacing:0 !important;text-transform:none !important}}
+.sm-prod-hero h2.sm-prod-hero__title{{margin:0 0 3px !important;padding:0 !important;border:0 !important;background:none;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:var(--sm-navy-dark) !important;letter-spacing:0 !important;text-transform:none !important}}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){{
- .sm-prod-hero h2.sm-prod-hero__title{{background-image:linear-gradient(135deg,#0a5f5e,#0e7c7b) !important;background-color:transparent !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;display:block;width:fit-content;max-width:100%}}}}
-.sm-prod-hero p.sm-prod-hero__sub{{margin:0 !important;padding:0 !important;font-size:15px !important;line-height:1.4 !important;color:#6b7280 !important}}
-.sm-prod-hero .sm-prod-hero__line{{display:block;height:5px;border-radius:3px;background:linear-gradient(90deg,#0a5f5e,#0e7c7b 35%,#35b8b3 70%,rgba(53,184,179,0))}}
-@container smprodhero (max-width:479px){{.sm-prod-hero .sm-prod-hero__row{{gap:14px}}.sm-prod-hero .sm-prod-hero__ico{{width:48px;height:48px}}.sm-prod-hero .sm-prod-hero__ico svg{{width:28px;height:28px}}.sm-prod-hero h2.sm-prod-hero__title{{font-size:26px !important}}}}
-@supports not (container-type:inline-size){{@media (max-width:479px){{.sm-prod-hero h2.sm-prod-hero__title{{font-size:26px !important}}}}}}
+ .sm-prod-hero h2.sm-prod-hero__title{{background-image:linear-gradient(135deg,var(--sm-teal-dark),var(--hub-accent)) !important;background-color:transparent !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;display:block;width:fit-content;max-width:100%}}}}
+.sm-prod-hero p.sm-prod-hero__sub{{margin:0 !important;padding:0 !important;font-size:14px !important;line-height:1.4 !important;color:var(--sm-muted) !important}}
+.sm-prod-hero .sm-prod-hero__line{{display:block;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--sm-teal-dark),var(--sm-teal) 35%,#35b8b3 70%,rgba(53,184,179,0))}}
 </style>
-<div class="sm-prod-hero" style="container-type:inline-size;container-name:smprodhero">
+<div class="sm-prod-hero">
+  <a class="sm-prod-hero__back" href="URL_PLACEHOLDER_STARTOVAYA" aria-label="Назад к стартовой странице Базы успешных практик">&larr; БУП</a>
   <div class="sm-prod-hero__row">
-    <span class="sm-prod-hero__ico" aria-hidden="true">{svg(GEAR,32,'1.7')}</span>
+    <span class="sm-prod-hero__ico" aria-hidden="true">{svg(GEAR,26,'1.7')}</span>
     <div class="sm-prod-hero__txt">
       <h2 class="sm-prod-hero__title">Производство</h2>
       <p class="sm-prod-hero__sub">Лучшие практики производственных площадок Силовых машин</p>
@@ -67,42 +70,43 @@ def block2():
     for i,(t,u,ic,c1,c2,c3,cls) in enumerate(TILES):
         tiles += f'''    <a class="sm-prod-suzhety__tile{cls}" href="{u}" target="_blank" rel="noopener" style="--i:{i};--c1:{c1};--c2:{c2};--c3:{c3}" aria-label="{t}">
       <span class="sm-prod-suzhety__fx" aria-hidden="true"></span><span class="sm-prod-suzhety__glass" aria-hidden="true"></span>
-      <span class="sm-prod-suzhety__top"><span class="sm-prod-suzhety__ico">{svg(ICON[ic],28)}</span>{ARROW}</span>
+      <span class="sm-prod-suzhety__top"><span class="sm-prod-suzhety__ico">{svg(ICON[ic],22)}</span>{ARROW}</span>
       <span class="sm-prod-suzhety__name">{t}</span>
     </a>
 '''
     return f'''<!-- БЛОК 2 -->
 <style>
-.sm-prod-suzhety{{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-muted:#6b7280;--sm-border:#e7e9f0;
-  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 28px !important;padding:0 !important;container-type:inline-size;container-name:smprodsuz;font-family:{FONT};line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
+.sm-prod-suzhety{{--hub-accent:#0e7c7b;--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-muted:#6b7280;--sm-border:#e7e9f0;
+  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:smprodsuz;font-family:{FONT};line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
 .sm-prod-suzhety *,.sm-prod-suzhety *::before,.sm-prod-suzhety *::after{{box-sizing:border-box}}
-.sm-prod-suzhety h2.sm-prod-suzhety__title{{margin:0 0 12px !important;padding:0 !important;border:0 !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#6b7280 !important;text-transform:uppercase !important;letter-spacing:.06em !important}}
+.sm-prod-suzhety h2.sm-prod-suzhety__title{{margin:0 0 12px !important;padding:0 !important;border:0 !important;font-size:11px !important;font-weight:600 !important;line-height:1.3 !important;color:var(--sm-muted) !important;text-transform:uppercase !important;letter-spacing:.08em !important}}
 .sm-prod-suzhety .sm-prod-suzhety__grid{{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}}
-.sm-prod-suzhety a.sm-prod-suzhety__tile{{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:128px;min-width:0;padding:16px !important;border-radius:16px;
+.sm-prod-suzhety a.sm-prod-suzhety__tile{{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between;gap:8px;height:110px;min-width:0;padding:14px 16px !important;border-radius:16px;
   color:#fff !important;text-decoration:none !important;background:linear-gradient(200deg,var(--c1) 0%,var(--c2) 38%,var(--c3) 100%);
-  box-shadow:0 10px 26px rgba(10,95,94,.30),0 2px 6px rgba(26,42,94,.12);animation:sm-prod-in .5s ease backwards;animation-delay:calc(var(--i) * 45ms);transition:transform .25s ease,box-shadow .25s ease}}
+  box-shadow:0 8px 20px rgba(10,95,94,.28),0 2px 6px rgba(26,42,94,.12);animation:sm-prod-in .5s ease backwards;animation-delay:calc(var(--i) * 45ms);transition:transform .25s ease,box-shadow .25s ease}}
 .sm-prod-suzhety a.sm-prod-suzhety__tile--span2,.sm-prod-suzhety a.sm-prod-suzhety__tile--all{{grid-column:1 / -1}}
 .sm-prod-suzhety a.sm-prod-suzhety__tile:visited{{color:#fff !important}}
 .sm-prod-suzhety .sm-prod-suzhety__fx{{position:absolute;z-index:0;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}}
 .sm-prod-suzhety .sm-prod-suzhety__fx::before{{content:"";position:absolute;inset:-24px;filter:blur(8px);
-  background:radial-gradient(circle at 88% 10%,rgba(160,255,236,.75) 0,transparent 42%),radial-gradient(circle at 8% 46%,rgba(40,205,195,.55) 0,transparent 36%),radial-gradient(circle at 94% 40%,rgba(120,205,255,.42) 0,transparent 32%)}}
+  background:radial-gradient(circle at 88% 10%,rgba(160,255,236,.75) 0,transparent 42%),radial-gradient(circle at 8% 46%,rgba(40,205,195,.55) 0,transparent 36%),radial-gradient(circle at 94% 40%,rgba(120,205,255,.42) 0,transparent 32%);
+  background:radial-gradient(circle at 88% 10%,color-mix(in srgb,var(--hub-accent) 35%,#fff) 0,transparent 42%),radial-gradient(circle at 8% 46%,color-mix(in srgb,var(--hub-accent) 70%,#fff) 0,transparent 36%),radial-gradient(circle at 94% 40%,color-mix(in srgb,var(--hub-accent) 45%,#9fd8ff) 0,transparent 32%)}}
 .sm-prod-suzhety .sm-prod-suzhety__glass{{position:absolute;z-index:1;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none;
-  background:linear-gradient(0deg,rgba(4,22,46,.62) 0,rgba(4,22,46,.5) 50%,rgba(4,22,46,.08) 92%),linear-gradient(rgba(255,255,255,.13),rgba(255,255,255,.13));-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
+  background:linear-gradient(0deg,rgba(4,22,46,.74) 0,rgba(4,22,46,.62) 55%,rgba(4,22,46,.12) 100%),linear-gradient(rgba(255,255,255,.13),rgba(255,255,255,.13));-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
   border:1px solid rgba(255,255,255,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 0 26px rgba(255,255,255,.14);transition:border-color .25s ease}}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){{.sm-prod-suzhety .sm-prod-suzhety__glass{{background:linear-gradient(0deg,rgba(4,22,46,.62) 0,rgba(4,22,46,.5) 50%,rgba(4,22,46,.08) 92%),linear-gradient(rgba(255,255,255,.24),rgba(255,255,255,.24))}}}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){{.sm-prod-suzhety .sm-prod-suzhety__glass{{background:linear-gradient(0deg,rgba(4,22,46,.74) 0,rgba(4,22,46,.62) 55%,rgba(4,22,46,.12) 100%),linear-gradient(rgba(255,255,255,.24),rgba(255,255,255,.24))}}}}
 .sm-prod-suzhety .sm-prod-suzhety__glass::before{{content:"";position:absolute;inset:-14px;background:linear-gradient(135deg,rgba(255,255,255,.3) 0,rgba(255,255,255,0) 42%)}}
 .sm-prod-suzhety a.sm-prod-suzhety__tile:hover{{transform:translateY(-3px);box-shadow:0 16px 32px rgba(10,95,94,.38),0 3px 8px rgba(26,42,94,.14)}}
 .sm-prod-suzhety a.sm-prod-suzhety__tile:hover .sm-prod-suzhety__glass{{border-color:rgba(255,255,255,.85)}}
 .sm-prod-suzhety a.sm-prod-suzhety__tile:focus-visible{{outline:3px solid #1a2a5e;outline-offset:3px}}
 .sm-prod-suzhety .sm-prod-suzhety__top{{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:8px}}
-.sm-prod-suzhety .sm-prod-suzhety__ico{{flex:0 0 auto;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}}
+.sm-prod-suzhety .sm-prod-suzhety__ico{{flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}}
 .sm-prod-suzhety .sm-prod-suzhety__ico svg{{display:block}}
 .sm-prod-suzhety .sm-prod-suzhety__arrow{{flex:0 0 auto;display:block;opacity:.9;transition:transform .25s ease,opacity .25s ease}}
 .sm-prod-suzhety a.sm-prod-suzhety__tile:hover .sm-prod-suzhety__arrow{{transform:translateX(4px);opacity:1}}
-.sm-prod-suzhety .sm-prod-suzhety__name{{position:relative;z-index:2;display:block;margin:0 !important;font-size:16px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;text-shadow:0 1px 2px rgba(0,0,0,.3);word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
+.sm-prod-suzhety .sm-prod-suzhety__name{{position:relative;z-index:2;display:block;margin:0 !important;font-size:15px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;text-shadow:0 1px 2px rgba(0,0,0,.3);word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
 @keyframes sm-prod-in{{from{{opacity:0;transform:translateY(8px)}}}}
 @container smprodsuz (min-width:700px){{.sm-prod-suzhety .sm-prod-suzhety__grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}.sm-prod-suzhety a.sm-prod-suzhety__tile--span2{{grid-column:span 2}}.sm-prod-suzhety a.sm-prod-suzhety__tile--all{{grid-column:1 / -1}}}}
-@container smprodsuz (max-width:459px){{.sm-prod-suzhety .sm-prod-suzhety__grid{{gap:10px}}.sm-prod-suzhety a.sm-prod-suzhety__tile{{padding:12px !important;min-height:116px}}.sm-prod-suzhety .sm-prod-suzhety__ico{{width:40px;height:40px}}}}
+@container smprodsuz (max-width:459px){{.sm-prod-suzhety .sm-prod-suzhety__grid{{gap:10px}}.sm-prod-suzhety a.sm-prod-suzhety__tile{{padding:12px !important}}}}
 @supports not (container-type:inline-size){{@media (min-width:700px){{.sm-prod-suzhety .sm-prod-suzhety__grid{{grid-template-columns:repeat(3,minmax(0,1fr))}}.sm-prod-suzhety a.sm-prod-suzhety__tile--span2{{grid-column:span 2}}}}}}
 @media (prefers-reduced-motion:reduce){{.sm-prod-suzhety a.sm-prod-suzhety__tile{{animation:none;transition:none}}.sm-prod-suzhety .sm-prod-suzhety__glass,.sm-prod-suzhety .sm-prod-suzhety__arrow{{transition:none}}.sm-prod-suzhety a.sm-prod-suzhety__tile:hover{{transform:none}}.sm-prod-suzhety a.sm-prod-suzhety__tile:hover .sm-prod-suzhety__arrow{{transform:none}}}}
 </style>
@@ -123,14 +127,14 @@ def block3():
 '''
     return f'''<!-- БЛОК 3 -->
 <style>
-.sm-prod-areas{{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-muted:#6b7280;--sm-border:#e7e9f0;
-  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 28px !important;padding:0 !important;container-type:inline-size;container-name:smprodarea;font-family:{FONT};line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
+.sm-prod-areas{{--hub-accent:#0e7c7b;--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-muted:#6b7280;--sm-border:#e7e9f0;
+  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 !important;padding:0 !important;container-type:inline-size;container-name:smprodarea;font-family:{FONT};line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
 .sm-prod-areas *,.sm-prod-areas *::before,.sm-prod-areas *::after{{box-sizing:border-box}}
-.sm-prod-areas h2.sm-prod-areas__title{{margin:0 0 16px !important;padding:0 !important;border:0 !important;font-size:22px !important;font-weight:700 !important;line-height:1.25 !important;color:#1a2a5e !important}}
+.sm-prod-areas h2.sm-prod-areas__title{{margin:0 0 16px !important;padding:0 !important;border:0 !important;font-size:20px !important;font-weight:700 !important;line-height:1.25 !important;color:var(--sm-navy-dark) !important}}
 .sm-prod-areas .sm-prod-areas__grid{{display:grid;gap:20px 24px;grid-template-columns:minmax(0,1fr)}}
 .sm-prod-areas .sm-prod-areas__cell{{min-width:0;margin:0 !important;padding:0 !important}}
-.sm-prod-areas h3.sm-prod-areas__name{{margin:0 0 10px !important;padding:0 0 0 12px !important;border:0 !important;border-left:3px solid #0e7c7b !important;font-size:16px !important;font-weight:700 !important;line-height:1.3 !important;color:#1a2a5e !important}}
-.sm-prod-areas .sm-prod-areas__stub{{margin:0 !important;background:#f7f9fb;border:1.5px dashed #0e7c7b;border-radius:8px;padding:12px 16px !important;font-size:13px !important;line-height:1.4 !important;color:#6b7280 !important;font-style:italic}}
+.sm-prod-areas h3.sm-prod-areas__name{{margin:0 0 10px !important;padding:0 0 0 12px !important;border:0 !important;border-left:3px solid var(--hub-accent) !important;font-size:15px !important;font-weight:700 !important;line-height:1.3 !important;color:var(--sm-navy-dark) !important}}
+.sm-prod-areas .sm-prod-areas__stub{{margin:0 !important;background:#f7f9fb;border:1.5px dashed var(--hub-accent);border-radius:8px;padding:12px 16px !important;font-size:13px !important;line-height:1.4 !important;color:var(--sm-muted) !important;font-style:italic}}
 .sm-prod-areas .sm-prod-areas__stub b{{font-weight:700;font-style:normal;color:#0a5f5e !important}}
 @container smprodarea (min-width:700px){{.sm-prod-areas .sm-prod-areas__grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 @supports not (container-type:inline-size){{@media (min-width:700px){{.sm-prod-areas .sm-prod-areas__grid{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}}}
@@ -142,44 +146,6 @@ def block3():
 </section>
 '''
 
-def block4():
-    return f'''<!-- БЛОК 4 -->
-<style>
-.sm-prod-cta{{--sm-navy-dark:#1a2a5e;--sm-teal:#0e7c7b;--sm-teal-dark:#0a5f5e;--sm-teal-light:#e6f4f3;--sm-muted:#6b7280;--sm-border:#e7e9f0;
-  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 !important;padding:0 !important;container-type:inline-size;container-name:smprodcta;font-family:{FONT};line-height:1.3}}
-.sm-prod-cta *,.sm-prod-cta *::before,.sm-prod-cta *::after{{box-sizing:border-box}}
-.sm-prod-cta a.sm-prod-cta__btn{{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;width:100%;min-height:96px;padding:18px 20px !important;
-  border:1.5px solid transparent;border-radius:16px;text-decoration:none !important;color:#1a2a5e !important;
-  background:linear-gradient(135deg,#fff 0%,#f1f6fb 100%) padding-box,linear-gradient(135deg,#1a2a5e,#0e7c7b) border-box;
-  box-shadow:0 6px 22px rgba(20,84,108,.22);transition:transform .2s ease,box-shadow .25s ease;animation:sm-prod-cta-in .5s ease backwards}}
-.sm-prod-cta a.sm-prod-cta__btn:visited{{color:#1a2a5e !important}}
-.sm-prod-cta a.sm-prod-cta__btn::before{{content:"";position:absolute;top:-40px;right:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(14,124,123,.10),transparent 70%);pointer-events:none}}
-.sm-prod-cta a.sm-prod-cta__btn:hover{{transform:translateY(-3px);box-shadow:0 10px 30px rgba(20,84,108,.36)}}
-.sm-prod-cta a.sm-prod-cta__btn:focus-visible{{outline:3px solid #1a2a5e;outline-offset:3px}}
-.sm-prod-cta .sm-prod-cta__icon{{position:relative;flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(26,42,94,.16),rgba(14,124,123,.16));border:1px solid rgba(26,70,120,.35);color:#1d5a86;transition:color .2s ease}}
-.sm-prod-cta .sm-prod-cta__icon::before{{content:"";position:absolute;inset:-1px;border-radius:50%;background:linear-gradient(135deg,#1a2a5e,#0e7c7b);opacity:0;transition:opacity .2s ease}}
-.sm-prod-cta .sm-prod-cta__icon svg{{position:relative;display:block}}
-.sm-prod-cta a.sm-prod-cta__btn:hover .sm-prod-cta__icon{{color:#fff}}
-.sm-prod-cta a.sm-prod-cta__btn:hover .sm-prod-cta__icon::before{{opacity:1}}
-.sm-prod-cta .sm-prod-cta__body{{position:relative;flex:1 1 auto;min-width:0}}
-.sm-prod-cta .sm-prod-cta__title{{display:block;margin:0 !important;font-size:17px !important;font-weight:700 !important;color:#1a2a5e !important;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
-.sm-prod-cta .sm-prod-cta__hint{{display:block;margin:3px 0 0 !important;font-size:13px !important;color:#4a5a85 !important;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}}
-.sm-prod-cta .sm-prod-cta__arrow{{position:relative;flex:0 0 auto;color:#1d5a86;transition:transform .2s ease}}
-.sm-prod-cta a.sm-prod-cta__btn:hover .sm-prod-cta__arrow{{transform:translateX(5px)}}
-@keyframes sm-prod-cta-in{{from{{opacity:0;transform:translateY(8px)}}}}
-@container smprodcta (min-width:880px){{.sm-prod-cta a.sm-prod-cta__btn{{width:auto;max-width:560px}}}}
-@supports not (container-type:inline-size){{@media (min-width:880px){{.sm-prod-cta a.sm-prod-cta__btn{{width:auto;max-width:560px}}}}}}
-@media (prefers-reduced-motion:reduce){{.sm-prod-cta a.sm-prod-cta__btn{{animation:none;transition:none}}.sm-prod-cta .sm-prod-cta__arrow,.sm-prod-cta .sm-prod-cta__icon,.sm-prod-cta .sm-prod-cta__icon::before{{transition:none}}.sm-prod-cta a.sm-prod-cta__btn:hover{{transform:none}}.sm-prod-cta a.sm-prod-cta__btn:hover .sm-prod-cta__arrow{{transform:none}}}}
-</style>
-<div class="sm-prod-cta">
-  <a class="sm-prod-cta__btn" href="{FORM}" target="_blank" rel="noopener">
-    <span class="sm-prod-cta__icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>
-    <span class="sm-prod-cta__body"><span class="sm-prod-cta__title">Добавить практику</span><span class="sm-prod-cta__hint">Поделитесь опытом производственного подразделения</span></span>
-    <svg class="sm-prod-cta__arrow" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg>
-  </a>
-</div>
-'''
-
-out = '\n'.join([block1(), block2(), block3(), block4()])
+out = '\n'.join([block1(), block2(), block3()])
 (R/'src/hub-production.html').write_text(out, encoding='utf-8')
 print('src/hub-production.html', len(out.encode())/1024, 'КБ')

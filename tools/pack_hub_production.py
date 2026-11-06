@@ -14,32 +14,28 @@ PREVIEW = '''<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta na
 .pv-col{width:1000px;max-width:100%;margin:0 auto 24px;padding:0;background:#fff;box-sizing:border-box}
 .pv-col .cap{font-size:12px;color:#5B6670;margin:0 0 8px;padding:8px 0 0}</style></head>
 <body class="pv-body"><div class="pv-bar" role="group" aria-label="Ширина колонки">Ширина колонки, px: <button type="button" data-w="1100" aria-pressed="false">1100</button><button type="button" data-w="820" aria-pressed="false">820</button><button type="button" data-w="560" aria-pressed="false">560</button><button type="button" data-w="375" aria-pressed="false">375</button></div>
-<div class="pv-col" id="pv-col"><div class="mac"><div class="cap">HTML-макрос 1: страница «Производство» (блоки 1–4)</div>
+<div class="pv-col" id="pv-col"><div class="mac"><div class="cap">HTML-макрос 1</div>
 @@BLOCKS@@
 </div></div>
 <script>(function(){var col=document.getElementById('pv-col'),bs=document.querySelectorAll('.pv-bar button');
 function set(w){col.style.width=w+'px';for(var i=0;i<bs.length;i++)bs[i].setAttribute('aria-pressed',bs[i].getAttribute('data-w')===String(w)?'true':'false');}
 for(var i=0;i<bs.length;i++)bs[i].addEventListener('click',function(){set(this.getAttribute('data-w'));});})();</script></body></html>
 '''
-README = '''Страница: Производство
-(стартовая страница раздела «Производство», БУП, пространство BSS, kb.severstal.com)
-
-Страница "Производство" -> 1 HTML-макрос (файл 1-hub-production.html, 4 блока подряд: шапка, сюжеты, площадки, кнопка).
+README = '''Страница "Производство" -> 1 HTML-макрос (файл 1-hub-production.html: шапка, сюжеты, площадки).
 
 ШАГИ
-1. Откройте страницу на редактирование.
-2. Удалите старые HTML-макросы.
-3. Вставьте макрос HTML и целиком скопируйте в него содержимое файла 1-hub-production.html (Ctrl+A, Ctrl+C).
-4. Сохраните страницу.
+1. Открыть страницу на редактирование.
+2. Удалить старые HTML-макросы.
+3. Вставить макрос HTML и скопировать в него целиком содержимое файла 1-hub-production.html.
+4. Сохранить.
 
 ПОСЛЕ ВСТАВКИ
-- Плашки сюжетов пока ведут на заглушки: замените URL_PLACEHOLDER_СВАРЩИКИ, URL_PLACEHOLDER_ЗАПАСЫ, URL_PLACEHOLDER_СУПЕРМАРКЕТ, URL_PLACEHOLDER_АДРЕСНОЕ, URL_PLACEHOLDER_ИДЕИ, URL_PLACEHOLDER_ВСЕ на реальные ссылки после создания подстраниц (поиск и замена в файле до вставки, либо правка href в макросе).
-- Площадки: после вставки добавьте рядом с каждой секцией нативный макрос "Содержимое по меткам" с тегом из заглушки (лмз, таг, птл, элс, ктз, ткз, реостат).
-- Обратите внимание: в HTML-макрос нативный макрос вставить нельзя, поэтому он ставится на страницу отдельно, под заглушкой. Заглушки после этого можно оставить или убрать.
+- Ссылки с URL_PLACEHOLDER_* заменить на реальные после создания подстраниц: URL_PLACEHOLDER_STARTOVAYA (крошка "БУП"), URL_PLACEHOLDER_СВАРЩИКИ, URL_PLACEHOLDER_ЗАПАСЫ, URL_PLACEHOLDER_СУПЕРМАРКЕТ, URL_PLACEHOLDER_АДРЕСНОЕ, URL_PLACEHOLDER_ИДЕИ, URL_PLACEHOLDER_ВСЕ.
+- Площадки: после вставки добавить рядом с каждой секцией нативный макрос "Содержимое по меткам" с тегом из заглушки (лмз, таг, птл, элс, ктз, ткз, реостат). В HTML-макрос нативный макрос вставить нельзя.
 
 СОСТАВ
-preview/  - предпросмотр без интернета (hub-production-preview.html; переключатель ширины 1100/820/560/375).
-screens/  - снимок страницы при ширине колонки 1100 px.
+preview/ - предпросмотр без интернета (переключатель ширины 1100/820/560/375).
+screens/ - снимок страницы при ширине колонки 1100 px.
 '''
 F.mkdir(exist_ok=True); (F/'preview').mkdir(exist_ok=True)
 (F/'preview/hub-production-preview.html').write_text(PREVIEW.replace("@@BLOCKS@@", dist), encoding='utf-8')
