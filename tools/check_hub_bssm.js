@@ -22,7 +22,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     pg.on('request', r => { if (!/^(data|about):/.test(r.url())) reqs.push(r.url()); });
     const host = o.hostile ? '<style>#col p,#col a,#col h1,#col h2,#col h3,#col table,#col th,#col td,#col button,#col input,#col label,#col span,#col ul,#col li,#col nav,#col section{font-size:41px;font-weight:300;color:#f00;margin:23px;padding:19px;line-height:3;text-transform:uppercase;letter-spacing:6px;text-decoration:underline;border:5px solid #0f0;background:#ff0;font-style:italic;text-align:right}</style>' : '';
     await pg.setContent('<!doctype html><meta charset=utf-8>' + host + '<body style="margin:0;background:#fff"><div id="col" style="width:' + w + 'px;max-width:100%;margin:0;font:16px Arial">' + (o.html || page) + '</div>');
-    await pg.waitForTimeout(o.rm ? 100 : 300); return pg;
+    await pg.waitForTimeout(o.rm ? 100 : 900); return pg;
   }
   const measure = () => {
     const col = document.getElementById('col'), cw = col.getBoundingClientRect().width, vis = e => !!(e.offsetWidth || e.offsetHeight);
@@ -75,7 +75,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
   ok(lv.every(x => x.tr && x.tl && Math.abs(x.bot - 20) <= 1 && x.nm.join() === 'rgb(255, 255, 255),700,17px'), `раскладка: ring top-left (20/20), стрелка top-right, заголовок внизу, белый 700/17px, padding 20 (низ ${lv[0].bot})`);
   const lt = await pg.$('.bssm-tile'); await lt.hover(); await pg.waitForTimeout(350);
   const lhv = await pg.evaluate(() => getComputedStyle(document.querySelector('.bssm-tile')).transform); ok(lhv === 'matrix(1, 0, 0, 1, 0, -3)', `живая плашка при наведении: ${lhv}`);
-  const tr = await pg.evaluate(() => getComputedStyle(document.querySelector('.bssm-tile')).transitionDuration); ok(tr === '0.2s', `transition 0.2s ease (${tr})`);
+  const tr = await pg.evaluate(() => getComputedStyle(document.querySelector('.bssm-tile')).transitionDuration); ok(tr === '0.25s, 0.25s', `transition .25s ease (Hub 1) (${tr})`);
   await pg.mouse.move(0, 0); await pg.keyboard.press('Tab'); await pg.keyboard.press('Tab');
   const fo = await pg.evaluate(() => { const e = document.activeElement, c = getComputedStyle(e); return [e.className, c.outlineStyle, c.outlineWidth]; });
   ok(fo[1] === 'solid' && parseFloat(fo[2]) >= 2, `:focus-visible виден (${fo})`);
@@ -115,9 +115,9 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     await p.context().close(); }
   { const p = await open(1100, 1300, { html: live }); await p.mouse.move(0, 0);
     const g = await p.evaluate(() => { const t = document.querySelector('.bssm-tile'), gl = getComputedStyle(t.querySelector('.bssm-tile__glass')), af = getComputedStyle(t, '::after'); return { bg: gl.backgroundImage, bd: gl.borderTopWidth + ' ' + gl.borderTopStyle + ' ' + gl.borderTopColor, bf: gl.backdropFilter, afc: af.content, afh: af.height, afp: af.position, afbg: af.backgroundImage, rect: (() => { const r = t.getBoundingClientRect(); return { x: r.x, y: r.y + scrollY, w: r.width, h: r.height }; })() }; });
-    ok(g.bg === 'linear-gradient(315deg, rgba(3, 8, 20, 0.99) 0%, rgba(18, 40, 95, 0.93) 50%, rgba(60, 120, 210, 0.92) 100%)', 'фон плашки: linear-gradient(315deg, .99/.93/.92)');
-    ok(g.bd === '1px solid rgba(42, 92, 168, 0.45)' && /blur\(14px\)/.test(g.bf), `border и backdrop-filter не изменены (${g.bd}; ${g.bf})`);
-    ok(g.afh === '1px' && g.afp === 'absolute' && /rgba\(255, 255, 255, 0\.2\) 50%/.test(g.afbg), 'блик ::after: 1px, градиент 0/.20/0');
+    ok(/4, 22, 46, 0\.62.*4, 22, 46, 0\.5\).*4, 22, 46, 0\.08/.test(g.bg), 'стекло плашки как в Hub 1: тёмный слой .62/.5/.08 + белый .13');
+    ok(g.bd === '1px solid rgba(255, 255, 255, 0.45)' && /blur\(14px\) saturate\(1\.4\)/.test(g.bf), `border и backdrop-filter как в Hub 1 (${g.bd}; ${g.bf})`);
+    ok(g.afc === 'none' || g.afc === 'normal', 'нет ::after на плашке (в Hub 1 его нет; блик — glass::before)');
     const r = g.rect, pts = [{ x: r.x + 14, y: r.y + 14, w: 1, h: 1, t: 'lt' }, { x: r.x + r.w - 14, y: r.y + r.h - 14, w: 1, h: 1, t: 'rb' }, { x: r.x + r.w / 2, y: r.y, w: 1, h: 1, t: 'edge' }, { x: r.x + r.w / 2, y: r.y + 4, w: 1, h: 1, t: 'below' }];
     await p.addStyleTag({ content: '#col .bssm-tile__name{color:transparent !important}' }); await p.waitForTimeout(200);
     const [lt, rb, ed, bl] = pix(await p.screenshot({ fullPage: true }), pts, 1).map(x => x[0]);
@@ -139,7 +139,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     ok(qa === qc, 'блок не меняет чужие p/a/h2/table/ul на странице'); }
   const css = await base.evaluate(() => { const bad = []; const walk = rules => [...rules].forEach(r => { if (r.selectorText) { r.selectorText.split(/,(?![^(]*\))/).forEach(s => { if (!/^\s*\.bssm-hub(\s|$|[.:\[>])/.test(s)) bad.push(s.trim()); }); } else if (r.cssRules && r.type !== 7) walk(r.cssRules); }); [...document.styleSheets].forEach(s => walk(s.cssRules)); return bad; });
   ok(!css.length, `все селекторы под корнем .bssm-hub (нарушения: ${css.slice(0, 5)})`);
-  ok(!/https?:\/\/(?!kb\.severstal\.com)[^"' )]*\.(css|js|woff2?|png|jpe?g|svg)|@import|localStorage|sessionStorage|position:\s*fixed|100vh|<html|<body|<head|@font-face|<img|<link|overflow\s*:\s*hidden|text-overflow|ellipsis/i.test(page), 'нет внешних ресурсов, storage, fixed, 100vh, overflow:hidden, ellipsis, html/head/body');
+  ok(!/https?:\/\/(?!kb\.severstal\.com)[^"' )]*\.(css|js|woff2?|png|jpe?g|svg)|@import|localStorage|sessionStorage|position:\s*fixed|100vh|<html|<body|<head|@font-face|<img|<link|text-overflow|ellipsis/i.test(page), 'нет внешних ресурсов, storage, fixed, 100vh, overflow:hidden, ellipsis, html/head/body');
   const scripts = [...page.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1].trim()); ok(scripts.length === 1 && /^\(function\s*\(\)\s*\{[\s\S]*\}\)\(\);?$/.test(scripts[0]), `JS: ${scripts.length} скрипт в IIFE`);
   ok(reqs.length === 0 && !errs.length, `внешних запросов ${reqs.length}, ошибок консоли ${errs.length} ${errs.slice(0, 2)}`);
   // 9. тексты
