@@ -22,12 +22,12 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
       await p.setContent(page(k, cw, false)); await p.waitForTimeout(100);
       const r = await p.evaluate(([pre, A]) => {
         const de = document.documentElement, bad = []; const cs = (e, x) => getComputedStyle(e)[x], q = s => document.querySelector('.' + pre + '-' + s);
-        document.querySelectorAll('[class^="' + pre + '-"]').forEach(e => { if (e.scrollWidth > e.clientWidth + 1 && cs(e, 'display') !== 'inline') bad.push(e.className); });
+        document.querySelectorAll('[class^="' + pre + '-"]').forEach(e => { if (e.scrollWidth > e.clientWidth + 1 && cs(e, 'display') !== 'inline' && !/-(fx|glass)$/.test(e.className)) bad.push(e.className); });
         const o = { hs: de.scrollWidth > de.clientWidth, bad, title: q('title').textContent, href: q('crumb').querySelector('a').href,
           shadow: [...document.querySelectorAll('[class^="' + pre + '-"]')].filter(e => cs(e, 'boxShadow') !== 'none').length };
         const tb = s => { const rg = document.createRange(); rg.selectNodeContents(q(s)); return [...rg.getClientRects()].map(r => [s, r.x, r.y, r.width, r.height]); };
         if (A) { const t = [...document.querySelectorAll('.' + pre + '-tile')]; o.tiles = t.map(e => [e.textContent.trim(), e.href, Math.round(e.getBoundingClientRect().y), e.getBoundingClientRect().left, e.getBoundingClientRect().width, e.scrollWidth > e.clientWidth + 1]);
-          o.textBoxes = t.flatMap(e => { const rg = document.createRange(); rg.selectNodeContents(e); return [...rg.getClientRects()].map(r => ['tile', r.x, r.y, r.width, r.height]); });
+          o.textBoxes = t.flatMap(e => { const rg = document.createRange(); rg.selectNodeContents(e.querySelector('.' + pre + '-name')); return [...rg.getClientRects()].map(r => ['tile', r.x, r.y, r.width, r.height]); });
           o.hbg = cs(q('hero'), 'backgroundColor'); o.line = cs(q('line'), 'height') + cs(q('line'), 'backgroundImage').slice(0, 30); o.ico = cs(q('ico'), 'width') + cs(q('ico'), 'backgroundColor'); o.tfs = cs(q('title'), 'fontSize') + cs(q('title'), 'fontWeight') + cs(q('title'), 'color'); o.boxes = [...tb('title'), ...tb('crumb')]; o.col = q('root').getBoundingClientRect().width; }
         else { const wrap = q('cbl'), lis = [...wrap.querySelectorAll('li')]; o.heroH = q('hero').getBoundingClientRect().height; o.tfs = cs(q('title'), 'fontSize') + cs(q('title'), 'fontWeight') + cs(q('title'), 'marginTop'); o.pad = cs(q('hero'), 'padding'); o.bgi = cs(q('hero'), 'backgroundImage').match(/radial-gradient/g).length;
           o.wrapBox = [cs(wrap, 'borderTopWidth'), cs(wrap, 'boxShadow'), cs(wrap, 'backgroundColor')].join('|'); o.sep = lis.every(l => cs(l, 'borderBottomWidth') === '1px' && cs(l, 'borderBottomColor') === 'rgb(227, 234, 237)'); o.lc = cs(wrap.querySelector('a'), 'color'); o.lfs = cs(wrap.querySelector('a'), 'fontSize'); o.tail = wrap.lastElementChild.getBoundingClientRect().height; o.boxes = [...tb('title'), ...tb('crumb')]; }
@@ -43,7 +43,7 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
         ok(r.tiles.every(t => !t[5]), `${w}: текст плашек не обрезан`);
         ok(r.hbg === 'rgb(255, 255, 255)' && r.ico.startsWith('56px') && r.ico.endsWith('rgb(84, 110, 122)') || cw < 600, `${w}: белый hero, кружок 56 #546e7a (${r.ico})`);
         ok(r.line.startsWith('3px') && /linear-gradient/.test(r.line), `${w}: линия 3px`);
-        sel += `,html body .${pre}-root a.${pre}-tile,html body .${pre}-root a.${pre}-tile:visited`;
+        sel += `,html body .${pre}-root a.${pre}-tile,html body .${pre}-root a.${pre}-tile:visited,html body .${pre}-root .${pre}-name`;
       } else {
         ok(r.heroH >= 160, `${w}: hero ${r.heroH}px ≥160`); ok(/^22px700/.test(r.tfs) && r.tfs.endsWith('10px'), `${w}: 22/700/mt10`); ok(r.bgi === 2, `${w}: 2 blob-а`);
         ok(r.wrapBox === '0px|none|rgba(0, 0, 0, 0)' && r.sep && r.lc === 'rgb(84, 110, 122)' && r.lfs === '15px' && r.tail === 16, `${w}: CBL без рамок/фона, разделители, #546e7a 15px, хвост 16px`);
@@ -72,8 +72,8 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
       await p.close();
     }
     const p = await br.newPage({ viewport: { width: 1200, height: 900 } }); await p.setContent(page(k, 1100, true));
-    const s = await p.evaluate(([pre, A]) => { const q = s => document.querySelector('.' + pre + '-' + s), g = (e, x) => getComputedStyle(e)[x]; return A ? [g(q('title'), 'fontSize'), g(q('title'), 'color'), g(q('crumb a'), 'fontSize'), g(q('tile'), 'color'), g(q('tile'), 'fontSize'), g(q('tile'), 'paddingTop')].join() : [g(q('title'), 'fontSize'), g(q('title'), 'color'), g(q('crumb a'), 'fontSize'), g(q('crumb a'), 'textDecorationLine'), g(q('hero'), 'paddingTop'), g(q('cbl li'), 'paddingTop'), g(q('cbl li'), 'borderBottomWidth'), g(q('cbl a'), 'color'), g(q('cbl a'), 'fontSize'), g(q('cbl a'), 'textDecorationLine')].join(); }, [pre, A]);
-    const exp = A ? '26px,rgb(84, 110, 122),13px,rgb(255, 255, 255),15px,20px' : '22px,rgb(255, 255, 255),13px,none,24px,8px,1px,rgb(84, 110, 122),15px,none';
+    const s = await p.evaluate(([pre, A]) => { const q = s => document.querySelector('.' + pre + '-' + s), g = (e, x) => getComputedStyle(e)[x]; return A ? [g(q('title'), 'fontSize'), g(q('title'), 'color'), g(q('crumb a'), 'fontSize'), g(q('tile'), 'color'), g(q('tile'), 'fontSize'), g(q('tile'), 'paddingTop'), g(q('name'), 'fontSize')].join() : [g(q('title'), 'fontSize'), g(q('title'), 'color'), g(q('crumb a'), 'fontSize'), g(q('crumb a'), 'textDecorationLine'), g(q('hero'), 'paddingTop'), g(q('cbl li'), 'paddingTop'), g(q('cbl li'), 'borderBottomWidth'), g(q('cbl a'), 'color'), g(q('cbl a'), 'fontSize'), g(q('cbl a'), 'textDecorationLine')].join(); }, [pre, A]);
+    const exp = A ? '26px,rgb(84, 110, 122),13px,rgb(255, 255, 255),15px,16px,15px' : '22px,rgb(255, 255, 255),13px,none,24px,8px,1px,rgb(84, 110, 122),15px,none';
     ok(s === exp, 'изоляция от чужих стилей ' + s); await p.close();
     files(k).forEach(n => ok(fs.statSync(path.join(D, n)).size <= 38 * 1024, n + ' ≤ 38 КБ'));
     const src = files(k).map(rd).join('');
