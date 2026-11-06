@@ -51,7 +51,7 @@ const pix = (buf, rects) => { const py = 'import sys,json\nfrom PIL import Image
   ok(st.title.join() === 'H2,БССМ. Школа,26px,800,rgb(255, 255, 255)', 'заголовок: ' + st.title);
   ok(st.crumb[0] === 'SPAN' && st.crumb[1] === '← БУП' && !st.crumb[3], `крошка при пустом URL — серый текст без <a>: ${st.crumb}`);
   ok(st.label.join() === 'Материалы программы,13px,600,rgb(91, 102, 112),0.65px,rgba(0, 0, 0, 0),0px', 'метка «Материалы программы»: ' + st.label);
-  ok(st.img[0] === '8px' && st.img[1] === '1px' && st.img[2] === 'rgb(227, 234, 237)' && !st.img[4] && /^\/download\/attachments\/SHKOLA_PAGE_ID\//.test(st.img[3]), 'картинки: radius 8, рамка 1px #E3EAED, без фикс. высоты, src на вложение: ' + st.img.slice(0, 3));
+  ok(st.img[0] === '8px' && st.img[1] === '1px' && st.img[2] === 'rgb(227, 234, 237)' && !st.img[4] && /^\/download\/attachments\/(SHKOLA_PAGE_ID|232849639)\//.test(st.img[3]), 'картинки: radius 8, рамка 1px #E3EAED, без фикс. высоты, src на вложение: ' + st.img.slice(0, 3));
   ok(/38% 35% at 78% 18%, rgba\(100, 180, 255, 0.88\) 0%/.test(st.bg) && /25% 25% at 14% 82%, rgba\(42, 92, 168, 0.52\) 0%/.test(st.bg) && /140deg, rgb\(4, 8, 16\) 0%, rgb\(8, 16, 42\) 40%, rgb\(21, 32, 72\) 72%, rgb\(42, 92, 168\) 100%/.test(st.bg), 'фон hero — градиент hub-bssm (2 blob ×0,7 + linear 140deg)');
   ok(st.rest === 0 && st.accent === '#2a5ca8', 'нет иконок/кнопок/инпутов; --shkola-accent #2a5ca8');
   const ni = await pg.evaluate(() => { const bad = []; document.getElementById('col').querySelectorAll('*').forEach(e => { const c = getComputedStyle(e); if (c.boxShadow !== 'none' || c.transform !== 'none' || c.transitionDuration !== '0s' || c.animationName !== 'none' || c.backdropFilter !== 'none') bad.push(e.className || e.tagName); }); return bad; });
@@ -97,7 +97,7 @@ const pix = (buf, rects) => { const py = 'import sys,json\nfrom PIL import Image
   await pg.context().close();
   // файлы и сеть
   for (const f of ['1-shkola-hero.html', '2-shkola-cbl-open.html', '3-shkola-cbl-close.html']) { const kb = fs.statSync(path.join(R, 'dist', f)).size / 1024; ok(kb <= 38, `${f}: ${kb.toFixed(2)} КБ ≤ 38`); }
-  const ext = reqs.filter(u => !/^(data|about):/.test(u) && !/\/download\/attachments\/SHKOLA_PAGE_ID\//.test(u) && !/^https:\/\/kb\.test\/page$/.test(u) && !/^https:\/\/example\.com\/bup/.test(u));
+  const ext = reqs.filter(u => !/^(data|about):/.test(u) && !/\/download\/attachments\/(SHKOLA_PAGE_ID|232849639)\//.test(u) && !/^https:\/\/kb\.test\/page$/.test(u) && !/^https:\/\/example\.com\/bup/.test(u));
   ok(!ext.length, `внешних запросов нет (только вложения Confluence): ${ext.slice(0, 3)}`);
   ok(!errs.length, `ошибок в консоли нет ${errs.slice(0, 3)}`);
   ok(!/\b(position\s*:\s*fixed|100vh|localStorage|sessionStorage|base64)\b/.test(H + O + C), 'нет fixed/100vh/localStorage/base64');
