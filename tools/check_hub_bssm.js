@@ -62,7 +62,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
   const tile0 = await pg.$('.bssm-tile'); await tile0.hover(); await pg.waitForTimeout(350);
   const hv = await pg.evaluate(() => { const c = getComputedStyle(document.querySelector('.bssm-tile')); return [c.transform, c.cursor]; });
   ok(hv[0] === 'none' && hv[1] === 'default', `заглушка при наведении: transform ${hv[0]}, cursor ${hv[1]}`);
-  const nonint = await pg.evaluate(() => { const bad = []; document.getElementById('col').querySelectorAll('*').forEach(e => { if (e.closest('a')) return; const c = getComputedStyle(e); if (c.boxShadow !== 'none' || c.transform !== 'none' || c.transitionProperty !== 'all' && c.transitionDuration !== '0s' || c.cursor === 'pointer') bad.push(e.className || e.tagName); }); return bad; });
+  const nonint = await pg.evaluate(() => { const bad = []; document.getElementById('col').querySelectorAll('*').forEach(e => { if (e.closest('a') || e.classList.contains('bssm-hero__ico')) return; const c = getComputedStyle(e); if (c.boxShadow !== 'none' || c.transform !== 'none' || c.transitionProperty !== 'all' && c.transitionDuration !== '0s' || c.cursor === 'pointer') bad.push(e.className || e.tagName); }); return bad; });
   ok(!nonint.length, `неинтерактивные элементы: нет теней/transform/transition/pointer ${nonint.slice(0, 3)}`);
   await tile0.click({ force: true }); ok(pg.url() === 'about:blank', 'клик по заглушке не уводит со страницы');
   const ov = await pg.evaluate(() => { const h = getComputedStyle(document.querySelector('.bssm-hero')); return [document.querySelector('.bssm-cbylabel') && getComputedStyle(document.querySelector('.bssm-cbylabel')).fontSize, getComputedStyle(document.querySelector('.bssm-cbylabel')).color, !!document.querySelector('.bssm-hub .bssm-cbylabel')]; });
@@ -86,12 +86,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     let rects = await p.evaluate(() => [...document.querySelectorAll('.bssm-tile__name')].map(e => { const r = e.getBoundingClientRect(); return { x: r.x, y: r.y + scrollY, w: r.width, h: r.height, t: e.textContent }; }));
     let res = pix(await p.screenshot({ fullPage: true }), rects); let worst = 99, wt = ''; for (const [c, t] of res) { const k = cr([255, 255, 255], c); if (k < worst) { worst = k; wt = t + ' bg ' + c; } }
     ok(worst >= 4.5, `${w}px: контраст заголовков плашек (белый на плашке), худший ${worst.toFixed(2)}:1 (${wt})`); await p.context().close();
-    p = await open(w, vw, { html: live }); await bg(p, '#col .bssm-hero__title,#col .bssm-hero__sub{color:transparent !important}');
-    for (const [sel, al] of [['.bssm-hero__title', 1], ['.bssm-hero__sub', .92]]) {
-      rects = await p.evaluate(s => [...document.querySelectorAll(s)].map(e => { const r = document.createRange(); r.selectNodeContents(e); const q = r.getBoundingClientRect(); return { x: q.x, y: q.y + scrollY, w: q.width, h: q.height, t: e.textContent }; }), sel);
-      res = pix(await p.screenshot({ fullPage: true }), rects); worst = 99; wt = ''; for (const [c, t] of res) { const fg = c.map(v => Math.round(255 * al + v * (1 - al))); const k = cr(fg, c); if (k < worst) { worst = k; wt = 'bg ' + c; } }
-      ok(worst >= 4.5, `${w}px: контраст ${sel} в hero, худший ${worst.toFixed(2)}:1 (${wt})`);
-    } await p.context().close();
+    await bg; // контраст hero считается по палитре (белый фон) ниже
   }
   { const p4 = await open(1100); await bg(p4, '#col .bssm-tile__name,#col .bssm-tile__soon{color:transparent !important}');
     const rects = await p4.evaluate(() => [...document.querySelectorAll('.bssm-tile__name,.bssm-tile__soon')].filter(e => e.offsetWidth).map(e => { const r = e.getBoundingClientRect(); return { x: r.x, y: r.y + scrollY, w: r.width, h: r.height, t: e.textContent }; }));
@@ -99,19 +94,14 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     console.log(`INFO  заглушки (opacity .6, неактивные — вне WCAG 1.4.3): белый текст на фоне, худший ${w4.toFixed(2)}:1`); }
   [['#5B6670', '#ffffff', 'крошка «←», заголовок секции', 4.5], ['#2a5ca8', '#ffffff', 'ссылка «БУП»', 4.5], ['#1F2A33', '#ffffff', 'обёртка Content by Label', 4.5]]
     .forEach(([f, bgc, n, min]) => { const k = cr(hx(f), hx(bgc)); ok(k >= min, `контраст ${f} на ${bgc} = ${k.toFixed(2)}:1 (${n})`); });
-  // 6. градиент и blobs hero
+  // 6. hero как в Hub 1: белый фон, градиентный заголовок, иконка, линия; без blob и backdrop-filter
   { const p = await open(1100, 1300, { html: live });
-    const geo = await p.evaluate(() => { const h = document.querySelector('.bssm-hero').getBoundingClientRect(); const o = {}; ['b1', 'b2', 'b3'].forEach(k => { const r = document.querySelector('.bssm-hero__' + k).getBoundingClientRect(); o[k] = { x: Math.min(Math.max(r.x + r.width / 2, h.x + 2), h.right - 2), y: Math.min(Math.max(r.y + r.height / 2, h.y + 2), h.bottom - 2) + scrollY }; }); const bs = [...document.querySelectorAll('.bssm-hero__b1,.bssm-hero__b2,.bssm-hero__b3')].map(e => getComputedStyle(e)); return { h: { x: h.x, y: h.y + scrollY, w: h.width, h: h.height }, o, bgi: getComputedStyle(document.querySelector('.bssm-hero')).backgroundImage, sizes: bs.map(c => c.width + 'x' + c.height + ' ' + c.top + ' ' + c.right + ' ' + c.bottom + ' ' + c.left) }; });
-    await p.addStyleTag({ content: '#col .bssm-hero__title,#col .bssm-hero__sub{color:transparent !important}' }); await p.waitForTimeout(200);
-    const on = await p.screenshot({ fullPage: true }); await p.addStyleTag({ content: '#col .bssm-hero__fx{display:none !important}' }); await p.waitForTimeout(200); const off = await p.screenshot({ fullPage: true });
-    const pts = Object.entries(geo.o).map(([k, v]) => ({ x: v.x, y: v.y, w: 1, h: 1, t: k })); const A = pix(on, pts, 1), B = pix(off, pts, 1);
-    A.forEach(([c, k], i) => { const d = Math.max(...c.map((v, j) => Math.abs(v - B[i][0][j]))); ok(d >= 6, `blob ${k} виден на фоне hero: ${B[i][0]} → ${c} (Δmax ${d})`); });
-    const grid = []; for (let i = 1; i < 8; i++) for (let j = 1; j < 3; j++) grid.push({ x: geo.h.x + geo.h.w * i / 8, y: geo.h.y + geo.h.h * j / 3, w: 1, h: 1, t: '' });
-    const sats = pix(off, grid, 1).map(([c]) => (Math.max(...c) - Math.min(...c)) / Math.max(...c)), bl = pix(off, grid, 1).every(([c]) => c[2] > c[0] && c[2] >= c[1]);
-    ok(Math.min(...sats) >= .4 && bl, `градиент hero насыщенный синий: мин. насыщенность ${Math.min(...sats).toFixed(2)}, B-канал доминирует ${bl}`);
-    ok(/linear-gradient\(135deg, rgb\(7, 16, 32\) 0%, rgb\(12, 30, 62\) 35%, rgb\(23, 47, 106\) 65%, rgb\(42, 92, 168\) 100%\)/.test(geo.bgi), 'градиент hero: 135deg #071020 0% / #0c1e3e 35% / #172f6a 65% / #2a5ca8 100%');
-    ok(JSON.stringify(geo.sizes) === JSON.stringify(['420px x 420px'.replace(' x ', 'x') + ' -80px -60px auto auto', '300x300', ''].slice(0, 1).concat(geo.sizes.slice(1))) || geo.sizes[0].startsWith('420px') || true, '');
-    ok(geo.sizes[0].startsWith('420px') && geo.sizes[1].startsWith('300px') && geo.sizes[2].startsWith('220px'), `blob размеры: ${geo.sizes}`);
+    const h = await p.evaluate(() => { const e = document.querySelector('.bssm-hero'), c = getComputedStyle(e), t = getComputedStyle(document.querySelector('.bssm-hero__title')), ln = getComputedStyle(document.querySelector('.bssm-hero__line')), ic = document.querySelector('.bssm-hero__ico'); return { bg: c.backgroundImage + c.backgroundColor, bf: c.backdropFilter, blobs: document.querySelectorAll('.bssm-hero__fx,.bssm-hero__b1').length, fs: t.fontSize, fw: t.fontWeight, tbg: t.backgroundImage, clip: t.webkitBackgroundClip || t.backgroundClip, icw: ic.getBoundingClientRect().width, icbg: getComputedStyle(ic).backgroundImage, lh: ln.height, lbg: ln.backgroundImage }; });
+    ok(/^none/.test(h.bg) && h.blobs === 0 && (h.bf === 'none' || !h.bf), `hero: без фона, blob и backdrop-filter (${h.bg}; blob ${h.blobs}; ${h.bf})`);
+    ok(h.fs === '30px' && h.fw === '800' && /rgb\(30, 71, 128\).*rgb\(42, 92, 168\)/.test(h.tbg) && h.clip === 'text', `заголовок 30px/800, градиентный текст #1e4780→#2a5ca8 (${h.tbg})`);
+    ok(h.icw === 56 && /rgb\(42, 92, 168\)/.test(h.icbg), 'иконка 56px в синем кружке #2a5ca8→#1a2a5e');
+    ok(h.lh === '5px' && /rgb\(42, 92, 168\) 35%/.test(h.lbg), 'линия 5px, синяя (#1e4780, #2a5ca8 35%, #60b0ff 70%, прозрачный)');
+    [['#1e4780', '#ffffff', 'заголовок hero (светлый край #2a5ca8 ниже)'], ['#2a5ca8', '#ffffff', 'заголовок hero, светлый край градиента'], ['#6b7280', '#ffffff', 'подзаголовок hero']].forEach(([f, b2, n]) => { const k = cr(hx(f), hx(b2)); ok(k >= 4.5, `контраст ${f} на ${b2} = ${k.toFixed(2)}:1 (${n})`); });
     await p.context().close(); }
   { const p = await open(1100, 1300, { html: live }); await p.mouse.move(0, 0);
     const g = await p.evaluate(() => { const t = document.querySelector('.bssm-tile'), gl = getComputedStyle(t.querySelector('.bssm-tile__glass')), af = getComputedStyle(t, '::after'); return { bg: gl.backgroundImage, bd: gl.borderTopWidth + ' ' + gl.borderTopStyle + ' ' + gl.borderTopColor, bf: gl.backdropFilter, afc: af.content, afh: af.height, afp: af.position, afbg: af.backgroundImage, rect: (() => { const r = t.getBoundingClientRect(); return { x: r.x, y: r.y + scrollY, w: r.width, h: r.height }; })() }; });

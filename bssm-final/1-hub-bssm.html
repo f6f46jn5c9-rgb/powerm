@@ -9,14 +9,14 @@
 .bssm-hub .bssm-crumb a:visited{color:#2a5ca8 !important}
 .bssm-hub .bssm-crumb a:hover{text-decoration:underline !important}
 .bssm-hub .bssm-crumb a:focus-visible{outline:3px solid #2a5ca8;outline-offset:3px}
-.bssm-hub .bssm-hero{position:relative;display:block;margin:0 0 20px !important;padding:28px 32px !important;border:0 !important;border-radius:12px;background:linear-gradient(135deg,#071020 0%,#0c1e3e 35%,#172f6a 65%,#2a5ca8 100%) !important}
-.bssm-hub .bssm-hero__fx{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;z-index:0;inset:0;display:block;border-radius:inherit;contain:paint;pointer-events:none}
-.bssm-hub .bssm-hero__b1{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;display:block;border-radius:50%;pointer-events:none;width:420px;height:420px;top:-80px;right:-60px;background:radial-gradient(circle,rgba(58,120,212,.75) 0%,transparent 70%) !important}
-.bssm-hub .bssm-hero__b2{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;display:block;border-radius:50%;pointer-events:none;width:300px;height:300px;bottom:-50px;left:40px;background:radial-gradient(circle,rgba(58,120,212,.63) 0%,transparent 70%) !important}
-.bssm-hub .bssm-hero__b3{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;position:absolute;display:block;border-radius:50%;pointer-events:none;width:220px;height:220px;top:40%;left:50%;background:radial-gradient(circle,rgba(58,120,212,.52) 0%,transparent 70%) !important}
-.bssm-hub .bssm-hero__in{position:relative;z-index:1;display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;}
-.bssm-hub h1.bssm-hero__title{margin:0 0 6px !important;padding:0 !important;border:0 !important;background:none !important;font-size:28px !important;font-weight:800 !important;line-height:1.15 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;text-wrap:balance}
-.bssm-hub p.bssm-hero__sub{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:15px !important;font-weight:400 !important;line-height:1.4 !important;color:rgba(255,255,255,.92) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;}
+.bssm-hub .bssm-hero{display:block;margin:0 0 24px !important;padding:0 !important;border:0 !important;background:none !important}
+.bssm-hub .bssm-hero__row{display:flex;align-items:center;gap:18px;margin:0 !important;padding:0 0 18px !important}
+.bssm-hub .bssm-hero__ico{flex:0 0 auto;width:56px;height:56px;margin:0 !important;padding:0 !important;border:0 !important;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff !important;background:linear-gradient(135deg,#2a5ca8,#1a2a5e) !important;line-height:1 !important;text-transform:none !important;letter-spacing:0 !important;box-shadow:0 6px 16px rgba(26,42,94,.22)}
+.bssm-hub .bssm-hero__txt{flex:1 1 auto;min-width:0}
+.bssm-hub h1.bssm-hero__title{margin:0 0 4px !important;padding:0 !important;border:0 !important;background:none;font-size:30px !important;font-weight:800 !important;line-height:1.15 !important;color:#1a2a5e !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.bssm-hub h1.bssm-hero__title{background-image:linear-gradient(135deg,#1e4780,#2a5ca8) !important;background-color:transparent !important;-webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;display:block;width:fit-content;max-width:100%}}
+.bssm-hub p.bssm-hero__sub{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:15px !important;font-weight:400 !important;line-height:1.4 !important;color:#6b7280 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.bssm-hub .bssm-hero__line{display:block;height:5px;margin:0 !important;padding:0 !important;border:0 !important;border-radius:3px;background:linear-gradient(90deg,#1e4780,#2a5ca8 35%,#60b0ff 70%,rgba(96,176,255,0)) !important}
 .bssm-hub .bssm-navw{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;}
 .bssm-hub .bssm-grid{display:grid;gap:14px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;margin:0 0 12px !important}
 .bssm-hub .bssm-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -26,8 +26,8 @@
 .bssm-hub .bssm-prog .bssm-grid{margin:0 !important}
 .bssm-hub a.bssm-tile{position:relative !important;isolation:isolate;display:flex !important;flex-direction:column;justify-content:space-between;gap:14px;min-width:0;min-height:128px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;padding:16px !important;border-radius:16px;cursor:pointer;box-shadow:0 10px 26px rgba(30,71,128,.30),0 2px 6px rgba(26,42,94,.12);animation:bssm-in .5s ease backwards;animation-delay:calc(var(--i,0) * 45ms);color:#fff !important;font-size:16px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;transition:transform .25s ease,box-shadow .25s ease}
 .bssm-hub a.bssm-tile:visited,.bssm-hub a.bssm-tile:active{color:#fff !important}
-.bssm-hub .bssm-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;z-index:0;inset:0;display:block;overflow:hidden;border-radius:inherit;pointer-events:none;background:linear-gradient(200deg,#5aa0ea 0%,#3a78d4 38%,#0a1428 100%) !important}
-.bssm-hub .bssm-tile__fx::before{content:"";position:absolute;inset:-24px;filter:blur(8px);background:radial-gradient(circle at 88% 10%,rgba(130,185,255,.85) 0,transparent 42%),radial-gradient(circle at 8% 46%,rgba(58,120,212,.7) 0,transparent 36%),radial-gradient(circle at 94% 40%,rgba(58,120,212,.55) 0,transparent 32%)}
+.bssm-hub .bssm-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;z-index:0;inset:0;display:block;overflow:hidden;border-radius:inherit;pointer-events:none;background:linear-gradient(200deg,#5aa0ea 0%,#3a78d4 38%,#050a16 100%) !important}
+.bssm-hub .bssm-tile__fx::before{content:"";position:absolute;inset:-24px;filter:blur(8px);background:radial-gradient(circle at 88% 10%,rgba(96,176,255,.8) 0,transparent 42%),radial-gradient(circle at 8% 46%,rgba(58,120,212,.7) 0,transparent 36%),radial-gradient(circle at 94% 40%,rgba(96,176,255,.45) 0,transparent 32%)}
 .bssm-hub .bssm-tile__glass{position:absolute;z-index:1;inset:0;display:block;overflow:hidden;margin:0 !important;padding:0 !important;border-radius:inherit;pointer-events:none;background:linear-gradient(0deg,rgba(5,10,22,.88) 0,rgba(5,10,22,.5) 48%,rgba(5,10,22,0) 90%),linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.08)) !important;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,.45) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 0 26px rgba(255,255,255,.14);transition:border-color .25s ease}
 .bssm-hub .bssm-tile__glass::before{content:"";position:absolute;inset:-14px;background:linear-gradient(135deg,rgba(255,255,255,.3) 0,rgba(255,255,255,0) 42%)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.bssm-hub .bssm-tile__glass{background:linear-gradient(0deg,rgba(5,10,22,.88) 0,rgba(5,10,22,.5) 48%,rgba(5,10,22,0) 90%),linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16)) !important}}
@@ -48,7 +48,7 @@
 .bssm-hub a.bssm-tile:is(.bssm-is-soon,[href^="URL_PLACEHOLDER"]) .bssm-tile__soon{display:block !important}
 .bssm-hub .bssm-tile__name{position:relative;z-index:2;display:block !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:16px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;text-shadow:0 1px 2px rgba(0,0,0,.3)}
 @container bssmhub (max-width:900px){.bssm-hub .bssm-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}.bssm-hub .bssm-grid--3>a.bssm-tile:last-child{grid-column:1 / -1}}
-@container bssmhub (max-width:700px){.bssm-hub .bssm-grid--3,.bssm-hub .bssm-grid--2{grid-template-columns:minmax(0,1fr)}.bssm-hub .bssm-grid--3>a.bssm-tile:last-child{grid-column:auto}.bssm-hub .bssm-hero{padding:24px 20px !important}}
+@container bssmhub (max-width:700px){.bssm-hub .bssm-grid--3,.bssm-hub .bssm-grid--2{grid-template-columns:minmax(0,1fr)}.bssm-hub .bssm-grid--3>a.bssm-tile:last-child{grid-column:auto}}
 @supports not (container-type:inline-size){@media (max-width:900px){.bssm-hub .bssm-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:700px){.bssm-hub .bssm-grid--3,.bssm-hub .bssm-grid--2{grid-template-columns:minmax(0,1fr)}}}
 @container bssmhub (max-width:459px){.bssm-hub a.bssm-tile{padding:12px !important;min-height:116px}.bssm-hub .bssm-tile__ico{width:40px;height:40px}.bssm-hub .bssm-tile__ico svg{width:40px;height:40px}.bssm-hub .bssm-tile__arrow{margin-top:8px !important}}
 @keyframes bssm-in{from{opacity:0;transform:translateY(8px)}}
@@ -57,11 +57,14 @@
 <div class="bssm-hub">
   <div class="bssm-crumb">&larr; <a href="https://kb.severstal.com/spaces/BSS/" aria-label="Назад в БУП">БУП</a></div>
   <div class="bssm-hero">
-    <span class="bssm-hero__fx" aria-hidden="true"><span class="bssm-hero__b1"></span><span class="bssm-hero__b2"></span><span class="bssm-hero__b3"></span></span>
-    <div class="bssm-hero__in">
-      <h1 class="bssm-hero__title">Бизнес-система. СМ</h1>
-      <p class="bssm-hero__sub">Методология и программы трансформации</p>
+    <div class="bssm-hero__row">
+      <span class="bssm-hero__ico" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5l9 4.5 9-4.5"/></svg></span>
+      <div class="bssm-hero__txt">
+        <h1 class="bssm-hero__title">Бизнес-система. СМ</h1>
+        <p class="bssm-hero__sub">Методология и программы трансформации</p>
+      </div>
     </div>
+    <span class="bssm-hero__line" aria-hidden="true"></span>
   </div>
   <nav class="bssm-navw" aria-label="Разделы">
     <div class="bssm-grid bssm-grid--3">
