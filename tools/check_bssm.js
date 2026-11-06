@@ -45,8 +45,8 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
     await pg.keyboard.press('Tab'); ok(await pg.evaluate(p => getComputedStyle(document.querySelector(`.${p}-crumb a`)).outlineStyle !== 'none', p), 'focus-visible outline');
     ok(await pg.evaluate(p => matchMedia('(prefers-reduced-motion:reduce)').matches && ![...document.querySelectorAll(`.${p}-hub *`)].some(e => parseFloat(getComputedStyle(e).animationDuration) > 0), p), 'reduced-motion'); await pg.close();
     const ph = await br.newPage({ viewport: { width: 1200, height: 900 } }); await ph.setContent(page(p, 1100, true));
-    const s = await ph.evaluate(p => { const g = (q, k) => getComputedStyle(document.querySelector(q))[k]; return [g(`.${p}-title`, 'fontSize'), g(`.${p}-title`, 'color'), g(`.${p}-title`, 'fontWeight'), g(`.${p}-crumb a`, 'color'), g(`.${p}-crumb a`, 'paddingTop'), g(`.${p}-hero`, 'paddingLeft'), g(`.${p}-cbl-wrap`, 'backgroundColor')]; }, p);
-    ok(s.join('|') === '22px|rgb(255, 255, 255)|700|rgba(255, 255, 255, 0.65)|2px|32px|rgba(0, 0, 0, 0)', 'изоляция от чужих стилей ' + s);
+    const s = await ph.evaluate(p => { const g = (q, k) => getComputedStyle(document.querySelector(q))[k]; return [g(`.${p}-title`, 'fontSize'), g(`.${p}-title`, 'color'), g(`.${p}-title`, 'fontWeight'), g(`.${p}-crumb a`, 'color'), g(`.${p}-crumb a`, 'paddingTop'), g(`.${p}-hero`, 'paddingLeft'), g(`.${p}-cbl-wrap`, 'backgroundColor'), g(`.${p}-cbl-wrap li`, 'paddingTop'), g(`.${p}-cbl-wrap li`, 'borderBottomWidth'), g(`.${p}-cbl-wrap a`, 'color')]; }, p);
+    ok(s.join('|') === '22px|rgb(255, 255, 255)|700|rgba(255, 255, 255, 0.65)|2px|32px|rgba(0, 0, 0, 0)|8px|1px|rgb(42, 92, 168)', 'изоляция от чужих стилей ' + s);
     await ph.close();
     for (const part of ['1-hero', '2-cbl-open', '3-cbl-close']) ok(fs.statSync(path.join(D, `bssm-${p}-${part}.html`)).size <= 38 * 1024, `${part} ≤ 38 КБ`);
     ok(!/localStorage|sessionStorage|position:\s*fixed|100vh|https?:\/\/(?!kb\.severstal)|@import|<link|<img|url\(/.test(rd(`bssm-${p}-1-hero.html`) + rd(`bssm-${p}-2-cbl-open.html`)), 'нет запрещённого');
