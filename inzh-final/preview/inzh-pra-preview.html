@@ -22,9 +22,8 @@ body{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
 .inzh-pra-root .inzh-pra-crumb a:visited{color:rgba(255,255,255,0.65) !important}
 .inzh-pra-root .inzh-pra-crumb a:hover{color:#fff !important;text-decoration:underline !important}
 .inzh-pra-root .inzh-pra-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
-.inzh-pra-root h1.inzh-pra-title{display:block;margin:10px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:22px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;word-break:normal !important;overflow-wrap:normal !important}
+.inzh-pra-root h1.inzh-pra-title{display:block;margin:10px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:22px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;word-break:normal !important;overflow-wrap:normal !important;text-wrap:balance}
 @container inzhpraroot (max-width:559px){.inzh-pra-root .inzh-pra-hero{padding:20px 16px 24px !important;background:radial-gradient(ellipse 55% 50% at 100% 0%,rgba(176,196,210,0.80) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(84,110,122,0.45) 0%,transparent 65%),linear-gradient(140deg,#0a0c0d 0%,#151d20 40%,#243038 72%,#546e7a 100%) !important}}
-@supports not (container-type:inline-size){@media (max-width:559px){.inzh-pra-root .inzh-pra-hero{padding:20px 16px 24px !important}}}
 @media (prefers-reduced-motion:reduce){.inzh-pra-root,.inzh-pra-root *{transition:none !important;animation:none !important}}
 </style>
 <div class="inzh-pra-root">
@@ -35,19 +34,19 @@ body{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
 </div>
 
 <div class="pv-lbl">HTML-макрос 2 — открывающая обёртка CBL</div>
-<div class="inzh-pra-cbl-wrap">
+<div class="inzh-pra-cbl">
 <style>
-  .inzh-pra-cbl-wrap{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;box-shadow:none !important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
-  .inzh-pra-cbl-wrap ul{padding-left:0 !important;margin:0 !important;list-style:none !important}
-  .inzh-pra-cbl-wrap li{padding:8px 0 !important;margin:0 !important;list-style:none !important;border-bottom:1px solid #E3EAED !important}
-  .inzh-pra-cbl-wrap a{color:#546e7a !important;font-size:15px !important;text-decoration:none !important;border-radius:3px}
-  .inzh-pra-cbl-wrap a:visited{color:#546e7a !important}
-  .inzh-pra-cbl-wrap a:hover{text-decoration:underline !important}
-  .inzh-pra-cbl-wrap a:focus-visible{outline:3px solid #546e7a;outline-offset:3px}
+  .inzh-pra-cbl{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;box-shadow:none !important;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+  .inzh-pra-cbl ul{padding-left:0 !important;margin:0 !important;list-style:none !important}
+  .inzh-pra-cbl li{padding:8px 0 !important;margin:0 !important;list-style:none !important;border-bottom:1px solid #E3EAED !important}
+  .inzh-pra-cbl a{color:#546e7a !important;font-size:15px !important;text-decoration:none !important;border-radius:3px}
+  .inzh-pra-cbl a:visited{color:#546e7a !important}
+  .inzh-pra-cbl a:hover{text-decoration:underline !important}
+  .inzh-pra-cbl a:focus-visible{outline:3px solid #546e7a;outline-offset:3px}
 </style>
 
 <div class="pv-native">HTML-макрос 3 (нативный) "Содержимое по меткам", метка инжиниринг_практики — вставляется вручную; ниже имитация списка</div>
-<ul><li><a href="#">Пример практики 1 (имитация)</a></li><li><a href="#">Пример практики 2 (имитация)</a></li></ul>
+<ul><li><a href="#">Пример 1 (имитация)</a></li><li><a href="#">Пример 2 (имитация)</a></li></ul>
 <div class="pv-lbl">HTML-макрос 4 — закрывающая обёртка CBL</div>
 <div class="inzh-pra-cbl-end" style="height:16px;padding:0;margin:0"></div>
 </div>
