@@ -115,9 +115,9 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     await p.context().close(); }
   { const p = await open(1100, 1300, { html: live }); await p.mouse.move(0, 0);
     const g = await p.evaluate(() => { const t = document.querySelector('.bssm-tile'), gl = getComputedStyle(t.querySelector('.bssm-tile__glass')), af = getComputedStyle(t, '::after'); return { bg: gl.backgroundImage, bd: gl.borderTopWidth + ' ' + gl.borderTopStyle + ' ' + gl.borderTopColor, bf: gl.backdropFilter, afc: af.content, afh: af.height, afp: af.position, afbg: af.backgroundImage, rect: (() => { const r = t.getBoundingClientRect(); return { x: r.x, y: r.y + scrollY, w: r.width, h: r.height }; })() }; });
-    ok(g.bg === 'linear-gradient(135deg, rgba(5, 14, 38, 0.96) 0%, rgba(14, 32, 80, 0.92) 45%, rgba(28, 56, 128, 0.87) 100%)', 'фон плашки: linear-gradient(135deg, .96/.92/.87)');
+    ok(g.bg === 'linear-gradient(135deg, rgba(5, 12, 32, 0.97) 0%, rgba(18, 40, 95, 0.93) 50%, rgba(42, 92, 168, 0.88) 100%)', 'фон плашки: linear-gradient(135deg, .97/.93/.88)');
     ok(g.bd === '1px solid rgba(42, 92, 168, 0.45)' && /blur\(14px\)/.test(g.bf), `border и backdrop-filter не изменены (${g.bd}; ${g.bf})`);
-    ok(g.afh === '1px' && g.afp === 'absolute' && /rgba\(255, 255, 255, 0\.18\) 50%/.test(g.afbg), 'блик ::after: 1px, градиент 0/.18/0');
+    ok(g.afh === '1px' && g.afp === 'absolute' && /rgba\(255, 255, 255, 0\.2\) 50%/.test(g.afbg), 'блик ::after: 1px, градиент 0/.20/0');
     const r = g.rect, pts = [{ x: r.x + 14, y: r.y + 14, w: 1, h: 1, t: 'lt' }, { x: r.x + r.w - 14, y: r.y + r.h - 14, w: 1, h: 1, t: 'rb' }, { x: r.x + r.w / 2, y: r.y, w: 1, h: 1, t: 'edge' }, { x: r.x + r.w / 2, y: r.y + 4, w: 1, h: 1, t: 'below' }];
     await p.addStyleTag({ content: '#col .bssm-tile__name{color:transparent !important}' }); await p.waitForTimeout(200);
     const [lt, rb, ed, bl] = pix(await p.screenshot({ fullPage: true }), pts, 1).map(x => x[0]);
