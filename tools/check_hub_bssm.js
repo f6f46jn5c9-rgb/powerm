@@ -41,7 +41,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     ok(r.sw <= r.vw && !r.over.length, `${w}px: нет горизонтального скролла (${r.sw}/${r.vw}) ${r.over.slice(0, 3)}`);
     ok(!r.clip.length && r.inside, `${w}px: нет обрезок, содержимое внутри плашки ${r.clip.slice(0, 3)}`);
     ok(JSON.stringify(r.cols) === JSON.stringify(exp) && r.eq.every(Boolean), `${w}px: колонок верх-1/верх-2/программы ${r.cols} (нужно ${exp}), равные ширины ${r.eq}`);
-    ok(r.tiles.length === 7 && r.tiles.slice(0, 5).every(h => h >= 130) && r.tiles.slice(5).every(h => h >= 110), `${w}px: 7 плашек, высоты ${r.tiles}; hero ${r.heroW}×${r.heroH}`);
+    ok(r.tiles.length === 7 && r.tiles.every(h => h >= 116), `${w}px: 7 плашек, высоты ${r.tiles}; hero ${r.heroW}×${r.heroH}`);
     await pg.context().close();
   }
   // 2. структура плашек
@@ -70,9 +70,9 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
   await pg.context().close();
   // 4. живые ссылки
   pg = await open(1100, 1300, { html: live });
-  const lv = await pg.evaluate(() => [...document.querySelectorAll('.bssm-tile')].map(t => { const c = getComputedStyle(t), tb = t.getBoundingClientRect(), a = t.querySelector('.bssm-tile__arrow').getBoundingClientRect(), i = t.querySelector('.bssm-tile__ico').getBoundingClientRect(), n = t.querySelector('.bssm-tile__name'); const nc = getComputedStyle(n); return { cur: c.cursor, op: c.opacity, soon: getComputedStyle(t.querySelector('.bssm-tile__soon')).display, arrow: getComputedStyle(t.querySelector('.bssm-tile__arrow')).display, tr: Math.abs(tb.right - 20 - a.right) < 2 && Math.abs(a.top - tb.top) < 40, tl: Math.abs(i.left - tb.left - 20) < 2 && Math.abs(i.top - tb.top - 20) < 2, bot: tb.bottom - n.getBoundingClientRect().bottom, nm: [nc.color, nc.fontWeight, nc.fontSize] }; }));
+  const lv = await pg.evaluate(() => [...document.querySelectorAll('.bssm-tile')].map(t => { const c = getComputedStyle(t), tb = t.getBoundingClientRect(), a = t.querySelector('.bssm-tile__arrow').getBoundingClientRect(), i = t.querySelector('.bssm-tile__ico').getBoundingClientRect(), n = t.querySelector('.bssm-tile__name'); const nc = getComputedStyle(n); return { cur: c.cursor, op: c.opacity, soon: getComputedStyle(t.querySelector('.bssm-tile__soon')).display, arrow: getComputedStyle(t.querySelector('.bssm-tile__arrow')).display, tr: Math.abs(tb.right - 16 - a.right) < 2 && Math.abs(a.top - tb.top) < 40, tl: Math.abs(i.left - tb.left - 16) < 2 && Math.abs(i.top - tb.top - 16) < 2, bot: tb.bottom - n.getBoundingClientRect().bottom, nm: [nc.color, nc.fontWeight, nc.fontSize] }; }));
   ok(lv.every(x => x.cur === 'pointer' && x.op === '1' && x.soon === 'none' && x.arrow === 'block'), 'живые ссылки: pointer, opacity 1, стрелка видна, «Скоро» скрыто');
-  ok(lv.every(x => x.tr && x.tl && Math.abs(x.bot - 20) <= 1 && x.nm.join() === 'rgb(255, 255, 255),700,17px'), `раскладка: ring top-left (20/20), стрелка top-right, заголовок внизу, белый 700/17px, padding 20 (низ ${lv[0].bot})`);
+  ok(lv.every(x => x.tr && x.tl && Math.abs(x.bot - 16) <= 1 && x.nm.join() === 'rgb(255, 255, 255),700,16px'), `раскладка: ring top-left (20/20), стрелка top-right, заголовок внизу, белый 700/16px, padding 16 как в Hub 1 (низ ${lv[0].bot})`);
   const lt = await pg.$('.bssm-tile'); await lt.hover(); await pg.waitForTimeout(350);
   const lhv = await pg.evaluate(() => getComputedStyle(document.querySelector('.bssm-tile')).transform); ok(lhv === 'matrix(1, 0, 0, 1, 0, -3)', `живая плашка при наведении: ${lhv}`);
   const tr = await pg.evaluate(() => getComputedStyle(document.querySelector('.bssm-tile')).transitionDuration); ok(tr === '0.25s, 0.25s', `transition .25s ease (Hub 1) (${tr})`);
