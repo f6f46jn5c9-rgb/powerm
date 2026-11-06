@@ -1,4 +1,4 @@
-// Проверка хаба «Бизнес-система. СМ» (v2) в Chromium. Запуск: node tools/check_hub_bssm.js [--shot <png>]
+// Проверка хаба «Бизнес-система. Силовые машины» (v2) в Chromium. Запуск: node tools/check_hub_bssm.js [--shot <png>]
 const { chromium } = require('playwright'); const path = require('path'), fs = require('fs'), cp = require('child_process');
 const R = path.resolve(__dirname, '..');
 const rd = f => fs.readFileSync(path.join(R, 'dist', f), 'utf8');
@@ -134,7 +134,7 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
   ok(reqs.length === 0 && !errs.length, `внешних запросов ${reqs.length}, ошибок консоли ${errs.length} ${errs.slice(0, 2)}`);
   // 9. тексты
   const got = await base.evaluate(() => { const t = s => [...document.querySelectorAll('#col ' + s)].map(e => e.textContent.trim()); return { h1: t('h1'), sub: t('.bssm-hero__sub'), crumb: t('.bssm-crumb').map(s => s.replace(/\s+/g, ' ')), crumbHref: document.querySelector('.bssm-crumb a').getAttribute('href'), h3: t('h3'), names: t('.bssm-tile__name'), badge: [...new Set(t('.bssm-tile__soon'))] }; });
-  const exp = { h1: ['Бизнес-система. СМ'], sub: ['Методология и программы трансформации'], crumb: ['← БУП'], crumbHref: 'https://kb.severstal.com/spaces/BSS/', h3: ['Программы трансформации'], names: ['Практики', 'Управление проектами', 'Устойчивость изменений', 'Мини-Т', 'Школа', 'СМ 2.0', 'СМ 3.0'], badge: ['Скоро'] };
+  const exp = { h1: ['Бизнес-система. Силовые машины'], sub: ['Методология и программы трансформации'], crumb: ['← БУП'], crumbHref: 'https://kb.severstal.com/spaces/BSS/', h3: ['Программы трансформации'], names: ['Практики', 'Управление проектами', 'Устойчивость изменений', 'Мини-Т', 'Школа', 'СМ 2.0', 'СМ 3.0'], badge: ['Скоро'] };
   for (const k in exp) ok(JSON.stringify(exp[k]) === JSON.stringify(got[k]), `текст «${k}» символ в символ: ${JSON.stringify(got[k]) === JSON.stringify(exp[k]) ? 'совпал' : JSON.stringify(got[k])}`);
   ok(!/Добавить практику|Предложить практику|куратор|владелец/i.test(page), 'нет кнопок «Добавить/Предложить практику», владельцев/кураторов');
   // 10. размер

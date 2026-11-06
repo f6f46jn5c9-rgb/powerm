@@ -10,12 +10,12 @@ MAP = [('1-hub-bssm.html', 'hub-bssm-1-hub-bssm.html', 'HTML-макрос 1 — 
 (F / 'preview').mkdir(parents=True, exist_ok=True); (F / 'screens').mkdir(exist_ok=True)
 for out, src, _ in MAP:
     shutil.copyfile(D / src, F / out); assert hashlib.sha256((F / out).read_bytes()).digest() == hashlib.sha256((D / src).read_bytes()).digest()
-(F / 'README.txt').write_text("""Страница "Бизнес-система. СМ" (раздел БУП, kb.severstal.com/spaces/BSS/)
+(F / 'README.txt').write_text("""Страница "Бизнес-система. Силовые машины" (раздел БУП, kb.severstal.com/spaces/BSS/)
 
 ЧТО ВСТАВЛЯТЬ (сверху вниз)
 Страница в Confluence  | Порядок | Что вставить
 -----------------------+---------+----------------------------------------------------------------
-Бизнес-система. СМ     | 1       | макрос HTML <- файл 1-hub-bssm.html (шапка, 5 плашек, программы трансформации)
+Бизнес-система. Силовые машины     | 1       | макрос HTML <- файл 1-hub-bssm.html (шапка, 5 плашек, программы трансформации)
                        | 2       | макрос HTML <- файл 2-hub-bssm-cbylabel-open.html (открывающий div)
                        | между   | НАТИВНЫЙ макрос "Содержимое по меткам" (Content by Label):
                        |         |   метка: раздел_бизнес_система; сортировка: по дате изменения (убывание);
@@ -45,7 +45,7 @@ for out, _, label in MAP:
     parts += f'<div class="pv-lbl">{html.escape(label)}</div>\n' + (F / out).read_text(encoding='utf-8') + '\n'
     if out.startswith('2'): parts += '<div class="pv-native">Нативный макрос "Содержимое по меткам" (вставляется вручную между макросами 2 и 3)</div>\n'
 (F / 'preview/hub-bssm-preview.html').write_text(f'''<!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Предпросмотр: Бизнес-система. СМ</title>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Предпросмотр: Бизнес-система. Силовые машины</title>
 <style>
 body{{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}}
 .pv-bar{{padding:12px 16px;background:#fff;border-bottom:1px solid #d5dbe0}}
@@ -63,7 +63,7 @@ body{{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}}
 for(var i=0;i<b.length;i++){{b[i].addEventListener('click',function(){{c.style.width=this.getAttribute('data-w')+'px';for(var j=0;j<b.length;j++)b[j].setAttribute('aria-pressed',b[j]===this?'true':'false');}});}}}})();
 </script></body></html>
 ''', encoding='utf-8')
-(F / 'preview/index.html').write_text('<!doctype html><html lang="ru"><meta charset="utf-8"><title>Предпросмотр</title><body style="font:16px Arial;margin:24px"><h1 style="font-size:22px">Предпросмотр</h1><ul><li><a href="hub-bssm-preview.html">Бизнес-система. СМ - все макросы подряд</a></li></ul></body></html>\n', encoding='utf-8')
+(F / 'preview/index.html').write_text('<!doctype html><html lang="ru"><meta charset="utf-8"><title>Предпросмотр</title><body style="font:16px Arial;margin:24px"><h1 style="font-size:22px">Предпросмотр</h1><ul><li><a href="hub-bssm-preview.html">Бизнес-система. Силовые машины - все макросы подряд</a></li></ul></body></html>\n', encoding='utf-8')
 z = F / 'bssm-all.zip'
 if z.exists(): z.unlink()
 with zipfile.ZipFile(z, 'w', zipfile.ZIP_DEFLATED) as zf:
