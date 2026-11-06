@@ -26,8 +26,8 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
         const o = { hs: de.scrollWidth > de.clientWidth, bad, title: q('title').textContent, href: q('crumb').querySelector('a').href,
           shadow: [...document.querySelectorAll('[class^="' + pre + '-"]')].filter(e => cs(e, 'boxShadow') !== 'none').length };
         const tb = s => { const rg = document.createRange(); rg.selectNodeContents(q(s)); return [...rg.getClientRects()].map(r => [s, r.x, r.y, r.width, r.height]); };
-        if (A) { const t = [...document.querySelectorAll('.' + pre + '-tile')]; o.tiles = t.map(e => [e.textContent.trim(), e.href, Math.round(e.getBoundingClientRect().y), e.getBoundingClientRect().left, e.getBoundingClientRect().width, e.scrollWidth > e.clientWidth + 1]);
-          o.textBoxes = t.flatMap(e => { const rg = document.createRange(); rg.selectNodeContents(e.querySelector('.' + pre + '-name')); return [...rg.getClientRects()].map(r => ['tile', r.x, r.y, r.width, r.height]); });
+        if (A) { const t = [...document.querySelectorAll('.' + pre + '-tile')]; o.tiles = t.map(e => [e.querySelector('.' + pre + '-name').textContent.trim(), e.href, Math.round(e.getBoundingClientRect().y), e.getBoundingClientRect().left, e.getBoundingClientRect().width, e.scrollWidth > e.clientWidth + 1]);
+          o.textBoxes = t.flatMap(e => ['name', 'sub'].flatMap(s => { const el = e.querySelector('.' + pre + '-' + s); if (!el) return []; const rg = document.createRange(); rg.selectNodeContents(el); return [...rg.getClientRects()].map(r => [s === 'name' ? 'tile' : 'sub', r.x, r.y, r.width, r.height]); }));
           o.hbg = cs(q('hero'), 'backgroundColor'); o.line = cs(q('line'), 'height') + cs(q('line'), 'backgroundImage').slice(0, 30); o.ico = cs(q('ico'), 'width') + cs(q('ico'), 'backgroundColor'); o.tfs = cs(q('title'), 'fontSize') + cs(q('title'), 'fontWeight') + cs(q('title'), 'color'); o.boxes = [...tb('title'), ...tb('crumb')]; o.col = q('root').getBoundingClientRect().width; }
         else { const wrap = q('cbl'), lis = [...wrap.querySelectorAll('li')]; o.heroH = q('hero').getBoundingClientRect().height; o.tfs = cs(q('title'), 'fontSize') + cs(q('title'), 'fontWeight') + cs(q('title'), 'marginTop'); o.pad = cs(q('hero'), 'padding'); o.bgi = cs(q('hero'), 'backgroundImage').match(/radial-gradient/g).length;
           o.wrapBox = [cs(wrap, 'borderTopWidth'), cs(wrap, 'boxShadow'), cs(wrap, 'backgroundColor')].join('|'); o.sep = lis.every(l => cs(l, 'borderBottomWidth') === '1px' && cs(l, 'borderBottomColor') === 'rgb(227, 234, 237)'); o.lc = cs(wrap.querySelector('a'), 'color'); o.lfs = cs(wrap.querySelector('a'), 'fontSize'); o.tail = wrap.lastElementChild.getBoundingClientRect().height; o.boxes = [...tb('title'), ...tb('crumb')]; }
@@ -43,7 +43,7 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
         ok(r.tiles.every(t => !t[5]), `${w}: текст плашек не обрезан`);
         ok(r.hbg === 'rgb(255, 255, 255)' && r.ico.startsWith('56px') && r.ico.endsWith('rgb(84, 110, 122)') || cw < 600, `${w}: белый hero, кружок 56 #546e7a (${r.ico})`);
         ok(r.line.startsWith('3px') && /linear-gradient/.test(r.line), `${w}: линия 3px`);
-        sel += `,html body .${pre}-root a.${pre}-tile,html body .${pre}-root a.${pre}-tile:visited,html body .${pre}-root .${pre}-name`;
+        sel += `,html body .${pre}-root a.${pre}-tile,html body .${pre}-root a.${pre}-tile:visited,html body .${pre}-root .${pre}-name,html body .${pre}-root .${pre}-sub`;
       } else {
         ok(r.heroH >= 160, `${w}: hero ${r.heroH}px ≥160`); ok(/^22px700/.test(r.tfs) && r.tfs.endsWith('10px'), `${w}: 22/700/mt10`); ok(r.bgi === 2, `${w}: 2 blob-а`);
         ok(r.wrapBox === '0px|none|rgba(0, 0, 0, 0)' && r.sep && r.lc === 'rgb(84, 110, 122)' && r.lfs === '15px' && r.tail === 16, `${w}: CBL без рамок/фона, разделители, #546e7a 15px, хвост 16px`);
@@ -57,7 +57,7 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
       const worst = await dec.evaluate(async ([b64, boxes, spec]) => { const im = new Image(); im.src = 'data:image/png;base64,' + b64; await im.decode(); const c = document.createElement('canvas'); c.width = im.width; c.height = im.height; const g = c.getContext('2d', { willReadFrequently: true }); g.drawImage(im, 0, 0);
         const lum = c => { const f = v => (v /= 255) <= .03928 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; return .2126 * f(c[0]) + .7152 * f(c[1]) + .0722 * f(c[2]); }; const res = {};
         for (const [s, x, y, w, h] of boxes) { const a = spec[s][1], F = spec[s][0]; res[s] = res[s] ?? 99; for (let yy = Math.floor(y); yy < y + h; yy += 2) for (let xx = Math.floor(x); xx < x + w; xx += 2) { const d = g.getImageData(xx, yy, 1, 1).data; const fg = [0, 1, 2].map(k => F[k] * a + d[k] * (1 - a)); const A = lum(fg), B = lum([d[0], d[1], d[2]]); res[s] = Math.min(res[s], (Math.max(A, B) + .05) / (Math.min(A, B) + .05)); } } return res; },
-        [shot, [...r.boxes, ...(r.textBoxes || [])], { title: [fgOf('title'), 1], crumb: [fgOf('crumb'), alphaOf('crumb')], tile: [[255, 255, 255], 1] }]);
+        [shot, [...r.boxes, ...(r.textBoxes || [])], { title: [fgOf('title'), 1], crumb: [fgOf('crumb'), alphaOf('crumb')], tile: [[255, 255, 255], 1], sub: [[255, 255, 255], .78] }]);
       Object.entries(worst).forEach(([s, m]) => ok(m >= 4.5, `${w}: контраст ${s}: худший ${m.toFixed(2)}`));
       if (w === 1100) {
         const a = p.locator(`.${pre}-crumb a`); await a.hover(); await p.waitForTimeout(50);
