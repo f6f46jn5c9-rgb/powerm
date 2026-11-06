@@ -99,7 +99,6 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     console.log(`INFO  заглушки (opacity .6, неактивные — вне WCAG 1.4.3): белый текст на фоне, худший ${w4.toFixed(2)}:1`); }
   [['#5B6670', '#ffffff', 'крошка «←», заголовок секции', 4.5], ['#2a5ca8', '#ffffff', 'ссылка «БУП»', 4.5], ['#1F2A33', '#ffffff', 'обёртка Content by Label', 4.5]]
     .forEach(([f, bgc, n, min]) => { const k = cr(hx(f), hx(bgc)); ok(k >= min, `контраст ${f} на ${bgc} = ${k.toFixed(2)}:1 (${n})`); });
-  const comp = [8, 20, 50].map((v, i) => Math.round(.65 * v + .35 * [7, 16, 32][i])); console.log(`INFO  кольцо #2a5ca8 на фоне плашки ~rgb(${comp}) = ${cr(hx('#2a5ca8'), comp).toFixed(2)}:1 (декор, aria-hidden)`);
   // 6. градиент и blobs hero
   { const p = await open(1100, 1300, { html: live });
     const geo = await p.evaluate(() => { const h = document.querySelector('.bssm-hero').getBoundingClientRect(); const o = {}; ['b1', 'b2', 'b3'].forEach(k => { const r = document.querySelector('.bssm-hero__' + k).getBoundingClientRect(); o[k] = { x: Math.min(Math.max(r.x + r.width / 2, h.x + 2), h.right - 2), y: Math.min(Math.max(r.y + r.height / 2, h.y + 2), h.bottom - 2) + scrollY }; }); const bs = [...document.querySelectorAll('.bssm-hero__b1,.bssm-hero__b2,.bssm-hero__b3')].map(e => getComputedStyle(e)); return { h: { x: h.x, y: h.y + scrollY, w: h.width, h: h.height }, o, bgi: getComputedStyle(document.querySelector('.bssm-hero')).backgroundImage, sizes: bs.map(c => c.width + 'x' + c.height + ' ' + c.top + ' ' + c.right + ' ' + c.bottom + ' ' + c.left) }; });
@@ -113,6 +112,17 @@ const pix = (png, rects, step) => { const py = 'import sys,json\nfrom PIL import
     ok(/linear-gradient\(135deg, rgb\(7, 16, 32\) 0%, rgb\(12, 30, 62\) 35%, rgb\(23, 47, 106\) 65%, rgb\(42, 92, 168\) 100%\)/.test(geo.bgi), 'градиент hero: 135deg #071020 0% / #0c1e3e 35% / #172f6a 65% / #2a5ca8 100%');
     ok(JSON.stringify(geo.sizes) === JSON.stringify(['420px x 420px'.replace(' x ', 'x') + ' -80px -60px auto auto', '300x300', ''].slice(0, 1).concat(geo.sizes.slice(1))) || geo.sizes[0].startsWith('420px') || true, '');
     ok(geo.sizes[0].startsWith('420px') && geo.sizes[1].startsWith('300px') && geo.sizes[2].startsWith('220px'), `blob размеры: ${geo.sizes}`);
+    await p.context().close(); }
+  { const p = await open(1100, 1300, { html: live }); await p.mouse.move(0, 0);
+    const g = await p.evaluate(() => { const t = document.querySelector('.bssm-tile'), gl = getComputedStyle(t.querySelector('.bssm-tile__glass')), af = getComputedStyle(t, '::after'); return { bg: gl.backgroundImage, bd: gl.borderTopWidth + ' ' + gl.borderTopStyle + ' ' + gl.borderTopColor, bf: gl.backdropFilter, afc: af.content, afh: af.height, afp: af.position, afbg: af.backgroundImage, rect: (() => { const r = t.getBoundingClientRect(); return { x: r.x, y: r.y + scrollY, w: r.width, h: r.height }; })() }; });
+    ok(g.bg === 'linear-gradient(135deg, rgba(5, 14, 38, 0.96) 0%, rgba(14, 32, 80, 0.92) 45%, rgba(28, 56, 128, 0.87) 100%)', 'фон плашки: linear-gradient(135deg, .96/.92/.87)');
+    ok(g.bd === '1px solid rgba(42, 92, 168, 0.45)' && /blur\(14px\)/.test(g.bf), `border и backdrop-filter не изменены (${g.bd}; ${g.bf})`);
+    ok(g.afh === '1px' && g.afp === 'absolute' && /rgba\(255, 255, 255, 0\.18\) 50%/.test(g.afbg), 'блик ::after: 1px, градиент 0/.18/0');
+    const r = g.rect, pts = [{ x: r.x + 14, y: r.y + 14, w: 1, h: 1, t: 'lt' }, { x: r.x + r.w - 14, y: r.y + r.h - 14, w: 1, h: 1, t: 'rb' }, { x: r.x + r.w / 2, y: r.y, w: 1, h: 1, t: 'edge' }, { x: r.x + r.w / 2, y: r.y + 4, w: 1, h: 1, t: 'below' }];
+    await p.addStyleTag({ content: '#col .bssm-tile__name{color:transparent !important}' }); await p.waitForTimeout(200);
+    const [lt, rb, ed, bl] = pix(await p.screenshot({ fullPage: true }), pts, 1).map(x => x[0]);
+    ok(lt[2] < rb[2] && lt.reduce((a, v) => a + v) < rb.reduce((a, v) => a + v), `внутренний градиент виден: левый верх rgb(${lt}) темнее правого низа rgb(${rb}), синий растёт ${lt[2]}→${rb[2]}`);
+    ok(ed.reduce((a, v) => a + v) - bl.reduce((a, v) => a + v) >= 15, `блик-линия виден: rgb(${ed}) против rgb(${bl}) ниже на 4 px`);
     await p.context().close(); }
   // 7. reduced motion
   { const pr = await open(1100, 1300, { rm: true, html: live }); const rm = await pr.evaluate(() => getComputedStyle(document.querySelector('.bssm-tile')).transitionDuration);
