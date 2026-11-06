@@ -1,0 +1,35 @@
+<!-- HTML-МАКРОС 1: HERO (Тип Б, teal) -->
+<style>
+.fabrika-hub{display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 16px !important;padding:0 !important;container-type:inline-size;container-name:fabrika-hub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.fabrika-hub *,.fabrika-hub *::before,.fabrika-hub *::after{box-sizing:border-box}
+.fabrika-hub .fabrika-hero{display:flex;flex-direction:column;justify-content:flex-start;min-height:160px;margin:0 !important;padding:24px 32px 28px !important;border:0 !important;border-radius:12px;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(0,168,192,0.80) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(14,124,123,0.45) 0%,transparent 65%),linear-gradient(140deg,#040d0d 0%,#071a1a 40%,#0a3030 72%,#0e7c7b 100%) !important;color:#fff !important}
+.fabrika-hub .fabrika-crumb{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.fabrika-hub .fabrika-crumb a,.fabrika-hub .fabrika-crumb a:visited{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;border-radius:3px}
+.fabrika-hub .fabrika-crumb a:hover{text-decoration:underline !important}
+.fabrika-hub .fabrika-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.fabrika-hub .fabrika-crumb .fabrika-crumb__off{margin:0 !important;padding:2px 0 !important;color:rgba(255,255,255,0.65) !important}
+.fabrika-hub h1.fabrika-title{display:block;margin:10px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:22px !important;font-weight:700 !important;line-height:1.25 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;word-break:normal !important;overflow-wrap:normal !important}
+@container fabrika-hub (max-width:559px){.fabrika-hub .fabrika-hero{padding:20px 16px 24px !important}}
+@supports not (container-type:inline-size){@media (max-width:559px){.fabrika-hub .fabrika-hero{padding:20px 16px 24px !important}}}
+@media (prefers-reduced-motion:reduce){.fabrika-hub *{animation:none !important;transition:none !important}}
+</style>
+<div class="fabrika-hub">
+  <div class="fabrika-hero">
+    <div class="fabrika-crumb">&larr; <a href="URL_БУП" aria-label="Назад в БУП">БУП</a></div>
+    <h1 class="fabrika-title">Производство. Фабрика идей</h1>
+  </div>
+</div>
+<script>
+(function () {
+  var links = document.querySelectorAll('.fabrika-hub .fabrika-crumb a');
+  for (var i = 0; i < links.length; i++) {
+    var a = links[i], h = a.getAttribute('href') || '';
+    if (h === '' || h.indexOf('URL_') === 0) {
+      var s = document.createElement('span');
+      s.className = 'fabrika-crumb__off';
+      s.textContent = a.textContent;
+      a.parentNode.replaceChild(s, a);
+    }
+  }
+})();
+</script>

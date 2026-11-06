@@ -1,0 +1,57 @@
+<!-- HTML-МАКРОС 1: HERO + СКАЧИВАЕМЫЕ ФАЙЛЫ -->
+<style>
+.izm-hub{--izm-accent:#2a5ca8;--izm-ink:#1F2A33;--izm-muted:#5B6670;--izm-line:#E3EAED;
+  display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:izmhub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--izm-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.izm-hub *,.izm-hub *::before,.izm-hub *::after{box-sizing:border-box}
+.izm-hub svg{display:block;max-width:none}
+.izm-hub .izm-hero{display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:160px;margin:0 !important;padding:20px 24px 24px !important;border:0 !important;border-radius:12px;background:radial-gradient(ellipse 38% 35% at 78% 18%,rgba(100,180,255,0.88) 0%,transparent 65%),radial-gradient(ellipse 25% 25% at 14% 82%,rgba(42,92,168,0.52) 0%,transparent 65%),linear-gradient(140deg,#040810 0%,#08102a 40%,#152048 72%,#2a5ca8 100%) !important;color:#fff !important}
+.izm-hub .izm-crumb{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.izm-hub .izm-crumb a{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;border-radius:3px}
+.izm-hub .izm-crumb a:visited{color:rgba(255,255,255,0.75) !important}
+.izm-hub .izm-crumb a:hover{color:#fff !important;text-decoration:underline !important}
+.izm-hub .izm-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.izm-hub .izm-crumb .izm-crumb__off{margin:0 !important;padding:2px 0 !important;color:rgba(255,255,255,0.75) !important}
+.izm-hub h1.izm-title{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.2 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;word-break:normal !important;overflow-wrap:normal !important}
+.izm-hub .izm-files{display:block;margin:20px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
+.izm-hub h3.izm-files__h{display:block;margin:0 0 8px !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;font-family:inherit !important;letter-spacing:0.05em !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.izm-hub ul.izm-files__list{display:block;list-style:none !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.izm-hub ul.izm-files__list li{display:block;list-style:none !important;margin:0 !important;padding:10px 0 !important;border:0 !important;border-bottom:1px solid #E3EAED !important;background:none !important}
+.izm-hub ul.izm-files__list li::before,.izm-hub ul.izm-files__list li::marker{content:none !important}
+.izm-hub a.izm-file{display:inline-flex;align-items:center;gap:10px;max-width:100%;margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;color:#2a5ca8 !important;font-size:15px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;border-radius:3px}
+.izm-hub a.izm-file:visited{color:#2a5ca8 !important}
+.izm-hub a.izm-file:hover .izm-file__n{text-decoration:underline !important}
+.izm-hub a.izm-file:focus-visible{outline:3px solid #2a5ca8;outline-offset:3px}
+.izm-hub .izm-file__i{flex:0 0 auto;display:block;width:18px;height:18px;margin:0 !important;padding:0 !important}
+.izm-hub .izm-file__n{display:inline;margin:0 !important;padding:0 !important;color:#2a5ca8 !important;font-size:15px !important;font-weight:400 !important;font-family:inherit !important}
+.izm-hub .izm-file__e{flex:0 0 auto;display:inline;margin:0 !important;padding:0 !important;color:#5B6670 !important;font-size:12px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-decoration:none !important}
+@container izmhub (max-width:559px){.izm-hub .izm-hero{padding:16px 16px 20px !important}.izm-hub h1.izm-title{font-size:24px !important}}
+@supports not (container-type:inline-size){@media (max-width:559px){.izm-hub .izm-hero{padding:16px 16px 20px !important}}}
+</style>
+<div class="izm-hub">
+  <div class="izm-hero">
+    <div class="izm-crumb">&larr; <a href="URL_БУП" aria-label="Назад в БУП">БУП</a></div>
+    <h1 class="izm-title">БССМ. Устойчивость изменений</h1>
+  </div>
+  <section class="izm-files" aria-labelledby="izm-files-h">
+    <h3 class="izm-files__h" id="izm-files-h">Шаблоны и инструменты</h3>
+    <ul class="izm-files__list">
+      <li><a class="izm-file" href="/download/attachments/373686311/Диагностика ADKAR.pptx" aria-label="Скачать: Диагностика ADKAR, PPTX"><svg class="izm-file__i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg><span class="izm-file__n">Диагностика ADKAR</span><span class="izm-file__e">PPTX</span></a></li>
+      <li><a class="izm-file" href="/download/attachments/373686311/Оценка проекта изменений_шаблон.xlsx" aria-label="Скачать: Оценка проекта изменений — шаблон, XLSX"><svg class="izm-file__i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg><span class="izm-file__n">Оценка проекта изменений — шаблон</span><span class="izm-file__e">XLSX</span></a></li>
+      <li><a class="izm-file" href="/download/attachments/373686311/Типовой план управления изменениями.xlsx" aria-label="Скачать: Типовой план управления изменениями, XLSX"><svg class="izm-file__i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2a5ca8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11"/><path d="M7 11l5 5 5-5"/><path d="M5 20h14"/></svg><span class="izm-file__n">Типовой план управления изменениями</span><span class="izm-file__e">XLSX</span></a></li>
+    </ul>
+  </section>
+</div>
+<script>
+(function () {
+  var links = document.querySelectorAll('.izm-hub .izm-crumb a');
+  for (var i = 0; i < links.length; i++) {
+    var a = links[i], h = a.getAttribute('href') || '';
+    if (h === '' || h.indexOf('URL_') === 0) {
+      var s = document.createElement('span');
+      s.className = 'izm-crumb__off';
+      s.textContent = a.textContent;
+      a.parentNode.replaceChild(s, a);
+    }
+  }
+})();
+</script>
