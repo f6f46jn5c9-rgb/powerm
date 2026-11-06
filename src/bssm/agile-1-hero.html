@@ -1,0 +1,35 @@
+<!-- HTML-МАКРОС 1: HERO (Тип Б, синий) -->
+<style>
+.agile-hub{display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 16px !important;padding:0 !important;container-type:inline-size;container-name:agile-hub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.agile-hub *,.agile-hub *::before,.agile-hub *::after{box-sizing:border-box}
+.agile-hub .agile-hero{display:flex;flex-direction:column;justify-content:flex-start;min-height:160px;margin:0 !important;padding:24px 32px 28px !important;border:0 !important;border-radius:12px;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(100,180,255,0.88) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(42,92,168,0.52) 0%,transparent 65%),linear-gradient(140deg,#040810 0%,#08102a 40%,#152048 72%,#2a5ca8 100%) !important;color:#fff !important}
+.agile-hub .agile-crumb{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.agile-hub .agile-crumb a,.agile-hub .agile-crumb a:visited{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;border-radius:3px}
+.agile-hub .agile-crumb a:hover{text-decoration:underline !important}
+.agile-hub .agile-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.agile-hub .agile-crumb .agile-crumb__off{margin:0 !important;padding:2px 0 !important;color:rgba(255,255,255,0.65) !important}
+.agile-hub h1.agile-title{display:block;margin:10px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:22px !important;font-weight:700 !important;line-height:1.25 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;word-break:normal !important;overflow-wrap:normal !important}
+@container agile-hub (max-width:559px){.agile-hub .agile-hero{padding:20px 16px 24px !important}}
+@supports not (container-type:inline-size){@media (max-width:559px){.agile-hub .agile-hero{padding:20px 16px 24px !important}}}
+@media (prefers-reduced-motion:reduce){.agile-hub *{animation:none !important;transition:none !important}}
+</style>
+<div class="agile-hub">
+  <div class="agile-hero">
+    <div class="agile-crumb">&larr; <a href="URL_БУП" aria-label="Назад в БУП">БУП</a></div>
+    <h1 class="agile-title">БССМ. Agile подход</h1>
+  </div>
+</div>
+<script>
+(function () {
+  var links = document.querySelectorAll('.agile-hub .agile-crumb a');
+  for (var i = 0; i < links.length; i++) {
+    var a = links[i], h = a.getAttribute('href') || '';
+    if (h === '' || h.indexOf('URL_') === 0) {
+      var s = document.createElement('span');
+      s.className = 'agile-crumb__off';
+      s.textContent = a.textContent;
+      a.parentNode.replaceChild(s, a);
+    }
+  }
+})();
+</script>
