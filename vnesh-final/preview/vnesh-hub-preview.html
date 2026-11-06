@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Превью: Внешние практики</title>
+<style>.pv-body{margin:0;background:#f4f5f6;font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif}
+.pv-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:12px 16px;font-size:14px;color:#1F2A33}
+.pv-bar button{font:inherit;padding:6px 14px;border:1px solid #6b7280;background:#fff;color:#1F2A33;cursor:pointer;border-radius:4px}
+.pv-bar button[aria-pressed="true"]{background:#9c470d;color:#fff;border-color:#9c470d}
+.pv-bar button:focus-visible{outline:3px solid #9c470d;outline-offset:2px}
+.pv-col{width:1000px;max-width:100%;margin:0 auto 24px;padding:0;background:#fff;box-sizing:border-box}
+.pv-col .cap{font-size:12px;color:#5B6670;margin:0 0 8px;padding:8px 0 0}</style></head>
+<body class="pv-body"><div class="pv-bar" role="group" aria-label="Ширина колонки">Ширина колонки, px: <button type="button" data-w="1100" aria-pressed="false">1100</button><button type="button" data-w="820" aria-pressed="false">820</button><button type="button" data-w="560" aria-pressed="false">560</button><button type="button" data-w="375" aria-pressed="false">375</button></div>
+<div class="pv-col" id="pv-col"><div class="mac"><div class="cap">HTML-макрос 1</div>
+<!-- БЛОК 1 -->
+<style>
+.vnesh-hub{--vh-accent:#c45e1a;display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 20px !important;padding:0 !important;container-type:inline-size;container-name:vneshhub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.3;color:#1a1a2e;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.vnesh-hub *,.vnesh-hub *::before,.vnesh-hub *::after{box-sizing:border-box}
+.vnesh-hub-hero{display:block;background:#ffffff !important;padding:20px 0 16px !important;margin:0 !important}
+.vnesh-hub-hero a.vnesh-hub-back{display:inline-block;margin:0 0 16px !important;padding:2px 0 !important;font-size:13px !important;line-height:1.3 !important;color:#9c470d !important;text-decoration:none !important;border-radius:3px;transition:color .2s ease}
+.vnesh-hub-hero a.vnesh-hub-back:visited{color:#9c470d !important}
+.vnesh-hub-hero a.vnesh-hub-back:hover{color:#7a3708 !important;text-decoration:underline !important}
+.vnesh-hub-hero a.vnesh-hub-back:focus-visible{outline:3px solid #9c470d;outline-offset:3px}
+.vnesh-hub-hero .vnesh-hub-row{display:flex;align-items:center;gap:14px;padding:0 !important;margin:0 !important}
+.vnesh-hub-hero .vnesh-hub-ico{flex:0 0 auto;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#c45e1a !important;color:#fff}
+.vnesh-hub-hero .vnesh-hub-ico svg{display:block;fill:#fff}
+.vnesh-hub-hero h1.vnesh-hub-title{flex:1 1 auto;min-width:0;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:#c45e1a !important;letter-spacing:0 !important;text-transform:none !important}
+.vnesh-hub .vnesh-hub-line{display:block;height:3px;background:linear-gradient(90deg,#c45e1a,transparent)}
+.vnesh-hub-tiles-section{margin:0 !important;padding:28px 24px 36px !important;
+  background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(255,180,100,0.80) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(196,94,26,0.45) 0%,transparent 65%),linear-gradient(140deg,#0d0804 0%,#1a0e06 40%,#2d1a0a 72%,#c45e1a 100%) !important}
+.vnesh-hub-tiles-section h2.vnesh-hub-sr{position:absolute;width:1px;height:1px;margin:-1px !important;padding:0 !important;overflow:hidden;clip:rect(0 0 0 0);border:0 !important;white-space:nowrap}
+.vnesh-hub .vnesh-hub-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:0 !important;padding:0 !important;list-style:none}
+.vnesh-hub .vnesh-hub-grid>*{flex:0 0 calc((100% - 32px)/3);max-width:calc((100% - 32px)/3);min-width:0}
+.vnesh-hub .vnesh-hub-tile{display:block;margin:0 !important;background:rgba(255,255,255,0.08) !important;border:1px solid rgba(255,255,255,0.15) !important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:12px !important;padding:20px 24px !important;color:#fff !important;font-size:15px !important;font-weight:600 !important;line-height:1.3 !important;text-align:center;text-decoration:none !important;letter-spacing:normal !important;text-transform:none !important;transition:transform .2s,box-shadow .2s}
+.vnesh-hub a.vnesh-hub-tile:visited{color:#fff !important}
+.vnesh-hub a.vnesh-hub-tile:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.vnesh-hub a.vnesh-hub-tile:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.vnesh-hub .vnesh-hub-tile--soon{opacity:.45;cursor:default}
+.vnesh-hub .vnesh-hub-soon{display:block;margin-top:6px;font-size:11px;font-weight:600;line-height:1.3;color:rgba(255,255,255,0.55)}
+@container vneshhub (max-width:599px){.vnesh-hub-tiles-section{padding:20px 16px 28px !important}.vnesh-hub .vnesh-hub-grid>*{flex:0 0 100%;max-width:100%}.vnesh-hub-hero h1.vnesh-hub-title{font-size:22px !important}}
+.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid>*{flex:0 0 100%;max-width:100%}
+@media (prefers-reduced-motion:reduce){.vnesh-hub .vnesh-hub-tile,.vnesh-hub-hero a.vnesh-hub-back{transition:none}.vnesh-hub a.vnesh-hub-tile:hover{transform:none}}
+</style>
+<div class="vnesh-hub" id="vnesh-hub-root">
+  <div class="vnesh-hub-hero">
+    <a class="vnesh-hub-back" href="https://kb.severstal.com/spaces/BSS/pages/161546386/" aria-label="Назад к стартовой странице Базы успешных практик">&larr; БУП</a>
+    <div class="vnesh-hub-row">
+      <span class="vnesh-hub-ico" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.95a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.6 16.6 0 0 0 0 4H4.3zm.8 2h2.95c.35 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16zM8.05 8H5.1a8 8 0 0 1 4.35-3.6C8.85 5.5 8.4 6.7 8.05 8zM12 20c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.35-6h-4.7a14.7 14.7 0 0 1 0-4h4.7a14.7 14.7 0 0 1 0 4zm.2 5.6c.6-1.1 1.05-2.3 1.4-3.6h2.95a8 8 0 0 1-4.35 3.6zM16.3 14a16.6 16.6 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4z"/></svg></span>
+      <h1 class="vnesh-hub-title">Внешние практики. Силовые машины</h1>
+    </div>
+  </div>
+  <span class="vnesh-hub-line" aria-hidden="true"></span>
+  <nav class="vnesh-hub-tiles-section" aria-label="Внешние практики">
+    <h2 class="vnesh-hub-sr">Разделы</h2>
+    <div class="vnesh-hub-grid">
+      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">ТМХ АО "Метровагонмаш"<span class="vnesh-hub-soon">Скоро</span></div>
+      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">АО "Армалит"<span class="vnesh-hub-soon">Скоро</span></div>
+      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">ОМК, Выксунский завод<span class="vnesh-hub-soon">Скоро</span></div>
+      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">Проект РЭЦЦА/Всемирного банка<span class="vnesh-hub-soon">Скоро</span></div>
+      <div class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">Цифровая трансформация<span class="vnesh-hub-soon">Скоро</span></div>
+    </div>
+  </nav>
+</div>
+<script>
+(function(){
+  var r=document.getElementById('vnesh-hub-root');
+  if(!r||(window.CSS&&CSS.supports&&CSS.supports('container-type:inline-size')))return;
+  function f(){r.className=r.className.replace(/\s*vnesh-hub--narrow/,'')+(r.offsetWidth<600?' vnesh-hub--narrow':'');}
+  f();
+  if(window.ResizeObserver)new ResizeObserver(f).observe(r);else window.addEventListener('resize',f);
+})();
+</script>
+
+</div></div>
+<script>(function(){var col=document.getElementById('pv-col'),bs=document.querySelectorAll('.pv-bar button');
+function set(w){col.style.width=w+'px';for(var i=0;i<bs.length;i++)bs[i].setAttribute('aria-pressed',bs[i].getAttribute('data-w')===String(w)?'true':'false');}
+for(var i=0;i<bs.length;i++)bs[i].addEventListener('click',function(){set(this.getAttribute('data-w'));});})();</script></body></html>
