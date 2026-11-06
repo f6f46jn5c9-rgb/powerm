@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Предпросмотр: IT: Практики</title>
+<style>
+body{margin:0;background:#eef1f4;font:14px/1.4 Arial,sans-serif;color:#1F2A33}
+.pv-bar{padding:12px 16px;background:#fff;border-bottom:1px solid #d5dbe0}
+.pv-bar button{margin:0 6px 0 0;padding:6px 12px;border:1px solid #5B6670;border-radius:6px;background:#fff;color:#1F2A33;font:inherit;cursor:pointer}
+.pv-bar button[aria-pressed=true]{background:#005b8e;border-color:#005b8e;color:#fff}
+#pv-col{width:1000px;max-width:100%;margin:16px auto;padding:0 16px;box-sizing:content-box;background:#fff}
+.pv-lbl{margin:20px 0 8px;padding:2px 8px;display:inline-block;background:#e0eef6;color:#004a73;font:600 12px Arial,sans-serif}
+.pv-native{margin:0 0 12px;padding:10px 16px;border:1px dashed #5B6670;color:#5B6670;font-size:13px}
+</style></head><body>
+<div class="pv-bar"><span>Ширина колонки: </span><button data-w="1100" aria-pressed="false">1100</button><button data-w="820" aria-pressed="false">820</button><button data-w="560" aria-pressed="false">560</button><button data-w="375" aria-pressed="false">375</button><button data-w="1000" aria-pressed="true">1000</button></div>
+<div id="pv-col">
+<div class="pv-lbl">HTML-макрос 1 — hero</div>
+<style>
+.it-sub{display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 16px !important;padding:0 !important;container-type:inline-size;container-name:itsub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.it-sub *,.it-sub *::before,.it-sub *::after{box-sizing:border-box}
+.it-sub .it-sub-hero{display:flex;flex-direction:column;justify-content:flex-end;min-height:160px;margin:0 !important;padding:24px 28px !important;border:0 !important;border-radius:12px;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(80,180,255,0.65) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(0,91,142,0.40) 0%,transparent 65%),linear-gradient(135deg,#04080e 0%,#061522 40%,#0d2a44 70%,#005b8e 100%) !important;color:#fff !important}
+.it-sub .it-sub-crumb{display:block;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important}
+.it-sub .it-sub-crumb a,.it-sub .it-sub-crumb a:visited{margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;text-decoration:none !important;border-radius:3px}
+.it-sub .it-sub-crumb a:hover{text-decoration:underline !important}
+.it-sub .it-sub-crumb a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.it-sub h1.it-sub-title{display:block;margin:8px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:22px !important;font-weight:800 !important;line-height:1.25 !important;color:#ffffff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important}
+@container itsub (max-width:559px){.it-sub .it-sub-hero{padding:20px 16px !important}}
+@supports not (container-type:inline-size){@media (max-width:559px){.it-sub .it-sub-hero{padding:20px 16px !important}}}
+@media (prefers-reduced-motion:reduce){.it-sub *{animation:none !important;transition:none !important}}
+</style>
+<div class="it-sub">
+  <div class="it-sub-hero">
+    <div class="it-sub-crumb">&larr; <a href="https://kb.severstal.com/spaces/BSS/pages/161546386/" aria-label="Назад в БУП">БУП</a></div>
+    <h1 class="it-sub-title">IT: Практики</h1>
+  </div>
+</div>
+
+<div class="pv-lbl">HTML-макрос 2 — открывающая обёртка CBL</div>
+<style>.it-cbl-wrap{margin-top:16px;}</style>
+<style>
+.it-cbl-wrap ul{padding-left:0 !important;list-style:none !important;}
+.it-cbl-wrap li{padding:8px 0 !important;border-bottom:1px solid #E3EAED !important;}
+.it-cbl-wrap a{color:#005b8e !important;font-size:15px !important;text-decoration:none !important;}
+.it-cbl-wrap a:hover{text-decoration:underline !important;}
+</style>
+<div class="it-cbl-wrap">
+
+<div class="pv-native">Здесь нативный макрос «Содержимое по меткам» (вставляет пользователь)</div>
+<div class="pv-lbl">HTML-макрос 4 — закрывающая обёртка CBL</div>
+</div>
+
+</div>
+<script>
+(function(){var c=document.getElementById('pv-col'),b=document.querySelectorAll('.pv-bar button');
+for(var i=0;i<b.length;i++){b[i].addEventListener('click',function(){var w=this.getAttribute('data-w');c.style.width=w+'px';
+for(var j=0;j<b.length;j++){b[j].setAttribute('aria-pressed',b[j]===this?'true':'false');}});}})();
+</script></body></html>
