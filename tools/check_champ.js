@@ -12,6 +12,7 @@ let fails = 0; const bad = m => { fails++; console.log('FAIL', m); };
 (async () => {
   const br = await chromium.launch();
   for (const [p, cur] of Object.entries(PAGES)) {
+    if (process.env.ONLY && !process.env.ONLY.split(',').includes(p)) continue;
     const file = path.join(R, 'dist', p + '.html'); const html = fs.readFileSync(file, 'utf8');
     const kb = Buffer.byteLength(html) / 1024; if (kb > 38) bad(`${p} ${kb.toFixed(1)} КБ`);
     if (/https?:\/\/(?!kb\.severstal\.com)/.test(html.replace(/xmlns="[^"]*"/g, ''))) bad(p + ' внешний URL в коде');
