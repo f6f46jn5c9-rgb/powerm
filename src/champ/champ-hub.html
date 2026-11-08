@@ -101,6 +101,11 @@
 </div>
 <script>
 (function () {
+  var nv = document.querySelectorAll('.champ .champ-nav');
+  for (var j = 0; j < nv.length; j++) {
+    var cu = nv[j].querySelector('a[aria-current="page"]');
+    if (cu && nv[j].scrollWidth > nv[j].clientWidth) { nv[j].scrollLeft = Math.max(0, cu.offsetLeft - nv[j].offsetLeft - 16); }
+  }
   var root = document.querySelectorAll('.champ a[data-soon="true"], .champ a[aria-current="page"]');
   for (var i = 0; i < root.length; i++) {
     if (root[i].getAttribute('data-soon') === 'true') { root[i].setAttribute('aria-disabled', 'true'); root[i].setAttribute('tabindex', '-1'); }
