@@ -1,0 +1,63 @@
+<!-- HTML-МАКРОС: Чемпионат 2023 -->
+<style>
+.champ{--champ-accent:#1b3d7a;--champ-muted:#5B6670;--champ-ink:#1F2A33;--champ-sep:#E3EAED;--champ-tint:#eaf0f8;display:block;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:champ;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--champ-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.champ *,.champ *::before,.champ *::after{box-sizing:border-box}
+.champ svg{display:block;max-width:none}
+.champ .champ-nav{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 16px !important;padding:0 0 8px !important;border:0 !important;border-bottom:1px solid #E3EAED !important;background:none !important}
+.champ a.champ-tab{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;white-space:nowrap;border-radius:6px;cursor:pointer;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:15px !important;font-weight:500 !important;line-height:1.3 !important;color:#1F2A33 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;line-height:1.2 !important;padding:8px 14px !important;transition:box-shadow .2s ease}
+.champ a.champ-tab:visited{color:#1F2A33 !important}
+.champ a.champ-tab:hover{box-shadow:inset 0 -2px 0 #1b3d7a}
+.champ a.champ-tab[aria-current="page"],.champ a.champ-tab[aria-current="page"]:visited{background:#1b3d7a !important;color:#fff !important;font-weight:600 !important;cursor:default}
+.champ a.champ-tab[aria-current="page"]:hover{box-shadow:none}
+.champ a.champ-tab:focus-visible{outline:3px solid #1b3d7a;outline-offset:2px}
+.champ a.champ-tab[aria-current="page"]:focus-visible{outline-color:#1F2A33}
+.champ .champ-soon{display:none !important;font-size:12px !important;opacity:.75;font-weight:400 !important;line-height:1 !important}
+.champ a[data-soon="true"]{opacity:.45;cursor:default;pointer-events:none}
+.champ a[data-soon="true"] .champ-soon{display:inline !important}
+@container champ (max-width:499px){.champ .champ-nav{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}.champ .champ-nav::-webkit-scrollbar{display:none}}
+@media (prefers-reduced-motion:reduce){.champ a.champ-tab{transition:none !important}}
+.champ .champ-hero{position:relative;isolation:isolate;display:block;min-height:160px;margin:0 !important;padding:24px !important;border:0 !important;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#020408 0%,#060f1e 40%,#0d1f3c 70%,#1b3d7a 100%) !important}
+.champ .champ-blob{position:absolute;z-index:0;display:block;border-radius:50%;pointer-events:none}
+.champ .champ-blob--1{width:280px;height:280px;top:-50px;right:-40px;background:radial-gradient(circle,rgba(220,50,90,.65) 0,rgba(220,50,90,0) 70%)}
+.champ .champ-blob--2{width:200px;height:200px;bottom:-30px;left:20px;background:radial-gradient(circle,rgba(27,61,122,.46) 0,rgba(27,61,122,0) 70%)}
+.champ .champ-hero::after{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(2,4,8,.78) 0%,rgba(2,4,8,.62) 55%,rgba(2,4,8,.35) 100%)}
+.champ .champ-hero__in{position:relative;z-index:1;display:block;margin:0 !important;padding:0 !important}
+.champ .champ-crumb{display:block;margin:0 0 12px !important;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;}
+.champ .champ-crumb a,.champ .champ-crumb a:visited{display:inline-block;border-radius:3px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;padding:2px 0 !important;}
+.champ .champ-crumb a:hover{text-decoration:underline !important}
+.champ .champ-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.champ h1.champ-title{display:block;margin:0 0 6px !important;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.3 !important;color:#ffffff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;line-height:1.15 !important;text-wrap:balance;text-shadow:0 1px 3px rgba(2,4,8,.6)}
+.champ p.champ-sub{display:block;margin:0 !important;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:15px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.80) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;line-height:1.4 !important;text-shadow:0 1px 3px rgba(2,4,8,.6)}
+</style>
+<div class="champ">
+  <nav class="champ-nav" aria-label="Разделы чемпионата">
+    <a class="champ-tab" href="%%PAGE_HUB%%">О чемпионате<span class="champ-soon"> Скоро</span></a>
+    <a class="champ-tab" href="%%PAGE_GOLOS%%">Голосование 2026<span class="champ-soon"> Скоро</span></a>
+    <a class="champ-tab" href="%%PAGE_Y2023%%" aria-current="page">2023<span class="champ-soon"> Скоро</span></a>
+    <a class="champ-tab" href="%%PAGE_Y2024%%">2024<span class="champ-soon"> Скоро</span></a>
+    <a class="champ-tab" href="%%PAGE_Y2025%%">2025<span class="champ-soon"> Скоро</span></a>
+  </nav>
+  <header class="champ-hero">
+    <span class="champ-blob champ-blob--1" aria-hidden="true"></span>
+    <span class="champ-blob champ-blob--2" aria-hidden="true"></span>
+    <div class="champ-hero__in">
+      <div class="champ-crumb">&larr; <a href="#" aria-label="Назад в БУП">БУП</a></div>
+      <h1 class="champ-title">Чемпионат лучших практик 2023</h1>
+      <p class="champ-sub">Силовые машины</p>
+    </div>
+  </header>
+</div>
+<script>
+(function () {
+  var nv = document.querySelectorAll('.champ .champ-nav');
+  for (var j = 0; j < nv.length; j++) {
+    var cu = nv[j].querySelector('a[aria-current="page"]');
+    if (cu && nv[j].scrollWidth > nv[j].clientWidth) { nv[j].scrollLeft = Math.max(0, cu.offsetLeft - nv[j].offsetLeft - 16); }
+  }
+  var root = document.querySelectorAll('.champ a[data-soon="true"], .champ a[aria-current="page"]');
+  for (var i = 0; i < root.length; i++) {
+    if (root[i].getAttribute('data-soon') === 'true') { root[i].setAttribute('aria-disabled', 'true'); root[i].setAttribute('tabindex', '-1'); }
+    root[i].addEventListener('click', function (e) { if (this.getAttribute('data-soon') === 'true') { e.preventDefault(); } });
+  }
+})();
+</script>
