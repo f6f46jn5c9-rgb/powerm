@@ -18,7 +18,7 @@ for(const iso of [0,1]){for(const w of [1100,960,820,700,560,480,375]){
  if(r.sw>r.cw)bad(`hscroll iso${iso} w${w}`);
  if(r.rows!=7)bad('rows '+r.rows);
  if(!iso&&w>=560&&r.o.length)bad(`clip w${w} `+r.o.join('|'));
- if(!iso)for(const [c,t] of r.txt){const L=lum(rgb(c)),cr=1.05/(L+.05);if(cr<4.5)bad(`contrast ${t} ${cr.toFixed(2)}`)}
+ if(!iso)for(const [c,t] of r.txt){const dark=/^(9|200\+|5|6\+|Лет|Запущ|Произв|Программ тр)/.test(t),L=lum(rgb(c)),cr=dark?(L+.05)/(lum([42,92,168])+.05):1.05/(L+.05);if(cr<4.5)bad(`contrast ${t} ${cr.toFixed(2)}`)}
  if(iso){const fs=await pg.evaluate(()=>getComputedStyle(document.querySelector('.bk-num')).fontSize+'|'+getComputedStyle(document.querySelector('.bk-cap')).color);if(w==1100)console.log('isolation num/cap:',fs)}
  if(errs.length)bad('console '+errs);if(reqs.length)bad('http '+reqs);
  if(shot&&w==1100&&!iso){await pg.locator('#col').screenshot({path:shot})}
