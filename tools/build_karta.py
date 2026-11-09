@@ -14,20 +14,21 @@ shutil.copyfile(dst, F/'1-karta-proektov.html')
 h = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 assert h(F/'1-karta-proektov.html') == h(dst)
 block = dst.read_text(encoding='utf-8')
+pblock = block.replace('URL_PLACEHOLDER_PDF', '../karta-proektov.pdf')
 (F/'README.txt').write_text("""Добавить на страницу Confluence: Бизнес-система. Силовые машины
 
 1. Открыть страницу на редактирование.
-2. Прокрутить в конец, после последнего HTML-макроса добавить новый HTML-макрос.
-3. Вставить в него целиком содержимое файла 1-karta-proektov.html.
-4. Сохранить.
+2. Прикрепить к странице файл karta-proektov.pdf (Вставить -> Файлы), скопировать адрес вложения (ПКМ по файлу -> Копировать адрес ссылки).
+3. Прокрутить в конец, после последнего HTML-макроса добавить новый HTML-макрос, вставить в него содержимое 1-karta-proektov.html и заменить URL_PLACEHOLDER_PDF (весь текст целиком) на адрес из шага 2.
+4. Сохранить и проверить, что ссылка "Полная карта проектов (PDF)" открывает файл.
 
-Существующие макросы не трогать. Предпросмотр без интернета: preview/index.html.
+Существующие макросы не трогать. Предпросмотр без интернета: preview/index.html (ссылка на PDF в нём ведёт на локальный karta-proektov.pdf).
 """, encoding='utf-8')
 page = lambda w: f'''<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Карта проектов — предпросмотр</title>
 <style>body{{font-family:Arial,sans-serif;margin:16px;background:#f4f6f8}}.bar{{margin:0 0 12px}}.bar button{{padding:6px 12px;margin-right:6px;cursor:pointer}}#col{{width:{w}px;max-width:100%;background:#fff;padding:16px;margin:0 auto 0 0}}</style></head><body>
 <div class="bar"><b>Ширина колонки:</b> <button data-w="1100">1100</button><button data-w="820">820</button><button data-w="560">560</button><button data-w="375">375</button></div>
 <div id="col">
-{block}
+{pblock}
 </div>
 <script>var b=document.querySelectorAll('.bar button');for(var i=0;i<b.length;i++)b[i].onclick=function(){{document.getElementById('col').style.width=this.getAttribute('data-w')+'px'}}</script>
 </body></html>'''
@@ -36,6 +37,6 @@ page = lambda w: f'''<!doctype html><html lang="ru"><head><meta charset="utf-8">
 z = F/'bssm-karta-all.zip'
 if z.exists(): z.unlink()
 with zipfile.ZipFile(z, 'w', zipfile.ZIP_DEFLATED) as zf:
-    for p in ['1-karta-proektov.html','README.txt','preview/karta.html','preview/index.html','screens/karta-1100.png']:
+    for p in ['1-karta-proektov.html','README.txt','preview/karta.html','preview/index.html','screens/karta-1100.png','karta-proektov.pdf']:
         if (F/p).exists(): zf.write(F/p, p)
 print('OK', h(F/'1-karta-proektov.html')[:12])
