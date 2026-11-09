@@ -1,0 +1,53 @@
+<!-- HTML-МАКРОС 1: ТКП и запчасти — hero + открывающая обёртка CBL (div намеренно не закрыт) -->
+<style>
+.ssbyt-subhub-page{--ssbyt-accent:#3a2a40;--ssbyt-ink:#1F2A33;--ssbyt-muted:#5B6670;--ssbyt-line:#E3EAED;display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 16px !important;padding:0 !important;container-type:inline-size;container-name:ssbyt-sub;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--ssbyt-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.ssbyt-subhub-page *,.ssbyt-subhub-page *::before,.ssbyt-subhub-page *::after{box-sizing:border-box}
+.ssbyt-subhub-page svg{display:block;max-width:none}
+.ssbyt-subhub-page .ssbyt-nav{display:flex;flex-wrap:nowrap;gap:4px;margin:0 0 16px !important;padding:6px 4px 10px !important;border:0 !important;border-bottom:1px solid var(--ssbyt-line) !important;overflow-x:auto;white-space:nowrap;background:none !important}
+.ssbyt-subhub-page .ssbyt-nav .ssbyt-nav__tab{display:inline-block;flex:0 0 auto;margin:0 !important;padding:4px 8px !important;border:0 !important;border-radius:4px;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.4 !important;color:#1F2A33 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important}
+.ssbyt-subhub-page .ssbyt-nav a.ssbyt-nav__tab:visited{color:#1F2A33 !important}
+.ssbyt-subhub-page .ssbyt-nav a.ssbyt-nav__tab:hover{text-decoration:underline !important}
+.ssbyt-subhub-page .ssbyt-nav a.ssbyt-nav__tab:focus-visible{outline:2px solid #3a2a40;outline-offset:1px}
+.ssbyt-subhub-page .ssbyt-nav .ssbyt-nav__tab--active{padding:4px 12px !important;background:#3a2a40 !important;color:#fff !important;font-weight:600 !important}
+.ssbyt-subhub-page .ssbyt-nav .ssbyt-nav__tab[data-скоро="true"]{opacity:.38;pointer-events:none;cursor:default}
+.ssbyt-subhub-page .ssbyt-subhub-hero{position:relative;display:flex;align-items:flex-end;min-height:160px;overflow:hidden;margin:0 0 20px !important;padding:20px 24px 24px !important;border:0 !important;border-radius:12px;background:linear-gradient(135deg,#030204 0%,#0a080f 40%,#1a1428 70%,#3a2a40 100%) !important;container-type:inline-size;container-name:ssbyt-hero}
+.ssbyt-subhub-page .ssbyt-blob{position:absolute;border-radius:50%;pointer-events:none;display:block}
+.ssbyt-subhub-page .ssbyt-blob-1{width:280px;height:280px;background:rgba(170,130,200,0.65);top:-50px;right:-40px;filter:blur(50px)}
+.ssbyt-subhub-page .ssbyt-blob-2{width:200px;height:200px;background:rgba(58,42,64,0.46);bottom:-30px;left:20px;filter:blur(40px)}
+.ssbyt-subhub-page .ssbyt-subhub-hero__content{position:relative;z-index:1;min-width:0}
+.ssbyt-subhub-page .ssbyt-breadcrumb,.ssbyt-subhub-page a.ssbyt-breadcrumb:visited{display:inline-block;margin:0 !important;padding:2px 0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.65) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;border-radius:3px}
+.ssbyt-subhub-page a.ssbyt-breadcrumb:hover{text-decoration:underline !important}
+.ssbyt-subhub-page a.ssbyt-breadcrumb:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ssbyt-subhub-page h1.ssbyt-subhub-hero__title{display:block;margin:6px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;color:#fff !important;font-size:22px !important;font-weight:800 !important;line-height:1.25 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;text-wrap:balance;word-break:normal !important;overflow-wrap:normal !important}
+@container ssbyt-hero (max-width:500px){.ssbyt-subhub-page h1.ssbyt-subhub-hero__title{font-size:18px !important}}
+@supports not (container-type:inline-size){@media (max-width:500px){.ssbyt-subhub-page h1.ssbyt-subhub-hero__title{font-size:18px !important}}}
+</style>
+<div class="ssbyt-subhub-page">
+<nav class="ssbyt-nav" role="navigation" aria-label="Навигация по комплексу">
+  <a href="https://kb.severstal.com/spaces/BSS/pages/586875155/" class="ssbyt-nav__tab">Сбыт и сервис</a>
+  <span class="ssbyt-nav__tab ssbyt-nav__tab--active" aria-current="page">ТКП и запчасти</span>
+  <span class="ssbyt-nav__tab" data-скоро="true" aria-disabled="true">Воронка продаж</span>
+  <span class="ssbyt-nav__tab" data-скоро="true" aria-disabled="true">Дивизион сервиса</span>
+  <span class="ssbyt-nav__tab" data-скоро="true" aria-disabled="true">Автоматизация</span>
+  <span class="ssbyt-nav__tab" data-скоро="true" aria-disabled="true">Орг. эффективность</span>
+  <span class="ssbyt-nav__tab" data-скоро="true" aria-disabled="true">Бюджеты</span>
+</nav>
+  <div class="ssbyt-subhub-hero">
+    <span class="ssbyt-blob ssbyt-blob-1" aria-hidden="true"></span>
+    <span class="ssbyt-blob ssbyt-blob-2" aria-hidden="true"></span>
+    <div class="ssbyt-subhub-hero__content">
+      <a href="https://kb.severstal.com/spaces/BSS/pages/161546386/" class="ssbyt-breadcrumb">← БУП</a>
+      <h1 class="ssbyt-subhub-hero__title">ТКП и запчасти</h1>
+    </div>
+  </div>
+</div>
+<!-- CBL wrapper opening — INTENTIONALLY UNCLOSED -->
+<div class="ssbyt-cbl">
+<style>
+  .ssbyt-cbl ul { padding-left: 0 !important; list-style: none !important; }
+  .ssbyt-cbl li { padding: 10px 0 !important; border-bottom: 1px solid #E3EAED !important; }
+  .ssbyt-cbl a  { color: #3a2a40 !important; font-size: 15px !important; font-weight: 500 !important; text-decoration: none !important; }
+  .ssbyt-cbl a:hover { text-decoration: underline !important; }
+  .ssbyt-cbl a:focus-visible { outline: 3px solid #3a2a40; outline-offset: 2px; }
+</style>
+<!-- Далее в Confluence: нативный макрос Content by Label, label = сбыт.ткп -->
