@@ -21,21 +21,29 @@ PREVIEW = '''<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta na
 function set(w){col.style.width=w+'px';for(var i=0;i<bs.length;i++)bs[i].setAttribute('aria-pressed',bs[i].getAttribute('data-w')===String(w)?'true':'false');}
 for(var i=0;i<bs.length;i++)bs[i].addEventListener('click',function(){set(this.getAttribute('data-w'));});})();</script></body></html>
 '''
-README = '''Страница "Производство" -> 1 HTML-макрос (файл 1-hub-production.html: шапка, сюжеты, площадки).
+README = '''Страница "Производство. Силовые машины" -> 1 HTML-макрос (файл 1-hub-production.html: шапка и плашки сюжетов) + блок площадок обычными средствами Confluence.
 
 ШАГИ
 1. Открыть страницу на редактирование.
 2. Удалить старые HTML-макросы.
-3. Вставить макрос HTML и скопировать в него целиком содержимое файла 1-hub-production.html.
-4. Сохранить.
+3. Вставить макрос HTML и скопировать в него целиком содержимое файла 1-hub-production.html. Сохранить макрос.
+4. Ссылки URL_PLACEHOLDER_* заменить на реальные после создания подстраниц (URL_PLACEHOLDER_STARTOVAYA - крошка "БУП"; СВАРЩИКИ, ЗАПАСЫ, СУПЕРМАРКЕТ, АДРЕСНОЕ, ИДЕИ, ВСЕ - плашки).
 
-ПОСЛЕ ВСТАВКИ
-- Ссылки с URL_PLACEHOLDER_* заменить на реальные после создания подстраниц: URL_PLACEHOLDER_STARTOVAYA (крошка "БУП"), URL_PLACEHOLDER_СВАРЩИКИ, URL_PLACEHOLDER_ЗАПАСЫ, URL_PLACEHOLDER_СУПЕРМАРКЕТ, URL_PLACEHOLDER_АДРЕСНОЕ, URL_PLACEHOLDER_ИДЕИ, URL_PLACEHOLDER_ВСЕ.
-- Площадки: после вставки добавить рядом с каждой секцией нативный макрос "Содержимое по меткам" с тегом из заглушки (лмз, таг, птл, элс, ктз, ткз, реостат). В HTML-макрос нативный макрос вставить нельзя.
+ПЛОЩАДКИ (под HTML-макросом, на странице Confluence)
+5. Под HTML-макросом добавить заголовок 2 уровня: Лучшие практики по площадкам.
+6. Для каждой площадки добавить заголовок 3 уровня и сразу под ним нативный макрос "Содержимое по меткам" (/ -> Содержимое по меткам -> поле "Метки"):
+   ЛМЗ - лмз
+   ЛМЗ ТАГ - таг
+   ЛМЗ ПТЛ - птл
+   Электросила (ЭЛС) - элс
+   КТЗ - ктз
+   ТКЗ - ткз
+   Реостат - реостат
+   Для двух колонок можно использовать макет страницы "Две колонки" или таблицу.
 
 СОСТАВ
 preview/ - предпросмотр без интернета (переключатель ширины 1100/820/560/375).
-screens/ - снимок страницы при ширине колонки 1100 px.
+screens/ - снимок HTML-макроса при ширине колонки 1100 px.
 '''
 F.mkdir(exist_ok=True); (F/'preview').mkdir(exist_ok=True)
 (F/'preview/hub-production-preview.html').write_text(PREVIEW.replace("@@BLOCKS@@", dist), encoding='utf-8')
