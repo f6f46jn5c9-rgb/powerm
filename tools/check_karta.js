@@ -13,7 +13,7 @@ for(const iso of [0,1]){for(const w of [1100,960,820,700,560,480,375]){
  await pg.setContent(`<!doctype html><meta charset=utf-8>${css}<body style="margin:0"><div id=col style="width:${w}px;background:#fff;padding:0">${blk}</div>`);
  const r=await pg.evaluate(()=>{const col=document.getElementById('col'),o=[];
   col.querySelectorAll('.bssm-karta *').forEach(e=>{if(e.scrollWidth>e.clientWidth+1&&getComputedStyle(e).display!='inline'&&!e.closest('svg')&&getComputedStyle(e).overflow!='visible')o.push('clip:'+e.className+' '+e.textContent.slice(0,20))});
-  const txt=[];col.querySelectorAll('.bk-num,.bk-cap,.bk-h,.bk-lab>span,.bk-yr,.bk-li>span:last-child,.bk-note').forEach(e=>{if(e.textContent.trim())txt.push([getComputedStyle(e).color,e.textContent.slice(0,15)])});
+  const txt=[];col.querySelectorAll('.bk-num,.bk-cap,.bk-h,.bk-lab>span,.bk-yr,.bk-li>span:last-child,.bk-note,.bk-link span').forEach(e=>{if(e.textContent.trim())txt.push([getComputedStyle(e).color,e.textContent.slice(0,15)])});
   return{sw:col.scrollWidth,cw:col.clientWidth,o,txt,rows:col.querySelectorAll('.bk-row').length,h:document.documentElement.scrollWidth}});
  if(r.sw>r.cw)bad(`hscroll iso${iso} w${w}`);
  if(r.rows!=7)bad('rows '+r.rows);
