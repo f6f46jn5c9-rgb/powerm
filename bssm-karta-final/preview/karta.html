@@ -11,9 +11,9 @@
 .bssm-karta .bk-sep{display:block;height:0;margin:0 0 20px !important;padding:0 !important;border:0 !important;border-top:1px solid #E3EAED !important;background:none !important}
 .bssm-karta h3.bk-h{display:block;margin:0 0 14px !important;padding:0 !important;border:0 !important;background:none !important;font-family:inherit !important;font-size:11px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;letter-spacing:.08em !important;text-transform:uppercase !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
 .bssm-karta .bk-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 20px !important;padding:0 !important;list-style:none !important}
-.bssm-karta .bk-stat{display:block;min-width:0;margin:0 !important;padding:12px 14px !important;border:.5px solid #E3EAED !important;border-radius:6px;background:none !important;list-style:none !important}
-.bssm-karta .bk-num{display:block;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:22px !important;font-weight:500 !important;line-height:1.2 !important;color:#2a5ca8 !important}
-.bssm-karta .bk-cap{display:block;margin:2px 0 0 !important;padding:0 !important;font-family:inherit !important;font-size:12px !important;font-weight:400 !important;line-height:1.3 !important;color:#5B6670 !important}
+.bssm-karta .bk-stat{display:block;min-width:0;margin:0 !important;padding:12px 14px !important;border:0 !important;border-radius:6px;background:radial-gradient(ellipse 60% 70% at 85% 10%,rgba(100,180,255,.45) 0,transparent 70%),linear-gradient(140deg,#040810 0%,#08102a 40%,#152048 72%,#2a5ca8 100%) !important;list-style:none !important}
+.bssm-karta .bk-num{display:block;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:22px !important;font-weight:500 !important;line-height:1.2 !important;color:#fff !important}
+.bssm-karta .bk-cap{display:block;margin:2px 0 0 !important;padding:0 !important;font-family:inherit !important;font-size:12px !important;font-weight:400 !important;line-height:1.3 !important;color:#dbe6f7 !important}
 .bssm-karta .bk-tl{display:block;margin:0 !important;padding:0 !important;cursor:default}
 .bssm-karta .bk-row{display:grid;grid-template-columns:160px repeat(9,minmax(0,1fr));gap:3px;align-items:stretch;height:30px;margin:0 0 3px !important;padding:0 !important;border:0 !important;background:none !important;pointer-events:none;cursor:default}
 .bssm-karta .bk-row--y{height:auto;margin:0 0 6px !important}
@@ -22,12 +22,12 @@
 .bssm-karta .bk-yr{display:block;min-width:0;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:11px !important;font-weight:500 !important;line-height:1.3 !important;color:#5B6670 !important;text-align:center !important}
 .bssm-karta .bk-rows{display:block;margin:0 !important;padding:6px 0 0 !important;border-top:.5px solid #E3EAED !important}
 .bssm-karta .bk-c{display:block;min-width:0;margin:0 !important;padding:0 !important;border:0 !important;background:none}
-.bssm-karta .bk-c.on{border-top:2px solid var(--c) !important;background:var(--f) !important}
+.bssm-karta .bk-c.on{border-top:2px solid var(--t) !important;background:linear-gradient(180deg,var(--c),var(--d)) !important}
 .bssm-karta .bk-c.on.s{border-top-left-radius:5px;border-bottom-left-radius:5px}
 .bssm-karta .bk-c.on.e{border-top-right-radius:5px;border-bottom-right-radius:5px}
 .bssm-karta .bk-leg{display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 0 !important;padding:12px 0 0 !important;border-top:.5px solid #E3EAED !important;list-style:none !important}
 .bssm-karta .bk-li{display:flex;align-items:center;gap:6px;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:11px !important;line-height:1.3 !important;color:#5B6670 !important;list-style:none !important}
-.bssm-karta .bk-li>span{font-size:11px !important;color:#5B6670 !important}.bssm-karta .bk-sw{display:block;flex:0 0 auto;width:11px;height:11px;border-radius:3px;background:var(--c)}
+.bssm-karta .bk-li>span{font-size:11px !important;color:#5B6670 !important}.bssm-karta .bk-sw{display:block;flex:0 0 auto;width:11px;height:11px;border-radius:3px;background:linear-gradient(135deg,var(--c),var(--d))}
 .bssm-karta p.bk-note{display:block;margin:12px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-family:inherit !important;font-size:12px !important;font-weight:400 !important;line-height:1.4 !important;color:#5B6670 !important;text-align:left !important}
 .bssm-karta .bk-tl:focus-visible{outline:3px solid #2a5ca8;outline-offset:3px}
 @container bssmkarta (max-width:539px){.bssm-karta .bk-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -50,12 +50,12 @@
 <script>
 (function(){
 var Y=[2017,2018,2019,2020,2021,2022,2023,2024,2025];
-var P=[["Мини-Т проекты","111111111","#2a5ca8","42,92,168"],
-["Программа СМ 2.0","111111000","#0e7c7b","14,124,123"],
-["Программа СМ 3.0","000001111","#2a4fa0","42,79,160"],
-["Ворота качества","000000111","#b07a10","176,122,16"],
-["Трансформация закупок","000000111","#b04020","176,64,32"],
-["Фабрика результатов","000000011","#8b2050","139,32,80"]];
+var P=[["Мини-Т проекты","111111111","#1a2a5e","#2a5ca8","#60b0ff"],
+["Программа СМ 2.0","111111000","#0b3a6b","#2a8fd0","#7cc4ff"],
+["Программа СМ 3.0","000001111","#152048","#3a78d4","#8ab8ff"],
+["Ворота качества","000000111","#1e4780","#4a90e0","#a9d0ff"],
+["Трансформация закупок","000000111","#2a3f8f","#5a7fd8","#b3c6f5"],
+["Фабрика результатов","000000011","#040810","#1f4a8c","#6aa0e8"]];
 function E(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 var R=document.querySelectorAll('.bssm-karta');
 for(var k=0;k<R.length;k++){var r=R[k];if(r.getAttribute('data-r'))continue;r.setAttribute('data-r','1');
@@ -66,11 +66,11 @@ var rows=E('div','bk-rows');tl.appendChild(rows);
 for(var j=0;j<P.length;j++){var p=P[j],a=p[1],f=a.indexOf('1'),l=a.lastIndexOf('1');
 var row=E('div','bk-row');row.setAttribute('role','img');
 row.setAttribute('aria-label',p[0]+': '+Y[f]+'–'+Y[l]);
-row.style.setProperty('--c',p[2]);row.style.setProperty('--f','rgba('+p[3]+',0.12)');
+row.style.setProperty('--c',p[2]);row.style.setProperty('--d',p[3]);row.style.setProperty('--t',p[4]);
 var lb=E('div','bk-lab');lb.appendChild(E('span','',p[0]));row.appendChild(lb);
 for(i=0;i<9;i++){var c=E('div','bk-c'+(a.charAt(i)=='1'?' on'+(i==f?' s':'')+(i==l?' e':''):''));c.setAttribute('aria-hidden','true');row.appendChild(c)}
 rows.appendChild(row);
-var li=E('li','bk-li');li.style.setProperty('--c',p[2]);li.appendChild(E('span','bk-sw'));li.appendChild(E('span','',p[0]));lg.appendChild(li)}}
+var li=E('li','bk-li');li.style.setProperty('--c',p[2]);li.style.setProperty('--d',p[3]);li.appendChild(E('span','bk-sw'));li.appendChild(E('span','',p[0]));lg.appendChild(li)}}
 })();
 </script>
 </div>
