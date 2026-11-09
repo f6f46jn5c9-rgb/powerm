@@ -4,19 +4,17 @@
 .champ{--champ-accent:#1b3d7a;--champ-muted:#5B6670;--champ-ink:#1F2A33;--champ-sep:#E3EAED;--champ-tint:#eaf0f8;display:block;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:champ;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--champ-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
 .champ *,.champ *::before,.champ *::after{box-sizing:border-box}
 .champ svg{display:block;max-width:none}
-.champ .champ-nav{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 16px !important;padding:0 0 8px !important;border:0 !important;border-bottom:1px solid #E3EAED !important;background:none !important}
-.champ a.champ-tab{display:inline-flex;align-items:baseline;gap:6px;flex:0 0 auto;white-space:nowrap;border-radius:6px;cursor:pointer;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:15px !important;font-weight:500 !important;line-height:1.3 !important;color:#1F2A33 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;line-height:1.2 !important;padding:8px 14px !important;transition:box-shadow .2s ease}
-.champ a.champ-tab:visited{color:#1F2A33 !important}
-.champ a.champ-tab:hover{box-shadow:inset 0 -2px 0 #1b3d7a}
-.champ a.champ-tab[aria-current="page"],.champ a.champ-tab[aria-current="page"]:visited{background:#1b3d7a !important;color:#fff !important;font-weight:600 !important;cursor:default}
-.champ a.champ-tab[aria-current="page"]:hover{box-shadow:none}
-.champ a.champ-tab:focus-visible{outline:3px solid #1b3d7a;outline-offset:2px}
-.champ a.champ-tab[aria-current="page"]:focus-visible{outline-color:#1F2A33}
 .champ .champ-soon{display:none !important;font-size:12px !important;opacity:.75;font-weight:400 !important;line-height:1 !important}
 .champ a[data-soon="true"]{opacity:.45;cursor:default;pointer-events:none}
 .champ a[data-soon="true"] .champ-soon{display:inline !important}
-@container champ (max-width:499px){.champ .champ-nav{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}.champ .champ-nav::-webkit-scrollbar{display:none}}
-@media (prefers-reduced-motion:reduce){.champ a.champ-tab{transition:none !important}}
+.champ .champ-crumb{display:block;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;margin:0 0 12px !important}
+.champ .champ-crumb a,.champ .champ-crumb a:visited{display:inline-block;border-radius:3px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;padding:2px 0 !important}
+.champ .champ-crumb a:hover{text-decoration:underline !important}
+.champ .champ-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.champ .champ-crumb--light,.champ .champ-crumb--light a,.champ .champ-crumb--light a:visited{color:#5B6670 !important}
+.champ .champ-crumb--light{margin:0 !important}
+.champ .champ-crumb--vis{}
+.champ .champ-crumb--light a:focus-visible{outline:3px solid #1b3d7a}
 .champ .champ-heroa{display:block;margin:24px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
 .champ .champ-heroa__row{display:flex;align-items:center;gap:16px;margin:0 !important;padding:0 0 16px !important}
 .champ .champ-heroa__ico{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0 !important;padding:0 !important;border:0 !important;border-radius:50%;background:#1b3d7a !important;color:#fff !important}
@@ -29,7 +27,7 @@
 .champ a.champ-hub-tile:visited{color:#fff !important}
 .champ a.champ-hub-tile:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(27,61,122,0.45) !important}
 .champ a.champ-hub-tile:focus-visible{outline:3px solid #1b3d7a;outline-offset:3px}
-.champ .champ-hub-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;z-index:0;inset:0;display:block;overflow:hidden;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 60% 55% at 80% 15%,rgba(220,50,90,0.72) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 10% 85%,rgba(27,61,122,0.55) 0%,transparent 65%),linear-gradient(140deg,#03060c 0%,#070f1f 40%,#0e1f3d 72%,#1b3d7a 100%) !important}
+.champ .champ-hub-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;z-index:0;inset:0;display:block;overflow:hidden;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 60% 55% at 80% 15%,rgba(90,140,230,0.60) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 10% 85%,rgba(27,61,122,0.55) 0%,transparent 65%),linear-gradient(140deg,#03060c 0%,#070f1f 40%,#0e1f3d 72%,#1b3d7a 100%) !important}
 .champ .champ-hub-tile__glass{position:absolute;z-index:1;inset:0;display:block;overflow:hidden;margin:0 !important;padding:0 !important;border-radius:inherit;pointer-events:none;background:linear-gradient(to top,rgba(3,6,12,0.88) 0%,rgba(3,6,12,0.50) 50%,transparent 100%),rgba(255,255,255,0.08) !important;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,0.45) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -1px 0 rgba(255,255,255,0.08)}
 .champ .champ-hub-tile__glass::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 50%)}
 .champ .champ-hub-tile__top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
@@ -40,17 +38,14 @@
 .champ a.champ-hub-tile .champ-soon{color:#fff !important;font-size:12px !important}
 .champ a.champ-hub-tile[data-soon="true"] .champ-hub-tile__arrow{display:none}
 .champ a.champ-hub-tile[data-soon="true"]:hover{transform:none;box-shadow:0 10px 26px rgba(27,61,122,0.30) !important}
+.champ a.champ-hub-tile--vote{box-shadow:0 10px 26px rgba(176,30,78,0.35) !important}
+.champ a.champ-hub-tile--vote:hover{box-shadow:0 16px 36px rgba(176,30,78,0.50) !important}
+.champ .champ-hub-tile--vote .champ-hub-tile__fx{background:radial-gradient(ellipse 60% 55% at 80% 15%,rgba(255,110,150,0.70) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 10% 85%,rgba(220,50,90,0.50) 0%,transparent 65%),linear-gradient(140deg,#14030a 0%,#3a0a1c 40%,#7a1636 72%,#b01e4e 100%) !important}
 @container champ (max-width:559px){.champ .champ-hub-tiles-section{grid-template-columns:minmax(0,1fr)}}
 @media (prefers-reduced-motion:reduce){.champ a.champ-hub-tile,.champ .champ-hub-tile__arrow{transition:none !important}.champ a.champ-hub-tile:hover,.champ a.champ-hub-tile:hover .champ-hub-tile__arrow{transform:none !important}}
 </style>
 <div class="champ">
-  <nav class="champ-nav" aria-label="Разделы чемпионата">
-    <a class="champ-tab" href="https://kb.severstal.com/spaces/BSS/pages/584516251/" aria-current="page">О чемпионате<span class="champ-soon"> Скоро</span></a>
-    <a class="champ-tab" href="https://kb.severstal.com/spaces/BSS/pages/584516288/">Голосование 2026<span class="champ-soon"> Скоро</span></a>
-    <a class="champ-tab" href="https://kb.severstal.com/spaces/BSS/pages/202375778/">2023<span class="champ-soon"> Скоро</span></a>
-    <a class="champ-tab" href="https://kb.severstal.com/spaces/BSS/pages/306053122/">2024<span class="champ-soon"> Скоро</span></a>
-    <a class="champ-tab" href="https://kb.severstal.com/spaces/BSS/pages/410419331/">2025<span class="champ-soon"> Скоро</span></a>
-  </nav>
+  <div class="champ-crumb champ-crumb--light">&larr; <a href="https://kb.severstal.com/spaces/BSS/" aria-label="Назад в БУП">БУП</a></div>
   <section class="champ-heroa">
     <div class="champ-heroa__row">
       <span class="champ-heroa__ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4"/><path d="M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4"/><path d="M8 20h8"/><path d="M9.5 17h5"/></svg></span>
@@ -62,7 +57,7 @@
     <span class="champ-heroa__line" aria-hidden="true"></span>
   </section>
   <div class="champ-hub-tiles-section">
-    <a href="https://kb.severstal.com/spaces/BSS/pages/584516288/" class="champ-hub-tile" aria-label="Голосование 2026">
+    <a href="https://kb.severstal.com/spaces/BSS/pages/584516288/" class="champ-hub-tile champ-hub-tile--vote" aria-label="Голосование 2026">
       <span class="champ-hub-tile__fx" aria-hidden="true"></span>
       <span class="champ-hub-tile__glass" aria-hidden="true"></span>
       <div class="champ-hub-tile__top" style="position:relative;z-index:2">
@@ -102,15 +97,10 @@
 </div>
 <script>
 (function () {
-  var nv = document.querySelectorAll('.champ .champ-nav');
-  for (var j = 0; j < nv.length; j++) {
-    var cu = nv[j].querySelector('a[aria-current="page"]');
-    if (cu && nv[j].scrollWidth > nv[j].clientWidth) { nv[j].scrollLeft = Math.max(0, cu.offsetLeft - nv[j].offsetLeft - 16); }
-  }
-  var root = document.querySelectorAll('.champ a[data-soon="true"], .champ a[aria-current="page"]');
-  for (var i = 0; i < root.length; i++) {
-    if (root[i].getAttribute('data-soon') === 'true') { root[i].setAttribute('aria-disabled', 'true'); root[i].setAttribute('tabindex', '-1'); }
-    root[i].addEventListener('click', function (e) { if (this.getAttribute('data-soon') === 'true') { e.preventDefault(); } });
+  var a = document.querySelectorAll('.champ a[data-soon="true"]');
+  for (var i = 0; i < a.length; i++) {
+    a[i].setAttribute('aria-disabled', 'true'); a[i].setAttribute('tabindex', '-1');
+    a[i].addEventListener('click', function (e) { e.preventDefault(); });
   }
 })();
 </script>
