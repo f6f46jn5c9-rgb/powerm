@@ -50,7 +50,7 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
       const t = await pg.evaluate(() => [...document.querySelectorAll('.ssbyt-hub-tile')].map(a => { const f = getComputedStyle(a.querySelector('.ssbyt-hub-tile__fx')), g = getComputedStyle(a.querySelector('.ssbyt-hub-tile__glass')); return { fx: f.backgroundImage.includes('radial-gradient'), bf: g.backdropFilter || g.webkitBackdropFilter, op: getComputedStyle(a).opacity, fxop: f.opacity, gop: g.opacity, title: getComputedStyle(a.querySelector('.ssbyt-hub-tile__title')).color }; }));
       ok(t.length === 6 && t.every(x => x.fx), 'hub: __fx radial-gradient ×6');
       ok(t.every(x => /blur/.test(x.bf)), 'hub: backdrop-filter на __glass');
-      ok(t.every(x => x.fxop === '0.45' && x.gop === '0.45'), `hub: Скоро — opacity .45 на слоях (плашка целиком: ${t[0].op})`);
+      ok(t.every(x => x.op === '1'), `hub: Скоро — тёмная плашка без выцветания (opacity ${t[0].op})`);
       // контраст заголовка плашки по пикселям: скрываем текст, снимаем фон под bbox
       const tiles = pg.locator('.ssbyt-hub-tile');
       for (let i = 0; i < 6; i++) {
