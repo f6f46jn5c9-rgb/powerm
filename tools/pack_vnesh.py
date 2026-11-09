@@ -22,7 +22,7 @@ for(var i=0;i<bs.length;i++)bs[i].addEventListener('click',function(){set(this.g
 INDEX = '''<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><title>Превью: Внешние практики. Силовые машины</title></head>
 <body style="font-family:Arial,sans-serif;margin:24px"><h1 style="font-size:20px">Внешние практики. Силовые машины</h1><ul><li><a href="vnesh-hub-preview.html">HTML-макрос 1 — хаб (панель 1100/820/560/375)</a></li></ul></body></html>
 '''
-README = '''Страница "Внешние практики. Силовые машины" (ID 167117099) -> 1 HTML-макрос (файл 1-vnesh-hub.html: шапка + 5 плашек).
+README = '''Страница "Внешние практики. Силовые машины" (ID 167117099) -> 1 HTML-макрос (файл 1-vnesh-hub.html: шапка + 4 плашки).
 
 ШАГИ ВСТАВКИ В CONFLUENCE
 1. Открыть страницу 167117099 на редактирование.
@@ -31,9 +31,9 @@ README = '''Страница "Внешние практики. Силовые м
 4. Сохранить.
 
 КАК ДОБАВИТЬ ССЫЛКИ НА ДОЧЕРНИЕ СТРАНИЦЫ ПОЗЖЕ
-Сейчас все 5 плашек в состоянии "Скоро" (адреса пустые).
+Плашка с пустым адресом показывается как "Скоро", с адресом - как активная ссылка.
 1. Открыть в репозитории файл src/vnesh/vnesh-pages.js.
-2. Заполнить поля tmkh / armalit / omk / recca / cifra адресами страниц (в кавычках).
+2. Заполнить поля tmkh / armalit / recca / cifra адресами страниц (в кавычках).
 3. Выполнить: python3 tools/build_vnesh.py
 4. Перезалить файл dist/vnesh-hub.html (копия: vnesh-final/1-vnesh-hub.html после упаковки) в макрос HTML на странице. Плашки с адресом станут активными ссылками сами.
 
