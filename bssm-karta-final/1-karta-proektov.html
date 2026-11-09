@@ -1,0 +1,72 @@
+<!-- HTML-МАКРОС: КАРТА ПРОЕКТОВ -->
+<style>
+:root{--bk-accent:#2a5ca8;--bk-ink:#1F2A33;--bk-muted:#5B6670;--bk-line:#E3EAED}
+.bssm-karta{display:block;position:relative;box-sizing:border-box;width:100%;max-width:100%;margin:32px 0 24px !important;padding:0 !important;container-type:inline-size;container-name:bssmkarta;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--bk-ink);text-align:left;background:none;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual;-webkit-text-size-adjust:100%}
+.bssm-karta *,.bssm-karta *::before,.bssm-karta *::after{box-sizing:border-box}
+.bssm-karta svg{display:block;max-width:none}
+.bssm-karta .bk-sep{display:block;height:0;margin:0 0 20px !important;padding:0 !important;border:0 !important;border-top:1px solid #E3EAED !important;background:none !important}
+.bssm-karta h3.bk-h{display:block;margin:0 0 14px !important;padding:0 !important;border:0 !important;background:none !important;font-family:inherit !important;font-size:11px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;letter-spacing:.08em !important;text-transform:uppercase !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.bssm-karta .bk-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 20px !important;padding:0 !important;list-style:none !important}
+.bssm-karta .bk-stat{display:block;min-width:0;margin:0 !important;padding:12px 14px !important;border:.5px solid #E3EAED !important;border-radius:6px;background:none !important;list-style:none !important}
+.bssm-karta .bk-num{display:block;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:22px !important;font-weight:500 !important;line-height:1.2 !important;color:#2a5ca8 !important}
+.bssm-karta .bk-cap{display:block;margin:2px 0 0 !important;padding:0 !important;font-family:inherit !important;font-size:12px !important;font-weight:400 !important;line-height:1.3 !important;color:#5B6670 !important}
+.bssm-karta .bk-tl{display:block;margin:0 !important;padding:0 !important;cursor:default}
+.bssm-karta .bk-row{display:grid;grid-template-columns:160px repeat(9,minmax(0,1fr));gap:3px;align-items:stretch;height:30px;margin:0 0 3px !important;padding:0 !important;border:0 !important;background:none !important;pointer-events:none;cursor:default}
+.bssm-karta .bk-row--y{height:auto;margin:0 0 6px !important}
+.bssm-karta .bk-lab{display:flex;align-items:center;min-width:0;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:12px !important;font-weight:400 !important;line-height:1.2 !important;color:#5B6670 !important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bssm-karta .bk-lab>span{font-size:12px !important;color:#5B6670 !important;display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bssm-karta .bk-yr{display:block;min-width:0;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:11px !important;font-weight:500 !important;line-height:1.3 !important;color:#5B6670 !important;text-align:center !important}
+.bssm-karta .bk-rows{display:block;margin:0 !important;padding:6px 0 0 !important;border-top:.5px solid #E3EAED !important}
+.bssm-karta .bk-c{display:block;min-width:0;margin:0 !important;padding:0 !important;border:0 !important;background:none}
+.bssm-karta .bk-c.on{border-top:2px solid var(--c) !important;background:var(--f) !important}
+.bssm-karta .bk-c.on.s{border-top-left-radius:5px;border-bottom-left-radius:5px}
+.bssm-karta .bk-c.on.e{border-top-right-radius:5px;border-bottom-right-radius:5px}
+.bssm-karta .bk-leg{display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 0 !important;padding:12px 0 0 !important;border-top:.5px solid #E3EAED !important;list-style:none !important}
+.bssm-karta .bk-li{display:flex;align-items:center;gap:6px;margin:0 !important;padding:0 !important;font-family:inherit !important;font-size:11px !important;line-height:1.3 !important;color:#5B6670 !important;list-style:none !important}
+.bssm-karta .bk-li>span{font-size:11px !important;color:#5B6670 !important}.bssm-karta .bk-sw{display:block;flex:0 0 auto;width:11px;height:11px;border-radius:3px;background:var(--c)}
+.bssm-karta p.bk-note{display:block;margin:12px 0 0 !important;padding:0 !important;border:0 !important;background:none !important;font-family:inherit !important;font-size:12px !important;font-weight:400 !important;line-height:1.4 !important;color:#5B6670 !important;text-align:left !important}
+.bssm-karta .bk-tl:focus-visible{outline:3px solid #2a5ca8;outline-offset:3px}
+@container bssmkarta (max-width:539px){.bssm-karta .bk-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container bssmkarta (max-width:479px){.bssm-karta .bk-row{grid-template-columns:115px repeat(9,minmax(0,1fr))}.bssm-karta .bk-lab,.bssm-karta .bk-lab>span{font-size:11px !important}.bssm-karta .bk-lab>span{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.15}.bssm-karta .bk-row{height:30px}}
+@container bssmkarta (max-width:479px){.bssm-karta .bk-row--y{gap:1px}}
+@media (prefers-reduced-motion:reduce){.bssm-karta *{animation:none !important;transition:none !important}}
+</style>
+<div class="bssm-karta" role="region" aria-label="Карта проектов">
+<div class="bk-sep"></div>
+<h3 class="bk-h">Карта проектов</h3>
+<ul class="bk-stats" aria-label="Ключевые показатели">
+<li class="bk-stat"><span class="bk-num">9</span><span class="bk-cap">Лет программы</span></li>
+<li class="bk-stat"><span class="bk-num">200+</span><span class="bk-cap">Запущено проектов</span></li>
+<li class="bk-stat"><span class="bk-num">5</span><span class="bk-cap">Производственных площадок</span></li>
+<li class="bk-stat"><span class="bk-num">6+</span><span class="bk-cap">Программ трансформации</span></li>
+</ul>
+<div class="bk-tl" role="group" aria-label="Диаграмма программ по годам, 2017–2025"></div>
+<ul class="bk-leg" aria-label="Легенда"></ul>
+<p class="bk-note">Упрощённая карта ключевых программ. Полная карта проектов — в PDF-материалах программы.</p>
+<script>
+(function(){
+var Y=[2017,2018,2019,2020,2021,2022,2023,2024,2025];
+var P=[["Мини-Т проекты","111111111","#2a5ca8","42,92,168"],
+["Программа СМ 2.0","111111000","#0e7c7b","14,124,123"],
+["Программа СМ 3.0","000001111","#2a4fa0","42,79,160"],
+["Ворота качества","000000111","#b07a10","176,122,16"],
+["Трансформация закупок","000000111","#b04020","176,64,32"],
+["Фабрика результатов","000000011","#8b2050","139,32,80"]];
+function E(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+var R=document.querySelectorAll('.bssm-karta');
+for(var k=0;k<R.length;k++){var r=R[k];if(r.getAttribute('data-r'))continue;r.setAttribute('data-r','1');
+var tl=r.querySelector('.bk-tl'),lg=r.querySelector('.bk-leg');
+var h=E('div','bk-row bk-row--y');h.setAttribute('aria-hidden','true');h.appendChild(E('div','bk-lab'));
+for(var i=0;i<9;i++)h.appendChild(E('div','bk-yr',Y[i]));tl.appendChild(h);
+var rows=E('div','bk-rows');tl.appendChild(rows);
+for(var j=0;j<P.length;j++){var p=P[j],a=p[1],f=a.indexOf('1'),l=a.lastIndexOf('1');
+var row=E('div','bk-row');row.setAttribute('role','img');
+row.setAttribute('aria-label',p[0]+': '+Y[f]+'–'+Y[l]);
+row.style.setProperty('--c',p[2]);row.style.setProperty('--f','rgba('+p[3]+',0.12)');
+var lb=E('div','bk-lab');lb.appendChild(E('span','',p[0]));row.appendChild(lb);
+for(i=0;i<9;i++){var c=E('div','bk-c'+(a.charAt(i)=='1'?' on'+(i==f?' s':'')+(i==l?' e':''):''));c.setAttribute('aria-hidden','true');row.appendChild(c)}
+rows.appendChild(row);
+var li=E('li','bk-li');li.style.setProperty('--c',p[2]);li.appendChild(E('span','bk-sw'));li.appendChild(E('span','',p[0]));lg.appendChild(li)}}
+})();
+</script>
+</div>
