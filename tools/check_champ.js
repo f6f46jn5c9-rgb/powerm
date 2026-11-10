@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const R = path.resolve(__dirname, '..');
 const PAGES = { 'champ-hub': 'О чемпионате', 'champ-golos': 'Голосование 2026', 'champ-2023': '2023', 'champ-2024': '2024', 'champ-2025': '2025' };
 const TITLES = { 'champ-hub': 'Чемпионат лучших практик', 'champ-golos': 'Голосование 2026', 'champ-2023': 'Чемпионат лучших практик 2023', 'champ-2024': 'Чемпионат лучших практик 2024', 'champ-2025': 'Чемпионат лучших практик 2025' };
-const URLS = ['584516251', '584516288', '202375778', '306053122', '410419331'].map(i => `https://kb.severstal.com/spaces/BSS/pages/${i}/`);
+const PG = fs.readFileSync(path.join(R, 'src/champ/champ-pages.js'), 'utf8'); const URLS = ['hub', 'golos', 'y2023', 'y2024', 'y2025'].map(k => PG.match(new RegExp(k + ":\\s*'([^']*)'"))[1]);
 const WIDTHS = [1100, 960, 820, 700, 560, 375];
 const lum = c => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(c[0]) + .7152 * f(c[1]) + .0722 * f(c[2]); };
 const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
