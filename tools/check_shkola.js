@@ -45,16 +45,16 @@ const pix = (buf, rects) => { const py = 'import sys,json\nfrom PIL import Image
   }
   let pg = await open(1100);
   const st = await pg.evaluate(() => { const col = document.getElementById('col'), t = col.querySelector('.shkola-hero__title'), c = col.querySelector('.shkola-hero__crumb'), l = col.querySelector('.shkola-hero__label'), im = col.querySelector('img'), gs = getComputedStyle;
-    return { title: [t.tagName, t.textContent, gs(t).fontSize, gs(t).fontWeight, gs(t).color], crumb: [c.tagName, c.textContent, gs(c).color, !!col.querySelector('.shkola-hero a')], label: [l.textContent, gs(l).fontSize, gs(l).fontWeight, gs(l).color, gs(l).letterSpacing, gs(l).backgroundColor, gs(l).borderTopWidth],
-      img: [gs(im).borderRadius, gs(im).borderTopWidth, gs(im).borderTopColor, im.getAttribute('src'), im.hasAttribute('height')], bg: gs(col.querySelector('.shkola-hero__top')).backgroundImage, rest: col.querySelectorAll('.shkola-hero svg,.shkola-hero button,.shkola-hero input').length, accent: gs(col.querySelector('.shkola-hero')).getPropertyValue('--shkola-accent') };
+    return { title: [t.tagName, t.textContent, gs(t).fontSize, gs(t).fontWeight, gs(t).color], crumb: [c.tagName, c.textContent, gs(c).color, !!col.querySelector('.shkola-hero__top a')], label: [l.textContent, gs(l).fontSize, gs(l).fontWeight, gs(l).color, gs(l).letterSpacing, gs(l).backgroundColor, gs(l).borderTopWidth],
+      img: [gs(im).borderRadius, gs(im).borderTopWidth, gs(im).borderTopColor, im.getAttribute('src'), im.hasAttribute('height')], bg: gs(col.querySelector('.shkola-hero__top')).backgroundImage, rest: col.querySelectorAll('.shkola-hero__top svg,.shkola-hero__mat svg,.shkola-hero button,.shkola-hero input').length, accent: gs(col.querySelector('.shkola-hero')).getPropertyValue('--shkola-accent') };
   });
   ok(st.title.join() === 'H2,БССМ. Школа,26px,800,rgb(255, 255, 255)', 'заголовок: ' + st.title);
   ok(st.crumb[0] === 'SPAN' && st.crumb[1] === '← БУП' && !st.crumb[3], `крошка при пустом URL — серый текст без <a>: ${st.crumb}`);
   ok(st.label.join() === 'Материалы программы,13px,600,rgb(91, 102, 112),0.65px,rgba(0, 0, 0, 0),0px', 'метка «Материалы программы»: ' + st.label);
   ok(st.img[0] === '8px' && st.img[1] === '1px' && st.img[2] === 'rgb(227, 234, 237)' && !st.img[4] && /^\/download\/attachments\/(SHKOLA_PAGE_ID|232849639)\//.test(st.img[3]), 'картинки: radius 8, рамка 1px #E3EAED, без фикс. высоты, src на вложение: ' + st.img.slice(0, 3));
   ok(/38% 35% at 78% 18%, rgba\(100, 180, 255, 0.88\) 0%/.test(st.bg) && /25% 25% at 14% 82%, rgba\(42, 92, 168, 0.52\) 0%/.test(st.bg) && /140deg, rgb\(4, 8, 16\) 0%, rgb\(8, 16, 42\) 40%, rgb\(21, 32, 72\) 72%, rgb\(42, 92, 168\) 100%/.test(st.bg), 'фон hero — градиент hub-bssm (2 blob ×0,7 + linear 140deg)');
-  ok(st.rest === 0 && st.accent === '#2a5ca8', 'нет иконок/кнопок/инпутов; --shkola-accent #2a5ca8');
-  const ni = await pg.evaluate(() => { const bad = []; document.getElementById('col').querySelectorAll('*').forEach(e => { const c = getComputedStyle(e); if (c.boxShadow !== 'none' || c.transform !== 'none' || c.transitionDuration !== '0s' || c.animationName !== 'none' || c.backdropFilter !== 'none') bad.push(e.className || e.tagName); }); return bad; });
+  ok(st.rest === 0 && st.accent === '#2a5ca8', 'нет иконок/кнопок/инпутов в hero и блоке материалов; --shkola-accent #2a5ca8');
+  const ni = await pg.evaluate(() => { const bad = []; document.getElementById('col').querySelectorAll('*').forEach(e => { if (e.closest('a.shkola-hero__tile')) return; const c = getComputedStyle(e); if (c.boxShadow !== 'none' || c.transform !== 'none' || c.transitionDuration !== '0s' || c.animationName !== 'none' || c.backdropFilter !== 'none') bad.push(e.className || e.tagName); }); return bad; });
   ok(!ni.length, `нет теней/transform/transition/animation/backdrop ни у одного элемента ${ni.slice(0, 3)}`);
   await pg.hover('.shkola-hero img'); await pg.waitForTimeout(150);
   ok(await pg.evaluate(() => { const c = getComputedStyle(document.querySelector('.shkola-hero img')); return c.transform === 'none' && c.boxShadow === 'none'; }), 'hover на картинке: без подъёма и тени');
@@ -75,6 +75,27 @@ const pix = (buf, rects) => { const py = 'import sys,json\nfrom PIL import Image
   const s2 = await pg.screenshot({ fullPage: true }); let mx = -1, mp = null; for (const p of pix(s2, r2)) { if (lum(p) > mx) { mx = lum(p); mp = p; } }
   ok(cr([255, 255, 255], mp) >= 4.5 && cr([0xb4, 0xbd, 0xd2], mp) >= 4.5, `375px: контраст заголовка/крошки на ${mp} = ${cr([255, 255, 255], mp).toFixed(2)} / ${cr([0xb4, 0xbd, 0xd2], mp).toFixed(2)}`);
   await pg.context().close();
+  // плашки модулей
+  for (const [w, vw, exp] of [[1100, 1300, 3], [820, 1300, 3], [560, 1300, 3], [459, 1300, 1], [375, 375, 1]]) {
+    pg = await open(w, vw); const t = await pg.evaluate(() => { const col = document.getElementById('col'), T = [...col.querySelectorAll('a.shkola-hero__tile')], cw = col.getBoundingClientRect().width;
+      return { n: T.length, names: T.map(x => x.querySelector('.shkola-hero__tname').textContent), cols: getComputedStyle(col.querySelector('.shkola-hero__tiles')).gridTemplateColumns.split(' ').length, hrefs: T.map(x => x.getAttribute('href')), inside: T.every(x => { const b = x.getBoundingClientRect(); return b.left >= -.5 && b.right <= cw + .5 && [...x.querySelectorAll('.shkola-hero__tname,.shkola-hero__ttop')].every(n => { const r = n.getBoundingClientRect(); return r.bottom <= b.bottom - 8 && r.right <= b.right - 8 && r.left >= b.left + 8; }); }), sw: document.documentElement.scrollWidth <= innerWidth, h: T.map(x => Math.round(x.getBoundingClientRect().height)), soon: T.map(x => x.classList.contains('shkola-is-soon')), above: T[0].getBoundingClientRect().top > col.querySelector('.shkola-hero__top').getBoundingClientRect().bottom && T[0].getBoundingClientRect().bottom < col.querySelector('img').getBoundingClientRect().top }; });
+    ok(t.n === 3 && t.names.join() === 'Модуль 1,Модуль 2,Модуль 3' && t.cols === exp && t.inside && t.sw && t.above && t.h.every(x => x >= 116), `${w}px: 3 плашки «Модуль 1-3», колонок ${t.cols} (нужно ${exp}), внутри, между hero и картинками, высоты ${t.h}`);
+    if (w === 1100) { ok(t.hrefs.every((h, i) => h.startsWith('https://kb.severstal.com/spaces/BSS/pages/' + ['290521496/1', '290521826/2', '294912048/3'][i] + '+')) && t.soon.every(x => !x), 'ссылки модулей 1/2/3 подставлены, плашки живые: ' + t.hrefs.map(h => decodeURIComponent(h.split('/').pop())));
+      const tr = await pg.evaluate(() => [...document.querySelectorAll('a.shkola-hero__tile')].map(a => { const c = getComputedStyle(a); return [c.color, c.cursor, c.opacity]; })); ok(tr.every(x => x.join() === 'rgb(255, 255, 255),pointer,1'), 'плашки: белый текст, pointer, opacity 1');
+      const tn = await pg.evaluate(() => [...document.querySelectorAll('.shkola-hero__tname')].map(n => { const r = n.getBoundingClientRect(); return { x: r.left, y: r.top, w: r.width, h: r.height }; }));
+      await pg.addStyleTag({ content: '#col .shkola-hero .shkola-hero__tname{color:transparent !important;text-shadow:none !important}' }); const sh = await pg.screenshot({ fullPage: true }); let mx = -1, mp = null; for (const p of pix(sh, tn)) { if (lum(p) > mx) { mx = lum(p); mp = p; } }
+      ok(cr([255, 255, 255], mp) >= 4.5, `контраст названия плашки: белый на ${mp} = ${cr([255, 255, 255], mp).toFixed(2)}:1`);
+      await pg.reload(); }
+    await pg.context().close(); }
+  pg = await open(1100); await pg.hover('a.shkola-hero__tile'); await pg.waitForTimeout(400);
+  ok(await pg.evaluate(() => getComputedStyle(document.querySelector('a.shkola-hero__tile')).transform) === 'matrix(1, 0, 0, 1, 0, -3)', 'hover живой плашки: подъём 3px (у интерактивного элемента)');
+  await pg.mouse.move(0, 0); await pg.keyboard.press('Tab'); const tf = await pg.evaluate(() => { const c = getComputedStyle(document.activeElement); return [document.activeElement.className, c.outlineStyle, c.outlineWidth]; });
+  ok(tf[0] === 'shkola-hero__tile' && tf[1] === 'solid' && tf[2] === '3px', ':focus-visible у плашки ' + tf); await pg.context().close();
+  pg = await open(1100, 1300, { rm: true }); await pg.hover('a.shkola-hero__tile'); await pg.waitForTimeout(400);
+  ok(await pg.evaluate(() => { const a = document.querySelector('a.shkola-hero__tile'); return getComputedStyle(a).transform === 'none' && getComputedStyle(a).transitionDuration === '0s'; }), 'reduced-motion: плашка без подъёма и transition'); await pg.context().close();
+  pg = await open(1100, 1300, { html: page.replace(/href="https:\/\/kb\.severstal\.com\/spaces\/BSS\/pages\/\d+\/\d\+[^"]*"/g, 'href="URL_МОДУЛЬ_X"') });
+  const sn = await pg.evaluate(() => [...document.querySelectorAll('a.shkola-hero__tile')].map(a => { const c = getComputedStyle(a); return [c.cursor, c.opacity, a.getAttribute('aria-disabled')].join(); })); await pg.hover('a.shkola-hero__tile'); await pg.waitForTimeout(400);
+  ok(sn.every(x => x === 'default,0.6,true') && await pg.evaluate(() => getComputedStyle(document.querySelector('a.shkola-hero__tile')).transform) === 'none', 'без ссылки: плашка бледная, default, aria-disabled, без подъёма'); await pg.context().close();
   // живая крошка
   pg = await open(1100, 1300, { html: live });
   const lv = await pg.evaluate(() => { const a = document.querySelector('.shkola-hero a.shkola-hero__crumb'); return a && [a.getAttribute('href'), getComputedStyle(a).color, getComputedStyle(a).pointerEvents]; });
@@ -84,12 +105,12 @@ const pix = (buf, rects) => { const py = 'import sys,json\nfrom PIL import Image
   await pg.context().close();
   // reduced motion
   pg = await open(1100, 1300, { rm: true }); ok(await pg.evaluate(() => [...document.querySelectorAll('#col *')].every(e => { const c = getComputedStyle(e); return c.transitionDuration === '0s' && c.animationName === 'none'; })), 'reduced-motion: ни transition, ни animation'); await pg.context().close();
-  ok(!/transition|animation|@keyframes/.test(H + O + C), 'в исходниках нет transition/animation/@keyframes (нечего оборачивать в prefers-reduced-motion)');
+  ok(/transition/.test(H) && /@media \(prefers-reduced-motion:reduce\)\{[^]*transition:none !important/.test(H) && !/animation|@keyframes/.test(H + O + C), 'transition есть только у плашек и перекрыт в @media (prefers-reduced-motion); анимаций нет');
   // изоляция
   pg = await open(820, 1300, { hostile: true }); const h = await pg.evaluate(() => { const col = document.getElementById('col'), gs = getComputedStyle, t = col.querySelector('.shkola-hero__title'), l = col.querySelector('.shkola-hero__label'), im = col.querySelector('img'), a = col.querySelector('.shkola-cbylabel a'), li = col.querySelector('.shkola-cbylabel li'), top = col.querySelector('.shkola-hero__top');
-    return { t: [gs(t).color, gs(t).fontSize, gs(t).textTransform, gs(t).letterSpacing], l: [gs(l).color, gs(l).fontSize, gs(l).textTransform], im: [gs(im).borderTopWidth, gs(im).borderRadius, gs(im).margin, gs(im).height !== '41px'], a: [gs(a).color, gs(a).fontSize, gs(a).textDecorationLine], li: [gs(li).paddingTop, gs(li).borderBottomWidth], bgY: gs(top).backgroundColor, sw: document.documentElement.scrollWidth <= innerWidth };
+    return { t: [gs(t).color, gs(t).fontSize, gs(t).textTransform, gs(t).letterSpacing], l: [gs(l).color, gs(l).fontSize, gs(l).textTransform], im: [gs(im).borderTopWidth, gs(im).borderRadius, gs(im).margin, gs(im).height !== '41px'], a: [gs(a).color, gs(a).fontSize, gs(a).textDecorationLine], li: [gs(li).paddingTop, gs(li).borderBottomWidth], tile: [gs(col.querySelector('.shkola-hero__tname')).color, gs(col.querySelector('.shkola-hero__tname')).fontSize, gs(col.querySelector('a.shkola-hero__tile')).color, gs(col.querySelector('a.shkola-hero__tile')).minHeight], bgY: gs(top).backgroundColor, sw: document.documentElement.scrollWidth <= innerWidth };
   });
-  ok(h.t.join() === 'rgb(255, 255, 255),26px,none,normal' && h.l.join() === 'rgb(91, 102, 112),13px,none' && h.im.join() === '1px,8px,0px,true' && h.a.join() === 'rgb(42, 92, 168),15px,none' && h.li.join() === '8px,1px' && h.bgY === 'rgba(0, 0, 0, 0)' && h.sw, 'изоляция от жёстких чужих стилей (h2/a/p red!important и др.): ' + JSON.stringify(h));
+  ok(h.t.join() === 'rgb(255, 255, 255),26px,none,normal' && h.l.join() === 'rgb(91, 102, 112),13px,none' && h.im.join() === '1px,8px,0px,true' && h.a.join() === 'rgb(42, 92, 168),15px,none' && h.li.join() === '8px,1px' && h.tile.join() === 'rgb(255, 255, 255),16px,rgb(255, 255, 255),128px' && h.bgY === 'rgba(0, 0, 0, 0)' && h.sw, 'изоляция от жёстких чужих стилей (h2/a/p red!important и др.): ' + JSON.stringify(h));
   await pg.context().close();
   // обёртка CBL
   pg = await open(1100); const w = await pg.evaluate(() => { const c = document.querySelector('#col > .shkola-cbylabel'), p = c.querySelector('p'), u = c.querySelector('ul'), li = c.querySelector('li'), gs = getComputedStyle; return { n: document.querySelectorAll('.shkola-cbylabel').length, kids: [...c.children].map(e => e.tagName), p: [p.textContent, gs(p).fontSize, gs(p).fontWeight, gs(p).color, gs(p).letterSpacing], ul: [gs(u).paddingLeft, gs(u).listStyleType], li: [gs(li).paddingTop, gs(li).borderBottomColor], hero: !c.contains(document.querySelector('.shkola-hero')) }; });
@@ -98,7 +119,7 @@ const pix = (buf, rects) => { const py = 'import sys,json\nfrom PIL import Image
   // файлы и сеть
   for (const f of ['1-shkola-hero.html', '2-shkola-cbl-open.html', '3-shkola-cbl-close.html']) { const kb = fs.statSync(path.join(R, 'dist', f)).size / 1024; ok(kb <= 38, `${f}: ${kb.toFixed(2)} КБ ≤ 38`); }
   const ext = reqs.filter(u => !/^(data|about):/.test(u) && !/\/download\/attachments\/(SHKOLA_PAGE_ID|232849639)\//.test(u) && !/^https:\/\/kb\.test\/page$/.test(u) && !/^https:\/\/example\.com\/bup/.test(u));
-  ok(!ext.length, `внешних запросов нет (только вложения Confluence): ${ext.slice(0, 3)}`);
+  ok(!ext.length, `внешних запросов нет (только вложения Confluence; плашки не запрашиваются): ${ext.slice(0, 3)}`);
   ok(!errs.length, `ошибок в консоли нет ${errs.slice(0, 3)}`);
   ok(!/\b(position\s*:\s*fixed|100vh|localStorage|sessionStorage|base64)\b/.test(H + O + C), 'нет fixed/100vh/localStorage/base64');
   ok(!/(^|[}\s,])(\*|body|html|a|h1|h2|h3|p|img)\s*[,{]/m.test((H.match(/<style>[\s\S]*?<\/style>/) || [''])[0].replace(/\.shkola-[^{]*\{/g, '.shkola{').replace(/\.shkola\{[^}]*\}/g, '')), 'в <style> нет глобальных селекторов (все под .shkola-*)');

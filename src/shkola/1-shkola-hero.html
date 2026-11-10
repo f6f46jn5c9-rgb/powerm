@@ -1,4 +1,4 @@
-<!-- HTML-МАКРОС 1: HERO + ИЗОБРАЖЕНИЯ -->
+<!-- HTML-МАКРОС 1: HERO + ПЛАШКИ МОДУЛЕЙ + ИЗОБРАЖЕНИЯ -->
 <style>
 .shkola-hero{--shkola-accent:#2a5ca8;--shkola-ink:#1F2A33;--shkola-muted:#5B6670;--shkola-line:#E3EAED;
   display:block;box-sizing:border-box;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:shkola;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--shkola-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
@@ -12,6 +12,28 @@
 .shkola-hero a.shkola-hero__crumb[href^="URL_"]{color:#b4bdd2 !important;cursor:default;pointer-events:none}
 .shkola-hero span.shkola-hero__crumb{color:#b4bdd2 !important}
 .shkola-hero h2.shkola-hero__title{margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.15 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
+.shkola-hero .shkola-hero__nav{display:block;margin:16px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero .shkola-hero__tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero a.shkola-hero__tile{position:relative !important;isolation:isolate;display:flex !important;flex-direction:column;justify-content:space-between;gap:14px;min-width:0;min-height:128px;margin:0 !important;padding:16px !important;border:0 !important;border-radius:16px;background:none !important;cursor:pointer;box-shadow:0 10px 26px rgba(30,71,128,.30),0 2px 6px rgba(26,42,94,.12);color:#fff !important;font-size:16px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;transition:transform .25s ease,box-shadow .25s ease}
+.shkola-hero a.shkola-hero__tile:visited,.shkola-hero a.shkola-hero__tile:active{color:#fff !important}
+.shkola-hero .shkola-hero__tfx{position:absolute;z-index:0;inset:0;display:block;overflow:hidden;margin:0 !important;padding:0 !important;border:0 !important;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(100,180,255,0.88) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(42,92,168,0.52) 0%,transparent 65%),linear-gradient(140deg,#040810 0%,#08102a 40%,#152048 72%,#2a5ca8 100%) !important}
+.shkola-hero .shkola-hero__tglass{position:absolute;z-index:1;inset:0;display:block;overflow:hidden;margin:0 !important;padding:0 !important;border-radius:inherit;pointer-events:none;background:linear-gradient(0deg,rgba(5,10,22,.88) 0,rgba(5,10,22,.5) 48%,rgba(5,10,22,0) 90%),linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.08)) !important;border:1px solid rgba(255,255,255,.45) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 0 26px rgba(255,255,255,.14)}
+.shkola-hero a.shkola-hero__tile:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(30,71,128,.38),0 3px 8px rgba(26,42,94,.14)}
+.shkola-hero a.shkola-hero__tile:hover .shkola-hero__tglass{border-color:rgba(255,255,255,.85) !important}
+.shkola-hero a.shkola-hero__tile:focus-visible{outline:3px solid #2a5ca8;outline-offset:3px}
+.shkola-hero .shkola-hero__ttop{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.shkola-hero .shkola-hero__tico{flex:0 0 auto;display:block;width:48px;height:48px;margin:0 !important;padding:0 !important;border:1px solid rgba(255,255,255,.5) !important;border-radius:50%;background:rgba(255,255,255,.18) !important}
+.shkola-hero .shkola-hero__tico svg,.shkola-hero .shkola-hero__tarrow{display:block;max-width:none}
+.shkola-hero .shkola-hero__tico svg{width:48px;height:48px;margin:-1px 0 0 -1px}
+.shkola-hero .shkola-hero__tarrow{width:24px;height:24px;margin:12px 0 0 !important;opacity:.9;transition:transform .25s ease,opacity .25s ease}
+.shkola-hero a.shkola-hero__tile:hover .shkola-hero__tarrow{transform:translateX(4px);opacity:1}
+.shkola-hero .shkola-hero__tname{position:relative;z-index:2;display:block !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:16px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.shkola-hero a.shkola-hero__tile.shkola-is-soon{cursor:default;opacity:.6}
+.shkola-hero a.shkola-hero__tile.shkola-is-soon:hover{transform:none;box-shadow:0 10px 26px rgba(30,71,128,.30),0 2px 6px rgba(26,42,94,.12)}
+.shkola-hero a.shkola-hero__tile.shkola-is-soon:hover .shkola-hero__tarrow{transform:none}
+@container shkola (max-width:459px){.shkola-hero .shkola-hero__tiles{grid-template-columns:minmax(0,1fr)}.shkola-hero a.shkola-hero__tile{min-height:116px;padding:12px !important}}
+@supports not (container-type:inline-size){@media (max-width:459px){.shkola-hero .shkola-hero__tiles{grid-template-columns:minmax(0,1fr)}}}
+@media (prefers-reduced-motion:reduce){.shkola-hero a.shkola-hero__tile,.shkola-hero .shkola-hero__tarrow{transition:none !important}.shkola-hero a.shkola-hero__tile:hover,.shkola-hero a.shkola-hero__tile:hover .shkola-hero__tarrow{transform:none !important}}
 .shkola-hero .shkola-hero__mat{display:block;margin:24px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
 .shkola-hero h3.shkola-hero__label{display:block;margin:0 0 12px !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#5B6670 !important;font-family:inherit !important;letter-spacing:0.05em !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important}
 .shkola-hero .shkola-hero__imgs{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
@@ -26,6 +48,25 @@
     <a class="shkola-hero__crumb" href="URL_БУП" aria-label="Назад в БУП">&larr; БУП</a>
     <h2 class="shkola-hero__title">БССМ. Школа</h2>
   </div>
+  <nav class="shkola-hero__nav" aria-label="Модули программы">
+    <div class="shkola-hero__tiles">
+      <a class="shkola-hero__tile" href="URL_МОДУЛЬ_1" target="_blank" rel="noopener" aria-label="Модуль 1">
+        <span class="shkola-hero__tfx" aria-hidden="true"></span><span class="shkola-hero__tglass" aria-hidden="true"></span>
+        <span class="shkola-hero__ttop"><span class="shkola-hero__tico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><text x="20" y="25.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#fff">1</text></svg></span><svg class="shkola-hero__tarrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span>
+        <span class="shkola-hero__tname">Модуль 1</span>
+      </a>
+      <a class="shkola-hero__tile" href="URL_МОДУЛЬ_2" target="_blank" rel="noopener" aria-label="Модуль 2">
+        <span class="shkola-hero__tfx" aria-hidden="true"></span><span class="shkola-hero__tglass" aria-hidden="true"></span>
+        <span class="shkola-hero__ttop"><span class="shkola-hero__tico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><text x="20" y="25.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#fff">2</text></svg></span><svg class="shkola-hero__tarrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span>
+        <span class="shkola-hero__tname">Модуль 2</span>
+      </a>
+      <a class="shkola-hero__tile" href="URL_МОДУЛЬ_3" target="_blank" rel="noopener" aria-label="Модуль 3">
+        <span class="shkola-hero__tfx" aria-hidden="true"></span><span class="shkola-hero__tglass" aria-hidden="true"></span>
+        <span class="shkola-hero__ttop"><span class="shkola-hero__tico" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="18" stroke="#2a5ca8" stroke-width="2"/><text x="20" y="25.5" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#fff">3</text></svg></span><svg class="shkola-hero__tarrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span>
+        <span class="shkola-hero__tname">Модуль 3</span>
+      </a>
+    </div>
+  </nav>
   <section class="shkola-hero__mat" aria-label="Материалы программы">
     <h3 class="shkola-hero__label">Материалы программы</h3>
     <div class="shkola-hero__imgs">
@@ -36,6 +77,15 @@
 </div>
 <script>
 (function () {
+  var t = document.querySelectorAll('.shkola-hero a.shkola-hero__tile');
+  for (var i = 0; i < t.length; i++) {
+    if ((t[i].getAttribute('href') || '').indexOf('URL_') === 0) {
+      t[i].classList.add('shkola-is-soon');
+      t[i].setAttribute('aria-disabled', 'true');
+      t[i].setAttribute('tabindex', '-1');
+      t[i].addEventListener('click', function (e) { e.preventDefault(); });
+    }
+  }
   var c = document.querySelector('.shkola-hero a.shkola-hero__crumb');
   if (!c || (c.getAttribute('href') || '').indexOf('URL_') !== 0) { return; }
   var s = document.createElement('span');
