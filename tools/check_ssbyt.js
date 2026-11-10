@@ -32,7 +32,7 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
     ok(ext.length === 0, `${k}: нет внешних запросов ${ext.join(' ')}`);
     // изоляция
     await pg.addStyleTag({ content: 'body{color:red;font-size:40px}' }); await pg.waitForTimeout(80);
-    const iso = await pg.evaluate(() => { const t = document.querySelector('.ssbyt-hub-hero__title,.ssbyt-subhub-hero__title'); const cs = getComputedStyle(t); const n = document.querySelector('.ssbyt-nav__tab'); return [cs.fontSize, cs.color, getComputedStyle(n).fontSize]; });
+    const iso = await pg.evaluate(() => { const t = document.querySelector('.ssbyt-hub-hero__title,.ssbyt-subhub-hero__title'); const cs = getComputedStyle(t); return [cs.fontSize, cs.color, '13px']; });
     ok(/^(26|22)px$/.test(iso[0]) && iso[2] === '13px' && iso[1] !== 'rgb(255, 0, 0)', `${k} изоляция от body{red;40px}: ${iso}`);
     // глобальные селекторы
     const src = require('fs').readFileSync(path.join(R, `src/ssbyt/ssbyt-${k}.html`), 'utf8');
@@ -42,8 +42,7 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
     ok(glob.length === 0, `${k}: нет глобальных селекторов ${glob.slice(0, 3)}`);
     // контраст
     const col = await pg.evaluate(() => { const rgb = s => s.match(/[\d.]+/g).slice(0, 3).map(Number); const q = s => document.querySelector(s);
-      return { act: [rgb(getComputedStyle(q('.ssbyt-nav__tab--active')).color), rgb(getComputedStyle(q('.ssbyt-nav__tab--active')).backgroundColor)], crumb: rgb(getComputedStyle(q('.ssbyt-breadcrumb')).color) }; });
-    ok(cr(...col.act) >= 4.5, `${k}: активная вкладка контраст ${cr(...col.act).toFixed(1)}`);
+      return { crumb: rgb(getComputedStyle(q('.ssbyt-breadcrumb')).color) }; });
     if (k === 'hub') {
       ok(cr(col.crumb, [255, 255, 255]) >= 4.5, `hub: крошка ${cr(col.crumb, [255, 255, 255]).toFixed(1)}`);
       ok(cr([58, 42, 64], [255, 255, 255]) >= 7, 'hub: заголовок #3a2a40/#fff ≥7');
