@@ -22,17 +22,14 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
     const r = await pg.evaluate(() => {
       const col = document.getElementById('col'), cw = col.getBoundingClientRect().width;
       const over = []; col.querySelectorAll('*').forEach(e => { const b = e.getBoundingClientRect(); if (b.width && (b.right > cw + 0.5 || b.left < -0.5) && !e.closest('.sm-prod-suzhety__fx,.sm-prod-suzhety__glass,svg')) over.push(e.className || e.tagName); });
-      const clip = []; col.querySelectorAll('h2,h3,p,a.sm-prod-hero__back,.sm-prod-suzhety__name,.sm-prod-areas__stub').forEach(e => { if (e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1) clip.push(e.className + ':' + e.textContent.slice(0, 20)); });
+      const clip = []; col.querySelectorAll('h2,h3,p,a.sm-prod-hero__back,.sm-prod-suzhety__name').forEach(e => { if (e.scrollWidth > e.clientWidth + 1 || e.scrollHeight > e.clientHeight + 1) clip.push(e.className + ':' + e.textContent.slice(0, 20)); });
       const cols = getComputedStyle(document.querySelector('.sm-prod-suzhety__grid')).gridTemplateColumns.split(' ').length;
-      const acols = getComputedStyle(document.querySelector('.sm-prod-areas__grid')).gridTemplateColumns.split(' ').length;
-      const stubs = [...document.querySelectorAll('.sm-prod-areas__stub')].map(e => { const b = e.getBoundingClientRect(); return b.width > 100 && b.height > 20; });
       const tiles = [...document.querySelectorAll('.sm-prod-suzhety__tile')].map(e => Math.round(e.getBoundingClientRect().height));
-      return { sw: document.documentElement.scrollWidth, vw: innerWidth, cw, over, clip, cols, acols, stubsVisible: stubs.every(Boolean), tiles };
+      return { sw: document.documentElement.scrollWidth, vw: innerWidth, cw, over, clip, cols, tiles };
     });
     ok(r.sw <= r.vw && !r.over.length, `${w}px: нет горизонтального скролла (scrollW ${r.sw}/${r.vw}) ${r.over.slice(0, 3)}`);
     ok(!r.clip.length, `${w}px: текст не обрезан ${r.clip.slice(0, 3)}`);
-    ok(r.cols === (w >= 700 ? 3 : 2) && r.acols === (w >= 700 ? 2 : 1), `${w}px: колонки сюжетов ${r.cols}, площадок ${r.acols}`);
-    ok(r.stubsVisible, `${w}px: заглушки видны`);
+    ok(r.cols === (w >= 700 ? 3 : 2), `${w}px: колонки сюжетов ${r.cols}`);
     ok(r.tiles.every(h => h === 110), `${w}px: высота плашек 110 (${r.tiles.join(',')})`);
     await pg.context().close();
   }
@@ -52,7 +49,7 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
   for (const [c, t] of res) { const k = cr([255, 255, 255], c); if (k < worst) { worst = k; worstT = t + ' rgb ' + c; } }
   ok(worst >= 4.5, `контраст белого названия на плашках, худший пиксель ${worst.toFixed(2)}:1 (${worstT})`);
   // расчётные контрасты палитры
-  const pairs = [['#0a5f5e', '#ffffff', 'заголовок-градиент (тёмный край)'], ['#0e7c7b', '#ffffff', 'градиент заголовка (hub-accent)'], ['#6b7280', '#ffffff', 'крошка ← БУП'], ['#6b7280', '#ffffff', 'подзаголовок/«Сюжеты»'], ['#6b7280', '#f7f9fb', 'заглушка'], ['#1a2a5e', '#ffffff', 'заголовки'], ['#0a5f5e', '#f7f9fb', 'тег в заглушке']];
+  const pairs = [['#0a5f5e', '#ffffff', 'заголовок-градиент (тёмный край)'], ['#0e7c7b', '#ffffff', 'градиент заголовка (hub-accent)'], ['#6b7280', '#ffffff', 'крошка ← БУП'], ['#6b7280', '#ffffff', 'подзаголовок/«Сюжеты»'], ['#1a2a5e', '#ffffff', 'заголовки'], ];
   const hx = s => [1, 3, 5].map(i => parseInt(s.slice(i, i + 2), 16));
   pairs.forEach(([f, bg, n]) => ok(cr(hx(f), hx(bg)) >= 4.5, `контраст ${f} на ${bg} = ${cr(hx(f), hx(bg)).toFixed(2)}:1 (${n})`));
   // hover
@@ -65,14 +62,14 @@ let fails = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); 
     const cur = []; document.querySelectorAll('#col *').forEach(e => { if (getComputedStyle(e).cursor === 'pointer' && !e.closest('a')) cur.push(e.className || e.tagName); });
     const g = getComputedStyle(document.querySelector('.sm-prod-suzhety__glass'));
     const links = [...document.querySelectorAll('a')].map(a => [a.getAttribute('href'), a.target]);
-    return { cur, bf: g.backdropFilter || g.webkitBackdropFilter, links, svgHidden: [...document.querySelectorAll('svg')].every(s => s.getAttribute('aria-hidden') === 'true'), title: getComputedStyle(document.querySelector('.sm-prod-hero__title')).webkitTextFillColor, fs: getComputedStyle(document.querySelector('.sm-prod-hero__title')).fontSize, sizes: (() => { const g = (q, p) => getComputedStyle(document.querySelector(q))[p]; const i = document.querySelector('.sm-prod-hero__ico').getBoundingClientRect(); return { ico: Math.round(i.width) + 'x' + Math.round(i.height), back: g('.sm-prod-hero__back', 'fontSize'), sub: g('.sm-prod-hero__sub', 'fontSize'), line: g('.sm-prod-hero__line', 'height'), name: g('.sm-prod-suzhety__name', 'fontSize'), lab: g('.sm-prod-suzhety__title', 'fontSize'), at: g('.sm-prod-areas__title', 'fontSize'), an: g('.sm-prod-areas__name', 'fontSize') }; })() };
+    return { cur, bf: g.backdropFilter || g.webkitBackdropFilter, links, svgHidden: [...document.querySelectorAll('svg')].every(s => s.getAttribute('aria-hidden') === 'true'), title: getComputedStyle(document.querySelector('.sm-prod-hero__title')).webkitTextFillColor, fs: getComputedStyle(document.querySelector('.sm-prod-hero__title')).fontSize, sizes: (() => { const g = (q, p) => getComputedStyle(document.querySelector(q))[p]; const i = document.querySelector('.sm-prod-hero__ico').getBoundingClientRect(); return { ico: Math.round(i.width) + 'x' + Math.round(i.height), back: g('.sm-prod-hero__back', 'fontSize'), sub: g('.sm-prod-hero__sub', 'fontSize'), line: g('.sm-prod-hero__line', 'height'), name: g('.sm-prod-suzhety__name', 'fontSize'), lab: g('.sm-prod-suzhety__title', 'fontSize') }; })() };
   });
   ok(!m.cur.length, 'cursor:pointer только у ссылок ' + m.cur.slice(0, 3));
   ok(/blur\(14px\)/.test(m.bf), 'backdrop-filter в Chromium: ' + m.bf);
   ok(m.links.length === 7 && m.links.slice(1).every(l => l[1] === '_blank'), 'ссылок 7 (крошка + 6 плашек), плашки target=_blank');
   ok(m.links[0][0] === 'URL_PLACEHOLDER_STARTOVAYA', 'крошка → URL_PLACEHOLDER_STARTOVAYA');
   ok(m.fs === '26px', 'размер заголовка 26px');
-  ok(m.sizes.ico === '44x44' && m.sizes.back === '13px' && m.sizes.sub === '14px' && m.sizes.line === '4px' && m.sizes.name === '15px' && m.sizes.lab === '11px' && m.sizes.at === '20px' && m.sizes.an === '15px', 'размеры по ТЗ ' + JSON.stringify(m.sizes));
+  ok(m.sizes.ico === '44x44' && m.sizes.back === '13px' && m.sizes.sub === '14px' && m.sizes.line === '4px' && m.sizes.name === '15px' && m.sizes.lab === '11px', 'размеры по ТЗ ' + JSON.stringify(m.sizes));
   await pg.keyboard.press('Tab');
   const fo = await pg.evaluate(() => { const e = document.activeElement; return getComputedStyle(e).outlineStyle + ' ' + getComputedStyle(e).outlineWidth + ' ' + e.className; });
   ok(/solid 3px/.test(fo), 'focus-visible: ' + fo);

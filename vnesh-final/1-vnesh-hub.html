@@ -15,8 +15,7 @@
 .vnesh-hub-tiles-section{margin:0 !important;padding:24px 0 0 !important;background:none !important}
 .vnesh-hub-tiles-section h2.vnesh-hub-sr{position:absolute;width:1px;height:1px;margin:-1px !important;padding:0 !important;overflow:hidden;clip:rect(0 0 0 0);border:0 !important;white-space:nowrap}
 .vnesh-hub .vnesh-hub-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin:0 !important;padding:0 !important}
-.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile{grid-column:span 2}
-.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(4),.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(5){grid-column:span 3}
+.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile{grid-column:span 3}
 .vnesh-hub a.vnesh-hub-tile{position:relative !important;isolation:isolate;display:flex !important;flex-direction:column;justify-content:space-between;gap:14px;min-width:0;min-height:128px;margin:0 !important;padding:16px !important;border:0 !important;background:none !important;border-radius:16px;cursor:pointer;box-shadow:0 10px 26px rgba(196,94,26,.30),0 2px 6px rgba(40,20,5,.12);color:#fff !important;font-size:16px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;transition:transform .25s ease,box-shadow .25s ease}
 .vnesh-hub a.vnesh-hub-tile:visited,.vnesh-hub a.vnesh-hub-tile:active{color:#fff !important}
 .vnesh-hub .vnesh-hub-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;z-index:0;inset:0;display:block;overflow:hidden;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 55% 50% at 78% 18%,rgba(255,180,100,0.88) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 14% 82%,rgba(196,94,26,0.52) 0%,transparent 65%),linear-gradient(140deg,#100803 0%,#1f1008 40%,#4a2410 72%,#c45e1a 100%) !important}
@@ -39,9 +38,9 @@
 .vnesh-hub .vnesh-hub-tile__soon{display:none !important;margin:6px 0 0 !important;padding:0 !important;font-size:13px !important;font-weight:600 !important;line-height:1.3 !important;color:#fff !important;text-shadow:0 1px 2px rgba(0,0,0,.4)}
 .vnesh-hub a.vnesh-hub-tile--soon .vnesh-hub-tile__soon{display:block !important}
 .vnesh-hub .vnesh-hub-tile__name{position:relative;z-index:2;display:block !important;margin:0 !important;padding:0 !important;font-size:16px !important;font-weight:700 !important;line-height:1.2 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-align:left !important;text-shadow:0 1px 2px rgba(0,0,0,.4)}
-@container vneshhub (max-width:599px){.vnesh-hub .vnesh-hub-grid{grid-template-columns:minmax(0,1fr)}.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile,.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(4),.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(5){grid-column:auto}.vnesh-hub-hero h1.vnesh-hub-title{font-size:22px !important}.vnesh-hub a.vnesh-hub-tile{padding:12px !important;min-height:116px}.vnesh-hub .vnesh-hub-tile__ico{width:40px;height:40px}.vnesh-hub .vnesh-hub-tile__ico svg{width:38px;height:38px}}
+@container vneshhub (max-width:599px){.vnesh-hub .vnesh-hub-grid{grid-template-columns:minmax(0,1fr)}.vnesh-hub .vnesh-hub-grid>a.vnesh-hub-tile{grid-column:auto}.vnesh-hub-hero h1.vnesh-hub-title{font-size:22px !important}.vnesh-hub a.vnesh-hub-tile{padding:12px !important;min-height:116px}.vnesh-hub .vnesh-hub-tile__ico{width:40px;height:40px}.vnesh-hub .vnesh-hub-tile__ico svg{width:38px;height:38px}}
 .vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid{grid-template-columns:minmax(0,1fr)}
-.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid>a.vnesh-hub-tile,.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid>a.vnesh-hub-tile:nth-child(n){grid-column:auto}
+.vnesh-hub.vnesh-hub--narrow .vnesh-hub-grid>a.vnesh-hub-tile{grid-column:auto}
 @media (prefers-reduced-motion:reduce){.vnesh-hub a.vnesh-hub-tile,.vnesh-hub-hero a.vnesh-hub-back{transition:none !important;animation:none !important}.vnesh-hub .vnesh-hub-tile__glass,.vnesh-hub .vnesh-hub-tile__arrow{transition:none !important}.vnesh-hub a.vnesh-hub-tile:hover,.vnesh-hub a.vnesh-hub-tile:hover .vnesh-hub-tile__arrow{transform:none !important}}
 </style>
 <div class="vnesh-hub" id="vnesh-hub-root">
@@ -56,27 +55,22 @@
   <nav class="vnesh-hub-tiles-section" aria-label="Внешние практики">
     <h2 class="vnesh-hub-sr">Разделы</h2>
     <div class="vnesh-hub-grid">
-      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+      <a class="vnesh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/264897399/" target="_blank" rel="noopener">
         <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
         <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="12" y="13" width="24" height="18" rx="4"/><path d="M12 24h24M18 36l-3 4M30 36l3 4M16 31h.01M32 31h.01"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
         <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">ТМХ АО "Метровагонмаш"</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
       </a>
-      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+      <a class="vnesh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/161546453/" target="_blank" rel="noopener">
         <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
         <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M24 11l10 6v12l-10 6-10-6V17z"/><circle cx="24" cy="23" r="4"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
         <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">АО "Армалит"</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
       </a>
-      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
-        <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
-        <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M11 37V20l9 5v-5l9 5v-5l8 4v13z"/><path d="M15 37v-4M24 37v-4M33 37v-4"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
-        <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">ОМК, Выксунский завод</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
-      </a>
-      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+      <a class="vnesh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/264897419/" target="_blank" rel="noopener">
         <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
         <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><circle cx="24" cy="24" r="12"/><path d="M12 24h24M24 12c-4 4-4 20 0 24M24 12c4 4 4 20 0 24"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
         <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">Проект РЭЦЦА/Всемирного банка</span><span class="vnesh-hub-tile__soon">Скоро</span></span>
       </a>
-      <a class="vnesh-hub-tile vnesh-hub-tile--soon" aria-disabled="true">
+      <a class="vnesh-hub-tile" href="https://kb.severstal.com/spaces/BSS/pages/360252884/" target="_blank" rel="noopener">
         <span class="vnesh-hub-tile__fx" aria-hidden="true"></span><span class="vnesh-hub-tile__glass" aria-hidden="true"></span>
         <span class="vnesh-hub-tile__top"><span class="vnesh-hub-tile__ico" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="16" y="16" width="16" height="16" rx="2"/><rect x="21" y="21" width="6" height="6"/><path d="M20 12v4M28 12v4M20 32v4M28 32v4M12 20h4M12 28h4M32 20h4M32 28h4"/></g></svg></span><span class="vnesh-hub-tile__side"><svg class="vnesh-hub-tile__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15"/><path d="M14 7l5 5-5 5"/></svg></span></span>
         <span class="vnesh-hub-tile__bot"><span class="vnesh-hub-tile__name">Цифровая трансформация</span><span class="vnesh-hub-tile__soon">Скоро</span></span>

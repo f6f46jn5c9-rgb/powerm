@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const R = path.resolve(__dirname, '..');
 const PAGES = { 'champ-hub': 'О чемпионате', 'champ-golos': 'Голосование 2026', 'champ-2023': '2023', 'champ-2024': '2024', 'champ-2025': '2025' };
 const TITLES = { 'champ-hub': 'Чемпионат лучших практик', 'champ-golos': 'Голосование 2026', 'champ-2023': 'Чемпионат лучших практик 2023', 'champ-2024': 'Чемпионат лучших практик 2024', 'champ-2025': 'Чемпионат лучших практик 2025' };
-const URLS = ['584516251', '584516288', '202375778', '306053122', '410419331'].map(i => `https://kb.severstal.com/spaces/BSS/pages/${i}/`);
+const PG = fs.readFileSync(path.join(R, 'src/champ/champ-pages.js'), 'utf8'); const URLS = ['hub', 'golos', 'y2023', 'y2024', 'y2025'].map(k => PG.match(new RegExp(k + ":\\s*'([^']*)'"))[1]);
 const WIDTHS = [1100, 960, 820, 700, 560, 375];
 const lum = c => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(c[0]) + .7152 * f(c[1]) + .0722 * f(c[2]); };
 const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
@@ -30,9 +30,8 @@ let fails = 0; const bad = m => { fails++; console.log('FAIL', m); };
         const out = {}; const wrap = document.getElementById('w'); const root = wrap.querySelector('.champ');
         out.hscroll = wrap.scrollWidth > w || root.scrollWidth > root.clientWidth + 1;
         // обрезки текста: элементы с текстом, у которых scrollWidth > clientWidth (кроме прокручиваемой навигации)
-        out.clip = [...root.querySelectorAll('h1,p,.champ-tab,.champ-hub-tile__title,.champ-crumb')].filter(e => !e.closest('.champ-nav') || true).filter(e => e.scrollWidth > e.clientWidth + 1 && !e.closest('.champ-nav')).map(e => e.className);
-        const nav = root.querySelector('.champ-nav'); out.navScroll = nav.scrollWidth > nav.clientWidth + 1; out.navScrollbar = nav.offsetHeight - nav.clientHeight - 1;
-        out.tabs = [...root.querySelectorAll('.champ-tab')].map(a => [a.childNodes[0].textContent, a.getAttribute('href'), a.getAttribute('aria-current') || '', getComputedStyle(a).backgroundColor, getComputedStyle(a).color]);
+        out.clip = [...root.querySelectorAll('h1,p,.champ-hub-tile__title,.champ-crumb')].filter(e => !e.closest('.champ-nav') || true).filter(e => e.scrollWidth > e.clientWidth + 1 && !e.closest('.champ-nav')).map(e => e.className);
+        out.navScrollbar = 0; out.notabs = !root.querySelector('.champ-nav,.champ-tab'); const cr = root.querySelectorAll('.champ-crumb a'); out.crumb = cr.length + '|' + (cr[0] && cr[0].getAttribute('href')) + '|' + (cr[0] && cr[0].textContent);
         const h = root.querySelector('h1'); out.h1 = h.textContent; out.nonav = !!root.querySelector('.champ-key,.champ-warn');
         const sec = root.querySelector('.champ-hub-tiles-section');
         if (sec) { const cs = getComputedStyle(sec); out.secBg = cs.backgroundColor + '|' + cs.backgroundImage; out.cols = cs.gridTemplateColumns.split(' ').length;
@@ -44,8 +43,7 @@ let fails = 0; const bad = m => { fails++; console.log('FAIL', m); };
       if (r.navScrollbar > 0) bad(tag + ' виден scrollbar навигации'); if (w < 500 && !r.navScroll && false) {}
       if (r.h1 !== TITLES[p]) bad(tag + ' h1 «' + r.h1 + '»');
       if (r.nonav) bad(tag + ' есть плашки key/warn'); if (r.hover.length) bad(tag + ' transition у неинтерактива');
-      const act = r.tabs.filter(t => t[2] === 'page'); if (act.length !== 1 || act[0][0] !== cur || act[0][3] !== 'rgb(27, 61, 122)' || act[0][4] !== 'rgb(255, 255, 255)') bad(tag + ' активная вкладка ' + JSON.stringify(act));
-      if (r.tabs.map(t => t[1]).join() !== URLS.join()) bad(tag + ' URL вкладок'); if (r.tabs.map(t => t[0].trim()).join() !== 'О чемпионате,Голосование 2026,2023,2024,2025') bad(tag + ' метки вкладок');
+      if (!r.notabs) bad(tag + ' есть полоса вкладок'); if (r.crumb !== '1|https://kb.severstal.com/spaces/BSS/|БУП') bad(tag + ' крошка ' + r.crumb);
       if (p === 'champ-hub') {
         if (!/radial-gradient/.test(r.fxBg)) bad(tag + ' fx без radial-gradient');
         if (!/rgba\(0, 0, 0, 0\)\|none/.test(r.secBg)) bad(tag + ' фон секции плашек ' + r.secBg);
@@ -54,7 +52,7 @@ let fails = 0; const bad = m => { fails++; console.log('FAIL', m); };
       }
       // контраст: прячем текст, берём фон по пикселям, сравниваем с цветом текста (худший фон)
       const items = await page.evaluate(() => {
-        const root = document.querySelector('.champ'); const q = [...root.querySelectorAll('h1,p,.champ-crumb a,.champ-hub-tile__title,.champ-tab,.champ-hub-tile__arrow')];
+        const root = document.querySelector('.champ'); const q = [...root.querySelectorAll('h1,p,.champ-crumb a,.champ-hub-tile__title,.champ-hub-tile__arrow')];
         return q.map((e, i) => { e.setAttribute('data-ci', i); const b = e.getBoundingClientRect(); const c = getComputedStyle(e).color.match(/[\d.]+/g).map(Number); return { i, x: b.x, y: b.y + scrollY, w: b.width, h: b.height, c, n: e.className || e.tagName }; });
       });
       await page.addStyleTag({ content: '.champ *{-webkit-text-fill-color:transparent !important;text-shadow:none !important}' });
