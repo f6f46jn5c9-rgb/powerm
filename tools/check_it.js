@@ -10,7 +10,7 @@ const PAGES = {
 };
 const doc = (key, w, extra = '') => `<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;font:14px Arial}#col{width:${w}px}${extra}</style></head><body><div id="col">${PAGES[key].map(x => x.endsWith('.html') ? rd(x) : x).join('\n')}</div></body></html>`;
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('FAIL', m); } };
-const HUBS = 'https://kb.severstal.com/spaces/BSS/pages/161546386/,https://kb.severstal.com/spaces/BSS/pages/195920114/,https://kb.severstal.com/spaces/BSS/pages/186319055/';
+const IT = require('fs').readFileSync(path.join(R, 'src/it/it-pages.js'), 'utf8'); const U = k => IT.match(new RegExp(k + ": '([^']+)'"))[1]; const HUBS = [U('bup'), U('pra'), U('dig')].join();
 (async () => {
   const b = await chromium.launch();
   for (const [w, vw] of [[1100, 1300], [960, 1200], [820, 1000], [700, 900], [560, 800], [375, 375]]) {
@@ -49,7 +49,7 @@ const HUBS = 'https://kb.severstal.com/spaces/BSS/pages/161546386/,https://kb.se
           const sec = await pg.evaluate(() => { const s = getComputedStyle(document.querySelector('.it-hub-tiles-section')); return s.backgroundImage + s.backgroundColor; }); ok(sec === 'nonergba(0, 0, 0, 0)', 'section bg ' + sec);
           const h1 = await pg.evaluate(() => getComputedStyle(document.querySelector('.it-hub h1')).color); ok(h1 === 'rgb(0, 91, 142)', 'h1 colour ' + h1);
           const hrefs = await pg.evaluate(() => [...document.querySelectorAll('.it-hub a')].map(a => a.getAttribute('href')));
-          ok(hrefs.join() === HUBS.replace('195920114', '195920114'), 'hub hrefs ' + hrefs);
+          ok(hrefs.join() === HUBS, 'hub hrefs ' + hrefs);
           const crumbC = await pg.evaluate(() => getComputedStyle(document.querySelector('.it-hub-crumb a')).color); console.log('crumb', crumbC);
           await pg.hover('.it-hub-tile'); await pg.waitForTimeout(350);
           const tr = await pg.evaluate(() => getComputedStyle(document.querySelector('.it-hub-tile')).transform); ok(tr !== 'none', 'hover transform');
@@ -57,7 +57,7 @@ const HUBS = 'https://kb.severstal.com/spaces/BSS/pages/161546386/,https://kb.se
           const fo = await pg.evaluate(() => getComputedStyle(document.activeElement).outlineStyle); ok(fo === 'solid', 'focus outline ' + fo);
         } else {
           const h = await pg.evaluate(() => { const s = getComputedStyle(document.querySelector('.it-sub h1')); return [s.color, s.fontSize, s.fontWeight, document.querySelector('.it-sub-hero').getBoundingClientRect().height, document.querySelector('.it-sub-crumb a').getAttribute('href'), document.querySelector('.it-cbl-wrap li').closest('.it-cbl-wrap') !== null, getComputedStyle(document.querySelector('.it-cbl-wrap a')).color, document.querySelectorAll('.it-cbl-wrap').length]; });
-          ok(h[0] === 'rgb(255, 255, 255)' && h[1] === '22px' && h[2] === '800' && h[3] >= 160 && h[4] === 'https://kb.severstal.com/spaces/BSS/pages/161546386/' && h[5] && h[6] === 'rgb(0, 91, 142)' && h[7] === 1, `${key} hero ${h}`);
+          ok(h[0] === 'rgb(255, 255, 255)' && h[1] === '22px' && h[2] === '800' && h[3] >= 160 && h[4] === U('bup') && h[5] && h[6] === 'rgb(0, 91, 142)' && h[7] === 1, `${key} hero ${h}`);
         }
       }
       await ctx.close();

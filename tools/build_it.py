@@ -3,6 +3,8 @@ import pathlib, re, sys
 R = pathlib.Path(__file__).resolve().parent.parent
 S, D = R / 'src' / 'it', R / 'dist'
 pages = dict(re.findall(r"(\w+):\s*'([^']*)'", (S / 'it-pages.js').read_text(encoding='utf-8')))
+for k, v in pages.items():
+    assert re.match(r'^https://kb\.severstal\.com/spaces/BSS/pages/\d+/[^/?#]+$', v), f'{k}: нужен полный адрес с названием страницы, без параметров: {v}'
 assert set(pages) == {'hub', 'pra', 'dig', 'bup'}, pages
 NAMES = ['it-hub.html'] + [f'it-{p}-{n}.html' for p in ('pra', 'dig') for n in ('1-hero', '2-cbl-open', '3-cbl-close')]
 for name in NAMES:
