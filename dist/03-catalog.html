@@ -59,6 +59,7 @@
 .sm-catalog .sm-catalog__name{display:block;margin:0;font-size:var(--sm-name-fs,19px);font-weight:700;line-height:1.2;
   word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual;text-wrap:balance;text-shadow:0 1px 2px rgba(0,0,0,.25)}
 .sm-catalog .sm-catalog__tile--wide .sm-catalog__name{font-size:var(--sm-wide-fs,24px)}
+.sm-catalog .sm-catalog__note{display:block;margin-top:4px;font-size:14px;font-weight:500;line-height:1.2;opacity:.92;text-shadow:0 1px 2px rgba(0,0,0,.25)}
 .sm-catalog .sm-catalog__arrow{flex:0 0 auto;display:block;opacity:.9;transition:transform .25s ease,opacity .25s ease}
 .sm-catalog .sm-catalog__tile:hover .sm-catalog__arrow{transform:translateX(4px);opacity:1}
 @keyframes sm-cat-in{from{opacity:0;transform:translateY(8px)}}
@@ -101,7 +102,7 @@
       { title: 'Цифровой инструментарий', icon: 'tools', c1: '#34b0c4', c2: '#0e7487', c3: '#0a5a6a', url: K + 'spaces/BSS/pages/575668888/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9+%D1%86%D0%B5%D1%85%D0%B0' }
     ] },
     { title: 'Обеспечивающие функции', cls: 'blue', items: [
-      { title: 'IT, цифровизация и автоматизация', icon: 'code', c1: '#58bdea', c2: '#2a58b5', c3: '#1b3470', url: K + 'spaces/BSS/pages/186318879/IT+%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F+%D0%B8+%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
+      { title: 'IT', note: 'Цифровизация и автоматизация', wide: true, icon: 'code', c1: '#58bdea', c2: '#2a58b5', c3: '#1b3470', url: K + 'spaces/BSS/pages/186318879/IT+%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F+%D0%B8+%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
       { title: 'HR', icon: 'people', c1: '#5aa0e6', c2: '#2b4fa8', c3: '#1a2a5e', url: K + 'spaces/BSS/pages/168891558/HR.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
       { title: 'Охрана труда', icon: 'shield', c1: '#7b9cf0', c2: '#3350b0', c3: '#1a2a5e', url: K + 'spaces/BSS/pages/520651883/%D0%9E%D1%85%D1%80%D0%B0%D0%BD%D0%B0+%D1%82%D1%80%D1%83%D0%B4%D0%B0.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
       { title: 'Внешние практики', icon: 'globe', c1: '#6a5ae0', c2: '#2c52c8', c3: '#1a2a5e', violet: true, url: K + 'spaces/BSS/pages/167117099/%D0%92%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8.+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B' },
@@ -143,7 +144,7 @@
       }
       return '<a class="' + cls + '" ' + st + ' href="' + it.url + '" target="_blank" rel="noopener">' + fx +
         '<span class="sm-catalog__top"><span class="sm-catalog__icon">' + icon(it.icon) + '</span>' + ARROW + '</span>' +
-        '<span class="sm-catalog__bottom"><span class="sm-catalog__name">' + it.title + '</span></span></a>';
+        '<span class="sm-catalog__bottom"><span class="sm-catalog__name">' + it.title + '</span>' + (it.note ? '<span class="sm-catalog__note">' + it.note + '</span>' : '') + '</span></a>';
     }).join('');
     return '<div class="sm-catalog__group sm-catalog__group--' + g.cls + '"><h3 class="sm-catalog__sub">' + g.title + '</h3><div class="sm-catalog__grid">' + tiles + '</div></div>';
   }).join('');
