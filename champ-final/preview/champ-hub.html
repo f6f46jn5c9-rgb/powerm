@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Превью: Хаб «Чемпионат лучших практик»</title><style>.pv-body{margin:0;background:#f4f5f6;font-family:Arial,sans-serif}.pv-bar{display:flex;gap:8px;align-items:center;padding:12px 24px;background:#fff;border-bottom:1px solid #ddd;font-size:14px}.pv-bar button{font:inherit;padding:6px 12px;border:1px solid #1b3d7a;background:#fff;color:#1b3d7a;border-radius:4px;cursor:pointer}.pv-bar button[aria-pressed="true"]{background:#1b3d7a;color:#fff}.pv-col{width:1000px;max-width:100%;margin:0 auto;padding:24px;background:#fff;box-sizing:border-box}</style></head><body class="pv-body"><div class="pv-bar"><span>Хаб «Чемпионат лучших практик». Ширина колонки:</span><button type="button" data-w="1100" aria-pressed="false">1100</button><button type="button" data-w="1000" aria-pressed="true">1000</button><button type="button" data-w="820" aria-pressed="false">820</button><button type="button" data-w="560" aria-pressed="false">560</button><button type="button" data-w="375" aria-pressed="false">375</button></div><div class="pv-col" id="pv-col">
+<!-- HTML-МАКРОС: Чемпионат лучших практик — хаб -->
+<style>
+.champ{--champ-accent:#1b3d7a;--champ-muted:#5B6670;--champ-ink:#1F2A33;--champ-sep:#E3EAED;--champ-tint:#eaf0f8;display:block;width:100%;max-width:100%;margin:0 0 24px !important;padding:0 !important;container-type:inline-size;container-name:champ;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.4;color:var(--champ-ink);text-align:left;word-break:normal;overflow-wrap:normal;-webkit-hyphens:manual;hyphens:manual}
+.champ *,.champ *::before,.champ *::after{box-sizing:border-box}
+.champ svg{display:block;max-width:none}
+.champ .champ-soon{display:none !important;font-size:12px !important;opacity:.75;font-weight:400 !important;line-height:1 !important}
+.champ a[data-soon="true"]{opacity:.45;cursor:default;pointer-events:none}
+.champ a[data-soon="true"] .champ-soon{display:inline !important}
+.champ .champ-crumb{display:block;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;margin:0 0 12px !important}
+.champ .champ-crumb a,.champ .champ-crumb a:visited{display:inline-block;border-radius:3px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:13px !important;font-weight:400 !important;line-height:1.3 !important;color:rgba(255,255,255,0.75) !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;padding:2px 0 !important}
+.champ .champ-crumb a:hover{text-decoration:underline !important}
+.champ .champ-crumb a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.champ .champ-crumb--light,.champ .champ-crumb--light a,.champ .champ-crumb--light a:visited{color:#5B6670 !important}
+.champ .champ-crumb--light{margin:0 !important}
+.champ .champ-crumb--vis{}
+.champ .champ-crumb--light a:focus-visible{outline:3px solid #1b3d7a}
+.champ .champ-heroa{display:block;margin:24px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
+.champ .champ-heroa__row{display:flex;align-items:center;gap:16px;margin:0 !important;padding:0 0 16px !important}
+.champ .champ-heroa__ico{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:56px;height:56px;margin:0 !important;padding:0 !important;border:0 !important;border-radius:50%;background:#1b3d7a !important;color:#fff !important}
+.champ .champ-heroa__txt{flex:1 1 auto;min-width:0}
+.champ h1.champ-heroa__title{display:block;margin:0 0 4px !important;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:26px !important;font-weight:800 !important;line-height:1.3 !important;color:#1b3d7a !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;line-height:1.15 !important;text-wrap:balance}
+.champ p.champ-heroa__sub{display:block;margin:0 !important;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:16px !important;font-weight:400 !important;line-height:1.3 !important;color:#5B6670 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;line-height:1.4 !important}
+.champ .champ-heroa__line{display:block;height:3px;margin:0 !important;padding:0 !important;border:0 !important;background:linear-gradient(90deg,#1b3d7a,transparent) !important}
+.champ .champ-hub-tiles-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(max(273px,calc(50% - 7px)),1fr));gap:14px;margin:24px 0 0 !important;padding:0 !important;border:0 !important;background:none !important}
+.champ a.champ-hub-tile{position:relative !important;isolation:isolate;display:flex !important;flex-direction:column;justify-content:space-between;gap:14px;min-width:0;min-height:128px;margin:0 !important;padding:16px !important;border:0 !important;background:none !important;border-radius:16px;cursor:pointer;box-shadow:0 10px 26px rgba(27,61,122,0.30) !important;color:#fff !important;font-size:16px !important;font-weight:400 !important;line-height:1.4 !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;transition:transform .25s ease,box-shadow .25s ease}
+.champ a.champ-hub-tile:visited{color:#fff !important}
+.champ a.champ-hub-tile:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(27,61,122,0.45) !important}
+.champ a.champ-hub-tile:focus-visible{outline:3px solid #1b3d7a;outline-offset:3px}
+.champ .champ-hub-tile__fx{margin:0 !important;padding:0 !important;border:0 !important;position:absolute;z-index:0;inset:0;display:block;overflow:hidden;border-radius:inherit;pointer-events:none;background:radial-gradient(ellipse 60% 55% at 80% 15%,rgba(90,140,230,0.60) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 10% 85%,rgba(27,61,122,0.55) 0%,transparent 65%),linear-gradient(140deg,#03060c 0%,#070f1f 40%,#0e1f3d 72%,#1b3d7a 100%) !important}
+.champ .champ-hub-tile__glass{position:absolute;z-index:1;inset:0;display:block;overflow:hidden;margin:0 !important;padding:0 !important;border-radius:inherit;pointer-events:none;background:linear-gradient(to top,rgba(3,6,12,0.88) 0%,rgba(3,6,12,0.50) 50%,transparent 100%),rgba(255,255,255,0.08) !important;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(255,255,255,0.45) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),inset 0 -1px 0 rgba(255,255,255,0.08)}
+.champ .champ-hub-tile__glass::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12) 0%,transparent 50%)}
+.champ .champ-hub-tile__top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin:0 !important;padding:0 !important;border:0 !important;background:none !important}
+.champ .champ-hub-tile__icon{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0 !important;padding:0 !important;border:1px solid rgba(255,255,255,.5) !important;border-radius:50%;background:rgba(255,255,255,.18) !important;color:#fff !important}
+.champ .champ-hub-tile__arrow{display:block;font-size:22px !important;line-height:1 !important;color:#fff !important;opacity:.9;transition:transform .25s ease}
+.champ a.champ-hub-tile:hover .champ-hub-tile__arrow{transform:translateX(4px)}
+.champ .champ-hub-tile__title{display:block;margin:0 !important;padding:0 !important;margin:0 !important;padding:0 !important;border:0 !important;background:none !important;font-size:18px !important;font-weight:700 !important;line-height:1.3 !important;color:#fff !important;font-family:inherit !important;letter-spacing:0 !important;text-transform:none !important;text-decoration:none !important;font-style:normal !important;text-align:left !important;line-height:1.2 !important;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.champ a.champ-hub-tile .champ-soon{color:#fff !important;font-size:12px !important}
+.champ a.champ-hub-tile[data-soon="true"] .champ-hub-tile__arrow{display:none}
+.champ a.champ-hub-tile[data-soon="true"]:hover{transform:none;box-shadow:0 10px 26px rgba(27,61,122,0.30) !important}
+.champ a.champ-hub-tile--vote{box-shadow:0 10px 26px rgba(176,30,78,0.35) !important}
+.champ a.champ-hub-tile--vote:hover{box-shadow:0 16px 36px rgba(176,30,78,0.50) !important}
+.champ .champ-hub-tile--vote .champ-hub-tile__fx{background:radial-gradient(ellipse 60% 55% at 80% 15%,rgba(255,110,150,0.70) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 10% 85%,rgba(220,50,90,0.50) 0%,transparent 65%),linear-gradient(140deg,#14030a 0%,#3a0a1c 40%,#7a1636 72%,#b01e4e 100%) !important}
+@media (prefers-reduced-motion:reduce){.champ a.champ-hub-tile,.champ .champ-hub-tile__arrow{transition:none !important}.champ a.champ-hub-tile:hover,.champ a.champ-hub-tile:hover .champ-hub-tile__arrow{transform:none !important}}
+</style>
+<div class="champ">
+  <div class="champ-crumb champ-crumb--light">&larr; <a href="https://kb.severstal.com/spaces/BSS/" aria-label="Назад в БУП">БУП</a></div>
+  <section class="champ-heroa">
+    <div class="champ-heroa__row">
+      <span class="champ-heroa__ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4"/><path d="M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4"/><path d="M8 20h8"/><path d="M9.5 17h5"/></svg></span>
+      <div class="champ-heroa__txt">
+        <h1 class="champ-heroa__title">Чемпионат лучших практик</h1>
+        <p class="champ-heroa__sub">Силовые машины · 2026</p>
+      </div>
+    </div>
+    <span class="champ-heroa__line" aria-hidden="true"></span>
+  </section>
+  <div class="champ-hub-tiles-section" style="display:grid !important;grid-template-columns:repeat(auto-fit,minmax(max(273px,calc(50% - 7px)),1fr)) !important;gap:14px !important;margin:24px 0 0 !important;padding:0 !important;background:none !important;border:0 !important">
+    <a href="https://kb.severstal.com/spaces/BSS/pages/584516288/%D0%9A%D0%BE%D0%BD%D0%BA%D1%83%D1%80%D1%81+%D0%93%D0%BE%D0%BB%D0%BE%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" class="champ-hub-tile champ-hub-tile--vote" aria-label="Голосование 2026">
+      <span class="champ-hub-tile__fx" aria-hidden="true" style="background:radial-gradient(ellipse 60% 55% at 80% 15%,rgba(255,110,150,0.70) 0%,transparent 65%),radial-gradient(ellipse 35% 35% at 10% 85%,rgba(220,50,90,0.50) 0%,transparent 65%),linear-gradient(140deg,#14030a 0%,#3a0a1c 40%,#7a1636 72%,#b01e4e 100%) !important"></span>
+      <span class="champ-hub-tile__glass" aria-hidden="true"></span>
+      <div class="champ-hub-tile__top" style="position:relative;z-index:2">
+        <span class="champ-hub-tile__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M8 9V5l8 0v4"/><path d="M9 14.5l2 2 4-4"/></svg></span>
+        <span class="champ-hub-tile__arrow">→</span><span class="champ-soon">Скоро</span>
+      </div>
+      <div class="champ-hub-tile__title" style="position:relative;z-index:2">Голосование 2026</div>
+    </a>
+    <a href="https://kb.severstal.com/spaces/BSS/pages/410419331/%D0%A7%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD%D0%B0%D1%82+%D0%BB%D1%83%D1%87%D1%88%D0%B8%D1%85+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA+%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D1%8B+2025" class="champ-hub-tile" aria-label="Чемпионат 2025">
+      <span class="champ-hub-tile__fx" aria-hidden="true"></span>
+      <span class="champ-hub-tile__glass" aria-hidden="true"></span>
+      <div class="champ-hub-tile__top" style="position:relative;z-index:2">
+        <span class="champ-hub-tile__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4"/><path d="M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4"/><path d="M8 20h8"/><path d="M9.5 17h5"/></svg></span>
+        <span class="champ-hub-tile__arrow">→</span><span class="champ-soon">Скоро</span>
+      </div>
+      <div class="champ-hub-tile__title" style="position:relative;z-index:2">Чемпионат 2025</div>
+    </a>
+    <a href="https://kb.severstal.com/spaces/BSS/pages/306053122/%D0%A7%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD%D0%B0%D1%82+%D0%BB%D1%83%D1%87%D1%88%D0%B8%D1%85+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA+%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D1%8B+2024" class="champ-hub-tile" aria-label="Чемпионат 2024">
+      <span class="champ-hub-tile__fx" aria-hidden="true"></span>
+      <span class="champ-hub-tile__glass" aria-hidden="true"></span>
+      <div class="champ-hub-tile__top" style="position:relative;z-index:2">
+        <span class="champ-hub-tile__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="15" r="5"/><path d="M9 3l3 6 3-6"/><path d="M12 12.5v5"/><path d="M10.5 14l1.5-1.5"/></svg></span>
+        <span class="champ-hub-tile__arrow">→</span><span class="champ-soon">Скоро</span>
+      </div>
+      <div class="champ-hub-tile__title" style="position:relative;z-index:2">Чемпионат 2024</div>
+    </a>
+    <a href="https://kb.severstal.com/spaces/BSS/pages/202375778/%D0%A7%D0%B5%D0%BC%D0%BF%D0%B8%D0%BE%D0%BD%D0%B0%D1%82+%D0%BB%D1%83%D1%87%D1%88%D0%B8%D1%85+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA+%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B+%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D1%8B+2023" class="champ-hub-tile" aria-label="Чемпионат 2023">
+      <span class="champ-hub-tile__fx" aria-hidden="true"></span>
+      <span class="champ-hub-tile__glass" aria-hidden="true"></span>
+      <div class="champ-hub-tile__top" style="position:relative;z-index:2">
+        <span class="champ-hub-tile__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 7a1 1 0 0 1 1-1h5l2 2h8a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M12 11l1.1 2.2 2.4.35-1.75 1.7.4 2.4L12 16.5l-2.15 1.15.4-2.4-1.75-1.7 2.4-.35z"/></svg></span>
+        <span class="champ-hub-tile__arrow">→</span><span class="champ-soon">Скоро</span>
+      </div>
+      <div class="champ-hub-tile__title" style="position:relative;z-index:2">Чемпионат 2023</div>
+    </a>
+  </div>
+</div>
+<script>
+(function () {
+  var a = document.querySelectorAll('.champ a[data-soon="true"]');
+  for (var i = 0; i < a.length; i++) {
+    a[i].setAttribute('aria-disabled', 'true'); a[i].setAttribute('tabindex', '-1');
+    a[i].addEventListener('click', function (e) { e.preventDefault(); });
+  }
+})();
+</script>
+</div><script>(function(){var c=document.getElementById("pv-col"),b=document.querySelectorAll(".pv-bar button");for(var i=0;i<b.length;i++){b[i].addEventListener("click",function(){c.style.width=this.getAttribute("data-w")+"px";for(var j=0;j<b.length;j++){b[j].setAttribute("aria-pressed",b[j]===this?"true":"false");}});}})();</script></body></html>

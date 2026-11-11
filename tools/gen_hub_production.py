@@ -1,4 +1,4 @@
-"""Генератор src/hub-production.html (3 блока в одном файле). Запуск: python3 tools/gen_hub_production.py
+"""Генератор src/hub-production.html (2 блока: шапка и сюжеты; площадки делаются нативно в Confluence). Запуск: python3 tools/gen_hub_production.py
 Источник правды — этот шаблон; сборка (tools/build_hub_production.py) копирует src -> dist и проверяет размер."""
 import pathlib
 R = pathlib.Path(__file__).resolve().parent.parent
@@ -146,6 +146,6 @@ def block3():
 </section>
 '''
 
-out = '\n'.join([block1(), block2(), block3()])
+out = '\n'.join([block1(), block2()])
 (R/'src/hub-production.html').write_text(out, encoding='utf-8')
 print('src/hub-production.html', len(out.encode())/1024, 'КБ')
