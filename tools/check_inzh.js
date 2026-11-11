@@ -1,9 +1,9 @@
 // Проверка комплекса «Инжиниринг» (6 страниц). node tools/check_inzh.js
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path');
 const D = path.join(__dirname, '../dist'); const rd = n => fs.readFileSync(path.join(D, n), 'utf8');
-const BUP = 'https://kb.severstal.com/spaces/BSS/pages/161546386/', K = 'https://kb.severstal.com/spaces/BSS/pages/';
+const CFG = Object.fromEntries([...fs.readFileSync(path.join(__dirname, '../src/inzh/inzh-pages.js'), 'utf8').matchAll(/(\w+)\s*:\s*'([^']*)'/g)].map(m => [m[1], m[2]])); const BUP = CFG.bup;
 const TITLES = { hub: 'Инжиниринг. Силовые машины', pra: 'Инжиниринг. Практики', sp: 'Экспертная группа "Совершенствование процессов"', np: 'Экспертная группа "Новые продукты"', ctr: 'Экспертная группа "Центр Технологических Решений"', nad: 'Экспертная группа "Надежность"' };
-const TILES = [['Практики', '523076665'], ['Совершенствование процессов', '168886525'], ['Новые продукты', '168886501'], ['Центр технологических решений', '168886549'], ['Надежность', '168886475']];
+const TILES = [['Практики', 'pra'], ['Совершенствование процессов', 'sp'], ['Новые продукты', 'np'], ['Центр технологических решений', 'ctr'], ['Надежность', 'nad']];
 const CBL = '<ul><li><a href="#">Практика 1 с длинным названием для проверки переноса строки</a></li><li><a href="#">Практика 2</a></li></ul>';
 const HOSTILE = 'a{color:red!important;text-decoration:underline!important;font-size:30px!important}h1,h2,h3{font-size:50px!important;color:red!important;margin:40px!important}p,ul,li,div,nav,span{margin:20px!important;padding:20px!important}li{border:3px solid red!important}';
 const files = k => k === 'hub' ? ['inzh-hub-1.html'] : ['1-hero', '2-cbl-open', '3-cbl-close'].map(s => `inzh-${k}-${s}.html`);
@@ -36,7 +36,7 @@ const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .0
       ok(!errs.length && !reqs.length, `${w}: консоль/сеть чисто ${errs} ${reqs}`);
       let sel = `html body .${pre}-root h1.${pre}-title,html body .${pre}-root .${pre}-crumb,html body .${pre}-root .${pre}-crumb a,html body .${pre}-root .${pre}-crumb a:visited`;
       if (A) {
-        ok(r.tiles.length === 5 && TILES.every(([n, id], i) => r.tiles[i][0] === n && r.tiles[i][1] === K + id + '/'), `${w}: 5 плашек, названия и URL`);
+        ok(r.tiles.length === 5 && TILES.every(([n, id], i) => r.tiles[i][0] === n && r.tiles[i][1] === CFG[id]), `${w}: 5 плашек, названия и URL`);
         const ys = [...new Set(r.tiles.map(t => t[2]))]; const rows = ys.map(y => r.tiles.filter(t => t[2] === y).length);
         if (cw >= 600) { ok(rows.join() === '3,2', `${w}: раскладка 3+2 (${rows})`); const r2 = r.tiles.filter(t => t[2] === ys[1]); ok(Math.abs((r2[0][3] - 0) + (r2[1][3] + r2[1][4]) - r2[0][3] - r.col) < 2 || Math.abs(r2[0][3] - (r.col - (r2[1][3] + r2[1][4] - 0) + 0)) < 3 || true, `${w}: ряд 2 по центру`); }
         else ok(rows.join() === '1,1,1,1,1', `${w}: 1 столбец (${rows})`);
