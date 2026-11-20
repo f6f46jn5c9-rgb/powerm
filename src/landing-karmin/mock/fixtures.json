@@ -1,0 +1,513 @@
+{
+ "delay": 120,
+ "forceEffect": true,
+ "links": {
+  "base": "https://kb.severstal.com"
+ },
+ "popularQueries": [
+  "[запрос 1]",
+  "[запрос 2]",
+  "[запрос 3]"
+ ],
+ "counts": {
+  "practices": 1248,
+  "week": 7
+ },
+ "practices": [
+  {
+   "id": "800000",
+   "type": "page",
+   "title": "[Название практики 1]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 164987898,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000000,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-11-18T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800000/mock-practice-1"
+   }
+  },
+  {
+   "id": "800001",
+   "type": "page",
+   "title": "[Очень длинное название практики для проверки переносов: снижение времени переналадки линии упаковки за счёт стандартизации и обучения]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 161546386,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000001,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-11-15T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800001/mock-practice-2"
+   }
+  },
+  {
+   "id": "800002",
+   "type": "page",
+   "title": "[Название практики 3]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 212533372,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000002,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-11-12T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800002/mock-practice-3"
+   }
+  },
+  {
+   "id": "800003",
+   "type": "page",
+   "title": "[Сверхдлинноесловобезпробеловдляпроверкипереносовнаузкихэкранах] в названии",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 138051977,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000003,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-11-09T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800003/mock-practice-4"
+   }
+  },
+  {
+   "id": "800004",
+   "type": "page",
+   "title": "[Название практики 5]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 133300894,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000004,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-11-06T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800004/mock-practice-5"
+   }
+  },
+  {
+   "id": "800005",
+   "type": "page",
+   "title": "[Название практики 6]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 96000005,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-11-03T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800005/mock-practice-6"
+   }
+  },
+  {
+   "id": "800006",
+   "type": "page",
+   "title": "[Название практики 7]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 161546386,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000006,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-10-31T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800006/mock-practice-7"
+   }
+  },
+  {
+   "id": "800007",
+   "type": "page",
+   "title": "[Название практики 8]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 212533372,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000007,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-10-08T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800007/mock-practice-8"
+   }
+  },
+  {
+   "id": "800008",
+   "type": "page",
+   "title": "[Название практики 9]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 138051977,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000008,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-10-05T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800008/mock-practice-9"
+   }
+  },
+  {
+   "id": "800009",
+   "type": "page",
+   "title": "[Название практики 10]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 133300894,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000009,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-10-02T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800009/mock-practice-10"
+   }
+  },
+  {
+   "id": "800010",
+   "type": "page",
+   "title": "[Название практики 11]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 164987898,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000010,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-09-29T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800010/mock-practice-11"
+   }
+  },
+  {
+   "id": "800011",
+   "type": "page",
+   "title": "[Название практики 12]",
+   "ancestors": [
+    {
+     "id": 95000001,
+     "title": "[Главная]"
+    },
+    {
+     "id": 161546386,
+     "title": "[Компания]"
+    },
+    {
+     "id": 96000011,
+     "title": "[Раздел]"
+    }
+   ],
+   "history": {
+    "createdDate": "2026-09-26T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/pages/800011/mock-practice-12"
+   }
+  }
+ ],
+ "news": [
+  {
+   "id": "700000",
+   "type": "blogpost",
+   "title": "[Новость 1]",
+   "history": {
+    "createdDate": "2026-11-17T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/blog/2026/11/700000"
+   }
+  },
+  {
+   "id": "700001",
+   "type": "blogpost",
+   "title": "[Анонс мероприятия 2]",
+   "history": {
+    "createdDate": "2026-11-12T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/blog/2026/11/700001"
+   }
+  },
+  {
+   "id": "700002",
+   "type": "blogpost",
+   "title": "[Очень длинный заголовок новости для проверки переносов строк в списке новостей и мероприятий базы успешных практик]",
+   "history": {
+    "createdDate": "2026-11-07T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/blog/2026/11/700002"
+   }
+  },
+  {
+   "id": "700003",
+   "type": "blogpost",
+   "title": "[Новость 4]",
+   "history": {
+    "createdDate": "2026-11-02T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/blog/2026/11/700003"
+   }
+  },
+  {
+   "id": "700004",
+   "type": "blogpost",
+   "title": "[Новость 5]",
+   "history": {
+    "createdDate": "2026-10-28T10:00:00.000+03:00"
+   },
+   "_links": {
+    "webui": "/spaces/BSS/blog/2026/11/700004"
+   }
+  }
+ ],
+ "search": [
+  {
+   "practice": true,
+   "content": {
+    "id": "810000",
+    "type": "page",
+    "title": "[Название практики о @@@hl@@@сварк@@@endhl@@@е 1]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810000/mock-search-1"
+    }
+   },
+   "title": "[Название практики о @@@hl@@@сварк@@@endhl@@@е 1]",
+   "url": "/spaces/BSS/pages/810000/mock-search-1",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  },
+  {
+   "practice": true,
+   "content": {
+    "id": "810001",
+    "type": "page",
+    "title": "[Название практики о сварке 2: длинное название, чтобы проверить перенос в выпадающем списке подсказок]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810001/mock-search-2"
+    }
+   },
+   "title": "[Название практики о сварке 2: длинное название, чтобы проверить перенос в выпадающем списке подсказок]",
+   "url": "/spaces/BSS/pages/810001/mock-search-2",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  },
+  {
+   "practice": true,
+   "content": {
+    "id": "810002",
+    "type": "page",
+    "title": "[Название практики о сварке 3]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810002/mock-search-3"
+    }
+   },
+   "title": "[Название практики о сварке 3]",
+   "url": "/spaces/BSS/pages/810002/mock-search-3",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  },
+  {
+   "practice": false,
+   "content": {
+    "id": "810003",
+    "type": "page",
+    "title": "[Раздел о сварочном производстве]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810003/mock-search-4"
+    }
+   },
+   "title": "[Раздел о сварочном производстве]",
+   "url": "/spaces/BSS/pages/810003/mock-search-4",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  },
+  {
+   "practice": false,
+   "content": {
+    "id": "810004",
+    "type": "page",
+    "title": "[Документ: стандарт по сварке]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810004/mock-search-5"
+    }
+   },
+   "title": "[Документ: стандарт по сварке]",
+   "url": "/spaces/BSS/pages/810004/mock-search-5",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  },
+  {
+   "practice": false,
+   "content": {
+    "id": "810005",
+    "type": "page",
+    "title": "[Сварка — регламент]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810005/mock-search-6"
+    }
+   },
+   "title": "[Сварка — регламент]",
+   "url": "/spaces/BSS/pages/810005/mock-search-6",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  },
+  {
+   "practice": true,
+   "content": {
+    "id": "810006",
+    "type": "page",
+    "title": "[Название практики 7]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810006/mock-search-7"
+    }
+   },
+   "title": "[Название практики 7]",
+   "url": "/spaces/BSS/pages/810006/mock-search-7",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  },
+  {
+   "practice": false,
+   "content": {
+    "id": "810007",
+    "type": "page",
+    "title": "[Документ 8]",
+    "_links": {
+     "webui": "/spaces/BSS/pages/810007/mock-search-8"
+    }
+   },
+   "title": "[Документ 8]",
+   "url": "/spaces/BSS/pages/810007/mock-search-8",
+   "resultGlobalContainer": {
+    "title": "[Пространство]"
+   },
+   "friendlyLastModified": "[ДД] [мес]"
+  }
+ ],
+ "bodies": {
+  "800000": "<p>Результат: было 45 мин → стало 12 мин на переналадку</p>",
+  "800002": "<p>было&nbsp;3 простоя в смену &rarr; стало 1 простой</p>"
+ }
+}
