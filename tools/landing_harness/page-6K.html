@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harness 6K</title>
+<style>
+html,body{margin:0;padding:0}
+body{font:14px/1.43 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#172b4d;background:#fff}
+.rf-head{height:56px;background:#1F2A33;color:#fff;display:flex;align-items:center;padding:0 16px;gap:16px}
+.rf-head b{font-weight:600}
+.rf-body{display:flex;align-items:stretch;min-height:calc(100% - 56px)}
+.rf-tree{flex:0 0 var(--tree,0px);width:var(--tree,0px);background:#F4F5F7;border-right:1px solid #DFE1E6;overflow:hidden}
+.rf-tree div{padding:8px 16px;white-space:nowrap;color:#42526E}
+.rf-main{flex:1 1 auto;min-width:0;background:linear-gradient(#F7F8F9,#E9ECEE)}
+.rf-right{flex:0 0 360px;background:#fff;border-left:1px solid #DFE1E6;padding:16px}
+.rf-col{padding:32px;max-width:var(--col,none);margin:0 auto}
+@media (max-width:600px){.rf-col{padding:24px}}
+.rf-sec{overflow:hidden;margin:0 0 32px}
+.wiki-content{margin:0 0 24px;height:72px;overflow:hidden}
+.rf-foot{padding:24px;color:#6B778C;border-top:1px solid #DFE1E6;background:#fff}
+</style>
+<style id="aggr">a{color:#0052cc;text-decoration:underline} h1,h2,h3{font-family:Georgia;color:#172b4d;margin:24px 0} p{margin:0 0 16px;line-height:1.8} button{font:13px sans-serif;padding:2px 6px} ul{padding-left:40px} *{box-sizing:content-box}</style>
+<script>
+(function(){var q=new URLSearchParams(location.search),d=document.documentElement;
+d.style.setProperty('--tree',(q.get('tree')||'0')+'px');
+window.__H={right:q.get('right')==='1',theme:q.get('theme')!=='0',fail:q.get('fail')==='1'};})();
+
+if(!window.__H.theme)document.getElementById('aggr').disabled=true;
+window.__BUP_MOCK__={"delay":120,"forceEffect":true,"links":{"base":"https://kb.severstal.com"},"popularQueries":["[запрос 1]","[запрос 2]","[запрос 3]"],"counts":{"practices":1248,"week":7},"practices":[{"id":"800000","type":"page","title":"[Название практики 1]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":164987898,"title":"[Компания]"},{"id":96000000,"title":"[Раздел]"}],"history":{"createdDate":"2026-11-18T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800000/mock-practice-1"}},{"id":"800001","type":"page","title":"[Очень длинное название практики для проверки переносов: снижение времени переналадки линии упаковки за счёт стандартизации и обучения]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":161546386,"title":"[Компания]"},{"id":96000001,"title":"[Раздел]"}],"history":{"createdDate":"2026-11-15T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800001/mock-practice-2"}},{"id":"800002","type":"page","title":"[Название практики 3]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":212533372,"title":"[Компания]"},{"id":96000002,"title":"[Раздел]"}],"history":{"createdDate":"2026-11-12T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800002/mock-practice-3"}},{"id":"800003","type":"page","title":"[Сверхдлинноесловобезпробеловдляпроверкипереносовнаузкихэкранах] в названии","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":138051977,"title":"[Компания]"},{"id":96000003,"title":"[Раздел]"}],"history":{"createdDate":"2026-11-09T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800003/mock-practice-4"}},{"id":"800004","type":"page","title":"[Название практики 5]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":133300894,"title":"[Компания]"},{"id":96000004,"title":"[Раздел]"}],"history":{"createdDate":"2026-11-06T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800004/mock-practice-5"}},{"id":"800005","type":"page","title":"[Название практики 6]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":96000005,"title":"[Раздел]"}],"history":{"createdDate":"2026-11-03T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800005/mock-practice-6"}},{"id":"800006","type":"page","title":"[Название практики 7]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":161546386,"title":"[Компания]"},{"id":96000006,"title":"[Раздел]"}],"history":{"createdDate":"2026-10-31T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800006/mock-practice-7"}},{"id":"800007","type":"page","title":"[Название практики 8]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":212533372,"title":"[Компания]"},{"id":96000007,"title":"[Раздел]"}],"history":{"createdDate":"2026-10-08T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800007/mock-practice-8"}},{"id":"800008","type":"page","title":"[Название практики 9]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":138051977,"title":"[Компания]"},{"id":96000008,"title":"[Раздел]"}],"history":{"createdDate":"2026-10-05T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800008/mock-practice-9"}},{"id":"800009","type":"page","title":"[Название практики 10]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":133300894,"title":"[Компания]"},{"id":96000009,"title":"[Раздел]"}],"history":{"createdDate":"2026-10-02T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800009/mock-practice-10"}},{"id":"800010","type":"page","title":"[Название практики 11]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":164987898,"title":"[Компания]"},{"id":96000010,"title":"[Раздел]"}],"history":{"createdDate":"2026-09-29T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800010/mock-practice-11"}},{"id":"800011","type":"page","title":"[Название практики 12]","ancestors":[{"id":95000001,"title":"[Главная]"},{"id":161546386,"title":"[Компания]"},{"id":96000011,"title":"[Раздел]"}],"history":{"createdDate":"2026-09-26T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/pages/800011/mock-practice-12"}}],"news":[{"id":"700000","type":"blogpost","title":"[Новость 1]","history":{"createdDate":"2026-11-17T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/blog/2026/11/700000"}},{"id":"700001","type":"blogpost","title":"[Анонс мероприятия 2]","history":{"createdDate":"2026-11-12T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/blog/2026/11/700001"}},{"id":"700002","type":"blogpost","title":"[Очень длинный заголовок новости для проверки переносов строк в списке новостей и мероприятий базы успешных практик]","history":{"createdDate":"2026-11-07T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/blog/2026/11/700002"}},{"id":"700003","type":"blogpost","title":"[Новость 4]","history":{"createdDate":"2026-11-02T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/blog/2026/11/700003"}},{"id":"700004","type":"blogpost","title":"[Новость 5]","history":{"createdDate":"2026-10-28T10:00:00.000+03:00"},"_links":{"webui":"/spaces/BSS/blog/2026/11/700004"}}],"search":[{"practice":true,"content":{"id":"810000","type":"page","title":"[Название практики о @@@hl@@@сварк@@@endhl@@@е 1]","_links":{"webui":"/spaces/BSS/pages/810000/mock-search-1"}},"title":"[Название практики о @@@hl@@@сварк@@@endhl@@@е 1]","url":"/spaces/BSS/pages/810000/mock-search-1","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"},{"practice":true,"content":{"id":"810001","type":"page","title":"[Название практики о сварке 2: длинное название, чтобы проверить перенос в выпадающем списке подсказок]","_links":{"webui":"/spaces/BSS/pages/810001/mock-search-2"}},"title":"[Название практики о сварке 2: длинное название, чтобы проверить перенос в выпадающем списке подсказок]","url":"/spaces/BSS/pages/810001/mock-search-2","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"},{"practice":true,"content":{"id":"810002","type":"page","title":"[Название практики о сварке 3]","_links":{"webui":"/spaces/BSS/pages/810002/mock-search-3"}},"title":"[Название практики о сварке 3]","url":"/spaces/BSS/pages/810002/mock-search-3","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"},{"practice":false,"content":{"id":"810003","type":"page","title":"[Раздел о сварочном производстве]","_links":{"webui":"/spaces/BSS/pages/810003/mock-search-4"}},"title":"[Раздел о сварочном производстве]","url":"/spaces/BSS/pages/810003/mock-search-4","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"},{"practice":false,"content":{"id":"810004","type":"page","title":"[Документ: стандарт по сварке]","_links":{"webui":"/spaces/BSS/pages/810004/mock-search-5"}},"title":"[Документ: стандарт по сварке]","url":"/spaces/BSS/pages/810004/mock-search-5","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"},{"practice":false,"content":{"id":"810005","type":"page","title":"[Сварка — регламент]","_links":{"webui":"/spaces/BSS/pages/810005/mock-search-6"}},"title":"[Сварка — регламент]","url":"/spaces/BSS/pages/810005/mock-search-6","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"},{"practice":true,"content":{"id":"810006","type":"page","title":"[Название практики 7]","_links":{"webui":"/spaces/BSS/pages/810006/mock-search-7"}},"title":"[Название практики 7]","url":"/spaces/BSS/pages/810006/mock-search-7","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"},{"practice":false,"content":{"id":"810007","type":"page","title":"[Документ 8]","_links":{"webui":"/spaces/BSS/pages/810007/mock-search-8"}},"title":"[Документ 8]","url":"/spaces/BSS/pages/810007/mock-search-8","resultGlobalContainer":{"title":"[Пространство]"},"friendlyLastModified":"[ДД] [мес]"}],"bodies":{"800000":"<p>Результат: было 45 мин → стало 12 мин на переналадку</p>","800002":"<p>было&nbsp;3 простоя в смену &rarr; стало 1 простой</p>"}};
+if(window.__H.fail)window.__BUP_MOCK__.fail=true;
+</script>
+
+</head><body>
+
+<header class="rf-head"><b>Refined</b><span>kb.severstal.com</span></header>
+<div class="rf-body">
+<aside class="rf-tree" aria-label="Дерево страниц"><div>Дерево страниц</div><div>· Раздел 1</div><div>· Раздел 2</div></aside>
+<main class="rf-main"><div class="rf-col" id="col">
+<div class="wiki-content" id="neighbor"><p>Абзац Confluence вне модулей.</p><a class="aui-button" href="#">Кнопка AUI</a></div>
+<section class="rf-sec" data-mod="6K-01-hero">
+<!-- БУП «Севергрупп» · стиль «Кармин» · модуль 6K-01-hero · вставить целиком в HTML Module (Refined) -->
+<style>
+.bupk-6k01{--red-600:#C4161C;--red-700:#A3121A;--red-50:#FDF1F2;--graphite-900:#1F2A33;--graphite-700:#3B4650;--ink-2:#5B6670;--ink-on-dark:#C9D2D8;--line:#E3E7EA;--line-2:#EEF1F3;--surface:#FFFFFF;--fh:Manrope,Arial,sans-serif;--ft:Inter,Arial,sans-serif;--focus:#1F2A33;--sh:0 1px 2px rgba(15,23,30,.06),0 6px 20px rgba(15,23,30,.06);--gap:clamp(12px,2.2cqi,22px);display:block!important;container-type:inline-size!important;position:relative!important;width:auto!important;max-width:100%!important;margin:0!important;padding:0!important;font:400 15px/1.5 var(--ft)!important;color:var(--graphite-900)!important;text-align:left!important;word-break:normal!important;overflow-wrap:normal!important;hyphens:manual!important;-webkit-font-smoothing:antialiased!important}.bupk-6k01,.bupk-6k01 *,.bupk-6k01 ::before,.bupk-6k01 ::after{box-sizing:border-box!important}.bupk-6k01 :where(a,h1,h2,h3,h4,p,button,input,label,ul,ol,li,table,th,td,mark,strong,s,span,small){margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;font:inherit!important;color:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;text-decoration:none!important;text-align:inherit!important;line-height:inherit!important;box-shadow:none!important;min-width:0!important;max-width:none!important;width:auto!important;height:auto!important;float:none!important;text-shadow:none!important;outline:0!important;list-style:none!important;vertical-align:baseline!important}.bupk-6k01 :where(a,button){cursor:pointer!important}.bupk-6k01 :focus-visible{outline:3px solid var(--focus)!important;outline-offset:2px!important}.bupk-6k01 [hidden][hidden][hidden]{display:none!important}.bupk-6k01 .k-wrap{display:flex!important;flex-direction:column!important;gap:clamp(28px,5cqi,52px)!important}.bupk-6k01 .k-dark{--focus:#FFFFFF;color:#FFFFFF!important}.bupk-6k01 .k-ic{display:block!important;flex:none!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}.bupk-6k01 .k-kick{display:block!important;margin:0 0 8px!important;font:700 12px/1.3 var(--ft)!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:var(--ink-2)!important}.bupk-6k01 .k-dark .k-kick{color:var(--ink-on-dark)!important}.bupk-6k01 .k-h2{display:block!important;font:800 clamp(22px,3cqi,30px)/1.1 var(--fh)!important;text-transform:uppercase!important;letter-spacing:.01em!important;color:var(--graphite-900)!important}.bupk-6k01 .k-sh{display:flex!important;flex-wrap:wrap!important;align-items:flex-end!important;justify-content:space-between!important;gap:8px 24px!important;margin:0 0 clamp(14px,2.2cqi,22px)!important}.bupk-6k01 .k-more{display:inline-flex!important;align-items:center!important;gap:6px!important;min-height:44px!important;min-width:44px!important;font:700 15px/1.2 var(--ft)!important;color:var(--red-700)!important}.bupk-6k01 .k-more:hover{text-decoration:underline!important}.bupk-6k01 .k-more .k-ic{width:18px!important;height:18px!important}.bupk-6k01 .k-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;min-height:48px!important;padding:12px 22px!important;border-radius:12px!important;font:700 15px/1.2 var(--ft)!important;text-align:center!important;cursor:pointer!important;transition:background-color .15s,transform .15s!important}.bupk-6k01 .k-btn:active{transform:translateY(1px)!important}.bupk-6k01 .k-btn-red{background:var(--red-600)!important;color:#FFFFFF!important;box-shadow:0 10px 24px rgba(196,22,28,.35)!important}.bupk-6k01 .k-btn-red:hover{background:var(--red-700)!important}.bupk-6k01 .k-btn-dark{background:var(--graphite-900)!important;color:#FFFFFF!important}.bupk-6k01 .k-btn-dark:hover{background:var(--graphite-700)!important}.bupk-6k01 .k-btn-light{background:#FFFFFF!important;color:var(--graphite-900)!important;box-shadow:inset 0 0 0 1.5px var(--line)!important}.bupk-6k01 .k-btn-light:hover{background:var(--line-2)!important}.bupk-6k01 .k-card{background:#FFFFFF!important;border-radius:16px!important;box-shadow:var(--sh)!important;padding:clamp(16px,3cqi,30px)!important;min-width:0!important}.bupk-6k01 .k-t{overflow-wrap:anywhere!important}.bupk-6k01 .k-sk{display:block!important;height:14px!important;margin:10px 0!important;border-radius:7px!important;background:linear-gradient(90deg,#EEF1F3,#E3E7EA,#EEF1F3) 0 0/200% 100%!important;animation:bupk-6k01-sk 1.4s linear infinite!important}.bupk-6k01 .k-sk-w{width:62%!important}@keyframes bupk-6k01-sk{to{background-position:-200% 0}}.bupk-6k01 .k-msg{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:12px!important;padding:6px 0!important;font-size:15px!important;color:var(--ink-2)!important}.bupk-6k01 .k-msg p{flex:1 1 100%!important}.bupk-6k01 .k-vh{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}@media (prefers-reduced-motion:reduce){.bupk-6k01 :is(*,.k-rm.k-rm.k-rm){animation:none!important;transition:none!important;scroll-behavior:auto!important}}.bupk-6k01 .k-hero{position:relative!important;overflow:hidden!important;isolation:isolate!important;display:grid!important;align-items:center!important;gap:clamp(22px,4cqi,48px)!important;padding:clamp(22px,5.5cqi,64px)!important;border-radius:16px!important;color:#FFFFFF!important;background:radial-gradient(rgba(255,255,255,.09) 1.6px,transparent 1.8px) 0 0/18px 18px,linear-gradient(160deg,#34444F,#0E1418)!important}@container (min-width:860px){.bupk-6k01 .k-hero{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)!important}}.bupk-6k01 .k-glow{position:absolute!important;z-index:-1!important;right:-140px!important;top:-200px!important;width:560px!important;height:560px!important;border-radius:50%!important;background:var(--red-600)!important;filter:blur(130px)!important;opacity:.68!important;pointer-events:none!important}@container (max-width:600px){.bupk-6k01 .k-glow{right:-70px!important;top:-100px!important;width:280px!important;height:280px!important;filter:blur(65px)!important}}.bupk-6k01 .k-h1{display:block!important;margin:4px 0 18px!important;font:800 clamp(30px,5cqi,60px)/1.04 var(--fh)!important;text-transform:uppercase!important;letter-spacing:-.005em!important;color:#FFFFFF!important}.bupk-6k01 .k-h1 span{display:block!important;color:var(--ink-on-dark)!important}@container (max-width:330px){.bupk-6k01 .k-h1{font-size:25px!important}}.bupk-6k01 .k-sub{max-width:34em!important;font-size:clamp(16px,1.8cqi,19px)!important;line-height:1.5!important;color:var(--ink-on-dark)!important}.bupk-6k01 .k-glass{position:relative!important;min-width:0!important;padding:clamp(18px,3cqi,30px)!important;border-radius:20px!important;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.05))!important;border:1px solid rgba(255,255,255,.24)!important;-webkit-backdrop-filter:blur(28px)!important;backdrop-filter:blur(28px)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 30px 60px rgba(0,0,0,.35)!important}@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.bupk-6k01 .k-glass{background:rgba(31,42,51,.92)!important}}.bupk-6k01 .k-gl-t{display:block!important;margin:0 0 14px!important;font:700 18px/1.3 var(--ft)!important;color:#FFFFFF!important}.bupk-6k01 .k-gl-btn{width:100%!important;margin-top:14px!important}.bupk-6k01 .k-sf{position:relative!important}.bupk-6k01 .k-sf>.k-ic{position:absolute!important;left:16px!important;top:18px!important;color:var(--ink-2)!important;pointer-events:none!important}.bupk-6k01 .k-q{display:block!important;width:100%!important;height:56px!important;padding:0 52px 0 48px!important;border:0!important;border-radius:12px!important;background:#FFFFFF!important;color:var(--graphite-900)!important;font:400 16px/56px var(--ft)!important;box-shadow:0 0 0 1px rgba(15,23,30,.08),0 8px 24px rgba(0,0,0,.18)!important;-webkit-appearance:none!important;appearance:none!important}.bupk-6k01 .k-q::placeholder{color:var(--ink-2)!important;opacity:1!important}.bupk-6k01 .k-q:focus-visible{outline:3px solid #FFFFFF!important;outline-offset:2px!important}.bupk-6k01 .k-q::-webkit-search-cancel-button{-webkit-appearance:none!important}.bupk-6k01 .k-kbd{position:absolute!important;right:14px!important;top:16px!important;min-width:24px!important;padding:2px 7px!important;border-radius:6px!important;box-shadow:inset 0 0 0 1px var(--line)!important;font:600 13px/20px var(--ft)!important;text-align:center!important;color:var(--ink-2)!important;pointer-events:none!important}@container (max-width:600px){.bupk-6k01 .k-kbd{display:none!important}.bupk-6k01 .k-q{padding-right:16px!important}}.bupk-6k01 .k-lb{margin-top:8px!important;padding:8px!important;border-radius:12px!important;background:#FFFFFF!important;color:var(--graphite-900)!important;box-shadow:0 18px 40px rgba(0,0,0,.28)!important;--focus:#1F2A33}.bupk-6k01 .k-lb-g{display:block!important;padding:10px 12px 4px!important;font:700 12px/1.3 var(--ft)!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:var(--ink-2)!important}.bupk-6k01 .k-opt{display:flex!important;align-items:center!important;gap:12px!important;min-height:44px!important;padding:8px 12px!important;border-radius:8px!important;color:var(--graphite-900)!important;cursor:pointer!important}.bupk-6k01 .k-opt:hover,.bupk-6k01 .k-opt[aria-selected=true]{background:var(--line-2)!important}.bupk-6k01 .k-opt[aria-selected=true]{box-shadow:inset 3px 0 0 var(--graphite-900)!important}.bupk-6k01 .k-opt .k-ic{color:var(--ink-2)!important}.bupk-6k01 .k-opt-b{display:block!important;flex:1 1 auto!important;min-width:0!important}.bupk-6k01 .k-opt-t{display:block!important;font:600 15px/1.35 var(--ft)!important;overflow-wrap:anywhere!important}.bupk-6k01 .k-opt-m{display:block!important;margin-top:2px!important;font-size:12px!important;line-height:1.3!important;color:var(--ink-2)!important}.bupk-6k01 .k-opt mark{padding:0 1px!important;border-radius:3px!important;background:var(--red-50)!important;color:var(--red-700)!important;font-weight:700!important}.bupk-6k01 .k-lb-sep{height:1px!important;margin:6px 4px!important;background:var(--line)!important}.bupk-6k01 .k-lb-st{display:block!important;padding:10px 12px!important;font-size:14px!important;color:var(--ink-2)!important}.bupk-6k01 .k-pop{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:8px!important;margin-top:14px!important;font-size:14px!important;color:var(--ink-on-dark)!important}.bupk-6k01 .k-chip{display:inline-flex!important;align-items:center!important;min-height:36px!important;padding:6px 14px!important;border-radius:999px!important;background:rgba(255,255,255,.1)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)!important;color:#FFFFFF!important;font:600 14px/1.2 var(--ft)!important;cursor:pointer!important}.bupk-6k01 .k-chip:hover{background:rgba(255,255,255,.2)!important}@container (max-width:768px){.bupk-6k01 .k-chip{min-height:44px!important}}
+</style>
+<div class="bupk-6k01" data-bupk="6K-01-hero" lang="ru"><div class="k-wrap">
+<div class="k-hero k-dark">
+<span class="k-glow" aria-hidden="true" data-k-deco></span>
+<div>
+<span class="k-kick">Бизнес-система Севергрупп</span>
+<h1 class="k-h1">База успешных практик <span>«Севергрупп»</span></h1>
+<p class="k-sub">Делитесь своим успешным опытом и внедряйте лучшие практики</p>
+</div>
+<div class="k-glass"><form class="k-search" data-k="search" role="search" action="/dosearchsite.action" method="get">
+<label class="k-gl-t" for="bupk-6k01-q">Найти практику</label>
+<div class="k-sf">
+<svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM20 20l-4.6-4.6"/></svg>
+<input class="k-q" data-k="q" id="bupk-6k01-q" name="queryString" type="search" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-haspopup="listbox" autocomplete="off" spellcheck="false" placeholder="Тема или название">
+<span class="k-kbd" aria-hidden="true">/</span>
+</div>
+<div class="k-lb" data-k="drop" hidden>
+<span class="k-lb-st" data-k="st" role="status" aria-live="polite"></span>
+<div data-k="lb" role="listbox" aria-label="Подсказки поиска"></div>
+</div>
+</form><a class="k-btn k-btn-red k-gl-btn" data-k="add" href="#" target="_blank" rel="noopener"><svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>Добавить практику</a></div>
+</div>
+</div></div>
+<script>
+(function () {
+"use strict";
+/* ==== CONFIG — одинаковый во всех модулях страницы; что заполнить — см. README.txt ==== */
+var CONFIG = {
+  spaceKey: "BSS",
+  addPracticeUrl: "https://allforms.severstal.com/passing/f0143bf9-0b4c-4ce4-99a5-f8e22b1b6a50",
+  neuronUrl: "https://kb.severstal.com/spaces/BSS/pages/424936320/%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D0%BD+%D0%91%D0%A1%D0%A1", // страница «Нейрон БСС»; текст вопроса туда НЕ передаётся
+  categoriesUrl: "https://kb.severstal.com/spaces/BSS/pages/161546796/%D0%A4%D0%BE%D0%BA%D1%83%D1%81+%D0%BD%D0%B0+%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BC.+%D0%98%D1%82%D0%BE%D0%B3%D0%B8+%D0%B1%D0%B0%D0%B7%D1%8B", // «Поиск по категориям» = страница «Фокус на лучшем. Итоги базы»
+  searchPageUrl: "/dosearchsite.action?queryString=", // TODO: проверить адрес полной страницы поиска на kb.severstal.com
+  practiceLabel: "практика",           // метка всех практик (подтверждена в настройках текущих модулей Pages)
+  replicatedLabel: "TODO",             // метка тиражируемых практик (её ставят админы) — уточнить; пока пусто, вкладка/полка «Тиражируемые» скрыта
+  newsCql: "type = blogpost ORDER BY created DESC", // как в текущем News: все блог-посты сайта; при желании сузить до space = "BSS"
+  popularQueries: ["[запрос 1]", "[запрос 2]", "[запрос 3]"], // TODO
+  stats: { // счётчики, которые нельзя посчитать запросом, — вручную, как сейчас
+    activeUsers: null,           // TODO: число «Активных пользователей» из текущего счётчика
+    practicesManual: null        // запасное число «Опубликованных практик», если запрос не прошёл
+  },
+  companies: [ // pageId — для CQL ancestor = pageId (практики компании лежат под её страницей)
+    { name: "Северсталь",     pageId: 164987898, url: "https://kb.severstal.com/spaces/BSS/pages/164987898/%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B0%D0%BB%D1%8C.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8." },
+    { name: "Силовые машины", pageId: 161546386, url: "https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" },
+    { name: "NordGold",       pageId: 212533372, url: "https://kb.severstal.com/spaces/BSS/pages/212533372/NordGold." },
+    { name: "Лента",          pageId: 138051977, url: "https://kb.severstal.com/spaces/BSS/pages/138051977/%D0%9B%D0%B5%D0%BD%D1%82%D0%B0.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" },
+    { name: "Свеза",          pageId: 133300894, url: "https://kb.severstal.com/spaces/BSS/pages/133300894/%D0%A1%D0%B2%D0%B5%D0%B7%D0%B0.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" }
+  ],
+  sections: [ // «Основные разделы базы» — 12 шт., порядок как сейчас
+    { name: "HR", url: "https://kb.severstal.com/spaces/BSS/pages/95551767/HR+%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5" },
+    { name: "Аддитивные технологии", url: "https://kb.severstal.com/spaces/BSS/pages/126059926/%D0%90%D0%B4%D0%B4%D0%B8%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B5+%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8" },
+    { name: "Бизнес-система", url: "https://kb.severstal.com/spaces/BSS/pages/123601523/%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0" },
+    { name: "Безопасность труда", url: "https://kb.severstal.com/spaces/BSS/pages/7078571/%D0%91%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C+%D1%82%D1%80%D1%83%D0%B4%D0%B0" },
+    { name: "Закупки", url: "https://kb.severstal.com/spaces/BSS/pages/129695932/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F+%D0%B7%D0%B0%D0%BA%D1%83%D0%BF%D0%BE%D0%BA" },
+    { name: "ИТ-продукты", url: "https://kb.severstal.com/spaces/BSS/pages/272400610/%D0%98%D0%A2-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B" },
+    { name: "Коммуникации", url: "https://kb.severstal.com/spaces/BSS/pages/123601776/%D0%9A%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%C2%AB%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%B3%D1%80%D1%83%D0%BF%D0%BF%C2%BB+PR+IR+IC+SMM" },
+    { name: "Нейросетевые сервисы", url: "https://kb.severstal.com/spaces/BSS/pages/156861306/%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D1%8B%D0%B5+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B" },
+    { name: "Порошковая металлургия", url: "https://kb.severstal.com/spaces/BSS/pages/255066453/%D0%9F%D0%BE%D1%80%D0%BE%D1%88%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F+%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D1%83%D1%80%D0%B3%D0%B8%D1%8F" },
+    { name: "Таможенное оформление", url: "https://kb.severstal.com/spaces/BSS/pages/138051589/%D0%A2%D0%B0%D0%BC%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5+%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B8%D0%BC%D0%BF%D0%BE%D1%80%D1%82" },
+    { name: "Центр Единого Сервиса", url: "https://kb.severstal.com/spaces/BSS/pages/243171658/%D0%A6%D0%B5%D0%BD%D1%82%D1%80+%D0%95%D0%B4%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE+%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0+%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B0%D0%BB%D0%B8" },
+    { name: "Экспертная сеть", url: "https://kb.severstal.com/spaces/BSS/pages/118523088/%D0%AD%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D1%82%D0%BD%D0%B0%D1%8F+%D1%81%D0%B5%D1%82%D1%8C" }
+  ],
+  featured: [ // вместо 4 фото-плиток у новостей и для навигатора 2К — текстовые плитки без фото
+    { name: "Дайджест лучших практик", url: "https://kb.severstal.com/spaces/BSS/pages/156860991/%D0%94%D0%B0%D0%B9%D0%B4%D0%B6%D0%B5%D1%81%D1%82%D1%8B+%D1%83%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D1%85+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA+%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B+%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%B3%D1%80%D1%83%D0%BF%D0%BF." },
+    { name: "Видеопроект", url: "https://kb.severstal.com/spaces/BSS/pages/218203971/%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5+%D1%83%D1%80%D0%BE%D0%BA%D0%B8+%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5+%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE" }, // страница «Извлечённые уроки (новое видео)» — проверить, что это она
+    { name: "Материалы конференций", url: "TODO" },
+    { name: "Эксперты академии", url: "TODO" },
+    { name: "Практики для жизни", url: "https://kb.severstal.com/spaces/BSS/pages/376045930/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%B4%D0%BB%D1%8F+%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8" },
+    { name: "Итоги базы", url: "https://kb.severstal.com/spaces/BSS/pages/161546796/%D0%A4%D0%BE%D0%BA%D1%83%D1%81+%D0%BD%D0%B0+%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BC.+%D0%98%D1%82%D0%BE%D0%B3%D0%B8+%D0%B1%D0%B0%D0%B7%D1%8B" }
+  ],
+  links: { // блок полезных ссылок внизу (вместо текущего блока кнопок и ссылок)
+    actions: [
+      { name: "В Synapse", url: "https://xlnk.ms/join/channel/MWM1ZWIzMzEtMjQ5ZS01NTUxLWJjNDUtN2Y5OGYzZjI0ZTNmOmE5ZmY3Yjk4LTgxNzgtNThiYi1iMTAwLTQ2MjMxNzdiZWM2ZTo5YTQ2YzhhMC1mZWU0LTUzNmQtYTlkYS01MzZiMTFjMDlhMTk=" },
+      { name: "Частые вопросы о базе", url: "https://kb.severstal.com/spaces/BSS/pages/337674439/%D0%A7%D0%B0%D1%81%D1%82%D1%8B%D0%B5+%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B+%D0%BE%D1%82+%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9+%D0%B1%D0%B0%D0%B7%D1%8B" },
+      { name: "Подать заявку на редактирование базы", url: "TODO" }
+    ],
+    more: [
+      { name: "Посмотреть все практики", url: "TODO" },
+      { name: "Дайджест производственных практик", url: "TODO" },
+      { name: "Библиотека Бизнес-системы", url: "TODO" },
+      { name: "Экспертные сообщества «Севергрупп»", url: "TODO" },
+      { name: "О команде проекта", url: "TODO" },
+      { name: "Техническая поддержка", url: "https://itcatalog.severstal.com/ru-ru/Pages/request_create.aspx?object=-121707" },
+      { name: "Связаться с администратором", url: "TODO" },
+      { name: "Отправить запрос на информацию, которую не смогли найти", url: "TODO" }
+    ]
+  },
+  shelves: [ // для 6К; полка с enabled:false не выводится
+    { kicker: "Свежее", title: "Новые практики", cql: "type = page AND label = \"{practiceLabel}\" ORDER BY created DESC", enabled: true },
+    { kicker: "Проверено внедрением", title: "Тиражируют чаще всего", cql: "type = page AND label = \"{replicatedLabel}\" ORDER BY created DESC", enabled: false },
+    { kicker: "Компания", title: "Северсталь", cql: "type = page AND label = \"{practiceLabel}\" AND ancestor = 164987898 ORDER BY created DESC", enabled: true },
+    { kicker: "Компания", title: "Силовые машины", cql: "type = page AND label = \"{practiceLabel}\" AND ancestor = 161546386 ORDER BY created DESC", enabled: true }
+  ],
+  effectFromExcerpt: false // 6К: читать строку «было → стало» (см. п. 5.3), по умолчанию выключено
+};
+/* ==== код модуля (не редактировать) ==== */
+var MOCK = window.__BUP_MOCK__ || null;
+var SVGNS = "http://www.w3.org/2000/svg";
+var MON = ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"];
+var ICONS = {
+ar: "M5 12h14M13 6l6 6-6 6",
+al: "M19 12H5M11 6l-6 6 6 6",
+se: "M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM20 20l-4.6-4.6",
+sp: "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z",
+dc: "M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6",
+pl: "M12 5v14M5 12h14"
+};
+var TODOS = [];
+function ok(u) {
+u = typeof u === "string" ? u.trim() : "";
+return u && !/^TODO/i.test(u) && !/^\[.*\]$/.test(u) ? u : null;
+}
+function lab(v) { return ok(v) || ""; }
+function todo(name) { if (TODOS.indexOf(name) < 0) TODOS.push(name); }
+function ic(n, cls) {
+var s = document.createElementNS(SVGNS, "svg"), p = document.createElementNS(SVGNS, "path");
+s.setAttribute("viewBox", "0 0 24 24");
+s.setAttribute("class", "k-ic" + (cls ? " " + cls : ""));
+s.setAttribute("aria-hidden", "true");
+s.setAttribute("focusable", "false");
+p.setAttribute("d", ICONS[n]);
+s.appendChild(p);
+return s;
+}
+function add(e, kids) {
+[].concat(kids == null ? [] : kids).forEach(function (c) {
+if (c == null || c === false || c === "") return;
+e.appendChild(typeof c === "object" ? c : document.createTextNode(String(c)));
+});
+return e;
+}
+function h(tag, cls, kids, attrs) {
+var e = document.createElement(tag);
+if (cls) e.className = cls;
+if (attrs) for (var k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+return add(e, kids);
+}
+function A(url, cls, kids, blank) {
+return h("a", cls, kids, { href: url, target: blank ? "_blank" : null, rel: blank ? "noopener" : null });
+}
+function fill(e, kids) { while (e.firstChild) e.removeChild(e.firstChild); return add(e, kids); }
+function $(root, name) { return root.querySelector('[data-k="' + name + '"]'); }
+function sub(cql) {
+return cql.replace(/\{practiceLabel\}/g, lab(CONFIG.practiceLabel)).replace(/\{replicatedLabel\}/g, lab(CONFIG.replicatedLabel));
+}
+function clean(s) { return String(s || "").replace(/@@@(end)?hl@@@/g, "").trim(); }
+function dt(iso) {
+var d = new Date(iso);
+return isNaN(d) ? null : { d: d.getDate(), m: MON[d.getMonth()], s: d.getDate() + " " + MON[d.getMonth()] + " " + d.getFullYear() };
+}
+function linkOf(c, base) {
+var w = (c._links && c._links.webui) || c.url || "";
+if (!w) return null;
+if (/^[a-z]+:/i.test(w)) return w;
+return (base || "") + (w.charAt(0) === "/" ? "" : "/") + w;
+}
+function companyOf(c) {
+var an = c.ancestors || [], i, j;
+for (i = 0; i < an.length; i++)
+for (j = 0; j < CONFIG.companies.length; j++)
+if (String(an[i].id) === String(CONFIG.companies[j].pageId)) return CONFIG.companies[j].name;
+return "";
+}
+function lim(p) { return +((/limit=(\d+)/.exec(p) || [])[1] || 10); }
+function mockRoute(p) {
+var M = MOCK, m = /\/rest\/api\/content\/(\d+)\?/.exec(p), cql, q, pr, list, anc;
+if (M.fail) throw new Error("mock fail");
+if (m) return { id: m[1], body: { view: { value: (M.bodies || {})[m[1]] || "" } } };
+cql = decodeURIComponent((/cql=([^&]*)/.exec(p) || [])[1] || "");
+if (/siteSearch/.test(cql)) {
+q = ((/siteSearch ~ "([^"*]*)/.exec(cql) || [])[1] || "").toLowerCase();
+pr = /label = /.test(cql);
+list = M.search.filter(function (x) {
+return clean(x.content.title).toLowerCase().indexOf(q) >= 0 && (!pr || x.practice);
+});
+return { results: list.slice(0, lim(p)), totalSize: list.length };
+}
+if (/\/rest\/api\/search/.test(p)) return { results: [], totalSize: /created >=/.test(cql) ? M.counts.week : M.counts.practices };
+if (/blogpost/.test(cql)) return { results: M.news.slice(0, lim(p)), _links: M.links };
+anc = (/ancestor = (\d+)/.exec(cql) || [])[1];
+list = /label = ""/.test(cql) ? [] : M.practices.filter(function (x) {
+return !anc || x.ancestors.some(function (a) { return String(a.id) === anc; });
+});
+return { results: list.slice(0, lim(p)), _links: M.links };
+}
+function api(path, ctl) {
+if (MOCK) return new Promise(function (res, rej) {
+setTimeout(function () { try { res(mockRoute(path)); } catch (e) { rej(e); } }, MOCK.delay == null ? 120 : MOCK.delay);
+});
+ctl = ctl || (window.AbortController ? new AbortController() : null);
+var t = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+return fetch(path, { credentials: "same-origin", headers: { Accept: "application/json" }, signal: ctl ? ctl.signal : undefined })
+.then(function (r) { clearTimeout(t); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); },
+function (e) { clearTimeout(t); throw e; });
+}
+function pages(cql, n, expand) {
+return api("/rest/api/content/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=" + n + "&expand=" + expand).then(function (r) {
+var base = r._links && r._links.base;
+return (r.results || []).map(function (c) {
+return { id: c.id, t: clean(c.title), u: linkOf(c, base), d: dt(c.history && c.history.createdDate), co: companyOf(c) };
+}).filter(function (x) { return x.t && x.u; });
+});
+}
+function count(cql) {
+return api("/rest/api/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=1").then(function (r) {
+if (typeof r.totalSize !== "number") throw new Error("no totalSize");
+return r.totalSize;
+});
+}
+function skel(n) {
+var out = [];
+for (var i = 0; i < n; i++) out.push(h("span", "k-sk" + (i % 2 ? " k-sk-w" : ""), null, { "aria-hidden": "true" }));
+return out;
+}
+function allPractices() {
+var m = CONFIG.links && CONFIG.links.more && ok(CONFIG.links.more[0] && CONFIG.links.more[0].url);
+return m || "/label/" + encodeURIComponent(CONFIG.spaceKey) + "/" + encodeURIComponent(lab(CONFIG.practiceLabel));
+}
+function searchUrl(q) { return (ok(CONFIG.searchPageUrl) || "/dosearchsite.action?queryString=") + encodeURIComponent(q || ""); }
+function newsUrl() { return "/pages/viewrecentblogposts.action?key=" + encodeURIComponent(CONFIG.spaceKey); }
+function fallback(el, text, links) {
+fill(el, h("div", "k-msg", [h("p", null, text)].concat(links.map(function (l, i) {
+return A(l[1], "k-btn " + (i ? "k-btn-light" : "k-btn-dark"), l[0]);
+})), { role: "status" }));
+}
+function boot(cls, inits) {
+function run() {
+[].forEach.call(document.querySelectorAll("." + cls + ":not([data-k-ok])"), function (root) {
+var t0 = window.performance ? performance.now() : 0;
+root.setAttribute("data-k-ok", "");
+inits.forEach(function (f) {
+try { f(root); } catch (e) { if (window.console) console.warn("[БУП] " + cls + ":", e); }
+});
+root.setAttribute("data-k-ms", ((window.performance ? performance.now() : 0) - t0).toFixed(1));
+if (TODOS.length && window.console) console.info("[БУП] " + cls + ": не заполнено в CONFIG — " + TODOS.join("; "));
+});
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
+}
+function initHero(root) {
+var b = $(root, "add"), u = ok(CONFIG.addPracticeUrl);
+if (b) { if (u) b.setAttribute("href", u); else { b.hidden = true; todo("addPracticeUrl"); } }
+}
+var SQN = 0;
+function marks(text, q) {
+var words = q.toLowerCase().split(/\s+/).filter(function (w) { return w.length > 1; }), out = [], low = text.toLowerCase(), i = 0;
+while (i < text.length) {
+var best = -1, len = 0;
+words.forEach(function (w) {
+var j = low.indexOf(w, i);
+if (j >= 0 && (best < 0 || j < best)) { best = j; len = w.length; }
+});
+if (best < 0) { out.push(text.slice(i)); break; }
+if (best > i) out.push(text.slice(i, best));
+out.push(h("mark", null, text.slice(best, best + len)));
+i = best + len;
+}
+return out;
+}
+function initSearch(root) {
+var box = $(root, "search");
+if (!box) return;
+var inp = $(box, "q"), pop = $(root, "pop"), drop = $(box, "drop"), lb = $(box, "lb"), st = $(box, "st"), lbl = box.querySelector("label");
+var uid = root.className.split(" ")[0] + "-" + (++SQN) + Math.random().toString(36).slice(2, 6);
+var timer = 0, ctl = null, seq = 0, opts = [], act = -1, last = "";
+inp.id = uid + "-q";
+if (lbl) lbl.setAttribute("for", inp.id);
+lb.id = uid + "-lb";
+inp.setAttribute("aria-controls", lb.id);
+function open(v) {
+drop.hidden = !v;
+inp.setAttribute("aria-expanded", v ? "true" : "false");
+if (!v) setAct(-1);
+}
+function setAct(i) {
+act = i;
+opts.forEach(function (o, j) { o.setAttribute("aria-selected", j === i ? "true" : "false"); });
+if (i >= 0) { inp.setAttribute("aria-activedescendant", opts[i].id); if (opts[i].scrollIntoView) opts[i].scrollIntoView({ block: "nearest" }); }
+else inp.removeAttribute("aria-activedescendant");
+}
+function opt(url, icon, title, meta, q) {
+var o = A(url, "k-opt", [ic(icon), h("span", "k-opt-b", [
+h("span", "k-opt-t", q ? marks(title, q) : title), meta ? h("span", "k-opt-m", meta) : null])]);
+o.setAttribute("role", "option");
+o.setAttribute("tabindex", "-1");
+o.setAttribute("aria-selected", "false");
+o.id = uid + "-o" + opts.length;
+o.addEventListener("mousedown", function (e) { e.preventDefault(); });
+opts.push(o);
+return o;
+}
+function group(name, items) {
+if (!items.length) return null;
+var gid = uid + "-g" + opts.length;
+return h("div", null, [h("span", "k-lb-g", name, { id: gid })].concat(items), { role: "group", "aria-labelledby": gid });
+}
+function tail(q) {
+var n = ok(CONFIG.neuronUrl);
+return [h("div", "k-lb-sep", null, { role: "presentation" }),
+opt(searchUrl(q), "se", "Все результаты по запросу «" + q + "»", null),
+n ? opt(n, "sp", "Спросить у Нейрона", "откроется страница Нейрона") : null];
+}
+function map(r, base) {
+var c = r.content || {};
+return { id: c.id || r.url, t: clean(c.title || r.title), u: linkOf(c._links && c._links.webui ? c : r, base),
+sp: r.resultGlobalContainer && r.resultGlobalContainer.title, when: r.friendlyLastModified };
+}
+function render(q, all, pr, err) {
+opts = [];
+act = -1;
+var ids = {}, prItems, rest, kids = [];
+pr.list.forEach(function (x) { ids[x.id] = 1; });
+prItems = pr.list.slice(0, 5).map(function (x) { return opt(x.u, "dc", x.t, [x.sp, x.when].filter(Boolean).join(" · "), q); });
+rest = all.list.filter(function (x) { return !ids[x.id]; }).slice(0, 5)
+.map(function (x) { return opt(x.u, "ar", x.t, [x.sp, x.when].filter(Boolean).join(" · "), q); });
+kids.push(group("Практики · " + pr.total.toLocaleString("ru-RU"), prItems));
+kids.push(group("Разделы и документы", rest));
+st.textContent = err ? "Подсказки сейчас недоступны — откройте полный поиск." :
+!prItems.length && !rest.length ? "Ничего не найдено. Попробуйте другой запрос." : "";
+st.hidden = !st.textContent;
+fill(lb, kids.concat(tail(q)));
+open(true);
+}
+function pick(r) {
+var base = r._links && r._links.base;
+return { list: (r.results || []).map(function (x) { return map(x, base); }).filter(function (x) { return x.t && x.u; }),
+total: typeof r.totalSize === "number" ? r.totalSize : (r.results || []).length };
+}
+function run(q) {
+var my = ++seq, e = '"' + q.replace(/["\\*]/g, " ").trim() + '*"', c = window.AbortController ? new AbortController() : null;
+if (ctl) ctl.abort();
+ctl = c;
+last = q;
+st.textContent = "Ищем…";
+st.hidden = false;
+if (drop.hidden) { opts = []; fill(lb, tail(q)); open(true); }
+var base = "/rest/api/search?cql=", cq = "siteSearch ~ " + e + " AND type = page", pl = lab(CONFIG.practiceLabel);
+var fail = false, none = { results: [] };
+Promise.all([
+api(base + encodeURIComponent(cq) + "&limit=8", c).catch(function () { fail = true; return none; }),
+pl ? api(base + encodeURIComponent(cq + ' AND label = "' + pl + '"') + "&limit=5", c).catch(function () { return none; }) : none
+]).then(function (r) {
+if (my !== seq) return;
+render(q, pick(r[0]), pick(r[1]), fail);
+});
+}
+function go(u) { if (u) window.location.href = u; }
+box.addEventListener("submit", function (e) { e.preventDefault(); go(searchUrl(inp.value.trim())); });
+inp.addEventListener("input", function () {
+var q = inp.value.trim();
+clearTimeout(timer);
+if (q.length < 3) { seq++; if (ctl) ctl.abort(); open(false); return; }
+timer = setTimeout(function () { run(q); }, 250);
+});
+inp.addEventListener("keydown", function (e) {
+var k = e.key, q = inp.value.trim();
+if (k === "ArrowDown" || k === "ArrowUp") {
+e.preventDefault();
+if (drop.hidden) { if (q.length >= 3) { if (q === last && opts.length) open(true); else run(q); } return; }
+if (!opts.length) return;
+setAct(k === "ArrowDown" ? (act + 1) % opts.length : (act <= 0 ? opts.length - 1 : act - 1));
+} else if (k === "Enter") {
+e.preventDefault();
+if (!drop.hidden && act >= 0) go(opts[act].getAttribute("href"));
+else if (q) go(searchUrl(q));
+} else if (k === "Escape") {
+if (!drop.hidden) { e.preventDefault(); open(false); } else if (inp.value) { e.preventDefault(); inp.value = ""; }
+} else if (k === "Tab") open(false);
+});
+inp.addEventListener("focus", function () { if (inp.value.trim().length >= 3 && opts.length && inp.value.trim() === last) open(true); });
+document.addEventListener("mousedown", function (e) { if (!box.contains(e.target)) open(false); });
+document.addEventListener("keydown", function (e) {
+var t = e.target, tag = t && t.tagName;
+if (e.key !== "/" || e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) || (t && t.isContentEditable)) return;
+if (!inp.offsetParent) return;
+e.preventDefault();
+inp.focus();
+});
+if (pop) {
+var qs = (CONFIG.popularQueries || []).filter(function (x) { return ok(x); });
+if (!qs.length && MOCK && MOCK.popularQueries) qs = MOCK.popularQueries;
+if (!qs.length) todo("popularQueries");
+qs.forEach(function (x) {
+var b = h("button", "k-chip", x, { type: "button" });
+b.addEventListener("click", function () { inp.value = x; inp.focus(); clearTimeout(timer); run(x); });
+pop.appendChild(b);
+});
+pop.hidden = !qs.length;
+}
+}
+boot("bupk-6k01", [initHero, initSearch]);
+})();
+</script>
+
+</section>
+<section class="rf-sec" data-mod="6K-02-shelves">
+<!-- БУП «Севергрупп» · стиль «Кармин» · модуль 6K-02-shelves · вставить целиком в HTML Module (Refined) -->
+<style>
+.bupk-6k02{--red-600:#C4161C;--red-700:#A3121A;--red-50:#FDF1F2;--graphite-900:#1F2A33;--graphite-700:#3B4650;--ink-2:#5B6670;--ink-on-dark:#C9D2D8;--line:#E3E7EA;--line-2:#EEF1F3;--surface:#FFFFFF;--fh:Manrope,Arial,sans-serif;--ft:Inter,Arial,sans-serif;--focus:#1F2A33;--sh:0 1px 2px rgba(15,23,30,.06),0 6px 20px rgba(15,23,30,.06);--gap:clamp(12px,2.2cqi,22px);display:block!important;container-type:inline-size!important;position:relative!important;width:auto!important;max-width:100%!important;margin:0!important;padding:0!important;font:400 15px/1.5 var(--ft)!important;color:var(--graphite-900)!important;text-align:left!important;word-break:normal!important;overflow-wrap:normal!important;hyphens:manual!important;-webkit-font-smoothing:antialiased!important}.bupk-6k02,.bupk-6k02 *,.bupk-6k02 ::before,.bupk-6k02 ::after{box-sizing:border-box!important}.bupk-6k02 :where(a,h1,h2,h3,h4,p,button,input,label,ul,ol,li,table,th,td,mark,strong,s,span,small){margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;font:inherit!important;color:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;text-decoration:none!important;text-align:inherit!important;line-height:inherit!important;box-shadow:none!important;min-width:0!important;max-width:none!important;width:auto!important;height:auto!important;float:none!important;text-shadow:none!important;outline:0!important;list-style:none!important;vertical-align:baseline!important}.bupk-6k02 :where(a,button){cursor:pointer!important}.bupk-6k02 :focus-visible{outline:3px solid var(--focus)!important;outline-offset:2px!important}.bupk-6k02 [hidden][hidden][hidden]{display:none!important}.bupk-6k02 .k-wrap{display:flex!important;flex-direction:column!important;gap:clamp(28px,5cqi,52px)!important}.bupk-6k02 .k-dark{--focus:#FFFFFF;color:#FFFFFF!important}.bupk-6k02 .k-ic{display:block!important;flex:none!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}.bupk-6k02 .k-kick{display:block!important;margin:0 0 8px!important;font:700 12px/1.3 var(--ft)!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:var(--ink-2)!important}.bupk-6k02 .k-dark .k-kick{color:var(--ink-on-dark)!important}.bupk-6k02 .k-h2{display:block!important;font:800 clamp(22px,3cqi,30px)/1.1 var(--fh)!important;text-transform:uppercase!important;letter-spacing:.01em!important;color:var(--graphite-900)!important}.bupk-6k02 .k-sh{display:flex!important;flex-wrap:wrap!important;align-items:flex-end!important;justify-content:space-between!important;gap:8px 24px!important;margin:0 0 clamp(14px,2.2cqi,22px)!important}.bupk-6k02 .k-more{display:inline-flex!important;align-items:center!important;gap:6px!important;min-height:44px!important;min-width:44px!important;font:700 15px/1.2 var(--ft)!important;color:var(--red-700)!important}.bupk-6k02 .k-more:hover{text-decoration:underline!important}.bupk-6k02 .k-more .k-ic{width:18px!important;height:18px!important}.bupk-6k02 .k-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;min-height:48px!important;padding:12px 22px!important;border-radius:12px!important;font:700 15px/1.2 var(--ft)!important;text-align:center!important;cursor:pointer!important;transition:background-color .15s,transform .15s!important}.bupk-6k02 .k-btn:active{transform:translateY(1px)!important}.bupk-6k02 .k-btn-red{background:var(--red-600)!important;color:#FFFFFF!important;box-shadow:0 10px 24px rgba(196,22,28,.35)!important}.bupk-6k02 .k-btn-red:hover{background:var(--red-700)!important}.bupk-6k02 .k-btn-dark{background:var(--graphite-900)!important;color:#FFFFFF!important}.bupk-6k02 .k-btn-dark:hover{background:var(--graphite-700)!important}.bupk-6k02 .k-btn-light{background:#FFFFFF!important;color:var(--graphite-900)!important;box-shadow:inset 0 0 0 1.5px var(--line)!important}.bupk-6k02 .k-btn-light:hover{background:var(--line-2)!important}.bupk-6k02 .k-card{background:#FFFFFF!important;border-radius:16px!important;box-shadow:var(--sh)!important;padding:clamp(16px,3cqi,30px)!important;min-width:0!important}.bupk-6k02 .k-t{overflow-wrap:anywhere!important}.bupk-6k02 .k-sk{display:block!important;height:14px!important;margin:10px 0!important;border-radius:7px!important;background:linear-gradient(90deg,#EEF1F3,#E3E7EA,#EEF1F3) 0 0/200% 100%!important;animation:bupk-6k02-sk 1.4s linear infinite!important}.bupk-6k02 .k-sk-w{width:62%!important}@keyframes bupk-6k02-sk{to{background-position:-200% 0}}.bupk-6k02 .k-msg{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:12px!important;padding:6px 0!important;font-size:15px!important;color:var(--ink-2)!important}.bupk-6k02 .k-msg p{flex:1 1 100%!important}.bupk-6k02 .k-vh{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}@media (prefers-reduced-motion:reduce){.bupk-6k02 :is(*,.k-rm.k-rm.k-rm){animation:none!important;transition:none!important;scroll-behavior:auto!important}}.bupk-6k02 .k-shelf+.k-shelf{margin-top:clamp(28px,4cqi,44px)!important}.bupk-6k02 .k-snav{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:8px!important}.bupk-6k02 .k-arr{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:44px!important;height:44px!important;border-radius:50%!important;background:#FFFFFF!important;box-shadow:var(--sh)!important;color:var(--graphite-900)!important;cursor:pointer!important}.bupk-6k02 .k-arr:hover{background:var(--line-2)!important}.bupk-6k02 .k-arr:disabled{opacity:.45!important;cursor:default!important}.bupk-6k02 .k-row{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:calc((100% - 3 * var(--gap)) / 4)!important;gap:var(--gap)!important;overflow-x:auto!important;overscroll-behavior-x:contain!important;scroll-snap-type:x mandatory!important;scroll-behavior:smooth!important;padding:4px 0 16px!important;scrollbar-width:thin!important}@container (max-width:900px){.bupk-6k02 .k-row{grid-auto-columns:calc((100% - 2 * var(--gap)) / 2.2)!important}}@container (max-width:560px){.bupk-6k02 .k-row{grid-auto-columns:calc((100% - var(--gap)) / 1.2)!important}}.bupk-6k02 .k-sc{display:flex!important;flex-direction:column!important;gap:10px!important;min-width:0!important;min-height:190px!important;padding:20px!important;border-radius:16px!important;background:#FFFFFF!important;box-shadow:var(--sh)!important;color:var(--graphite-900)!important;scroll-snap-align:start!important}.bupk-6k02 a.k-sc:hover .k-sc-t{text-decoration:underline!important}.bupk-6k02 .k-sc-c{display:block!important;font:700 12px/1.3 var(--ft)!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:var(--ink-2)!important}.bupk-6k02 .k-sc-t{display:block!important;font:800 17px/1.25 var(--fh)!important;overflow-wrap:anywhere!important}.bupk-6k02 .k-sc-d{display:block!important;margin-top:auto!important;font-size:13px!important;color:var(--ink-2)!important}.bupk-6k02 .k-sc.is-lead{background:linear-gradient(160deg,#34444F,#1F2A33)!important;color:#FFFFFF!important}.bupk-6k02 .k-sc.is-lead .k-sc-c,.bupk-6k02 .k-sc.is-lead .k-sc-d,.bupk-6k02 .k-sc.is-lead s{color:var(--ink-on-dark)!important}.bupk-6k02 .k-fx{display:flex!important;flex-wrap:wrap!important;align-items:baseline!important;gap:4px 10px!important;padding-top:12px!important;border-top:1px solid var(--line)!important}.bupk-6k02 .k-fx s{font-size:14px!important;color:var(--ink-2)!important;text-decoration:line-through!important}.bupk-6k02 .k-fx-n{display:block!important;font:800 24px/1.1 var(--fh)!important;overflow-wrap:anywhere!important}
+</style>
+<div class="bupk-6k02" data-bupk="6K-02-shelves" lang="ru"><div class="k-wrap">
+<section aria-label="Полки практик">
+<div data-k="shelves">
+<div class="k-shelf">
+<div class="k-sh">
+<div><span class="k-kick" data-k="kick">Свежее</span><h2 class="k-h2" data-k="title">Новые практики</h2></div>
+<div class="k-snav">
+<a class="k-more" data-k="all" href="/label/BSS/%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0">Все<svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<button class="k-arr" type="button" data-k="prev" aria-label="Прокрутить назад"><svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+<button class="k-arr" type="button" data-k="next" aria-label="Прокрутить вперёд"><svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+</div>
+</div>
+<div class="k-row" data-k="row" role="region" tabindex="0" data-k-scroll>
+<div class="k-sc"><div class="k-msg"><p>Полка загружается.</p><a class="k-btn k-btn-light" href="/dosearchsite.action?queryString=">Поиск по базе</a></div></div>
+</div>
+</div>
+</div>
+</section>
+</div></div>
+<script>
+(function () {
+"use strict";
+/* ==== CONFIG — одинаковый во всех модулях страницы; что заполнить — см. README.txt ==== */
+var CONFIG = {
+  spaceKey: "BSS",
+  addPracticeUrl: "https://allforms.severstal.com/passing/f0143bf9-0b4c-4ce4-99a5-f8e22b1b6a50",
+  neuronUrl: "https://kb.severstal.com/spaces/BSS/pages/424936320/%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D0%BD+%D0%91%D0%A1%D0%A1", // страница «Нейрон БСС»; текст вопроса туда НЕ передаётся
+  categoriesUrl: "https://kb.severstal.com/spaces/BSS/pages/161546796/%D0%A4%D0%BE%D0%BA%D1%83%D1%81+%D0%BD%D0%B0+%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BC.+%D0%98%D1%82%D0%BE%D0%B3%D0%B8+%D0%B1%D0%B0%D0%B7%D1%8B", // «Поиск по категориям» = страница «Фокус на лучшем. Итоги базы»
+  searchPageUrl: "/dosearchsite.action?queryString=", // TODO: проверить адрес полной страницы поиска на kb.severstal.com
+  practiceLabel: "практика",           // метка всех практик (подтверждена в настройках текущих модулей Pages)
+  replicatedLabel: "TODO",             // метка тиражируемых практик (её ставят админы) — уточнить; пока пусто, вкладка/полка «Тиражируемые» скрыта
+  newsCql: "type = blogpost ORDER BY created DESC", // как в текущем News: все блог-посты сайта; при желании сузить до space = "BSS"
+  popularQueries: ["[запрос 1]", "[запрос 2]", "[запрос 3]"], // TODO
+  stats: { // счётчики, которые нельзя посчитать запросом, — вручную, как сейчас
+    activeUsers: null,           // TODO: число «Активных пользователей» из текущего счётчика
+    practicesManual: null        // запасное число «Опубликованных практик», если запрос не прошёл
+  },
+  companies: [ // pageId — для CQL ancestor = pageId (практики компании лежат под её страницей)
+    { name: "Северсталь",     pageId: 164987898, url: "https://kb.severstal.com/spaces/BSS/pages/164987898/%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B0%D0%BB%D1%8C.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8." },
+    { name: "Силовые машины", pageId: 161546386, url: "https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" },
+    { name: "NordGold",       pageId: 212533372, url: "https://kb.severstal.com/spaces/BSS/pages/212533372/NordGold." },
+    { name: "Лента",          pageId: 138051977, url: "https://kb.severstal.com/spaces/BSS/pages/138051977/%D0%9B%D0%B5%D0%BD%D1%82%D0%B0.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" },
+    { name: "Свеза",          pageId: 133300894, url: "https://kb.severstal.com/spaces/BSS/pages/133300894/%D0%A1%D0%B2%D0%B5%D0%B7%D0%B0.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" }
+  ],
+  sections: [ // «Основные разделы базы» — 12 шт., порядок как сейчас
+    { name: "HR", url: "https://kb.severstal.com/spaces/BSS/pages/95551767/HR+%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5" },
+    { name: "Аддитивные технологии", url: "https://kb.severstal.com/spaces/BSS/pages/126059926/%D0%90%D0%B4%D0%B4%D0%B8%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B5+%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8" },
+    { name: "Бизнес-система", url: "https://kb.severstal.com/spaces/BSS/pages/123601523/%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0" },
+    { name: "Безопасность труда", url: "https://kb.severstal.com/spaces/BSS/pages/7078571/%D0%91%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C+%D1%82%D1%80%D1%83%D0%B4%D0%B0" },
+    { name: "Закупки", url: "https://kb.severstal.com/spaces/BSS/pages/129695932/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F+%D0%B7%D0%B0%D0%BA%D1%83%D0%BF%D0%BE%D0%BA" },
+    { name: "ИТ-продукты", url: "https://kb.severstal.com/spaces/BSS/pages/272400610/%D0%98%D0%A2-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B" },
+    { name: "Коммуникации", url: "https://kb.severstal.com/spaces/BSS/pages/123601776/%D0%9A%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%C2%AB%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%B3%D1%80%D1%83%D0%BF%D0%BF%C2%BB+PR+IR+IC+SMM" },
+    { name: "Нейросетевые сервисы", url: "https://kb.severstal.com/spaces/BSS/pages/156861306/%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D1%8B%D0%B5+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B" },
+    { name: "Порошковая металлургия", url: "https://kb.severstal.com/spaces/BSS/pages/255066453/%D0%9F%D0%BE%D1%80%D0%BE%D1%88%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F+%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D1%83%D1%80%D0%B3%D0%B8%D1%8F" },
+    { name: "Таможенное оформление", url: "https://kb.severstal.com/spaces/BSS/pages/138051589/%D0%A2%D0%B0%D0%BC%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5+%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B8%D0%BC%D0%BF%D0%BE%D1%80%D1%82" },
+    { name: "Центр Единого Сервиса", url: "https://kb.severstal.com/spaces/BSS/pages/243171658/%D0%A6%D0%B5%D0%BD%D1%82%D1%80+%D0%95%D0%B4%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE+%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0+%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B0%D0%BB%D0%B8" },
+    { name: "Экспертная сеть", url: "https://kb.severstal.com/spaces/BSS/pages/118523088/%D0%AD%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D1%82%D0%BD%D0%B0%D1%8F+%D1%81%D0%B5%D1%82%D1%8C" }
+  ],
+  featured: [ // вместо 4 фото-плиток у новостей и для навигатора 2К — текстовые плитки без фото
+    { name: "Дайджест лучших практик", url: "https://kb.severstal.com/spaces/BSS/pages/156860991/%D0%94%D0%B0%D0%B9%D0%B4%D0%B6%D0%B5%D1%81%D1%82%D1%8B+%D1%83%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D1%85+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA+%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B+%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%B3%D1%80%D1%83%D0%BF%D0%BF." },
+    { name: "Видеопроект", url: "https://kb.severstal.com/spaces/BSS/pages/218203971/%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5+%D1%83%D1%80%D0%BE%D0%BA%D0%B8+%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5+%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE" }, // страница «Извлечённые уроки (новое видео)» — проверить, что это она
+    { name: "Материалы конференций", url: "TODO" },
+    { name: "Эксперты академии", url: "TODO" },
+    { name: "Практики для жизни", url: "https://kb.severstal.com/spaces/BSS/pages/376045930/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%B4%D0%BB%D1%8F+%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8" },
+    { name: "Итоги базы", url: "https://kb.severstal.com/spaces/BSS/pages/161546796/%D0%A4%D0%BE%D0%BA%D1%83%D1%81+%D0%BD%D0%B0+%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BC.+%D0%98%D1%82%D0%BE%D0%B3%D0%B8+%D0%B1%D0%B0%D0%B7%D1%8B" }
+  ],
+  links: { // блок полезных ссылок внизу (вместо текущего блока кнопок и ссылок)
+    actions: [
+      { name: "В Synapse", url: "https://xlnk.ms/join/channel/MWM1ZWIzMzEtMjQ5ZS01NTUxLWJjNDUtN2Y5OGYzZjI0ZTNmOmE5ZmY3Yjk4LTgxNzgtNThiYi1iMTAwLTQ2MjMxNzdiZWM2ZTo5YTQ2YzhhMC1mZWU0LTUzNmQtYTlkYS01MzZiMTFjMDlhMTk=" },
+      { name: "Частые вопросы о базе", url: "https://kb.severstal.com/spaces/BSS/pages/337674439/%D0%A7%D0%B0%D1%81%D1%82%D1%8B%D0%B5+%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B+%D0%BE%D1%82+%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9+%D0%B1%D0%B0%D0%B7%D1%8B" },
+      { name: "Подать заявку на редактирование базы", url: "TODO" }
+    ],
+    more: [
+      { name: "Посмотреть все практики", url: "TODO" },
+      { name: "Дайджест производственных практик", url: "TODO" },
+      { name: "Библиотека Бизнес-системы", url: "TODO" },
+      { name: "Экспертные сообщества «Севергрупп»", url: "TODO" },
+      { name: "О команде проекта", url: "TODO" },
+      { name: "Техническая поддержка", url: "https://itcatalog.severstal.com/ru-ru/Pages/request_create.aspx?object=-121707" },
+      { name: "Связаться с администратором", url: "TODO" },
+      { name: "Отправить запрос на информацию, которую не смогли найти", url: "TODO" }
+    ]
+  },
+  shelves: [ // для 6К; полка с enabled:false не выводится
+    { kicker: "Свежее", title: "Новые практики", cql: "type = page AND label = \"{practiceLabel}\" ORDER BY created DESC", enabled: true },
+    { kicker: "Проверено внедрением", title: "Тиражируют чаще всего", cql: "type = page AND label = \"{replicatedLabel}\" ORDER BY created DESC", enabled: false },
+    { kicker: "Компания", title: "Северсталь", cql: "type = page AND label = \"{practiceLabel}\" AND ancestor = 164987898 ORDER BY created DESC", enabled: true },
+    { kicker: "Компания", title: "Силовые машины", cql: "type = page AND label = \"{practiceLabel}\" AND ancestor = 161546386 ORDER BY created DESC", enabled: true }
+  ],
+  effectFromExcerpt: false // 6К: читать строку «было → стало» (см. п. 5.3), по умолчанию выключено
+};
+/* ==== код модуля (не редактировать) ==== */
+var MOCK = window.__BUP_MOCK__ || null;
+var SVGNS = "http://www.w3.org/2000/svg";
+var MON = ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"];
+var ICONS = {
+ar: "M5 12h14M13 6l6 6-6 6",
+al: "M19 12H5M11 6l-6 6 6 6",
+se: "M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM20 20l-4.6-4.6",
+sp: "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z",
+dc: "M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6",
+pl: "M12 5v14M5 12h14"
+};
+var TODOS = [];
+function ok(u) {
+u = typeof u === "string" ? u.trim() : "";
+return u && !/^TODO/i.test(u) && !/^\[.*\]$/.test(u) ? u : null;
+}
+function lab(v) { return ok(v) || ""; }
+function todo(name) { if (TODOS.indexOf(name) < 0) TODOS.push(name); }
+function ic(n, cls) {
+var s = document.createElementNS(SVGNS, "svg"), p = document.createElementNS(SVGNS, "path");
+s.setAttribute("viewBox", "0 0 24 24");
+s.setAttribute("class", "k-ic" + (cls ? " " + cls : ""));
+s.setAttribute("aria-hidden", "true");
+s.setAttribute("focusable", "false");
+p.setAttribute("d", ICONS[n]);
+s.appendChild(p);
+return s;
+}
+function add(e, kids) {
+[].concat(kids == null ? [] : kids).forEach(function (c) {
+if (c == null || c === false || c === "") return;
+e.appendChild(typeof c === "object" ? c : document.createTextNode(String(c)));
+});
+return e;
+}
+function h(tag, cls, kids, attrs) {
+var e = document.createElement(tag);
+if (cls) e.className = cls;
+if (attrs) for (var k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+return add(e, kids);
+}
+function A(url, cls, kids, blank) {
+return h("a", cls, kids, { href: url, target: blank ? "_blank" : null, rel: blank ? "noopener" : null });
+}
+function fill(e, kids) { while (e.firstChild) e.removeChild(e.firstChild); return add(e, kids); }
+function $(root, name) { return root.querySelector('[data-k="' + name + '"]'); }
+function sub(cql) {
+return cql.replace(/\{practiceLabel\}/g, lab(CONFIG.practiceLabel)).replace(/\{replicatedLabel\}/g, lab(CONFIG.replicatedLabel));
+}
+function clean(s) { return String(s || "").replace(/@@@(end)?hl@@@/g, "").trim(); }
+function dt(iso) {
+var d = new Date(iso);
+return isNaN(d) ? null : { d: d.getDate(), m: MON[d.getMonth()], s: d.getDate() + " " + MON[d.getMonth()] + " " + d.getFullYear() };
+}
+function linkOf(c, base) {
+var w = (c._links && c._links.webui) || c.url || "";
+if (!w) return null;
+if (/^[a-z]+:/i.test(w)) return w;
+return (base || "") + (w.charAt(0) === "/" ? "" : "/") + w;
+}
+function companyOf(c) {
+var an = c.ancestors || [], i, j;
+for (i = 0; i < an.length; i++)
+for (j = 0; j < CONFIG.companies.length; j++)
+if (String(an[i].id) === String(CONFIG.companies[j].pageId)) return CONFIG.companies[j].name;
+return "";
+}
+function lim(p) { return +((/limit=(\d+)/.exec(p) || [])[1] || 10); }
+function mockRoute(p) {
+var M = MOCK, m = /\/rest\/api\/content\/(\d+)\?/.exec(p), cql, q, pr, list, anc;
+if (M.fail) throw new Error("mock fail");
+if (m) return { id: m[1], body: { view: { value: (M.bodies || {})[m[1]] || "" } } };
+cql = decodeURIComponent((/cql=([^&]*)/.exec(p) || [])[1] || "");
+if (/siteSearch/.test(cql)) {
+q = ((/siteSearch ~ "([^"*]*)/.exec(cql) || [])[1] || "").toLowerCase();
+pr = /label = /.test(cql);
+list = M.search.filter(function (x) {
+return clean(x.content.title).toLowerCase().indexOf(q) >= 0 && (!pr || x.practice);
+});
+return { results: list.slice(0, lim(p)), totalSize: list.length };
+}
+if (/\/rest\/api\/search/.test(p)) return { results: [], totalSize: /created >=/.test(cql) ? M.counts.week : M.counts.practices };
+if (/blogpost/.test(cql)) return { results: M.news.slice(0, lim(p)), _links: M.links };
+anc = (/ancestor = (\d+)/.exec(cql) || [])[1];
+list = /label = ""/.test(cql) ? [] : M.practices.filter(function (x) {
+return !anc || x.ancestors.some(function (a) { return String(a.id) === anc; });
+});
+return { results: list.slice(0, lim(p)), _links: M.links };
+}
+function api(path, ctl) {
+if (MOCK) return new Promise(function (res, rej) {
+setTimeout(function () { try { res(mockRoute(path)); } catch (e) { rej(e); } }, MOCK.delay == null ? 120 : MOCK.delay);
+});
+ctl = ctl || (window.AbortController ? new AbortController() : null);
+var t = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+return fetch(path, { credentials: "same-origin", headers: { Accept: "application/json" }, signal: ctl ? ctl.signal : undefined })
+.then(function (r) { clearTimeout(t); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); },
+function (e) { clearTimeout(t); throw e; });
+}
+function pages(cql, n, expand) {
+return api("/rest/api/content/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=" + n + "&expand=" + expand).then(function (r) {
+var base = r._links && r._links.base;
+return (r.results || []).map(function (c) {
+return { id: c.id, t: clean(c.title), u: linkOf(c, base), d: dt(c.history && c.history.createdDate), co: companyOf(c) };
+}).filter(function (x) { return x.t && x.u; });
+});
+}
+function count(cql) {
+return api("/rest/api/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=1").then(function (r) {
+if (typeof r.totalSize !== "number") throw new Error("no totalSize");
+return r.totalSize;
+});
+}
+function skel(n) {
+var out = [];
+for (var i = 0; i < n; i++) out.push(h("span", "k-sk" + (i % 2 ? " k-sk-w" : ""), null, { "aria-hidden": "true" }));
+return out;
+}
+function allPractices() {
+var m = CONFIG.links && CONFIG.links.more && ok(CONFIG.links.more[0] && CONFIG.links.more[0].url);
+return m || "/label/" + encodeURIComponent(CONFIG.spaceKey) + "/" + encodeURIComponent(lab(CONFIG.practiceLabel));
+}
+function searchUrl(q) { return (ok(CONFIG.searchPageUrl) || "/dosearchsite.action?queryString=") + encodeURIComponent(q || ""); }
+function newsUrl() { return "/pages/viewrecentblogposts.action?key=" + encodeURIComponent(CONFIG.spaceKey); }
+function fallback(el, text, links) {
+fill(el, h("div", "k-msg", [h("p", null, text)].concat(links.map(function (l, i) {
+return A(l[1], "k-btn " + (i ? "k-btn-light" : "k-btn-dark"), l[0]);
+})), { role: "status" }));
+}
+function boot(cls, inits) {
+function run() {
+[].forEach.call(document.querySelectorAll("." + cls + ":not([data-k-ok])"), function (root) {
+var t0 = window.performance ? performance.now() : 0;
+root.setAttribute("data-k-ok", "");
+inits.forEach(function (f) {
+try { f(root); } catch (e) { if (window.console) console.warn("[БУП] " + cls + ":", e); }
+});
+root.setAttribute("data-k-ms", ((window.performance ? performance.now() : 0) - t0).toFixed(1));
+if (TODOS.length && window.console) console.info("[БУП] " + cls + ": не заполнено в CONFIG — " + TODOS.join("; "));
+});
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
+}
+var FX = /было\s*:?\s*([^→\n<]{1,40}?)\s*(?:→|->|—>)\s*стало\s*:?\s*([^\n<.;]{1,40})/i;
+function initShelves(root) {
+var host = $(root, "shelves");
+if (!host) return;
+var tpl = host.firstElementChild, fx = CONFIG.effectFromExcerpt || (MOCK && MOCK.forceEffect);
+host.removeChild(tpl);
+CONFIG.shelves.forEach(function (s, si) {
+var rep = s.cql.indexOf("{replicatedLabel}") >= 0, anc = (/ancestor = (\d+)/.exec(s.cql) || [])[1], co = null;
+if (!s.enabled && !(rep && lab(CONFIG.replicatedLabel))) return;
+if (rep && !lab(CONFIG.replicatedLabel)) return;
+if (anc) CONFIG.companies.forEach(function (c) { if (String(c.pageId) === anc) co = c; });
+var el = tpl.cloneNode(true), row = $(el, "row"), all = $(el, "all"), prev = $(el, "prev"), next = $(el, "next");
+$(el, "kick").textContent = s.kicker;
+$(el, "title").textContent = s.title;
+$(el, "title").id = root.className.split(" ")[0] + "-s" + si;
+row.setAttribute("aria-labelledby", $(el, "title").id);
+all.setAttribute("href", co && ok(co.url) ? co.url : allPractices());
+all.setAttribute("aria-label", "Все: " + s.title);
+fill(row, [0, 1, 2, 3].map(function () { return h("div", "k-sc", skel(3), { "aria-hidden": "true" }); }));
+function upd() {
+prev.disabled = row.scrollLeft <= 2;
+next.disabled = row.scrollLeft + row.clientWidth >= row.scrollWidth - 2;
+}
+function go(d) { row.scrollBy({ left: d * Math.max(row.clientWidth * 0.8, 200), behavior: "smooth" }); }
+prev.addEventListener("click", function () { go(-1); });
+next.addEventListener("click", function () { go(1); });
+row.addEventListener("scroll", upd, { passive: true });
+host.appendChild(el);
+function load() {
+pages(s.cql, 10, "ancestors,history").then(function (r) {
+if (!r.length) throw new Error("empty");
+fill(row, r.map(function (x, i) {
+var c = h("a", "k-sc" + (rep && i === 0 ? " is-lead" : ""), [
+anc || !x.co ? null : h("span", "k-sc-c", x.co), h("span", "k-sc-t", x.t), x.d ? h("span", "k-sc-d", x.d.s) : null], { href: x.u });
+if (fx) api("/rest/api/content/" + encodeURIComponent(x.id) + "?expand=body.view").then(function (b) {
+var m = FX.exec(String(b.body && b.body.view && b.body.view.value || "").replace(/<[^>]*>/g, " ")
+.replace(/&nbsp;/g, " ").replace(/&rarr;/g, "→").replace(/&gt;/g, ">"));
+if (m) c.appendChild(h("span", "k-fx", [h("s", null, "было " + m[1].trim()), h("span", "k-fx-n", m[2].trim())]));
+}).catch(function () {});
+return c;
+}));
+}).catch(function () {
+fill(row, h("div", "k-sc", h("div", "k-msg", [h("p", null, "Не удалось загрузить полку."), A(searchUrl(""), "k-btn k-btn-light", "Поиск по базе")])));
+}).then(upd);
+}
+if (window.IntersectionObserver) {
+var io = new IntersectionObserver(function (en) {
+if (en.some(function (e) { return e.isIntersecting; })) { io.disconnect(); load(); }
+}, { rootMargin: "300px 0px" });
+io.observe(el);
+} else load();
+});
+}
+boot("bupk-6k02", [initShelves]);
+})();
+</script>
+
+</section>
+<section class="rf-sec" data-mod="6K-03-companies-news-cta">
+<!-- БУП «Севергрупп» · стиль «Кармин» · модуль 6K-03-companies-news-cta · вставить целиком в HTML Module (Refined) -->
+<style>
+.bupk-6k03{--red-600:#C4161C;--red-700:#A3121A;--red-50:#FDF1F2;--graphite-900:#1F2A33;--graphite-700:#3B4650;--ink-2:#5B6670;--ink-on-dark:#C9D2D8;--line:#E3E7EA;--line-2:#EEF1F3;--surface:#FFFFFF;--fh:Manrope,Arial,sans-serif;--ft:Inter,Arial,sans-serif;--focus:#1F2A33;--sh:0 1px 2px rgba(15,23,30,.06),0 6px 20px rgba(15,23,30,.06);--gap:clamp(12px,2.2cqi,22px);display:block!important;container-type:inline-size!important;position:relative!important;width:auto!important;max-width:100%!important;margin:0!important;padding:0!important;font:400 15px/1.5 var(--ft)!important;color:var(--graphite-900)!important;text-align:left!important;word-break:normal!important;overflow-wrap:normal!important;hyphens:manual!important;-webkit-font-smoothing:antialiased!important}.bupk-6k03,.bupk-6k03 *,.bupk-6k03 ::before,.bupk-6k03 ::after{box-sizing:border-box!important}.bupk-6k03 :where(a,h1,h2,h3,h4,p,button,input,label,ul,ol,li,table,th,td,mark,strong,s,span,small){margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;font:inherit!important;color:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;text-decoration:none!important;text-align:inherit!important;line-height:inherit!important;box-shadow:none!important;min-width:0!important;max-width:none!important;width:auto!important;height:auto!important;float:none!important;text-shadow:none!important;outline:0!important;list-style:none!important;vertical-align:baseline!important}.bupk-6k03 :where(a,button){cursor:pointer!important}.bupk-6k03 :focus-visible{outline:3px solid var(--focus)!important;outline-offset:2px!important}.bupk-6k03 [hidden][hidden][hidden]{display:none!important}.bupk-6k03 .k-wrap{display:flex!important;flex-direction:column!important;gap:clamp(28px,5cqi,52px)!important}.bupk-6k03 .k-dark{--focus:#FFFFFF;color:#FFFFFF!important}.bupk-6k03 .k-ic{display:block!important;flex:none!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}.bupk-6k03 .k-kick{display:block!important;margin:0 0 8px!important;font:700 12px/1.3 var(--ft)!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:var(--ink-2)!important}.bupk-6k03 .k-dark .k-kick{color:var(--ink-on-dark)!important}.bupk-6k03 .k-h2{display:block!important;font:800 clamp(22px,3cqi,30px)/1.1 var(--fh)!important;text-transform:uppercase!important;letter-spacing:.01em!important;color:var(--graphite-900)!important}.bupk-6k03 .k-sh{display:flex!important;flex-wrap:wrap!important;align-items:flex-end!important;justify-content:space-between!important;gap:8px 24px!important;margin:0 0 clamp(14px,2.2cqi,22px)!important}.bupk-6k03 .k-more{display:inline-flex!important;align-items:center!important;gap:6px!important;min-height:44px!important;min-width:44px!important;font:700 15px/1.2 var(--ft)!important;color:var(--red-700)!important}.bupk-6k03 .k-more:hover{text-decoration:underline!important}.bupk-6k03 .k-more .k-ic{width:18px!important;height:18px!important}.bupk-6k03 .k-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;min-height:48px!important;padding:12px 22px!important;border-radius:12px!important;font:700 15px/1.2 var(--ft)!important;text-align:center!important;cursor:pointer!important;transition:background-color .15s,transform .15s!important}.bupk-6k03 .k-btn:active{transform:translateY(1px)!important}.bupk-6k03 .k-btn-red{background:var(--red-600)!important;color:#FFFFFF!important;box-shadow:0 10px 24px rgba(196,22,28,.35)!important}.bupk-6k03 .k-btn-red:hover{background:var(--red-700)!important}.bupk-6k03 .k-btn-dark{background:var(--graphite-900)!important;color:#FFFFFF!important}.bupk-6k03 .k-btn-dark:hover{background:var(--graphite-700)!important}.bupk-6k03 .k-btn-light{background:#FFFFFF!important;color:var(--graphite-900)!important;box-shadow:inset 0 0 0 1.5px var(--line)!important}.bupk-6k03 .k-btn-light:hover{background:var(--line-2)!important}.bupk-6k03 .k-card{background:#FFFFFF!important;border-radius:16px!important;box-shadow:var(--sh)!important;padding:clamp(16px,3cqi,30px)!important;min-width:0!important}.bupk-6k03 .k-t{overflow-wrap:anywhere!important}.bupk-6k03 .k-sk{display:block!important;height:14px!important;margin:10px 0!important;border-radius:7px!important;background:linear-gradient(90deg,#EEF1F3,#E3E7EA,#EEF1F3) 0 0/200% 100%!important;animation:bupk-6k03-sk 1.4s linear infinite!important}.bupk-6k03 .k-sk-w{width:62%!important}@keyframes bupk-6k03-sk{to{background-position:-200% 0}}.bupk-6k03 .k-msg{display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:12px!important;padding:6px 0!important;font-size:15px!important;color:var(--ink-2)!important}.bupk-6k03 .k-msg p{flex:1 1 100%!important}.bupk-6k03 .k-vh{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}@media (prefers-reduced-motion:reduce){.bupk-6k03 :is(*,.k-rm.k-rm.k-rm){animation:none!important;transition:none!important;scroll-behavior:auto!important}}.bupk-6k03 .k-cos{display:grid!important;gap:var(--gap)!important;grid-template-columns:repeat(5,minmax(0,1fr))!important}@container (max-width:900px){.bupk-6k03 .k-cos{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@container (max-width:560px){.bupk-6k03 .k-cos{grid-template-columns:repeat(2,minmax(0,1fr))!important}.bupk-6k03 .k-co:last-child:nth-child(odd){grid-column:1/-1!important}}@container (max-width:300px){.bupk-6k03 .k-cos{grid-template-columns:minmax(0,1fr)!important}}.bupk-6k03 .k-co{display:flex!important;flex-direction:column!important;gap:8px!important;min-width:0!important;min-height:132px!important;padding:18px!important;border-radius:14px!important;background:#FFFFFF!important;box-shadow:var(--sh)!important;color:var(--graphite-900)!important;transition:transform .15s,box-shadow .15s!important}.bupk-6k03 .k-co:hover{transform:translateY(-2px)!important;box-shadow:0 2px 4px rgba(15,23,30,.08),0 14px 30px rgba(15,23,30,.1)!important}.bupk-6k03 .k-co-n{display:block!important;font:800 14px/1 var(--fh)!important;color:var(--ink-2)!important}.bupk-6k03 .k-co-t{display:block!important;margin-top:auto!important;font:800 18px/1.15 var(--fh)!important;overflow-wrap:anywhere!important}.bupk-6k03 .k-co-s{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;font-size:13px!important;line-height:1.3!important;color:var(--ink-2)!important}.bupk-6k03 .k-co-s .k-ic{color:var(--graphite-900)!important;width:18px!important;height:18px!important}.bupk-6k03 .k-nw{display:grid!important;gap:var(--gap)!important;grid-template-columns:minmax(0,1fr)!important}@container (min-width:760px){.bupk-6k03 .k-nw{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)!important}}.bupk-6k03 .k-ni{display:block!important;padding:14px 0!important;border-top:1px solid var(--line)!important;color:var(--graphite-900)!important}.bupk-6k03 .k-ni:first-child{padding-top:2px!important;border-top:0!important}.bupk-6k03 .k-ni:hover .k-ni-t{text-decoration:underline!important}.bupk-6k03 .k-ni-d{display:block!important;margin-bottom:4px!important;font:700 12px/1.3 var(--ft)!important;letter-spacing:.1em!important;text-transform:uppercase!important;color:var(--ink-2)!important}.bupk-6k03 .k-ni-t{display:block!important;font:600 16px/1.4 var(--ft)!important;overflow-wrap:anywhere!important}.bupk-6k03 .k-fts{display:grid!important;align-content:start!important;gap:12px!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}@container (max-width:340px){.bupk-6k03 .k-fts{grid-template-columns:minmax(0,1fr)!important}}.bupk-6k03 .k-ft{display:flex!important;flex-direction:column!important;justify-content:space-between!important;gap:16px!important;min-width:0!important;min-height:128px!important;padding:18px!important;border-radius:14px!important;background:#FFFFFF!important;box-shadow:var(--sh)!important;color:var(--graphite-900)!important;transition:transform .15s!important}.bupk-6k03 .k-ft:hover{transform:translateY(-2px)!important}.bupk-6k03 .k-ft.is-dark{background:linear-gradient(160deg,#34444F,#1F2A33)!important;color:#FFFFFF!important}.bupk-6k03 .k-ft-t{display:block!important;font:800 14px/1.2 var(--fh)!important;letter-spacing:.02em!important;text-transform:uppercase!important;overflow-wrap:anywhere!important}.bupk-6k03 .k-ft .k-ic{align-self:flex-end!important}.bupk-6k03 .k-cta{position:relative!important;overflow:hidden!important;isolation:isolate!important;display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:20px 40px!important;padding:clamp(24px,5cqi,56px)!important;border-radius:16px!important;color:#FFFFFF!important;background:repeating-linear-gradient(45deg,rgba(0,0,0,.07) 0 2px,transparent 2px 22px),repeating-linear-gradient(-45deg,rgba(0,0,0,.07) 0 2px,transparent 2px 22px),linear-gradient(150deg,#D11B22,#5E090C)!important}.bupk-6k03 .k-dia{position:absolute!important;z-index:-1!important;right:8%!important;top:50%!important;width:240px!important;height:240px!important;margin-top:-120px!important;border:2px solid rgba(255,255,255,.16)!important;transform:rotate(45deg)!important;pointer-events:none!important}.bupk-6k03 .k-cta-b{flex:1 1 min(100%,380px)!important;max-width:40em!important}.bupk-6k03 .k-cta-h{display:block!important;margin:0 0 12px!important;font:800 clamp(24px,4cqi,40px)/1.08 var(--fh)!important;text-transform:uppercase!important;color:#FFFFFF!important}.bupk-6k03 .k-cta-p{font-size:clamp(15px,1.6cqi,18px)!important;line-height:1.5!important;color:#FFFFFF!important}.bupk-6k03 .k-btn-white{background:#FFFFFF!important;color:var(--red-700)!important;box-shadow:0 10px 24px rgba(0,0,0,.25)!important}.bupk-6k03 .k-btn-white:hover{background:var(--red-50)!important}.bupk-6k03 .k-sxg{display:grid!important;gap:6px var(--gap)!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}@container (max-width:900px){.bupk-6k03 .k-sxg{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@container (max-width:620px){.bupk-6k03 .k-sxg{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@container (max-width:360px){.bupk-6k03 .k-sxg{grid-template-columns:minmax(0,1fr)!important}}.bupk-6k03 .k-sx{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:10px!important;min-width:0!important;min-height:58px!important;padding:14px 0 12px!important;border-top:2px solid var(--graphite-900)!important;color:var(--graphite-900)!important;font:800 15px/1.25 var(--fh)!important;overflow-wrap:anywhere!important}.bupk-6k03 .k-sx:hover{color:var(--red-700)!important}.bupk-6k03 .k-sx .k-ic{width:18px!important;height:18px!important}.bupk-6k03 .k-acts{display:flex!important;flex-wrap:wrap!important;gap:12px!important;margin-bottom:18px!important}.bupk-6k03 .k-ml{display:grid!important;column-gap:clamp(20px,4cqi,48px)!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}@container (max-width:600px){.bupk-6k03 .k-ml{grid-template-columns:minmax(0,1fr)!important}}.bupk-6k03 .k-mi{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;min-height:48px!important;padding:10px 0!important;border-bottom:1px solid var(--line)!important;color:var(--graphite-900)!important;font:600 15px/1.35 var(--ft)!important}.bupk-6k03 a.k-mi:hover{color:var(--red-700)!important}.bupk-6k03 .k-mi>span{flex:1 1 auto!important;overflow-wrap:anywhere!important}.bupk-6k03 .k-mi-x{flex-wrap:wrap!important;column-gap:12px!important;row-gap:2px!important;color:var(--ink-2)!important;font-weight:400!important}.bupk-6k03 .k-mi-x small{flex:0 0 auto!important;font-size:12px!important}.bupk-6k03 .k-mi .k-ic{width:18px!important;height:18px!important}
+</style>
+<div class="bupk-6k03" data-bupk="6K-03-companies-news-cta" lang="ru"><div class="k-wrap">
+<section>
+<div class="k-sh">
+<div><span class="k-kick">Пространства</span><h2 class="k-h2">Компании Севергрупп</h2></div>
+<a class="k-more" data-k="cat" href="#">Поиск по категориям<svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<div class="k-cos" data-k="cos"></div>
+</section>
+<section>
+<div class="k-sh">
+<div><span class="k-kick">Что происходит</span><h2 class="k-h2">Новости и мероприятия базы</h2></div>
+<a class="k-more" data-k="news-more" href="/pages/viewrecentblogposts.action?key=BSS">Все новости<svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<div class="k-nw">
+<div class="k-card" data-k="news" aria-live="polite">
+<div class="k-msg"><p>Новости загружаются.</p><a class="k-btn k-btn-dark" href="/pages/viewrecentblogposts.action?key=BSS">Все новости</a><a class="k-btn k-btn-light" href="/dosearchsite.action?queryString=">Поиск по базе</a></div>
+</div>
+<nav class="k-fts" data-k="fts" aria-label="Материалы базы"></nav>
+</div>
+</section>
+<section class="k-cta k-dark">
+<span class="k-dia" aria-hidden="true" data-k-deco></span>
+<div class="k-cta-b">
+<h2 class="k-cta-h">Есть удачное решение?</h2>
+<p class="k-cta-p">Опишите его по шаблону — коллеги из других компаний группы смогут внедрить его у себя.</p>
+</div>
+<a class="k-btn k-btn-white" data-k="cta-add" href="#" target="_blank" rel="noopener"><svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>Добавить практику</a>
+</section>
+<section>
+<div class="k-sh"><div><span class="k-kick">Навигация</span><h2 class="k-h2">Основные разделы базы</h2></div></div>
+<nav class="k-sxg" data-k="sx" aria-label="Основные разделы базы"></nav>
+</section>
+<section class="k-card">
+<div class="k-sh"><div><h2 class="k-h2">Полезное</h2></div></div>
+<div class="k-acts" data-k="acts"></div>
+<div class="k-ml" data-k="ml"></div>
+</section>
+</div></div>
+<script>
+(function () {
+"use strict";
+/* ==== CONFIG — одинаковый во всех модулях страницы; что заполнить — см. README.txt ==== */
+var CONFIG = {
+  spaceKey: "BSS",
+  addPracticeUrl: "https://allforms.severstal.com/passing/f0143bf9-0b4c-4ce4-99a5-f8e22b1b6a50",
+  neuronUrl: "https://kb.severstal.com/spaces/BSS/pages/424936320/%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D0%BD+%D0%91%D0%A1%D0%A1", // страница «Нейрон БСС»; текст вопроса туда НЕ передаётся
+  categoriesUrl: "https://kb.severstal.com/spaces/BSS/pages/161546796/%D0%A4%D0%BE%D0%BA%D1%83%D1%81+%D0%BD%D0%B0+%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BC.+%D0%98%D1%82%D0%BE%D0%B3%D0%B8+%D0%B1%D0%B0%D0%B7%D1%8B", // «Поиск по категориям» = страница «Фокус на лучшем. Итоги базы»
+  searchPageUrl: "/dosearchsite.action?queryString=", // TODO: проверить адрес полной страницы поиска на kb.severstal.com
+  practiceLabel: "практика",           // метка всех практик (подтверждена в настройках текущих модулей Pages)
+  replicatedLabel: "TODO",             // метка тиражируемых практик (её ставят админы) — уточнить; пока пусто, вкладка/полка «Тиражируемые» скрыта
+  newsCql: "type = blogpost ORDER BY created DESC", // как в текущем News: все блог-посты сайта; при желании сузить до space = "BSS"
+  popularQueries: ["[запрос 1]", "[запрос 2]", "[запрос 3]"], // TODO
+  stats: { // счётчики, которые нельзя посчитать запросом, — вручную, как сейчас
+    activeUsers: null,           // TODO: число «Активных пользователей» из текущего счётчика
+    practicesManual: null        // запасное число «Опубликованных практик», если запрос не прошёл
+  },
+  companies: [ // pageId — для CQL ancestor = pageId (практики компании лежат под её страницей)
+    { name: "Северсталь",     pageId: 164987898, url: "https://kb.severstal.com/spaces/BSS/pages/164987898/%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B0%D0%BB%D1%8C.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8." },
+    { name: "Силовые машины", pageId: 161546386, url: "https://kb.severstal.com/spaces/BSS/pages/161546386/%D0%A1%D0%B8%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5+%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D1%8B+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" },
+    { name: "NordGold",       pageId: 212533372, url: "https://kb.severstal.com/spaces/BSS/pages/212533372/NordGold." },
+    { name: "Лента",          pageId: 138051977, url: "https://kb.severstal.com/spaces/BSS/pages/138051977/%D0%9B%D0%B5%D0%BD%D1%82%D0%B0.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" },
+    { name: "Свеза",          pageId: 133300894, url: "https://kb.severstal.com/spaces/BSS/pages/133300894/%D0%A1%D0%B2%D0%B5%D0%B7%D0%B0.+%D0%A3%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D0%B5+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" }
+  ],
+  sections: [ // «Основные разделы базы» — 12 шт., порядок как сейчас
+    { name: "HR", url: "https://kb.severstal.com/spaces/BSS/pages/95551767/HR+%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5" },
+    { name: "Аддитивные технологии", url: "https://kb.severstal.com/spaces/BSS/pages/126059926/%D0%90%D0%B4%D0%B4%D0%B8%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B5+%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8" },
+    { name: "Бизнес-система", url: "https://kb.severstal.com/spaces/BSS/pages/123601523/%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0" },
+    { name: "Безопасность труда", url: "https://kb.severstal.com/spaces/BSS/pages/7078571/%D0%91%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D1%8C+%D1%82%D1%80%D1%83%D0%B4%D0%B0" },
+    { name: "Закупки", url: "https://kb.severstal.com/spaces/BSS/pages/129695932/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F+%D0%B7%D0%B0%D0%BA%D1%83%D0%BF%D0%BE%D0%BA" },
+    { name: "ИТ-продукты", url: "https://kb.severstal.com/spaces/BSS/pages/272400610/%D0%98%D0%A2-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B" },
+    { name: "Коммуникации", url: "https://kb.severstal.com/spaces/BSS/pages/123601776/%D0%9A%D0%BE%D0%BC%D0%BC%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%B8+%C2%AB%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%B3%D1%80%D1%83%D0%BF%D0%BF%C2%BB+PR+IR+IC+SMM" },
+    { name: "Нейросетевые сервисы", url: "https://kb.severstal.com/spaces/BSS/pages/156861306/%D0%9D%D0%B5%D0%B9%D1%80%D0%BE%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D1%8B%D0%B5+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D1%8B" },
+    { name: "Порошковая металлургия", url: "https://kb.severstal.com/spaces/BSS/pages/255066453/%D0%9F%D0%BE%D1%80%D0%BE%D1%88%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F+%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D1%83%D1%80%D0%B3%D0%B8%D1%8F" },
+    { name: "Таможенное оформление", url: "https://kb.severstal.com/spaces/BSS/pages/138051589/%D0%A2%D0%B0%D0%BC%D0%BE%D0%B6%D0%B5%D0%BD%D0%BD%D0%BE%D0%B5+%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5+%D0%B8%D0%BC%D0%BF%D0%BE%D1%80%D1%82" },
+    { name: "Центр Единого Сервиса", url: "https://kb.severstal.com/spaces/BSS/pages/243171658/%D0%A6%D0%B5%D0%BD%D1%82%D1%80+%D0%95%D0%B4%D0%B8%D0%BD%D0%BE%D0%B3%D0%BE+%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0+%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%B0%D0%BB%D0%B8" },
+    { name: "Экспертная сеть", url: "https://kb.severstal.com/spaces/BSS/pages/118523088/%D0%AD%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D1%82%D0%BD%D0%B0%D1%8F+%D1%81%D0%B5%D1%82%D1%8C" }
+  ],
+  featured: [ // вместо 4 фото-плиток у новостей и для навигатора 2К — текстовые плитки без фото
+    { name: "Дайджест лучших практик", url: "https://kb.severstal.com/spaces/BSS/pages/156860991/%D0%94%D0%B0%D0%B9%D0%B4%D0%B6%D0%B5%D1%81%D1%82%D1%8B+%D1%83%D1%81%D0%BF%D0%B5%D1%88%D0%BD%D1%8B%D1%85+%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA+%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B+%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%B3%D1%80%D1%83%D0%BF%D0%BF." },
+    { name: "Видеопроект", url: "https://kb.severstal.com/spaces/BSS/pages/218203971/%D0%98%D0%B7%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5+%D1%83%D1%80%D0%BE%D0%BA%D0%B8+%D0%BD%D0%BE%D0%B2%D0%BE%D0%B5+%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE" }, // страница «Извлечённые уроки (новое видео)» — проверить, что это она
+    { name: "Материалы конференций", url: "TODO" },
+    { name: "Эксперты академии", url: "TODO" },
+    { name: "Практики для жизни", url: "https://kb.severstal.com/spaces/BSS/pages/376045930/%D0%9F%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B8+%D0%B4%D0%BB%D1%8F+%D0%B6%D0%B8%D0%B7%D0%BD%D0%B8" },
+    { name: "Итоги базы", url: "https://kb.severstal.com/spaces/BSS/pages/161546796/%D0%A4%D0%BE%D0%BA%D1%83%D1%81+%D0%BD%D0%B0+%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BC.+%D0%98%D1%82%D0%BE%D0%B3%D0%B8+%D0%B1%D0%B0%D0%B7%D1%8B" }
+  ],
+  links: { // блок полезных ссылок внизу (вместо текущего блока кнопок и ссылок)
+    actions: [
+      { name: "В Synapse", url: "https://xlnk.ms/join/channel/MWM1ZWIzMzEtMjQ5ZS01NTUxLWJjNDUtN2Y5OGYzZjI0ZTNmOmE5ZmY3Yjk4LTgxNzgtNThiYi1iMTAwLTQ2MjMxNzdiZWM2ZTo5YTQ2YzhhMC1mZWU0LTUzNmQtYTlkYS01MzZiMTFjMDlhMTk=" },
+      { name: "Частые вопросы о базе", url: "https://kb.severstal.com/spaces/BSS/pages/337674439/%D0%A7%D0%B0%D1%81%D1%82%D1%8B%D0%B5+%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B+%D0%BE%D1%82+%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9+%D0%B1%D0%B0%D0%B7%D1%8B" },
+      { name: "Подать заявку на редактирование базы", url: "TODO" }
+    ],
+    more: [
+      { name: "Посмотреть все практики", url: "TODO" },
+      { name: "Дайджест производственных практик", url: "TODO" },
+      { name: "Библиотека Бизнес-системы", url: "TODO" },
+      { name: "Экспертные сообщества «Севергрупп»", url: "TODO" },
+      { name: "О команде проекта", url: "TODO" },
+      { name: "Техническая поддержка", url: "https://itcatalog.severstal.com/ru-ru/Pages/request_create.aspx?object=-121707" },
+      { name: "Связаться с администратором", url: "TODO" },
+      { name: "Отправить запрос на информацию, которую не смогли найти", url: "TODO" }
+    ]
+  },
+  shelves: [ // для 6К; полка с enabled:false не выводится
+    { kicker: "Свежее", title: "Новые практики", cql: "type = page AND label = \"{practiceLabel}\" ORDER BY created DESC", enabled: true },
+    { kicker: "Проверено внедрением", title: "Тиражируют чаще всего", cql: "type = page AND label = \"{replicatedLabel}\" ORDER BY created DESC", enabled: false },
+    { kicker: "Компания", title: "Северсталь", cql: "type = page AND label = \"{practiceLabel}\" AND ancestor = 164987898 ORDER BY created DESC", enabled: true },
+    { kicker: "Компания", title: "Силовые машины", cql: "type = page AND label = \"{practiceLabel}\" AND ancestor = 161546386 ORDER BY created DESC", enabled: true }
+  ],
+  effectFromExcerpt: false // 6К: читать строку «было → стало» (см. п. 5.3), по умолчанию выключено
+};
+/* ==== код модуля (не редактировать) ==== */
+var MOCK = window.__BUP_MOCK__ || null;
+var SVGNS = "http://www.w3.org/2000/svg";
+var MON = ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"];
+var ICONS = {
+ar: "M5 12h14M13 6l6 6-6 6",
+al: "M19 12H5M11 6l-6 6 6 6",
+se: "M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM20 20l-4.6-4.6",
+sp: "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z",
+dc: "M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6",
+pl: "M12 5v14M5 12h14"
+};
+var TODOS = [];
+function ok(u) {
+u = typeof u === "string" ? u.trim() : "";
+return u && !/^TODO/i.test(u) && !/^\[.*\]$/.test(u) ? u : null;
+}
+function lab(v) { return ok(v) || ""; }
+function todo(name) { if (TODOS.indexOf(name) < 0) TODOS.push(name); }
+function ic(n, cls) {
+var s = document.createElementNS(SVGNS, "svg"), p = document.createElementNS(SVGNS, "path");
+s.setAttribute("viewBox", "0 0 24 24");
+s.setAttribute("class", "k-ic" + (cls ? " " + cls : ""));
+s.setAttribute("aria-hidden", "true");
+s.setAttribute("focusable", "false");
+p.setAttribute("d", ICONS[n]);
+s.appendChild(p);
+return s;
+}
+function add(e, kids) {
+[].concat(kids == null ? [] : kids).forEach(function (c) {
+if (c == null || c === false || c === "") return;
+e.appendChild(typeof c === "object" ? c : document.createTextNode(String(c)));
+});
+return e;
+}
+function h(tag, cls, kids, attrs) {
+var e = document.createElement(tag);
+if (cls) e.className = cls;
+if (attrs) for (var k in attrs) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+return add(e, kids);
+}
+function A(url, cls, kids, blank) {
+return h("a", cls, kids, { href: url, target: blank ? "_blank" : null, rel: blank ? "noopener" : null });
+}
+function fill(e, kids) { while (e.firstChild) e.removeChild(e.firstChild); return add(e, kids); }
+function $(root, name) { return root.querySelector('[data-k="' + name + '"]'); }
+function sub(cql) {
+return cql.replace(/\{practiceLabel\}/g, lab(CONFIG.practiceLabel)).replace(/\{replicatedLabel\}/g, lab(CONFIG.replicatedLabel));
+}
+function clean(s) { return String(s || "").replace(/@@@(end)?hl@@@/g, "").trim(); }
+function dt(iso) {
+var d = new Date(iso);
+return isNaN(d) ? null : { d: d.getDate(), m: MON[d.getMonth()], s: d.getDate() + " " + MON[d.getMonth()] + " " + d.getFullYear() };
+}
+function linkOf(c, base) {
+var w = (c._links && c._links.webui) || c.url || "";
+if (!w) return null;
+if (/^[a-z]+:/i.test(w)) return w;
+return (base || "") + (w.charAt(0) === "/" ? "" : "/") + w;
+}
+function companyOf(c) {
+var an = c.ancestors || [], i, j;
+for (i = 0; i < an.length; i++)
+for (j = 0; j < CONFIG.companies.length; j++)
+if (String(an[i].id) === String(CONFIG.companies[j].pageId)) return CONFIG.companies[j].name;
+return "";
+}
+function lim(p) { return +((/limit=(\d+)/.exec(p) || [])[1] || 10); }
+function mockRoute(p) {
+var M = MOCK, m = /\/rest\/api\/content\/(\d+)\?/.exec(p), cql, q, pr, list, anc;
+if (M.fail) throw new Error("mock fail");
+if (m) return { id: m[1], body: { view: { value: (M.bodies || {})[m[1]] || "" } } };
+cql = decodeURIComponent((/cql=([^&]*)/.exec(p) || [])[1] || "");
+if (/siteSearch/.test(cql)) {
+q = ((/siteSearch ~ "([^"*]*)/.exec(cql) || [])[1] || "").toLowerCase();
+pr = /label = /.test(cql);
+list = M.search.filter(function (x) {
+return clean(x.content.title).toLowerCase().indexOf(q) >= 0 && (!pr || x.practice);
+});
+return { results: list.slice(0, lim(p)), totalSize: list.length };
+}
+if (/\/rest\/api\/search/.test(p)) return { results: [], totalSize: /created >=/.test(cql) ? M.counts.week : M.counts.practices };
+if (/blogpost/.test(cql)) return { results: M.news.slice(0, lim(p)), _links: M.links };
+anc = (/ancestor = (\d+)/.exec(cql) || [])[1];
+list = /label = ""/.test(cql) ? [] : M.practices.filter(function (x) {
+return !anc || x.ancestors.some(function (a) { return String(a.id) === anc; });
+});
+return { results: list.slice(0, lim(p)), _links: M.links };
+}
+function api(path, ctl) {
+if (MOCK) return new Promise(function (res, rej) {
+setTimeout(function () { try { res(mockRoute(path)); } catch (e) { rej(e); } }, MOCK.delay == null ? 120 : MOCK.delay);
+});
+ctl = ctl || (window.AbortController ? new AbortController() : null);
+var t = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+return fetch(path, { credentials: "same-origin", headers: { Accept: "application/json" }, signal: ctl ? ctl.signal : undefined })
+.then(function (r) { clearTimeout(t); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); },
+function (e) { clearTimeout(t); throw e; });
+}
+function pages(cql, n, expand) {
+return api("/rest/api/content/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=" + n + "&expand=" + expand).then(function (r) {
+var base = r._links && r._links.base;
+return (r.results || []).map(function (c) {
+return { id: c.id, t: clean(c.title), u: linkOf(c, base), d: dt(c.history && c.history.createdDate), co: companyOf(c) };
+}).filter(function (x) { return x.t && x.u; });
+});
+}
+function count(cql) {
+return api("/rest/api/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=1").then(function (r) {
+if (typeof r.totalSize !== "number") throw new Error("no totalSize");
+return r.totalSize;
+});
+}
+function skel(n) {
+var out = [];
+for (var i = 0; i < n; i++) out.push(h("span", "k-sk" + (i % 2 ? " k-sk-w" : ""), null, { "aria-hidden": "true" }));
+return out;
+}
+function allPractices() {
+var m = CONFIG.links && CONFIG.links.more && ok(CONFIG.links.more[0] && CONFIG.links.more[0].url);
+return m || "/label/" + encodeURIComponent(CONFIG.spaceKey) + "/" + encodeURIComponent(lab(CONFIG.practiceLabel));
+}
+function searchUrl(q) { return (ok(CONFIG.searchPageUrl) || "/dosearchsite.action?queryString=") + encodeURIComponent(q || ""); }
+function newsUrl() { return "/pages/viewrecentblogposts.action?key=" + encodeURIComponent(CONFIG.spaceKey); }
+function fallback(el, text, links) {
+fill(el, h("div", "k-msg", [h("p", null, text)].concat(links.map(function (l, i) {
+return A(l[1], "k-btn " + (i ? "k-btn-light" : "k-btn-dark"), l[0]);
+})), { role: "status" }));
+}
+function boot(cls, inits) {
+function run() {
+[].forEach.call(document.querySelectorAll("." + cls + ":not([data-k-ok])"), function (root) {
+var t0 = window.performance ? performance.now() : 0;
+root.setAttribute("data-k-ok", "");
+inits.forEach(function (f) {
+try { f(root); } catch (e) { if (window.console) console.warn("[БУП] " + cls + ":", e); }
+});
+root.setAttribute("data-k-ms", ((window.performance ? performance.now() : 0) - t0).toFixed(1));
+if (TODOS.length && window.console) console.info("[БУП] " + cls + ": не заполнено в CONFIG — " + TODOS.join("; "));
+});
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
+}
+function initCompanies(root) {
+var box = $(root, "cos"), cat = $(root, "cat"), u = ok(CONFIG.categoriesUrl);
+if (cat) { if (u) cat.setAttribute("href", u); else cat.hidden = true; }
+if (!box) return;
+fill(box, CONFIG.companies.map(function (c, i) {
+var kids = [h("span", "k-co-n", (i < 9 ? "0" : "") + (i + 1)), h("span", "k-co-t", c.name),
+h("span", "k-co-s", ["практики компании", ic("ar")])];
+return ok(c.url) ? A(c.url, "k-co", kids) : h("div", "k-co", kids);
+}));
+}
+function initNews(root) {
+var box = $(root, "news"), fts = $(root, "fts"), more = $(root, "news-more");
+if (more) more.setAttribute("href", newsUrl());
+if (fts) {
+var n = 0;
+fill(fts, CONFIG.featured.map(function (f) {
+if (!ok(f.url)) { todo("featured: " + f.name); return null; }
+return A(f.url, "k-ft" + (n++ % 3 === 0 ? " is-dark" : ""), [h("span", "k-ft-t", f.name), ic("ar")]);
+}));
+}
+if (!box) return;
+fill(box, skel(5));
+pages(CONFIG.newsCql, 5, "history").then(function (r) {
+if (!r.length) throw new Error("empty");
+fill(box, r.map(function (x) {
+return A(x.u, "k-ni", [x.d ? h("span", "k-ni-d", x.d.s) : null, h("span", "k-ni-t", x.t)]);
+}));
+}).catch(function () {
+fallback(box, "Не удалось загрузить новости.", [["Все новости", newsUrl()], ["Поиск по базе", searchUrl("")]]);
+}).then(function () { box.removeAttribute("aria-busy"); });
+}
+function initCta(root) {
+[].forEach.call(root.querySelectorAll('[data-k="cta-add"]'), function (a) {
+var u = ok(CONFIG.addPracticeUrl);
+if (u) a.setAttribute("href", u); else a.hidden = true;
+});
+}
+function initSections(root) {
+var box = $(root, "sx");
+if (box) fill(box, CONFIG.sections.map(function (s) {
+return ok(s.url) ? A(s.url, "k-sx", [h("span", null, s.name), ic("ar")]) : h("span", "k-sx", s.name);
+}));
+}
+function initLinks(root) {
+var acts = $(root, "acts"), ml = $(root, "ml"), L = CONFIG.links || {};
+if (acts) {
+var n = 0;
+fill(acts, (L.actions || []).map(function (a) {
+if (!ok(a.url)) { todo("links.actions: " + a.name); return null; }
+return A(a.url, "k-btn " + (n++ ? "k-btn-light" : "k-btn-dark"), a.name, /^[a-z]+:/i.test(a.url) && a.url.indexOf(location.host) < 0);
+}));
+}
+if (ml) fill(ml, (L.more || []).map(function (a) {
+if (ok(a.url)) return A(a.url, "k-mi", [h("span", null, a.name), ic("ar")]);
+todo("links.more: " + a.name);
+return h("span", "k-mi k-mi-x", [h("span", null, a.name), h("small", null, "ссылка уточняется")]);
+}));
+}
+boot("bupk-6k03", [initCompanies, initNews, initCta, initSections, initLinks]);
+})();
+</script>
+
+</section>
+</div><footer class="rf-foot">Штатный подвал Refined</footer></main>
+<aside class="rf-right" id="right" hidden>Панель Нейрона (имитация, 360 px)</aside>
+</div>
+<script>if(window.__H.right)document.getElementById('right').hidden=false;</script>
+
+</body></html>

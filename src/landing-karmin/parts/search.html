@@ -1,0 +1,12 @@
+<form class="k-search" data-k="search" role="search" action="{{searchAction}}" method="get">
+  <label class="k-gl-t" for="{{root}}-q">Найти практику</label>
+  <div class="k-sf">
+    {{ic:se}}
+    <input class="k-q" data-k="q" id="{{root}}-q" name="queryString" type="search" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-haspopup="listbox" autocomplete="off" spellcheck="false" placeholder="Тема или название">
+    <span class="k-kbd" aria-hidden="true">/</span>
+  </div>
+  <div class="k-lb" data-k="drop" hidden>
+    <span class="k-lb-st" data-k="st" role="status" aria-live="polite"></span>
+    <div data-k="lb" role="listbox" aria-label="Подсказки поиска"></div>
+  </div>
+</form>
