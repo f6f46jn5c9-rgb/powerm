@@ -14,14 +14,14 @@
  {
   "variant": "1K",
   "module": "1K-03-practices-news",
-  "bytes": 31904,
-  "selectors": 63
+  "bytes": 32139,
+  "selectors": 67
  },
  {
   "variant": "1K",
   "module": "1K-04-cta-sections-links",
-  "bytes": 28389,
-  "selectors": 57
+  "bytes": 28545,
+  "selectors": 58
  },
  {
   "variant": "2K",
@@ -38,8 +38,8 @@
  {
   "variant": "2K",
   "module": "2K-03-practices-news-sections",
-  "bytes": 35099,
-  "selectors": 78
+  "bytes": 35490,
+  "selectors": 83
  },
  {
   "variant": "6K",
@@ -56,7 +56,7 @@
  {
   "variant": "6K",
   "module": "6K-03-companies-news-cta",
-  "bytes": 34420,
-  "selectors": 82
+  "bytes": 34576,
+  "selectors": 83
  }
 ]
