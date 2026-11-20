@@ -1,0 +1,62 @@
+[
+ {
+  "variant": "1K",
+  "module": "1K-01-hero",
+  "bytes": 37512,
+  "selectors": 73
+ },
+ {
+  "variant": "1K",
+  "module": "1K-02-kpi-companies",
+  "bytes": 28176,
+  "selectors": 56
+ },
+ {
+  "variant": "1K",
+  "module": "1K-03-practices-news",
+  "bytes": 31904,
+  "selectors": 63
+ },
+ {
+  "variant": "1K",
+  "module": "1K-04-cta-sections-links",
+  "bytes": 28389,
+  "selectors": 57
+ },
+ {
+  "variant": "2K",
+  "module": "2K-01-hero",
+  "bytes": 37277,
+  "selectors": 73
+ },
+ {
+  "variant": "2K",
+  "module": "2K-02-navigator",
+  "bytes": 29564,
+  "selectors": 64
+ },
+ {
+  "variant": "2K",
+  "module": "2K-03-practices-news-sections",
+  "bytes": 35099,
+  "selectors": 78
+ },
+ {
+  "variant": "6K",
+  "module": "6K-01-hero",
+  "bytes": 37434,
+  "selectors": 73
+ },
+ {
+  "variant": "6K",
+  "module": "6K-02-shelves",
+  "bytes": 29730,
+  "selectors": 55
+ },
+ {
+  "variant": "6K",
+  "module": "6K-03-companies-news-cta",
+  "bytes": 34420,
+  "selectors": 82
+ }
+]
