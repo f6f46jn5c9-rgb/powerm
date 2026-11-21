@@ -14,7 +14,7 @@
  {
   "variant": "1K",
   "module": "1K-03-companies",
-  "bytes": 38242,
+  "bytes": 38244,
   "selectors": 50
  },
  {
@@ -44,7 +44,7 @@
  {
   "variant": "1KA",
   "module": "1KA-03-companies",
-  "bytes": 38764,
+  "bytes": 38766,
   "selectors": 54
  },
  {
@@ -92,7 +92,7 @@
  {
   "variant": "6K",
   "module": "6K-03-companies",
-  "bytes": 38242,
+  "bytes": 38244,
   "selectors": 50
  },
  {
