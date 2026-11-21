@@ -62,27 +62,27 @@
 - Стили «соседа» (.wiki-content p, .aui-button) не изменились: ✅
 - Умный поиск («сварк», ↓, Enter, Enter без пункта, «/»): ✅ 12/12
 - Полка 6К листается стрелкой: ✅ 390@100·tree0: 0→286 px; 1280@100·tree280: 0→717 px
-- prefers-reduced-motion: 2K transition-duration=0s, 1K transition-duration=0s, 1KA transition-duration=0s, 6K transition-duration=0s
+- prefers-reduced-motion: 2K transition-duration=0s, 1K transition-duration=0s, 6K transition-duration=0s, 1KA transition-duration=0s
 
 ## Модули
 
 | Вариант | Файл | КБ | Селекторов | Рендер, мс (медиана) | Статика |
 |---|---|---|---|---|---|
-| 1K | 1K-01-hero.html | 37.5 | 70 | 0.7 | ✅ |
+| 1K | 1K-01-hero.html | 37.5 | 70 | 0.8 | ✅ |
 | 1K | 1K-02-kpi.html | 25.3 | 45 | 0.2 | ✅ |
 | 1K | 1K-03-companies.html | 37.3 | 50 | 0.8 | ✅ |
 | 1K | 1K-04-practices-news.html | 31.5 | 67 | 0.6 | ✅ |
 | 1K | 1K-05-cta-sections-links.html | 27.9 | 58 | 0.7 | ✅ |
-| 1KA | 1K-01-hero.html | 37.5 | 70 | 0.7 | ✅ |
+| 1KA | 1K-01-hero.html | 37.5 | 70 | 0.8 | ✅ |
 | 1KA | 1KA-02-kpi.html | 35.2 | 52 | 0.2 | ✅ |
 | 1KA | 1KA-03-companies.html | 37.9 | 54 | 0.8 | ✅ |
 | 1KA | 1KA-04-practices.html | 28.8 | 57 | 0.4 | ✅ |
-| 1KA | 1KA-05-news.html | 37.0 | 57 | 0.5 | ✅ |
+| 1KA | 1KA-05-news.html | 36.0 | 56 | 0.5 | ✅ |
 | 1KA | 1KA-06-cta-sections-links.html | 28.8 | 62 | 0.8 | ✅ |
 | 2K | 2K-01-hero.html | 36.4 | 73 | 0.7 | ✅ |
 | 2K | 2K-02-navigator.html | 28.9 | 64 | 0.7 | ✅ |
-| 2K | 2K-03-practices-news-sections.html | 34.8 | 83 | 1.2 | ✅ |
-| 6K | 6K-01-hero.html | 36.6 | 73 | 0.5 | ✅ |
+| 2K | 2K-03-practices-news-sections.html | 34.8 | 83 | 1.1 | ✅ |
+| 6K | 6K-01-hero.html | 36.6 | 73 | 0.6 | ✅ |
 | 6K | 6K-02-shelves.html | 29.0 | 55 | 0.8 | ✅ |
 | 6K | 6K-03-companies.html | 37.3 | 50 | 0.8 | ✅ |
 | 6K | 6K-04-news-cta.html | 31.5 | 72 | 1.0 | ✅ |
@@ -101,6 +101,16 @@
 
 ## Проверить вручную (текст над градиентом/стеклом)
 
+- 1KA · `1K-01-hero` · `div.k-av.k-dark > div.k-av-l > h1.k-av-t` — градиент/фактура
+- 1KA · `1K-01-hero` · `div.k-av.k-dark > div.k-av-l > p.k-av-s` — градиент/фактура
+- 1KA · `1K-01-hero` · `div.k-glass > form.k-search > label.k-gl-t` — стекло
+- 1KA · `1K-01-hero` · `div.k-glass > div.k-pop > span` — стекло
+- 1KA · `1K-01-hero` · `div.k-glass > div.k-pop > button.k-chip` — полупрозрачный фон
+- 1KA · `1KA-03-companies` · `div.k-cos > a.k-co > span.k-co-n` — градиент/фактура
+- 1KA · `1KA-03-companies` · `a.k-co > span.k-co-s > span` — градиент/фактура
+- 1KA · `1KA-05-news` · `nav.k-fts > a.k-ft.is-dark > span.k-ft-t` — градиент/фактура
+- 1KA · `1KA-06-cta-sections-links` · `section.k-cta.k-dark > div.k-cta-b > h2.k-cta-h` — градиент/фактура
+- 1KA · `1KA-06-cta-sections-links` · `section.k-cta.k-dark > div.k-cta-b > p.k-cta-p` — градиент/фактура
 - 2K · `2K-01-hero` · `div.k-hero.k-dark > div > span.k-kick` — градиент/фактура
 - 2K · `2K-01-hero` · `div.k-hero.k-dark > div > h1.k-h1` — градиент/фактура
 - 2K · `2K-01-hero` · `div > h1.k-h1 > span` — градиент/фактура
@@ -122,16 +132,6 @@
 - 6K · `6K-03-companies` · `a.k-co > span.k-co-s > span` — градиент/фактура
 - 6K · `6K-04-news-cta` · `section.k-cta.k-dark > div.k-cta-b > h2.k-cta-h` — градиент/фактура
 - 6K · `6K-04-news-cta` · `section.k-cta.k-dark > div.k-cta-b > p.k-cta-p` — градиент/фактура
-- 1KA · `1K-01-hero` · `div.k-av.k-dark > div.k-av-l > h1.k-av-t` — градиент/фактура
-- 1KA · `1K-01-hero` · `div.k-av.k-dark > div.k-av-l > p.k-av-s` — градиент/фактура
-- 1KA · `1K-01-hero` · `div.k-glass > form.k-search > label.k-gl-t` — стекло
-- 1KA · `1K-01-hero` · `div.k-glass > div.k-pop > span` — стекло
-- 1KA · `1K-01-hero` · `div.k-glass > div.k-pop > button.k-chip` — полупрозрачный фон
-- 1KA · `1KA-03-companies` · `div.k-cos > a.k-co > span.k-co-n` — градиент/фактура
-- 1KA · `1KA-03-companies` · `a.k-co > span.k-co-s > span` — градиент/фактура
-- 1KA · `1KA-05-news` · `nav.k-fts > a.k-ft.is-dark > span.k-ft-t` — градиент/фактура
-- 1KA · `1KA-06-cta-sections-links` · `section.k-cta.k-dark > div.k-cta-b > h2.k-cta-h` — градиент/фактура
-- 1KA · `1KA-06-cta-sections-links` · `section.k-cta.k-dark > div.k-cta-b > p.k-cta-p` — градиент/фактура
 - 1K · `1K-01-hero` · `div.k-av.k-dark > div.k-av-l > h1.k-av-t` — градиент/фактура
 - 1K · `1K-01-hero` · `div.k-av.k-dark > div.k-av-l > p.k-av-s` — градиент/фактура
 - 1K · `1K-01-hero` · `div.k-glass > form.k-search > label.k-gl-t` — стекло
@@ -143,5 +143,5 @@
 - 1K · `1K-05-cta-sections-links` · `section.k-cta.k-dark > div.k-cta-b > p.k-cta-p` — градиент/фактура
 - 2K · `2K-01-hero` · `form.k-search > div.k-sf > span.k-kbd` — стекло
 - 1K · `1K-01-hero` · `form.k-search > div.k-sf > span.k-kbd` — стекло
-- 6K · `6K-01-hero` · `form.k-search > div.k-sf > span.k-kbd` — стекло
 - 1KA · `1K-01-hero` · `form.k-search > div.k-sf > span.k-kbd` — стекло
+- 6K · `6K-01-hero` · `form.k-search > div.k-sf > span.k-kbd` — стекло

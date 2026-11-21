@@ -196,9 +196,8 @@
 
 /*@ ftph */
 .k-ft.is-ph{position:relative;overflow:hidden;isolation:isolate}
-.k-ft.is-ph::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,#FFFFFF 24%,rgba(255,255,255,.6) 40%,rgba(255,255,255,0) 60%),linear-gradient(90deg,#FFFFFF 26%,rgba(255,255,255,0) 66%)}
-.k-ft-ph{position:absolute;z-index:-2;top:0;right:0;width:70%;height:100%;max-width:none;object-fit:cover;object-position:40% 85%;margin:0;border:0}
-.k-ft.is-ph .k-ic{box-sizing:content-box;padding:6px;border-radius:50%;background:#FFFFFF;box-shadow:0 2px 8px rgba(15,23,30,.18)}
+.k-ft-ph{position:absolute;z-index:-1;right:0;bottom:0;width:auto;height:72%;max-width:62%;object-fit:contain;object-position:100% 100%;mix-blend-mode:multiply;margin:0;border:0}
+.k-ft.is-ph .k-ic{align-self:flex-start}
 
 /*@ sections */
 .k-sxg{display:grid;gap:6px var(--gap);grid-template-columns:repeat(4,minmax(0,1fr))}
