@@ -16,15 +16,41 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.9,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.9
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 1.1,
+    "1K-04-practices-news": 0.8,
+    "1K-05-cta-sections-links": 1.3
    },
-   "height": 5627,
+   "height": 5771,
    "errors": [],
    "warns": [],
-   "t": 985
+   "t": 1003
+  },
+  {
+   "v": "2K",
+   "id": "360@100·tree0",
+   "cfg": {
+    "w": 360,
+    "s": 1,
+    "css": 360,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.9,
+    "2K-03-practices-news-sections": 1.3
+   },
+   "height": 5779,
+   "errors": [],
+   "warns": [],
+   "t": 992
   },
   {
    "v": "6K",
@@ -43,22 +69,23 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 1,
-    "6K-02-shelves": 1.1,
-    "6K-03-companies-news-cta": 1.4
+    "6K-02-shelves": 1.6,
+    "6K-03-companies": 1.2,
+    "6K-04-news-cta": 1.8
    },
-   "height": 5613,
+   "height": 5757,
    "errors": [],
    "warns": [],
-   "t": 1037
+   "t": 1011
   },
   {
    "v": "2K",
-   "id": "360@100·tree0",
+   "id": "360@125·tree0",
    "cfg": {
     "w": 360,
-    "s": 1,
-    "css": 360,
-    "h": 900,
+    "s": 1.25,
+    "css": 288,
+    "h": 720,
     "tree": 0,
     "right": 0,
     "theme": 1,
@@ -67,14 +94,14 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 1.3,
-    "2K-02-navigator": 1,
-    "2K-03-practices-news-sections": 1.8
+    "2K-01-hero": 1.1,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 2.3
    },
-   "height": 5779,
+   "height": 6242,
    "errors": [],
    "warns": [],
-   "t": 1010
+   "t": 1086
   },
   {
    "v": "1K",
@@ -92,40 +119,16 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.8,
-    "1K-04-cta-sections-links": 0.8
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.6
    },
-   "height": 6481,
+   "height": 6690,
    "errors": [],
    "warns": [],
-   "t": 1160
-  },
-  {
-   "v": "2K",
-   "id": "360@125·tree0",
-   "cfg": {
-    "w": 360,
-    "s": 1.25,
-    "css": 288,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.4
-   },
-   "height": 6242,
-   "errors": [],
-   "warns": [],
-   "t": 1115
+   "t": 1171
   },
   {
    "v": "6K",
@@ -144,13 +147,14 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.3
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.9,
+    "6K-04-news-cta": 1.3
    },
-   "height": 6368,
+   "height": 6577,
    "errors": [],
    "warns": [],
-   "t": 1148
+   "t": 1161
   },
   {
    "v": "2K",
@@ -168,39 +172,14 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 1.7,
-    "2K-03-practices-news-sections": 1.7
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.8,
+    "2K-03-practices-news-sections": 1
    },
    "height": 6688,
    "errors": [],
    "warns": [],
-   "t": 1258
-  },
-  {
-   "v": "6K",
-   "id": "360@150·tree0",
-   "cfg": {
-    "w": 360,
-    "s": 1.5,
-    "css": 240,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.6,
-    "6K-02-shelves": 0.7,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 6880,
-   "errors": [],
-   "warns": [],
-   "t": 1236
+   "t": 1215
   },
   {
    "v": "1K",
@@ -209,184 +188,6 @@
     "w": 360,
     "s": 1.5,
     "css": 240,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 1.7
-   },
-   "height": 6941,
-   "errors": [],
-   "warns": [],
-   "t": 1273
-  },
-  {
-   "v": "1K",
-   "id": "390@100·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1,
-    "css": 390,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 1,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.9
-   },
-   "height": 5186,
-   "errors": [],
-   "warns": [],
-   "t": 925
-  },
-  {
-   "v": "2K",
-   "id": "390@100·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1,
-    "css": 390,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.5,
-    "2K-02-navigator": 0.6,
-    "2K-03-practices-news-sections": 0.9
-   },
-   "height": 5336,
-   "errors": [],
-   "warns": [],
-   "t": 990
-  },
-  {
-   "v": "6K",
-   "id": "390@100·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1,
-    "css": 390,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.7,
-    "6K-03-companies-news-cta": 2.1
-   },
-   "height": 5121,
-   "errors": [],
-   "warns": [],
-   "t": 992
-  },
-  {
-   "v": "1K",
-   "id": "390@125·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1.25,
-    "css": 312,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 1,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 6278,
-   "errors": [],
-   "warns": [],
-   "t": 1118
-  },
-  {
-   "v": "6K",
-   "id": "390@125·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1.25,
-    "css": 312,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.1,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 6077,
-   "errors": [],
-   "warns": [],
-   "t": 1108
-  },
-  {
-   "v": "2K",
-   "id": "390@125·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1.25,
-    "css": 312,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.9,
-    "2K-02-navigator": 0.9,
-    "2K-03-practices-news-sections": 1.8
-   },
-   "height": 6039,
-   "errors": [],
-   "warns": [],
-   "t": 1135
-  },
-  {
-   "v": "1K",
-   "id": "390@150·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1.5,
-    "css": 260,
     "h": 600,
     "tree": 0,
     "right": 0,
@@ -397,22 +198,23 @@
    "issues": [],
    "ms": {
     "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.9,
-    "1K-03-practices-news": 0.8,
-    "1K-04-cta-sections-links": 0.5
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.8,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.5
    },
-   "height": 6781,
+   "height": 7150,
    "errors": [],
    "warns": [],
-   "t": 1227
+   "t": 1280
   },
   {
-   "v": "2K",
-   "id": "390@150·tree0",
+   "v": "6K",
+   "id": "360@150·tree0",
    "cfg": {
-    "w": 390,
+    "w": 360,
     "s": 1.5,
-    "css": 260,
+    "css": 240,
     "h": 600,
     "tree": 0,
     "right": 0,
@@ -422,73 +224,23 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.7,
-    "2K-02-navigator": 0.6,
-    "2K-03-practices-news-sections": 1.3
+    "6K-01-hero": 0.4,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.8,
+    "6K-04-news-cta": 1.2
    },
-   "height": 6548,
+   "height": 7089,
    "errors": [],
    "warns": [],
-   "t": 1230
-  },
-  {
-   "v": "6K",
-   "id": "390@150·tree0",
-   "cfg": {
-    "w": 390,
-    "s": 1.5,
-    "css": 260,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 1.1,
-    "6K-02-shelves": 1.1,
-    "6K-03-companies-news-cta": 1.6
-   },
-   "height": 6693,
-   "errors": [],
-   "warns": [],
-   "t": 1261
-  },
-  {
-   "v": "1K",
-   "id": "768@100·tree0",
-   "cfg": {
-    "w": 768,
-    "s": 1,
-    "css": 768,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.6,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.6
-   },
-   "height": 3985,
-   "errors": [],
-   "warns": [],
-   "t": 888
+   "t": 1270
   },
   {
    "v": "2K",
-   "id": "768@100·tree0",
+   "id": "390@100·tree0",
    "cfg": {
-    "w": 768,
+    "w": 390,
     "s": 1,
-    "css": 768,
+    "css": 390,
     "h": 900,
     "tree": 0,
     "right": 0,
@@ -498,22 +250,22 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.7,
-    "2K-02-navigator": 0.6,
-    "2K-03-practices-news-sections": 1.5
+    "2K-01-hero": 0.9,
+    "2K-02-navigator": 0.8,
+    "2K-03-practices-news-sections": 1.2
    },
-   "height": 4015,
+   "height": 5336,
    "errors": [],
    "warns": [],
-   "t": 876
+   "t": 941
   },
   {
    "v": "6K",
-   "id": "768@100·tree0",
+   "id": "390@100·tree0",
    "cfg": {
-    "w": 768,
+    "w": 390,
     "s": 1,
-    "css": 768,
+    "css": 390,
     "h": 900,
     "tree": 0,
     "right": 0,
@@ -523,22 +275,50 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.7,
-    "6K-02-shelves": 1.2,
-    "6K-03-companies-news-cta": 1.9
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 1.3,
+    "6K-04-news-cta": 1.2
    },
-   "height": 3911,
+   "height": 5264,
    "errors": [],
    "warns": [],
-   "t": 938
+   "t": 973
   },
   {
    "v": "1K",
-   "id": "768@125·tree0",
+   "id": "390@100·tree0",
    "cfg": {
-    "w": 768,
+    "w": 390,
+    "s": 1,
+    "css": 390,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.9,
+    "1K-05-cta-sections-links": 1.3
+   },
+   "height": 5329,
+   "errors": [],
+   "warns": [],
+   "t": 1004
+  },
+  {
+   "v": "2K",
+   "id": "390@125·tree0",
+   "cfg": {
+    "w": 390,
     "s": 1.25,
-    "css": 614,
+    "css": 312,
     "h": 720,
     "tree": 0,
     "right": 0,
@@ -548,15 +328,223 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 1.2,
-    "1K-02-kpi-companies": 1.2,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.9
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.7,
+    "2K-03-practices-news-sections": 1
    },
-   "height": 4310,
+   "height": 6039,
    "errors": [],
    "warns": [],
-   "t": 967
+   "t": 1068
+  },
+  {
+   "v": "6K",
+   "id": "390@125·tree0",
+   "cfg": {
+    "w": 390,
+    "s": 1.25,
+    "css": 312,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 6286,
+   "errors": [],
+   "warns": [],
+   "t": 1144
+  },
+  {
+   "v": "1K",
+   "id": "390@125·tree0",
+   "cfg": {
+    "w": 390,
+    "s": 1.25,
+    "css": 312,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 1,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 1.1,
+    "1K-04-practices-news": 0.8,
+    "1K-05-cta-sections-links": 0.8
+   },
+   "height": 6487,
+   "errors": [],
+   "warns": [],
+   "t": 1148
+  },
+  {
+   "v": "2K",
+   "id": "390@150·tree0",
+   "cfg": {
+    "w": 390,
+    "s": 1.5,
+    "css": 260,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.5,
+    "2K-03-practices-news-sections": 1
+   },
+   "height": 6548,
+   "errors": [],
+   "warns": [],
+   "t": 1171
+  },
+  {
+   "v": "6K",
+   "id": "390@150·tree0",
+   "cfg": {
+    "w": 390,
+    "s": 1.5,
+    "css": 260,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.6,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 6902,
+   "errors": [],
+   "warns": [],
+   "t": 1263
+  },
+  {
+   "v": "1K",
+   "id": "390@150·tree0",
+   "cfg": {
+    "w": 390,
+    "s": 1.5,
+    "css": 260,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 1,
+    "1K-02-kpi": 0.5,
+    "1K-03-companies": 1.6,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 1.1
+   },
+   "height": 6990,
+   "errors": [],
+   "warns": [],
+   "t": 1252
+  },
+  {
+   "v": "2K",
+   "id": "768@100·tree0",
+   "cfg": {
+    "w": 768,
+    "s": 1,
+    "css": 768,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 1,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 1.2
+   },
+   "height": 4015,
+   "errors": [],
+   "warns": [],
+   "t": 799
+  },
+  {
+   "v": "1K",
+   "id": "768@100·tree0",
+   "cfg": {
+    "w": 768,
+    "s": 1,
+    "css": 768,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.9
+   },
+   "height": 4064,
+   "errors": [],
+   "warns": [],
+   "t": 831
+  },
+  {
+   "v": "6K",
+   "id": "768@100·tree0",
+   "cfg": {
+    "w": 768,
+    "s": 1,
+    "css": 768,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.4,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.9,
+    "6K-04-news-cta": 0.8
+   },
+   "height": 3990,
+   "errors": [],
+   "warns": [],
+   "t": 876
   },
   {
    "v": "2K",
@@ -575,13 +563,40 @@
    "issues": [],
    "ms": {
     "2K-01-hero": 0.6,
-    "2K-02-navigator": 0.5,
+    "2K-02-navigator": 0.6,
     "2K-03-practices-news-sections": 0.9
    },
    "height": 4212,
    "errors": [],
    "warns": [],
-   "t": 966
+   "t": 928
+  },
+  {
+   "v": "1K",
+   "id": "768@125·tree0",
+   "cfg": {
+    "w": 768,
+    "s": 1.25,
+    "css": 614,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.9,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 1.1
+   },
+   "height": 4437,
+   "errors": [],
+   "warns": [],
+   "t": 967
   },
   {
    "v": "6K",
@@ -599,40 +614,15 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.3
+    "6K-01-hero": 0.4,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.8,
+    "6K-04-news-cta": 0.8
    },
-   "height": 4214,
+   "height": 4341,
    "errors": [],
    "warns": [],
-   "t": 960
-  },
-  {
-   "v": "1K",
-   "id": "768@150·tree0",
-   "cfg": {
-    "w": 768,
-    "s": 1.5,
-    "css": 512,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.9,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 4504,
-   "errors": [],
-   "warns": [],
-   "t": 1024
+   "t": 950
   },
   {
    "v": "2K",
@@ -650,14 +640,41 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 1.2,
-    "2K-02-navigator": 0.6,
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.7,
     "2K-03-practices-news-sections": 0.9
    },
    "height": 4360,
    "errors": [],
    "warns": [],
-   "t": 1027
+   "t": 987
+  },
+  {
+   "v": "1K",
+   "id": "768@150·tree0",
+   "cfg": {
+    "w": 768,
+    "s": 1.5,
+    "css": 512,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.6,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.8
+   },
+   "height": 4631,
+   "errors": [],
+   "warns": [],
+   "t": 1019
   },
   {
    "v": "6K",
@@ -675,14 +692,40 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.7,
-    "6K-02-shelves": 1,
-    "6K-03-companies-news-cta": 1.3
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.8,
+    "6K-04-news-cta": 1
    },
-   "height": 4335,
+   "height": 4462,
    "errors": [],
    "warns": [],
-   "t": 1036
+   "t": 1088
+  },
+  {
+   "v": "2K",
+   "id": "1024@100·tree0",
+   "cfg": {
+    "w": 1024,
+    "s": 1,
+    "css": 1024,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 0.9
+   },
+   "height": 3196,
+   "errors": [],
+   "warns": [],
+   "t": 823
   },
   {
    "v": "1K",
@@ -700,18 +743,19 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.8
+    "1K-01-hero": 0.6,
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
    },
-   "height": 3224,
+   "height": 3240,
    "errors": [],
    "warns": [],
-   "t": 864
+   "t": 836
   },
   {
-   "v": "2K",
+   "v": "6K",
    "id": "1024@100·tree0",
    "cfg": {
     "w": 1024,
@@ -719,6 +763,110 @@
     "css": 1024,
     "h": 900,
     "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.9,
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.1
+   },
+   "height": 3708,
+   "errors": [],
+   "warns": [],
+   "t": 846
+  },
+  {
+   "v": "2K",
+   "id": "1024@100·tree280",
+   "cfg": {
+    "w": 1024,
+    "s": 1,
+    "css": 1024,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 1.4
+   },
+   "height": 4008,
+   "errors": [],
+   "warns": [],
+   "t": 836
+  },
+  {
+   "v": "1K",
+   "id": "1024@100·tree280",
+   "cfg": {
+    "w": 1024,
+    "s": 1,
+    "css": 1024,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 1,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.9
+   },
+   "height": 4053,
+   "errors": [],
+   "warns": [],
+   "t": 869
+  },
+  {
+   "v": "6K",
+   "id": "1024@100·tree280",
+   "cfg": {
+    "w": 1024,
+    "s": 1,
+    "css": 1024,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 3983,
+   "errors": [],
+   "warns": [],
+   "t": 921
+  },
+  {
+   "v": "2K",
+   "id": "1024@100·tree480",
+   "cfg": {
+    "w": 1024,
+    "s": 1,
+    "css": 1024,
+    "h": 900,
+    "tree": 480,
     "right": 0,
     "theme": 1,
     "rm": 0,
@@ -730,197 +878,20 @@
     "2K-02-navigator": 0.6,
     "2K-03-practices-news-sections": 1
    },
-   "height": 3196,
-   "errors": [],
-   "warns": [],
-   "t": 869
-  },
-  {
-   "v": "6K",
-   "id": "1024@100·tree0",
-   "cfg": {
-    "w": 1024,
-    "s": 1,
-    "css": 1024,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 1.2,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3692,
-   "errors": [],
-   "warns": [],
-   "t": 870
-  },
-  {
-   "v": "1K",
-   "id": "1024@100·tree280",
-   "cfg": {
-    "w": 1024,
-    "s": 1,
-    "css": 1024,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 0.7
-   },
-   "height": 3973,
-   "errors": [],
-   "warns": [],
-   "t": 866
-  },
-  {
-   "v": "2K",
-   "id": "1024@100·tree280",
-   "cfg": {
-    "w": 1024,
-    "s": 1,
-    "css": 1024,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.8,
-    "2K-03-practices-news-sections": 1.8
-   },
-   "height": 4008,
-   "errors": [],
-   "warns": [],
-   "t": 849
-  },
-  {
-   "v": "6K",
-   "id": "1024@100·tree280",
-   "cfg": {
-    "w": 1024,
-    "s": 1,
-    "css": 1024,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.6,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.5
-   },
-   "height": 3903,
-   "errors": [],
-   "warns": [],
-   "t": 916
-  },
-  {
-   "v": "1K",
-   "id": "1024@100·tree480",
-   "cfg": {
-    "w": 1024,
-    "s": 1,
-    "css": 1024,
-    "h": 900,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.7
-   },
-   "height": 4491,
-   "errors": [],
-   "warns": [],
-   "t": 910
-  },
-  {
-   "v": "2K",
-   "id": "1024@100·tree480",
-   "cfg": {
-    "w": 1024,
-    "s": 1,
-    "css": 1024,
-    "h": 900,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.8,
-    "2K-03-practices-news-sections": 1.2
-   },
    "height": 4347,
-   "errors": [],
-   "warns": [],
-   "t": 897
-  },
-  {
-   "v": "6K",
-   "id": "1024@100·tree480",
-   "cfg": {
-    "w": 1024,
-    "s": 1,
-    "css": 1024,
-    "h": 900,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.4,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.9
-   },
-   "height": 4322,
    "errors": [],
    "warns": [],
    "t": 893
   },
   {
    "v": "1K",
-   "id": "1024@125·tree0",
+   "id": "1024@100·tree480",
    "cfg": {
     "w": 1024,
-    "s": 1.25,
-    "css": 819,
-    "h": 720,
-    "tree": 0,
+    "s": 1,
+    "css": 1024,
+    "h": 900,
+    "tree": 480,
     "right": 0,
     "theme": 1,
     "rm": 0,
@@ -928,126 +899,26 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 1.1,
-    "1K-02-kpi-companies": 1.1,
-    "1K-03-practices-news": 0.8,
-    "1K-04-cta-sections-links": 1
+    "1K-01-hero": 1,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.8
    },
-   "height": 3852,
+   "height": 4618,
    "errors": [],
    "warns": [],
-   "t": 916
-  },
-  {
-   "v": "2K",
-   "id": "1024@125·tree0",
-   "cfg": {
-    "w": 1024,
-    "s": 1.25,
-    "css": 819,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.9,
-    "2K-02-navigator": 1.6,
-    "2K-03-practices-news-sections": 1.6
-   },
-   "height": 3842,
-   "errors": [],
-   "warns": [],
-   "t": 897
+   "t": 891
   },
   {
    "v": "6K",
-   "id": "1024@125·tree0",
+   "id": "1024@100·tree480",
    "cfg": {
     "w": 1024,
-    "s": 1.25,
-    "css": 819,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.6
-   },
-   "height": 3905,
-   "errors": [],
-   "warns": [],
-   "t": 1007
-  },
-  {
-   "v": "1K",
-   "id": "1024@150·tree0",
-   "cfg": {
-    "w": 1024,
-    "s": 1.5,
-    "css": 683,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1.1,
-    "1K-02-kpi-companies": 1.4,
-    "1K-03-practices-news": 0.8,
-    "1K-04-cta-sections-links": 1.1
-   },
-   "height": 4061,
-   "errors": [],
-   "warns": [],
-   "t": 955
-  },
-  {
-   "v": "2K",
-   "id": "1024@150·tree0",
-   "cfg": {
-    "w": 1024,
-    "s": 1.5,
-    "css": 683,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.9,
-    "2K-02-navigator": 0.9,
-    "2K-03-practices-news-sections": 1.8
-   },
-   "height": 4105,
-   "errors": [],
-   "warns": [],
-   "t": 1004
-  },
-  {
-   "v": "6K",
-   "id": "1024@150·tree0",
-   "cfg": {
-    "w": 1024,
-    "s": 1.5,
-    "css": 683,
-    "h": 600,
-    "tree": 0,
+    "s": 1,
+    "css": 1024,
+    "h": 900,
+    "tree": 480,
     "right": 0,
     "theme": 1,
     "rm": 0,
@@ -1056,22 +927,23 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.7,
-    "6K-02-shelves": 1,
-    "6K-03-companies-news-cta": 1.3
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.8
    },
-   "height": 4042,
+   "height": 4449,
    "errors": [],
    "warns": [],
-   "t": 1017
+   "t": 881
   },
   {
-   "v": "1K",
-   "id": "1280@100·tree0",
+   "v": "2K",
+   "id": "1024@125·tree0",
    "cfg": {
-    "w": 1280,
-    "s": 1,
-    "css": 1280,
-    "h": 900,
+    "w": 1024,
+    "s": 1.25,
+    "css": 819,
+    "h": 720,
     "tree": 0,
     "right": 0,
     "theme": 1,
@@ -1080,15 +952,145 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 1.1,
-    "1K-04-cta-sections-links": 0.7
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 0.9
    },
-   "height": 3282,
+   "height": 3842,
    "errors": [],
    "warns": [],
-   "t": 868
+   "t": 879
+  },
+  {
+   "v": "1K",
+   "id": "1024@125·tree0",
+   "cfg": {
+    "w": 1024,
+    "s": 1.25,
+    "css": 819,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3928,
+   "errors": [],
+   "warns": [],
+   "t": 891
+  },
+  {
+   "v": "6K",
+   "id": "1024@125·tree0",
+   "cfg": {
+    "w": 1024,
+    "s": 1.25,
+    "css": 819,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.5,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 3981,
+   "errors": [],
+   "warns": [],
+   "t": 966
+  },
+  {
+   "v": "2K",
+   "id": "1024@150·tree0",
+   "cfg": {
+    "w": 1024,
+    "s": 1.5,
+    "css": 683,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.7,
+    "2K-03-practices-news-sections": 1.3
+   },
+   "height": 4105,
+   "errors": [],
+   "warns": [],
+   "t": 946
+  },
+  {
+   "v": "1K",
+   "id": "1024@150·tree0",
+   "cfg": {
+    "w": 1024,
+    "s": 1.5,
+    "css": 683,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.4,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 4144,
+   "errors": [],
+   "warns": [],
+   "t": 1000
+  },
+  {
+   "v": "6K",
+   "id": "1024@150·tree0",
+   "cfg": {
+    "w": 1024,
+    "s": 1.5,
+    "css": 683,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.6,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 4125,
+   "errors": [],
+   "warns": [],
+   "t": 1017
   },
   {
    "v": "2K",
@@ -1106,14 +1108,41 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.9,
-    "2K-02-navigator": 0.8,
-    "2K-03-practices-news-sections": 1.4
+    "2K-01-hero": 0.4,
+    "2K-02-navigator": 0.5,
+    "2K-03-practices-news-sections": 0.9
    },
    "height": 3257,
    "errors": [],
    "warns": [],
-   "t": 853
+   "t": 810
+  },
+  {
+   "v": "1K",
+   "id": "1280@100·tree0",
+   "cfg": {
+    "w": 1280,
+    "s": 1,
+    "css": 1280,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3303,
+   "errors": [],
+   "warns": [],
+   "t": 825
   },
   {
    "v": "6K",
@@ -1131,40 +1160,15 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.5
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
    },
-   "height": 3644,
+   "height": 3665,
    "errors": [],
    "warns": [],
-   "t": 875
-  },
-  {
-   "v": "1K",
-   "id": "1280@100·tree280",
-   "cfg": {
-    "w": 1280,
-    "s": 1,
-    "css": 1280,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.9
-   },
-   "height": 3227,
-   "errors": [],
-   "warns": [],
-   "t": 861
+   "t": 819
   },
   {
    "v": "2K",
@@ -1184,9 +1188,36 @@
    "ms": {
     "2K-01-hero": 0.8,
     "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 0.9
+    "2K-03-practices-news-sections": 1.3
    },
    "height": 3196,
+   "errors": [],
+   "warns": [],
+   "t": 837
+  },
+  {
+   "v": "1K",
+   "id": "1280@100·tree280",
+   "cfg": {
+    "w": 1280,
+    "s": 1,
+    "css": 1280,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.9,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.9,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.7
+   },
+   "height": 3257,
    "errors": [],
    "warns": [],
    "t": 837
@@ -1207,40 +1238,15 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.4,
-    "6K-03-companies-news-cta": 1.8
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.6,
+    "6K-04-news-cta": 1
    },
-   "height": 3668,
+   "height": 3697,
    "errors": [],
    "warns": [],
-   "t": 852
-  },
-  {
-   "v": "1K",
-   "id": "1280@100·tree480",
-   "cfg": {
-    "w": 1280,
-    "s": 1,
-    "css": 1280,
-    "h": 900,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1.2,
-    "1K-02-kpi-companies": 1.2,
-    "1K-03-practices-news": 0.9,
-    "1K-04-cta-sections-links": 0.7
-   },
-   "height": 3826,
-   "errors": [],
-   "warns": [],
-   "t": 862
+   "t": 844
   },
   {
    "v": "2K",
@@ -1258,14 +1264,66 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.2
+    "2K-01-hero": 0.9,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 1.1
    },
    "height": 3821,
    "errors": [],
    "warns": [],
-   "t": 869
+   "t": 829
+  },
+  {
+   "v": "1K",
+   "id": "1280@100·tree480",
+   "cfg": {
+    "w": 1280,
+    "s": 1,
+    "css": 1280,
+    "h": 900,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.6,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.7
+   },
+   "height": 3903,
+   "errors": [],
+   "warns": [],
+   "t": 835
+  },
+  {
+   "v": "2K",
+   "id": "1280@125·tree0",
+   "cfg": {
+    "w": 1280,
+    "s": 1.25,
+    "css": 1024,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.8,
+    "2K-03-practices-news-sections": 1.3
+   },
+   "height": 3196,
+   "errors": [],
+   "warns": [],
+   "t": 872
   },
   {
    "v": "6K",
@@ -1283,14 +1341,15 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.7,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.3
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.5,
+    "6K-04-news-cta": 0.8
    },
-   "height": 3908,
+   "height": 3985,
    "errors": [],
    "warns": [],
-   "t": 923
+   "t": 898
   },
   {
    "v": "1K",
@@ -1309,64 +1368,15 @@
    "issues": [],
    "ms": {
     "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.6
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
    },
-   "height": 3224,
+   "height": 3240,
    "errors": [],
    "warns": [],
-   "t": 895
-  },
-  {
-   "v": "2K",
-   "id": "1280@125·tree0",
-   "cfg": {
-    "w": 1280,
-    "s": 1.25,
-    "css": 1024,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.9,
-    "2K-03-practices-news-sections": 1.4
-   },
-   "height": 3196,
-   "errors": [],
-   "warns": [],
-   "t": 863
-  },
-  {
-   "v": "6K",
-   "id": "1280@125·tree0",
-   "cfg": {
-    "w": 1280,
-    "s": 1.25,
-    "css": 1024,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 1.1,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3692,
-   "errors": [],
-   "warns": [],
-   "t": 924
+   "t": 830
   },
   {
    "v": "2K",
@@ -1391,7 +1401,33 @@
    "height": 4008,
    "errors": [],
    "warns": [],
-   "t": 921
+   "t": 884
+  },
+  {
+   "v": "6K",
+   "id": "1280@125·tree0",
+   "cfg": {
+    "w": 1280,
+    "s": 1.25,
+    "css": 1024,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.6,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 3708,
+   "errors": [],
+   "warns": [],
+   "t": 915
   },
   {
    "v": "1K",
@@ -1409,40 +1445,16 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 0.6,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 0.5
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.8,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.7
    },
-   "height": 3973,
+   "height": 4053,
    "errors": [],
    "warns": [],
-   "t": 931
-  },
-  {
-   "v": "6K",
-   "id": "1280@125·tree280",
-   "cfg": {
-    "w": 1280,
-    "s": 1.25,
-    "css": 1024,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.6
-   },
-   "height": 3903,
-   "errors": [],
-   "warns": [],
-   "t": 989
+   "t": 891
   },
   {
    "v": "2K",
@@ -1460,11 +1472,37 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 1.1,
+    "2K-01-hero": 1.8,
     "2K-02-navigator": 0.6,
-    "2K-03-practices-news-sections": 1.1
+    "2K-03-practices-news-sections": 1
    },
    "height": 4347,
+   "errors": [],
+   "warns": [],
+   "t": 993
+  },
+  {
+   "v": "6K",
+   "id": "1280@125·tree280",
+   "cfg": {
+    "w": 1280,
+    "s": 1.25,
+    "css": 1024,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.7,
+    "6K-02-shelves": 1.1,
+    "6K-03-companies": 1.3,
+    "6K-04-news-cta": 1.1
+   },
+   "height": 3983,
    "errors": [],
    "warns": [],
    "t": 992
@@ -1485,15 +1523,41 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.6
+    "1K-01-hero": 1.1,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 1.2,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 0.9
    },
-   "height": 4491,
+   "height": 4618,
    "errors": [],
    "warns": [],
-   "t": 986
+   "t": 975
+  },
+  {
+   "v": "2K",
+   "id": "1280@150·tree0",
+   "cfg": {
+    "w": 1280,
+    "s": 1.5,
+    "css": 853,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 1,
+    "2K-02-navigator": 1,
+    "2K-03-practices-news-sections": 1.6
+   },
+   "height": 3589,
+   "errors": [],
+   "warns": [],
+   "t": 991
   },
   {
    "v": "6K",
@@ -1511,39 +1575,15 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.6,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.3
+    "6K-01-hero": 0.7,
+    "6K-02-shelves": 1.1,
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.4
    },
-   "height": 4322,
+   "height": 4449,
    "errors": [],
    "warns": [],
-   "t": 979
-  },
-  {
-   "v": "2K",
-   "id": "1280@150·tree0",
-   "cfg": {
-    "w": 1280,
-    "s": 1.5,
-    "css": 853,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.7,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.2
-   },
-   "height": 3589,
-   "errors": [],
-   "warns": [],
-   "t": 965
+   "t": 1002
   },
   {
    "v": "1K",
@@ -1562,39 +1602,15 @@
    "issues": [],
    "ms": {
     "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.8
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.6
    },
-   "height": 3449,
+   "height": 3524,
    "errors": [],
    "warns": [],
-   "t": 997
-  },
-  {
-   "v": "6K",
-   "id": "1280@150·tree0",
-   "cfg": {
-    "w": 1280,
-    "s": 1.5,
-    "css": 853,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3653,
-   "errors": [],
-   "warns": [],
-   "t": 966
+   "t": 965
   },
   {
    "v": "2K",
@@ -1613,13 +1629,39 @@
    "issues": [],
    "ms": {
     "2K-01-hero": 0.9,
-    "2K-02-navigator": 1,
-    "2K-03-practices-news-sections": 1.6
+    "2K-02-navigator": 1.7,
+    "2K-03-practices-news-sections": 1.4
    },
    "height": 3183,
    "errors": [],
    "warns": [],
    "t": 845
+  },
+  {
+   "v": "6K",
+   "id": "1280@150·tree0",
+   "cfg": {
+    "w": 1280,
+    "s": 1.5,
+    "css": 853,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.4,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 1
+   },
+   "height": 3728,
+   "errors": [],
+   "warns": [],
+   "t": 958
   },
   {
    "v": "1K",
@@ -1638,39 +1680,15 @@
    "issues": [],
    "ms": {
     "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.4,
-    "1K-04-cta-sections-links": 0.7
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.8
    },
-   "height": 3208,
+   "height": 3229,
    "errors": [],
    "warns": [],
-   "t": 863
-  },
-  {
-   "v": "6K",
-   "id": "1366@100·tree0",
-   "cfg": {
-    "w": 1366,
-    "s": 1,
-    "css": 1366,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.4,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3570,
-   "errors": [],
-   "warns": [],
-   "t": 882
+   "t": 840
   },
   {
    "v": "2K",
@@ -1688,14 +1706,40 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 1.6,
-    "2K-02-navigator": 1.3,
-    "2K-03-practices-news-sections": 2
+    "2K-01-hero": 1.8,
+    "2K-02-navigator": 0.7,
+    "2K-03-practices-news-sections": 1
    },
    "height": 3236,
    "errors": [],
    "warns": [],
-   "t": 894
+   "t": 828
+  },
+  {
+   "v": "6K",
+   "id": "1366@100·tree0",
+   "cfg": {
+    "w": 1366,
+    "s": 1,
+    "css": 1366,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.8,
+    "6K-04-news-cta": 0.8
+   },
+   "height": 3591,
+   "errors": [],
+   "warns": [],
+   "t": 842
   },
   {
    "v": "1K",
@@ -1713,15 +1757,41 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.8
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.6
    },
-   "height": 3259,
+   "height": 3272,
    "errors": [],
    "warns": [],
-   "t": 868
+   "t": 836
+  },
+  {
+   "v": "2K",
+   "id": "1366@100·tree480",
+   "cfg": {
+    "w": 1366,
+    "s": 1,
+    "css": 1366,
+    "h": 900,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 1,
+    "2K-02-navigator": 1,
+    "2K-03-practices-news-sections": 1.6
+   },
+   "height": 3626,
+   "errors": [],
+   "warns": [],
+   "t": 832
   },
   {
    "v": "6K",
@@ -1740,21 +1810,517 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.7,
-    "6K-03-companies-news-cta": 1.3
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 1.2
    },
-   "height": 3680,
+   "height": 3693,
    "errors": [],
    "warns": [],
-   "t": 849
+   "t": 861
   },
   {
-   "v": "2K",
+   "v": "1K",
    "id": "1366@100·tree480",
    "cfg": {
     "w": 1366,
     "s": 1,
     "css": 1366,
+    "h": 900,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3562,
+   "errors": [],
+   "warns": [],
+   "t": 846
+  },
+  {
+   "v": "2K",
+   "id": "1366@125·tree0",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 4.7,
+    "2K-03-practices-news-sections": 0.9
+   },
+   "height": 3241,
+   "errors": [],
+   "warns": [],
+   "t": 834
+  },
+  {
+   "v": "6K",
+   "id": "1366@100·tree480",
+   "cfg": {
+    "w": 1366,
+    "s": 1,
+    "css": 1366,
+    "h": 900,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 1
+   },
+   "height": 3768,
+   "errors": [],
+   "warns": [],
+   "t": 835
+  },
+  {
+   "v": "1K",
+   "id": "1366@125·tree0",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.6,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.5
+   },
+   "height": 3275,
+   "errors": [],
+   "warns": [],
+   "t": 853
+  },
+  {
+   "v": "2K",
+   "id": "1366@125·tree280",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.7,
+    "2K-03-practices-news-sections": 1.1
+   },
+   "height": 3835,
+   "errors": [],
+   "warns": [],
+   "t": 875
+  },
+  {
+   "v": "6K",
+   "id": "1366@125·tree0",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.9,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.8
+   },
+   "height": 3699,
+   "errors": [],
+   "warns": [],
+   "t": 885
+  },
+  {
+   "v": "1K",
+   "id": "1366@125·tree280",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.4,
+    "1K-05-cta-sections-links": 0.5
+   },
+   "height": 3920,
+   "errors": [],
+   "warns": [],
+   "t": 880
+  },
+  {
+   "v": "2K",
+   "id": "1366@125·tree480",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.9,
+    "2K-03-practices-news-sections": 1.3
+   },
+   "height": 4211,
+   "errors": [],
+   "warns": [],
+   "t": 917
+  },
+  {
+   "v": "6K",
+   "id": "1366@125·tree280",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.9,
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.1
+   },
+   "height": 3974,
+   "errors": [],
+   "warns": [],
+   "t": 942
+  },
+  {
+   "v": "1K",
+   "id": "1366@125·tree480",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.6,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 4437,
+   "errors": [],
+   "warns": [],
+   "t": 926
+  },
+  {
+   "v": "2K",
+   "id": "1366@150·tree0",
+   "cfg": {
+    "w": 1366,
+    "s": 1.5,
+    "css": 911,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.5,
+    "2K-03-practices-news-sections": 0.9
+   },
+   "height": 3654,
+   "errors": [],
+   "warns": [],
+   "t": 921
+  },
+  {
+   "v": "6K",
+   "id": "1366@125·tree480",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.8
+   },
+   "height": 4340,
+   "errors": [],
+   "warns": [],
+   "t": 932
+  },
+  {
+   "v": "1K",
+   "id": "1366@150·tree0",
+   "cfg": {
+    "w": 1366,
+    "s": 1.5,
+    "css": 911,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3591,
+   "errors": [],
+   "warns": [],
+   "t": 951
+  },
+  {
+   "v": "2K",
+   "id": "1440@100·tree0",
+   "cfg": {
+    "w": 1440,
+    "s": 1,
+    "css": 1440,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 1.2
+   },
+   "height": 3183,
+   "errors": [],
+   "warns": [],
+   "t": 833
+  },
+  {
+   "v": "6K",
+   "id": "1366@150·tree0",
+   "cfg": {
+    "w": 1366,
+    "s": 1.5,
+    "css": 911,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 0.7,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 3788,
+   "errors": [],
+   "warns": [],
+   "t": 1079
+  },
+  {
+   "v": "1K",
+   "id": "1440@100·tree0",
+   "cfg": {
+    "w": 1440,
+    "s": 1,
+    "css": 1440,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.9,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 0.9
+   },
+   "height": 3229,
+   "errors": [],
+   "warns": [],
+   "t": 839
+  },
+  {
+   "v": "2K",
+   "id": "1440@100·tree280",
+   "cfg": {
+    "w": 1440,
+    "s": 1,
+    "css": 1440,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 0.9
+   },
+   "height": 3226,
+   "errors": [],
+   "warns": [],
+   "t": 827
+  },
+  {
+   "v": "6K",
+   "id": "1440@100·tree0",
+   "cfg": {
+    "w": 1440,
+    "s": 1,
+    "css": 1440,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.7,
+    "6K-02-shelves": 1.3,
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.3
+   },
+   "height": 3561,
+   "errors": [],
+   "warns": [],
+   "t": 846
+  },
+  {
+   "v": "1K",
+   "id": "1440@100·tree280",
+   "cfg": {
+    "w": 1440,
+    "s": 1,
+    "css": 1440,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.9,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.9
+   },
+   "height": 3268,
+   "errors": [],
+   "warns": [],
+   "t": 885
+  },
+  {
+   "v": "2K",
+   "id": "1440@100·tree480",
+   "cfg": {
+    "w": 1440,
+    "s": 1,
+    "css": 1440,
     "h": 900,
     "tree": 480,
     "right": 0,
@@ -1766,20 +2332,46 @@
    "ms": {
     "2K-01-hero": 0.7,
     "2K-02-navigator": 0.6,
-    "2K-03-practices-news-sections": 1.3
+    "2K-03-practices-news-sections": 1
    },
-   "height": 3626,
+   "height": 3230,
    "errors": [],
    "warns": [],
-   "t": 863
+   "t": 845
+  },
+  {
+   "v": "6K",
+   "id": "1440@100·tree280",
+   "cfg": {
+    "w": 1440,
+    "s": 1,
+    "css": 1440,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 3716,
+   "errors": [],
+   "warns": [],
+   "t": 835
   },
   {
    "v": "1K",
-   "id": "1366@100·tree480",
+   "id": "1440@100·tree480",
    "cfg": {
-    "w": 1366,
+    "w": 1440,
     "s": 1,
-    "css": 1366,
+    "css": 1440,
     "h": 900,
     "tree": 480,
     "right": 0,
@@ -1790,22 +2382,48 @@
    "issues": [],
    "ms": {
     "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.7
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
    },
-   "height": 3489,
+   "height": 3476,
    "errors": [],
    "warns": [],
-   "t": 850
+   "t": 826
+  },
+  {
+   "v": "2K",
+   "id": "1440@125·tree0",
+   "cfg": {
+    "w": 1440,
+    "s": 1.25,
+    "css": 1152,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 1.2
+   },
+   "height": 3223,
+   "errors": [],
+   "warns": [],
+   "t": 828
   },
   {
    "v": "6K",
-   "id": "1366@100·tree480",
+   "id": "1440@100·tree480",
    "cfg": {
-    "w": 1366,
+    "w": 1440,
     "s": 1,
-    "css": 1366,
+    "css": 1440,
     "h": 900,
     "tree": 480,
     "right": 0,
@@ -1816,46 +2434,22 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.3
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
    },
-   "height": 3695,
+   "height": 3718,
    "errors": [],
    "warns": [],
-   "t": 818
-  },
-  {
-   "v": "2K",
-   "id": "1366@125·tree0",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.4
-   },
-   "height": 3241,
-   "errors": [],
-   "warns": [],
-   "t": 875
+   "t": 828
   },
   {
    "v": "1K",
-   "id": "1366@125·tree0",
+   "id": "1440@125·tree0",
    "cfg": {
-    "w": 1366,
+    "w": 1440,
     "s": 1.25,
-    "css": 1093,
+    "css": 1152,
     "h": 720,
     "tree": 0,
     "right": 0,
@@ -1866,22 +2460,48 @@
    "issues": [],
    "ms": {
     "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 0.7
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.8,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 0.9
    },
-   "height": 3253,
+   "height": 3264,
    "errors": [],
    "warns": [],
-   "t": 873
+   "t": 909
+  },
+  {
+   "v": "2K",
+   "id": "1440@125·tree280",
+   "cfg": {
+    "w": 1440,
+    "s": 1.25,
+    "css": 1152,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 1
+   },
+   "height": 3610,
+   "errors": [],
+   "warns": [],
+   "t": 904
   },
   {
    "v": "6K",
-   "id": "1366@125·tree0",
+   "id": "1440@125·tree0",
    "cfg": {
-    "w": 1366,
+    "w": 1440,
     "s": 1.25,
-    "css": 1093,
+    "css": 1152,
     "h": 720,
     "tree": 0,
     "right": 0,
@@ -1892,124 +2512,24 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.7,
-    "6K-02-shelves": 1.2,
-    "6K-03-companies-news-cta": 1.7
-   },
-   "height": 3677,
-   "errors": [],
-   "warns": [],
-   "t": 918
-  },
-  {
-   "v": "2K",
-   "id": "1366@125·tree280",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.7,
-    "2K-02-navigator": 0.8,
-    "2K-03-practices-news-sections": 1.4
-   },
-   "height": 3835,
-   "errors": [],
-   "warns": [],
-   "t": 895
-  },
-  {
-   "v": "1K",
-   "id": "1366@125·tree280",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.9
-   },
-   "height": 3844,
-   "errors": [],
-   "warns": [],
-   "t": 918
-  },
-  {
-   "v": "6K",
-   "id": "1366@125·tree280",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.6,
     "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.2
+    "6K-03-companies": 1.2,
+    "6K-04-news-cta": 1.1
    },
-   "height": 3897,
+   "height": 3712,
    "errors": [],
    "warns": [],
-   "t": 971
-  },
-  {
-   "v": "2K",
-   "id": "1366@125·tree480",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.1
-   },
-   "height": 4211,
-   "errors": [],
-   "warns": [],
-   "t": 956
+   "t": 925
   },
   {
    "v": "1K",
-   "id": "1366@125·tree480",
+   "id": "1440@125·tree280",
    "cfg": {
-    "w": 1366,
+    "w": 1440,
     "s": 1.25,
-    "css": 1093,
+    "css": 1152,
     "h": 720,
-    "tree": 480,
+    "tree": 280,
     "right": 0,
     "theme": 1,
     "rm": 0,
@@ -2018,495 +2538,15 @@
    "issues": [],
    "ms": {
     "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.8,
-    "1K-04-cta-sections-links": 0.7
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
    },
-   "height": 4310,
+   "height": 3546,
    "errors": [],
    "warns": [],
-   "t": 968
-  },
-  {
-   "v": "6K",
-   "id": "1366@125·tree480",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.2
-   },
-   "height": 4213,
-   "errors": [],
-   "warns": [],
-   "t": 962
-  },
-  {
-   "v": "2K",
-   "id": "1366@150·tree0",
-   "cfg": {
-    "w": 1366,
-    "s": 1.5,
-    "css": 911,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.7,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.5
-   },
-   "height": 3654,
-   "errors": [],
-   "warns": [],
-   "t": 971
-  },
-  {
-   "v": "1K",
-   "id": "1366@150·tree0",
-   "cfg": {
-    "w": 1366,
-    "s": 1.5,
-    "css": 911,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.7,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 3520,
-   "errors": [],
-   "warns": [],
-   "t": 962
-  },
-  {
-   "v": "6K",
-   "id": "1366@150·tree0",
-   "cfg": {
-    "w": 1366,
-    "s": 1.5,
-    "css": 911,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.5
-   },
-   "height": 3716,
-   "errors": [],
-   "warns": [],
-   "t": 963
-  },
-  {
-   "v": "2K",
-   "id": "1440@100·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.6,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1
-   },
-   "height": 3183,
-   "errors": [],
-   "warns": [],
-   "t": 876
-  },
-  {
-   "v": "1K",
-   "id": "1440@100·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.9,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 3208,
-   "errors": [],
-   "warns": [],
-   "t": 855
-  },
-  {
-   "v": "6K",
-   "id": "1440@100·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.4,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3540,
-   "errors": [],
-   "warns": [],
-   "t": 861
-  },
-  {
-   "v": "2K",
-   "id": "1440@100·tree280",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 1,
-    "2K-02-navigator": 0.9,
-    "2K-03-practices-news-sections": 1.7
-   },
-   "height": 3226,
-   "errors": [],
-   "warns": [],
-   "t": 875
-  },
-  {
-   "v": "1K",
-   "id": "1440@100·tree280",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 1.2
-   },
-   "height": 3247,
-   "errors": [],
-   "warns": [],
-   "t": 883
-  },
-  {
-   "v": "6K",
-   "id": "1440@100·tree280",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.6,
-    "6K-03-companies-news-cta": 2
-   },
-   "height": 3695,
-   "errors": [],
-   "warns": [],
-   "t": 889
-  },
-  {
-   "v": "2K",
-   "id": "1440@100·tree480",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 1,
-    "2K-03-practices-news-sections": 1.4
-   },
-   "height": 3230,
-   "errors": [],
-   "warns": [],
-   "t": 855
-  },
-  {
-   "v": "1K",
-   "id": "1440@100·tree480",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1.5,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 3407,
-   "errors": [],
-   "warns": [],
-   "t": 850
-  },
-  {
-   "v": "6K",
-   "id": "1440@100·tree480",
-   "cfg": {
-    "w": 1440,
-    "s": 1,
-    "css": 1440,
-    "h": 900,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.3,
-    "6K-03-companies-news-cta": 1.8
-   },
-   "height": 3648,
-   "errors": [],
-   "warns": [],
-   "t": 870
-  },
-  {
-   "v": "2K",
-   "id": "1440@125·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1.25,
-    "css": 1152,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 1,
-    "2K-02-navigator": 0.6,
-    "2K-03-practices-news-sections": 1.6
-   },
-   "height": 3223,
-   "errors": [],
-   "warns": [],
-   "t": 882
-  },
-  {
-   "v": "1K",
-   "id": "1440@125·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1.25,
-    "css": 1152,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 3243,
-   "errors": [],
-   "warns": [],
-   "t": 932
-  },
-  {
-   "v": "6K",
-   "id": "1440@125·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1.25,
-    "css": 1152,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.6,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.4
-   },
-   "height": 3691,
-   "errors": [],
-   "warns": [],
-   "t": 928
-  },
-  {
-   "v": "2K",
-   "id": "1440@125·tree280",
-   "cfg": {
-    "w": 1440,
-    "s": 1.25,
-    "css": 1152,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.8,
-    "2K-03-practices-news-sections": 1.2
-   },
-   "height": 3610,
-   "errors": [],
-   "warns": [],
-   "t": 960
-  },
-  {
-   "v": "1K",
-   "id": "1440@125·tree280",
-   "cfg": {
-    "w": 1440,
-    "s": 1.25,
-    "css": 1152,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.9,
-    "1K-04-cta-sections-links": 1
-   },
-   "height": 3472,
-   "errors": [],
-   "warns": [],
-   "t": 932
-  },
-  {
-   "v": "6K",
-   "id": "1440@125·tree280",
-   "cfg": {
-    "w": 1440,
-    "s": 1.25,
-    "css": 1152,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.4
-   },
-   "height": 3677,
-   "errors": [],
-   "warns": [],
-   "t": 912
+   "t": 900
   },
   {
    "v": "2K",
@@ -2525,13 +2565,39 @@
    "issues": [],
    "ms": {
     "2K-01-hero": 0.8,
-    "2K-02-navigator": 1,
-    "2K-03-practices-news-sections": 1.7
+    "2K-02-navigator": 0.9,
+    "2K-03-practices-news-sections": 1
    },
    "height": 4095,
    "errors": [],
    "warns": [],
-   "t": 939
+   "t": 884
+  },
+  {
+   "v": "6K",
+   "id": "1440@125·tree280",
+   "cfg": {
+    "w": 1440,
+    "s": 1.25,
+    "css": 1152,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.8,
+    "6K-02-shelves": 1.2,
+    "6K-03-companies": 1.3,
+    "6K-04-news-cta": 1.3
+   },
+   "height": 3751,
+   "errors": [],
+   "warns": [],
+   "t": 909
   },
   {
    "v": "1K",
@@ -2549,15 +2615,41 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 1.2,
-    "1K-02-kpi-companies": 0.9,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.8
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.5
    },
-   "height": 4051,
+   "height": 4135,
    "errors": [],
    "warns": [],
-   "t": 922
+   "t": 906
+  },
+  {
+   "v": "2K",
+   "id": "1440@150·tree0",
+   "cfg": {
+    "w": 1440,
+    "s": 1.5,
+    "css": 960,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.8,
+    "2K-03-practices-news-sections": 1.2
+   },
+   "height": 3230,
+   "errors": [],
+   "warns": [],
+   "t": 885
   },
   {
    "v": "6K",
@@ -2576,92 +2668,95 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.6,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.5
+    "6K-02-shelves": 1.2,
+    "6K-03-companies": 1.3,
+    "6K-04-news-cta": 1
    },
-   "height": 4033,
+   "height": 4117,
+   "errors": [],
+   "warns": [],
+   "t": 988
+  },
+  {
+   "v": "1K",
+   "id": "1440@150·tree0",
+   "cfg": {
+    "w": 1440,
+    "s": 1.5,
+    "css": 960,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3476,
+   "errors": [],
+   "warns": [],
+   "t": 952
+  },
+  {
+   "v": "2K",
+   "id": "1920@100·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.8,
+    "2K-03-practices-news-sections": 1.2
+   },
+   "height": 3066,
+   "errors": [],
+   "warns": [],
+   "t": 839
+  },
+  {
+   "v": "6K",
+   "id": "1440@150·tree0",
+   "cfg": {
+    "w": 1440,
+    "s": 1.5,
+    "css": 960,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.8,
+    "6K-02-shelves": 0.9,
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.4
+   },
+   "height": 3718,
    "errors": [],
    "warns": [],
    "t": 975
   },
   {
-   "v": "2K",
-   "id": "1440@150·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1.5,
-    "css": 960,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.7,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.1
-   },
-   "height": 3230,
-   "errors": [],
-   "warns": [],
-   "t": 928
-  },
-  {
    "v": "1K",
-   "id": "1440@150·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1.5,
-    "css": 960,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1,
-    "1K-02-kpi-companies": 1,
-    "1K-03-practices-news": 1.3,
-    "1K-04-cta-sections-links": 1.1
-   },
-   "height": 3407,
-   "errors": [],
-   "warns": [],
-   "t": 985
-  },
-  {
-   "v": "6K",
-   "id": "1440@150·tree0",
-   "cfg": {
-    "w": 1440,
-    "s": 1.5,
-    "css": 960,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.4,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.4
-   },
-   "height": 3648,
-   "errors": [],
-   "warns": [],
-   "t": 953
-  },
-  {
-   "v": "2K",
    "id": "1920@100·tree0",
    "cfg": {
     "w": 1920,
@@ -2676,67 +2771,18 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.6,
-    "2K-03-practices-news-sections": 1.1
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.7
    },
-   "height": 3066,
+   "height": 3174,
    "errors": [],
    "warns": [],
    "t": 841
   },
   {
-   "v": "1K",
-   "id": "1920@100·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.7
-   },
-   "height": 3153,
-   "errors": [],
-   "warns": [],
-   "t": 871
-  },
-  {
-   "v": "6K",
-   "id": "1920@100·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3460,
-   "errors": [],
-   "warns": [],
-   "t": 835
-  },
-  {
    "v": "2K",
    "id": "1920@100·tree280",
    "cfg": {
@@ -2745,82 +2791,6 @@
     "css": 1920,
     "h": 900,
     "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.6,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1
-   },
-   "height": 3133,
-   "errors": [],
-   "warns": [],
-   "t": 840
-  },
-  {
-   "v": "1K",
-   "id": "1920@100·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1.3,
-    "1K-02-kpi-companies": 0.9,
-    "1K-03-practices-news": 0.9,
-    "1K-04-cta-sections-links": 1.1
-   },
-   "height": 3168,
-   "errors": [],
-   "warns": [],
-   "t": 887
-  },
-  {
-   "v": "6K",
-   "id": "1920@100·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.3,
-    "6K-03-companies-news-cta": 1.8
-   },
-   "height": 3501,
-   "errors": [],
-   "warns": [],
-   "t": 875
-  },
-  {
-   "v": "2K",
-   "id": "1920@100·tree480",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 480,
     "right": 0,
     "theme": 1,
     "rm": 0,
@@ -2830,12 +2800,141 @@
    "ms": {
     "2K-01-hero": 0.9,
     "2K-02-navigator": 0.9,
-    "2K-03-practices-news-sections": 1.7
+    "2K-03-practices-news-sections": 1.5
+   },
+   "height": 3133,
+   "errors": [],
+   "warns": [],
+   "t": 828
+  },
+  {
+   "v": "6K",
+   "id": "1920@100·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.7,
+    "6K-02-shelves": 1.1,
+    "6K-03-companies": 0.8,
+    "6K-04-news-cta": 1.3
+   },
+   "height": 3481,
+   "errors": [],
+   "warns": [],
+   "t": 884
+  },
+  {
+   "v": "2K",
+   "id": "1920@100·tree480",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 1,
+    "2K-02-navigator": 0.5,
+    "2K-03-practices-news-sections": 1.1
    },
    "height": 3183,
    "errors": [],
    "warns": [],
-   "t": 854
+   "t": 850
+  },
+  {
+   "v": "1K",
+   "id": "1920@100·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 1.8,
+    "1K-04-practices-news": 0.8,
+    "1K-05-cta-sections-links": 1
+   },
+   "height": 3189,
+   "errors": [],
+   "warns": [],
+   "t": 916
+  },
+  {
+   "v": "6K",
+   "id": "1920@100·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.9,
+    "6K-02-shelves": 1.3,
+    "6K-03-companies": 1.5,
+    "6K-04-news-cta": 3.2
+   },
+   "height": 3522,
+   "errors": [],
+   "warns": [],
+   "t": 903
+  },
+  {
+   "v": "2K",
+   "id": "1920@125·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 0.9
+   },
+   "height": 3154,
+   "errors": [],
+   "warns": [],
+   "t": 871
   },
   {
    "v": "1K",
@@ -2853,15 +2952,16 @@
    },
    "issues": [],
    "ms": {
-    "1K-01-hero": 1.1,
-    "1K-02-kpi-companies": 1,
-    "1K-03-practices-news": 0.8,
-    "1K-04-cta-sections-links": 1.3
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.7
    },
-   "height": 3208,
+   "height": 3229,
    "errors": [],
    "warns": [],
-   "t": 873
+   "t": 923
   },
   {
    "v": "6K",
@@ -2871,6 +2971,526 @@
     "s": 1,
     "css": 1920,
     "h": 900,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.4,
+    "6K-02-shelves": 1.1,
+    "6K-03-companies": 0.8,
+    "6K-04-news-cta": 1.2
+   },
+   "height": 3561,
+   "errors": [],
+   "warns": [],
+   "t": 860
+  },
+  {
+   "v": "2K",
+   "id": "1920@125·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 1.3,
+    "2K-02-navigator": 0.9,
+    "2K-03-practices-news-sections": 1.2
+   },
+   "height": 3255,
+   "errors": [],
+   "warns": [],
+   "t": 941
+  },
+  {
+   "v": "1K",
+   "id": "1920@125·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 1,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 0.9,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.9
+   },
+   "height": 3211,
+   "errors": [],
+   "warns": [],
+   "t": 881
+  },
+  {
+   "v": "6K",
+   "id": "1920@125·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.4,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 1
+   },
+   "height": 3533,
+   "errors": [],
+   "warns": [],
+   "t": 883
+  },
+  {
+   "v": "2K",
+   "id": "1920@125·tree480",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.7,
+    "2K-03-practices-news-sections": 0.9
+   },
+   "height": 3233,
+   "errors": [],
+   "warns": [],
+   "t": 852
+  },
+  {
+   "v": "1K",
+   "id": "1920@125·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 1
+   },
+   "height": 3301,
+   "errors": [],
+   "warns": [],
+   "t": 926
+  },
+  {
+   "v": "6K",
+   "id": "1920@125·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.4,
+    "6K-02-shelves": 0.6,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 1
+   },
+   "height": 3705,
+   "errors": [],
+   "warns": [],
+   "t": 912
+  },
+  {
+   "v": "2K",
+   "id": "1920@150·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.8,
+    "2K-02-navigator": 0.6,
+    "2K-03-practices-news-sections": 1
+   },
+   "height": 3257,
+   "errors": [],
+   "warns": [],
+   "t": 904
+  },
+  {
+   "v": "1K",
+   "id": "1920@125·tree480",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 1,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.8
+   },
+   "height": 3273,
+   "errors": [],
+   "warns": [],
+   "t": 892
+  },
+  {
+   "v": "6K",
+   "id": "1920@125·tree480",
+   "cfg": {
+    "w": 1920,
+    "s": 1.25,
+    "css": 1536,
+    "h": 720,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 1.1,
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.3
+   },
+   "height": 3686,
+   "errors": [],
+   "warns": [],
+   "t": 934
+  },
+  {
+   "v": "2K",
+   "id": "1920@150·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 1.3,
+    "2K-03-practices-news-sections": 5.5
+   },
+   "height": 3196,
+   "errors": [],
+   "warns": [],
+   "t": 920
+  },
+  {
+   "v": "1K",
+   "id": "1920@150·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 0.6,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 1.1
+   },
+   "height": 3303,
+   "errors": [],
+   "warns": [],
+   "t": 910
+  },
+  {
+   "v": "6K",
+   "id": "1920@150·tree0",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 0,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.5,
+    "6K-02-shelves": 1,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 0.9
+   },
+   "height": 3665,
+   "errors": [],
+   "warns": [],
+   "t": 998
+  },
+  {
+   "v": "2K",
+   "id": "1920@150·tree480",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.8,
+    "2K-03-practices-news-sections": 0.9
+   },
+   "height": 3821,
+   "errors": [],
+   "warns": [],
+   "t": 987
+  },
+  {
+   "v": "1K",
+   "id": "1920@150·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.8,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3257,
+   "errors": [],
+   "warns": [],
+   "t": 922
+  },
+  {
+   "v": "2K",
+   "id": "1920@100·tree0·right",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 0,
+    "right": 1,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.9,
+    "2K-02-navigator": 0.9,
+    "2K-03-practices-news-sections": 1.6
+   },
+   "height": 3154,
+   "errors": [],
+   "warns": [],
+   "t": 848
+  },
+  {
+   "v": "6K",
+   "id": "1920@150·tree280",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 2.2,
+    "6K-03-companies": 1.3,
+    "6K-04-news-cta": 1.2
+   },
+   "height": 3697,
+   "errors": [],
+   "warns": [],
+   "t": 1004
+  },
+  {
+   "v": "1K",
+   "id": "1920@150·tree480",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
+    "tree": 480,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.8,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 0.9
+   },
+   "height": 3903,
+   "errors": [],
+   "warns": [],
+   "t": 1036
+  },
+  {
+   "v": "2K",
+   "id": "1366@125·tree280·right",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 280,
+    "right": 1,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.7,
+    "2K-02-navigator": 0.9,
+    "2K-03-practices-news-sections": 1.4
+   },
+   "height": 5317,
+   "errors": [],
+   "warns": [],
+   "t": 1005
+  },
+  {
+   "v": "1K",
+   "id": "1920@100·tree0·right",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 0,
+    "right": 1,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.7,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.8,
+    "1K-04-practices-news": 0.5,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3211,
+   "errors": [],
+   "warns": [],
+   "t": 869
+  },
+  {
+   "v": "6K",
+   "id": "1920@150·tree480",
+   "cfg": {
+    "w": 1920,
+    "s": 1.5,
+    "css": 1280,
+    "h": 600,
     "tree": 480,
     "right": 0,
     "theme": 1,
@@ -2881,595 +3501,13 @@
    "ms": {
     "6K-01-hero": 0.6,
     "6K-02-shelves": 1,
-    "6K-03-companies-news-cta": 1.4
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.1
    },
-   "height": 3540,
+   "height": 3985,
    "errors": [],
    "warns": [],
-   "t": 863
-  },
-  {
-   "v": "2K",
-   "id": "1920@125·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.2
-   },
-   "height": 3154,
-   "errors": [],
-   "warns": [],
-   "t": 835
-  },
-  {
-   "v": "1K",
-   "id": "1920@125·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 0.7
-   },
-   "height": 3190,
-   "errors": [],
-   "warns": [],
-   "t": 842
-  },
-  {
-   "v": "6K",
-   "id": "1920@125·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.6,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3512,
-   "errors": [],
-   "warns": [],
-   "t": 914
-  },
-  {
-   "v": "2K",
-   "id": "1920@125·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.8,
-    "2K-03-practices-news-sections": 1.2
-   },
-   "height": 3255,
-   "errors": [],
-   "warns": [],
-   "t": 929
-  },
-  {
-   "v": "1K",
-   "id": "1920@125·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1.2,
-    "1K-02-kpi-companies": 1,
-    "1K-03-practices-news": 1.1,
-    "1K-04-cta-sections-links": 1
-   },
-   "height": 3280,
-   "errors": [],
-   "warns": [],
-   "t": 945
-  },
-  {
-   "v": "6K",
-   "id": "1920@125·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.2,
-    "6K-03-companies-news-cta": 1.6
-   },
-   "height": 3684,
-   "errors": [],
-   "warns": [],
-   "t": 941
-  },
-  {
-   "v": "2K",
-   "id": "1920@125·tree480",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 1,
-    "2K-02-navigator": 0.9,
-    "2K-03-practices-news-sections": 1.5
-   },
-   "height": 3233,
-   "errors": [],
-   "warns": [],
-   "t": 897
-  },
-  {
-   "v": "1K",
-   "id": "1920@125·tree480",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.6,
-    "1K-04-cta-sections-links": 0.7
-   },
-   "height": 3259,
-   "errors": [],
-   "warns": [],
-   "t": 857
-  },
-  {
-   "v": "6K",
-   "id": "1920@125·tree480",
-   "cfg": {
-    "w": 1920,
-    "s": 1.25,
-    "css": 1536,
-    "h": 720,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.7,
-    "6K-02-shelves": 1.3,
-    "6K-03-companies-news-cta": 1.9
-   },
-   "height": 3672,
-   "errors": [],
-   "warns": [],
-   "t": 924
-  },
-  {
-   "v": "2K",
-   "id": "1920@150·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 1.2,
-    "2K-02-navigator": 0.8,
-    "2K-03-practices-news-sections": 1.2
-   },
-   "height": 3257,
-   "errors": [],
-   "warns": [],
-   "t": 921
-  },
-  {
-   "v": "1K",
-   "id": "1920@150·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1.3,
-    "1K-02-kpi-companies": 1.2,
-    "1K-03-practices-news": 0.9,
-    "1K-04-cta-sections-links": 1
-   },
-   "height": 3282,
-   "errors": [],
-   "warns": [],
-   "t": 927
-  },
-  {
-   "v": "6K",
-   "id": "1920@150·tree0",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 0,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.4,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3644,
-   "errors": [],
-   "warns": [],
-   "t": 985
-  },
-  {
-   "v": "2K",
-   "id": "1920@150·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 2.1,
-    "2K-02-navigator": 1.5,
-    "2K-03-practices-news-sections": 2.3
-   },
-   "height": 3196,
-   "errors": [],
-   "warns": [],
-   "t": 939
-  },
-  {
-   "v": "1K",
-   "id": "1920@150·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1.4,
-    "1K-02-kpi-companies": 0.7,
-    "1K-03-practices-news": 0.5,
-    "1K-04-cta-sections-links": 0.7
-   },
-   "height": 3227,
-   "errors": [],
-   "warns": [],
-   "t": 912
-  },
-  {
-   "v": "6K",
-   "id": "1920@150·tree280",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.7,
-    "6K-02-shelves": 0.9,
-    "6K-03-companies-news-cta": 1.3
-   },
-   "height": 3668,
-   "errors": [],
-   "warns": [],
-   "t": 960
-  },
-  {
-   "v": "2K",
-   "id": "1920@150·tree480",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 1.4,
-    "2K-02-navigator": 1,
-    "2K-03-practices-news-sections": 1.6
-   },
-   "height": 3821,
-   "errors": [],
-   "warns": [],
-   "t": 999
-  },
-  {
-   "v": "1K",
-   "id": "1920@150·tree480",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 0.9,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 1.2
-   },
-   "height": 3826,
-   "errors": [],
-   "warns": [],
-   "t": 980
-  },
-  {
-   "v": "2K",
-   "id": "1920@100·tree0·right",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 0,
-    "right": 1,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.8,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.1
-   },
-   "height": 3154,
-   "errors": [],
-   "warns": [],
-   "t": 856
-  },
-  {
-   "v": "6K",
-   "id": "1920@150·tree480",
-   "cfg": {
-    "w": 1920,
-    "s": 1.5,
-    "css": 1280,
-    "h": 600,
-    "tree": 480,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.8,
-    "6K-02-shelves": 1.2,
-    "6K-03-companies-news-cta": 1.8
-   },
-   "height": 3908,
-   "errors": [],
-   "warns": [],
-   "t": 1038
-  },
-  {
-   "v": "1K",
-   "id": "1920@100·tree0·right",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 0,
-    "right": 1,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.6,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.9
-   },
-   "height": 3190,
-   "errors": [],
-   "warns": [],
-   "t": 852
-  },
-  {
-   "v": "6K",
-   "id": "1920@100·tree0·right",
-   "cfg": {
-    "w": 1920,
-    "s": 1,
-    "css": 1920,
-    "h": 900,
-    "tree": 0,
-    "right": 1,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "6K-01-hero": 0.7,
-    "6K-02-shelves": 1.4,
-    "6K-03-companies-news-cta": 1.6
-   },
-   "height": 3512,
-   "errors": [],
-   "warns": [],
-   "t": 842
-  },
-  {
-   "v": "2K",
-   "id": "1366@125·tree280·right",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 280,
-    "right": 1,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "2K-01-hero": 0.6,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1.1
-   },
-   "height": 5317,
-   "errors": [],
-   "warns": [],
-   "t": 1057
-  },
-  {
-   "v": "1K",
-   "id": "1366@125·tree280·right",
-   "cfg": {
-    "w": 1366,
-    "s": 1.25,
-    "css": 1093,
-    "h": 720,
-    "tree": 280,
-    "right": 1,
-    "theme": 1,
-    "rm": 0,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.8,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 1
-   },
-   "height": 5191,
-   "errors": [],
-   "warns": [],
-   "t": 1042
+   "t": 1035
   },
   {
    "v": "2K",
@@ -3487,14 +3525,120 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.6,
+    "2K-01-hero": 0.8,
     "2K-02-navigator": 0.6,
     "2K-03-practices-news-sections": 1.1
    },
    "height": 3196,
    "errors": [],
    "warns": [],
-   "t": 832,
+   "t": 837,
+   "reducedMotion": "0s"
+  },
+  {
+   "v": "6K",
+   "id": "1920@100·tree0·right",
+   "cfg": {
+    "w": 1920,
+    "s": 1,
+    "css": 1920,
+    "h": 900,
+    "tree": 0,
+    "right": 1,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 0.8,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 1
+   },
+   "height": 3533,
+   "errors": [],
+   "warns": [],
+   "t": 830
+  },
+  {
+   "v": "1K",
+   "id": "1366@125·tree280·right",
+   "cfg": {
+    "w": 1366,
+    "s": 1.25,
+    "css": 1093,
+    "h": 720,
+    "tree": 280,
+    "right": 1,
+    "theme": 1,
+    "rm": 0,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.9,
+    "1K-02-kpi": 0.1,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 0.8
+   },
+   "height": 5334,
+   "errors": [],
+   "warns": [],
+   "t": 1045
+  },
+  {
+   "v": "2K",
+   "id": "1280@100·tree280·apifail",
+   "cfg": {
+    "w": 1280,
+    "s": 1,
+    "css": 1280,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 0,
+    "fail": 1
+   },
+   "issues": [],
+   "ms": {
+    "2K-01-hero": 0.6,
+    "2K-02-navigator": 0.5,
+    "2K-03-practices-news-sections": 1
+   },
+   "height": 2773,
+   "errors": [],
+   "warns": [],
+   "t": 816
+  },
+  {
+   "v": "1K",
+   "id": "1280@100·tree280·reduced",
+   "cfg": {
+    "w": 1280,
+    "s": 1,
+    "css": 1280,
+    "h": 900,
+    "tree": 280,
+    "right": 0,
+    "theme": 1,
+    "rm": 1,
+    "fail": 0
+   },
+   "issues": [],
+   "ms": {
+    "1K-01-hero": 0.6,
+    "1K-02-kpi": 0.2,
+    "1K-03-companies": 0.7,
+    "1K-04-practices-news": 0.6,
+    "1K-05-cta-sections-links": 0.6
+   },
+   "height": 3257,
+   "errors": [],
+   "warns": [],
+   "t": 856,
    "reducedMotion": "0s"
   },
   {
@@ -3514,43 +3658,17 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.6,
-    "6K-02-shelves": 1.1,
-    "6K-03-companies-news-cta": 1.8
+    "6K-02-shelves": 0.9,
+    "6K-03-companies": 0.7,
+    "6K-04-news-cta": 1.9
    },
-   "height": 5083,
+   "height": 5226,
    "errors": [],
    "warns": [],
-   "t": 1039
+   "t": 998
   },
   {
    "v": "1K",
-   "id": "1280@100·tree280·reduced",
-   "cfg": {
-    "w": 1280,
-    "s": 1,
-    "css": 1280,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 1,
-    "fail": 0
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 1,
-    "1K-02-kpi-companies": 0.8,
-    "1K-03-practices-news": 0.8,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 3227,
-   "errors": [],
-   "warns": [],
-   "t": 849,
-   "reducedMotion": "0s"
-  },
-  {
-   "v": "2K",
    "id": "1280@100·tree280·apifail",
    "cfg": {
     "w": 1280,
@@ -3565,14 +3683,16 @@
    },
    "issues": [],
    "ms": {
-    "2K-01-hero": 0.7,
-    "2K-02-navigator": 0.7,
-    "2K-03-practices-news-sections": 1
+    "1K-01-hero": 1,
+    "1K-02-kpi": 0.3,
+    "1K-03-companies": 1.3,
+    "1K-04-practices-news": 0.7,
+    "1K-05-cta-sections-links": 1
    },
-   "height": 2773,
+   "height": 2833,
    "errors": [],
    "warns": [],
-   "t": 853
+   "t": 868
   },
   {
    "v": "6K",
@@ -3590,41 +3710,16 @@
    },
    "issues": [],
    "ms": {
-    "6K-01-hero": 0.5,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.3
+    "6K-01-hero": 0.6,
+    "6K-02-shelves": 1,
+    "6K-03-companies": 1.1,
+    "6K-04-news-cta": 1.2
    },
-   "height": 3668,
+   "height": 3697,
    "errors": [],
    "warns": [],
-   "t": 862,
+   "t": 856,
    "reducedMotion": "0s"
-  },
-  {
-   "v": "1K",
-   "id": "1280@100·tree280·apifail",
-   "cfg": {
-    "w": 1280,
-    "s": 1,
-    "css": 1280,
-    "h": 900,
-    "tree": 280,
-    "right": 0,
-    "theme": 1,
-    "rm": 0,
-    "fail": 1
-   },
-   "issues": [],
-   "ms": {
-    "1K-01-hero": 0.9,
-    "1K-02-kpi-companies": 1,
-    "1K-03-practices-news": 0.7,
-    "1K-04-cta-sections-links": 0.8
-   },
-   "height": 2804,
-   "errors": [],
-   "warns": [],
-   "t": 854
   },
   {
    "v": "6K",
@@ -3643,47 +3738,18 @@
    "issues": [],
    "ms": {
     "6K-01-hero": 0.6,
-    "6K-02-shelves": 0.8,
-    "6K-03-companies-news-cta": 1.3
+    "6K-02-shelves": 1.1,
+    "6K-03-companies": 1,
+    "6K-04-news-cta": 1.1
    },
-   "height": 3303,
+   "height": 3333,
    "errors": [],
    "warns": [],
-   "t": 831
+   "t": 842
   }
  ],
  "theme": [
   {
-   "v": "6K",
-   "cfg": "390@100·tree0",
-   "mod": "6K-01-hero",
-   "aggr": null,
-   "clean": null,
-   "diff": 0.0,
-   "note": "",
-   "ok": true
-  },
-  {
-   "v": "6K",
-   "cfg": "390@100·tree0",
-   "mod": "6K-02-shelves",
-   "aggr": null,
-   "clean": null,
-   "diff": 0.0,
-   "note": "",
-   "ok": true
-  },
-  {
-   "v": "6K",
-   "cfg": "390@100·tree0",
-   "mod": "6K-03-companies-news-cta",
-   "aggr": null,
-   "clean": null,
-   "diff": 0.0,
-   "note": "",
-   "ok": true
-  },
-  {
    "v": "2K",
    "cfg": "390@100·tree0",
    "mod": "2K-01-hero",
@@ -3714,6 +3780,46 @@
    "ok": true
   },
   {
+   "v": "6K",
+   "cfg": "390@100·tree0",
+   "mod": "6K-01-hero",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "390@100·tree0",
+   "mod": "6K-02-shelves",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "390@100·tree0",
+   "mod": "6K-03-companies",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "390@100·tree0",
+   "mod": "6K-04-news-cta",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
    "v": "1K",
    "cfg": "390@100·tree0",
    "mod": "1K-01-hero",
@@ -3726,7 +3832,7 @@
   {
    "v": "1K",
    "cfg": "390@100·tree0",
-   "mod": "1K-02-kpi-companies",
+   "mod": "1K-02-kpi",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3736,7 +3842,7 @@
   {
    "v": "1K",
    "cfg": "390@100·tree0",
-   "mod": "1K-03-practices-news",
+   "mod": "1K-03-companies",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3746,7 +3852,7 @@
   {
    "v": "1K",
    "cfg": "390@100·tree0",
-   "mod": "1K-04-cta-sections-links",
+   "mod": "1K-04-practices-news",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3754,29 +3860,9 @@
    "ok": true
   },
   {
-   "v": "6K",
-   "cfg": "1280@100·tree280",
-   "mod": "6K-01-hero",
-   "aggr": null,
-   "clean": null,
-   "diff": 0.0,
-   "note": "",
-   "ok": true
-  },
-  {
-   "v": "6K",
-   "cfg": "1280@100·tree280",
-   "mod": "6K-02-shelves",
-   "aggr": null,
-   "clean": null,
-   "diff": 0.0,
-   "note": "",
-   "ok": true
-  },
-  {
-   "v": "6K",
-   "cfg": "1280@100·tree280",
-   "mod": "6K-03-companies-news-cta",
+   "v": "1K",
+   "cfg": "390@100·tree0",
+   "mod": "1K-05-cta-sections-links",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3814,6 +3900,46 @@
    "ok": true
   },
   {
+   "v": "6K",
+   "cfg": "1280@100·tree280",
+   "mod": "6K-01-hero",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "1280@100·tree280",
+   "mod": "6K-02-shelves",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "1280@100·tree280",
+   "mod": "6K-03-companies",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "1280@100·tree280",
+   "mod": "6K-04-news-cta",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
    "v": "1K",
    "cfg": "1280@100·tree280",
    "mod": "1K-01-hero",
@@ -3826,7 +3952,7 @@
   {
    "v": "1K",
    "cfg": "1280@100·tree280",
-   "mod": "1K-02-kpi-companies",
+   "mod": "1K-02-kpi",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3836,7 +3962,7 @@
   {
    "v": "1K",
    "cfg": "1280@100·tree280",
-   "mod": "1K-03-practices-news",
+   "mod": "1K-03-companies",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3846,7 +3972,7 @@
   {
    "v": "1K",
    "cfg": "1280@100·tree280",
-   "mod": "1K-04-cta-sections-links",
+   "mod": "1K-04-practices-news",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3854,29 +3980,9 @@
    "ok": true
   },
   {
-   "v": "6K",
-   "cfg": "1920@100·tree280",
-   "mod": "6K-01-hero",
-   "aggr": null,
-   "clean": null,
-   "diff": 0.0,
-   "note": "",
-   "ok": true
-  },
-  {
-   "v": "6K",
-   "cfg": "1920@100·tree280",
-   "mod": "6K-02-shelves",
-   "aggr": null,
-   "clean": null,
-   "diff": 0.0,
-   "note": "",
-   "ok": true
-  },
-  {
-   "v": "6K",
-   "cfg": "1920@100·tree280",
-   "mod": "6K-03-companies-news-cta",
+   "v": "1K",
+   "cfg": "1280@100·tree280",
+   "mod": "1K-05-cta-sections-links",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3914,6 +4020,46 @@
    "ok": true
   },
   {
+   "v": "6K",
+   "cfg": "1920@100·tree280",
+   "mod": "6K-01-hero",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "1920@100·tree280",
+   "mod": "6K-02-shelves",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "1920@100·tree280",
+   "mod": "6K-03-companies",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "6K",
+   "cfg": "1920@100·tree280",
+   "mod": "6K-04-news-cta",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
    "v": "1K",
    "cfg": "1920@100·tree280",
    "mod": "1K-01-hero",
@@ -3926,7 +4072,7 @@
   {
    "v": "1K",
    "cfg": "1920@100·tree280",
-   "mod": "1K-02-kpi-companies",
+   "mod": "1K-02-kpi",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3936,7 +4082,7 @@
   {
    "v": "1K",
    "cfg": "1920@100·tree280",
-   "mod": "1K-03-practices-news",
+   "mod": "1K-03-companies",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3946,7 +4092,17 @@
   {
    "v": "1K",
    "cfg": "1920@100·tree280",
-   "mod": "1K-04-cta-sections-links",
+   "mod": "1K-04-practices-news",
+   "aggr": null,
+   "clean": null,
+   "diff": 0.0,
+   "note": "",
+   "ok": true
+  },
+  {
+   "v": "1K",
+   "cfg": "1920@100·tree280",
+   "mod": "1K-05-cta-sections-links",
    "aggr": null,
    "clean": null,
    "diff": 0.0,
@@ -3955,6 +4111,17 @@
   }
  ],
  "neighbor": {
+  "6K 390@100·tree0": {
+   "same": true,
+   "base": {
+    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:341px|height:25.1875px",
+    "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
+   },
+   "got": {
+    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:341px|height:25.1875px",
+    "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
+   }
+  },
   "1K 390@100·tree0": {
    "same": true,
    "base": {
@@ -3977,14 +4144,14 @@
     "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
    }
   },
-  "6K 390@100·tree0": {
+  "6K 1280@100·tree280": {
    "same": true,
    "base": {
-    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:341px|height:25.1875px",
+    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:935px|height:25.1875px",
     "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
    },
    "got": {
-    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:341px|height:25.1875px",
+    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:935px|height:25.1875px",
     "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
    }
   },
@@ -4010,29 +4177,18 @@
     "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
    }
   },
-  "6K 1280@100·tree280": {
+  "1K 1920@100·tree280": {
    "same": true,
    "base": {
-    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:935px|height:25.1875px",
+    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:1575px|height:25.1875px",
     "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
    },
    "got": {
-    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:935px|height:25.1875px",
+    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:1575px|height:25.1875px",
     "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
    }
   },
   "6K 1920@100·tree280": {
-   "same": true,
-   "base": {
-    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:1575px|height:25.1875px",
-    "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
-   },
-   "got": {
-    "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:1575px|height:25.1875px",
-    "a": "color:rgb(0, 82, 204)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:20.02px|margin:0px|padding:0px|textDecorationLine:underline|boxSizing:content-box|display:inline|width:auto|height:auto"
-   }
-  },
-  "1K 1920@100·tree280": {
    "same": true,
    "base": {
     "p": "color:rgb(23, 43, 77)|fontFamily:-apple-system, \"Segoe UI\", Roboto, Arial, sans-serif|fontSize:14px|lineHeight:25.2px|margin:0px 0px 16px|padding:0px|textDecorationLine:none|boxSizing:content-box|display:block|width:1575px|height:25.1875px",
@@ -4057,28 +4213,6 @@
  },
  "search": [
   {
-   "v": "6K",
-   "cfg": "390@100·tree0",
-   "ok": true,
-   "notes": [],
-   "slashFocus": true,
-   "opts": 7,
-   "groups": [
-    "Практики · 3",
-    "Разделы и документы"
-   ],
-   "marks": 5,
-   "insideRoot": true,
-   "notClipped": true,
-   "expanded": "true",
-   "shot": "img/search-6K-390@100_tree0.png",
-   "activedescendant": "bupk-6k01-1pjf0-o0",
-   "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
-   "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
-   "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
-   "errors": []
-  },
-  {
    "v": "2K",
    "cfg": "390@100·tree0",
    "ok": true,
@@ -4094,7 +4228,29 @@
    "notClipped": true,
    "expanded": "true",
    "shot": "img/search-2K-390@100_tree0.png",
-   "activedescendant": "bupk-2k01-12a4j-o0",
+   "activedescendant": "bupk-2k01-1k6ij-o0",
+   "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
+   "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
+   "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
+   "errors": []
+  },
+  {
+   "v": "6K",
+   "cfg": "390@100·tree0",
+   "ok": true,
+   "notes": [],
+   "slashFocus": true,
+   "opts": 7,
+   "groups": [
+    "Практики · 3",
+    "Разделы и документы"
+   ],
+   "marks": 5,
+   "insideRoot": true,
+   "notClipped": true,
+   "expanded": "true",
+   "shot": "img/search-6K-390@100_tree0.png",
+   "activedescendant": "bupk-6k01-1t416-o0",
    "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
@@ -4116,29 +4272,7 @@
    "notClipped": true,
    "expanded": "true",
    "shot": "img/search-1K-390@100_tree0.png",
-   "activedescendant": "bupk-1k01-10bof-o0",
-   "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
-   "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
-   "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
-   "errors": []
-  },
-  {
-   "v": "6K",
-   "cfg": "1280@100·tree280",
-   "ok": true,
-   "notes": [],
-   "slashFocus": true,
-   "opts": 7,
-   "groups": [
-    "Практики · 3",
-    "Разделы и документы"
-   ],
-   "marks": 5,
-   "insideRoot": true,
-   "notClipped": true,
-   "expanded": "true",
-   "shot": "img/search-6K-1280@100_tree280.png",
-   "activedescendant": "bupk-6k01-10xay-o0",
+   "activedescendant": "bupk-1k01-1n9s4-o0",
    "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
@@ -4160,7 +4294,29 @@
    "notClipped": true,
    "expanded": "true",
    "shot": "img/search-2K-1280@100_tree280.png",
-   "activedescendant": "bupk-2k01-1gqia-o0",
+   "activedescendant": "bupk-2k01-1br32-o0",
+   "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
+   "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
+   "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
+   "errors": []
+  },
+  {
+   "v": "6K",
+   "cfg": "1280@100·tree280",
+   "ok": true,
+   "notes": [],
+   "slashFocus": true,
+   "opts": 7,
+   "groups": [
+    "Практики · 3",
+    "Разделы и документы"
+   ],
+   "marks": 5,
+   "insideRoot": true,
+   "notClipped": true,
+   "expanded": "true",
+   "shot": "img/search-6K-1280@100_tree280.png",
+   "activedescendant": "bupk-6k01-1mxfj-o0",
    "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
@@ -4182,29 +4338,7 @@
    "notClipped": true,
    "expanded": "true",
    "shot": "img/search-1K-1280@100_tree280.png",
-   "activedescendant": "bupk-1k01-1zji2-o0",
-   "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
-   "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
-   "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
-   "errors": []
-  },
-  {
-   "v": "6K",
-   "cfg": "1366@125·tree480",
-   "ok": true,
-   "notes": [],
-   "slashFocus": true,
-   "opts": 7,
-   "groups": [
-    "Практики · 3",
-    "Разделы и документы"
-   ],
-   "marks": 5,
-   "insideRoot": true,
-   "notClipped": true,
-   "expanded": "true",
-   "shot": "img/search-6K-1366@125_tree480.png",
-   "activedescendant": "bupk-6k01-13czo-o0",
+   "activedescendant": "bupk-1k01-1vskj-o0",
    "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
@@ -4226,7 +4360,29 @@
    "notClipped": true,
    "expanded": "true",
    "shot": "img/search-2K-1366@125_tree480.png",
-   "activedescendant": "bupk-2k01-1me3m-o0",
+   "activedescendant": "bupk-2k01-1k4cp-o0",
+   "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
+   "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
+   "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
+   "errors": []
+  },
+  {
+   "v": "6K",
+   "cfg": "1366@125·tree480",
+   "ok": true,
+   "notes": [],
+   "slashFocus": true,
+   "opts": 7,
+   "groups": [
+    "Практики · 3",
+    "Разделы и документы"
+   ],
+   "marks": 5,
+   "insideRoot": true,
+   "notClipped": true,
+   "expanded": "true",
+   "shot": "img/search-6K-1366@125_tree480.png",
+   "activedescendant": "bupk-6k01-1j36v-o0",
    "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
@@ -4248,7 +4404,7 @@
    "notClipped": true,
    "expanded": "true",
    "shot": "img/search-1K-1366@125_tree480.png",
-   "activedescendant": "bupk-1k01-1blxt-o0",
+   "activedescendant": "bupk-1k01-1nyrr-o0",
    "navigated": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "expected": "http://harness.local/spaces/BSS/pages/810000/mock-search-1",
    "enterFull": "http://harness.local/dosearchsite.action?queryString=%D1%81%D0%B2%D0%B0%D1%80%D0%BA",
@@ -4279,22 +4435,10 @@
    "shot": "img/gallery-2K-390@100_tree0.jpg"
   },
   {
-   "v": "1K",
-   "label": "390@100",
-   "cfg": "390@100·tree0",
-   "shot": "img/gallery-1K-390@100_tree0.jpg"
-  },
-  {
    "v": "2K",
    "label": "768@100",
    "cfg": "768@100·tree0",
    "shot": "img/gallery-2K-768@100_tree0.jpg"
-  },
-  {
-   "v": "1K",
-   "label": "768@100",
-   "cfg": "768@100·tree0",
-   "shot": "img/gallery-1K-768@100_tree0.jpg"
   },
   {
    "v": "2K",
@@ -4304,15 +4448,45 @@
   },
   {
    "v": "1K",
-   "label": "1280@100 · дерево 280",
-   "cfg": "1280@100·tree280",
-   "shot": "img/gallery-1K-1280@100_tree280.jpg"
+   "label": "390@100",
+   "cfg": "390@100·tree0",
+   "shot": "img/gallery-1K-390@100_tree0.jpg"
   },
   {
    "v": "2K",
    "label": "1366@125 · дерево 480 («худший ноутбук»)",
    "cfg": "1366@125·tree480",
    "shot": "img/gallery-2K-1366@125_tree480.jpg"
+  },
+  {
+   "v": "1K",
+   "label": "768@100",
+   "cfg": "768@100·tree0",
+   "shot": "img/gallery-1K-768@100_tree0.jpg"
+  },
+  {
+   "v": "2K",
+   "label": "1920@100 · дерево 0",
+   "cfg": "1920@100·tree0",
+   "shot": "img/gallery-2K-1920@100_tree0.jpg"
+  },
+  {
+   "v": "1K",
+   "label": "1280@100 · дерево 280",
+   "cfg": "1280@100·tree280",
+   "shot": "img/gallery-1K-1280@100_tree280.jpg"
+  },
+  {
+   "v": "2K",
+   "label": "1920@100 · правая панель",
+   "cfg": "1920@100·tree0·right",
+   "shot": "img/gallery-2K-1920@100_tree0_right.jpg"
+  },
+  {
+   "v": "1K",
+   "label": "1366@125 · дерево 480 («худший ноутбук»)",
+   "cfg": "1366@125·tree480",
+   "shot": "img/gallery-1K-1366@125_tree480.jpg"
   },
   {
    "v": "6K",
@@ -4322,15 +4496,9 @@
   },
   {
    "v": "1K",
-   "label": "1366@125 · дерево 480 («худший ноутбук»)",
-   "cfg": "1366@125·tree480",
-   "shot": "img/gallery-1K-1366@125_tree480.jpg"
-  },
-  {
-   "v": "2K",
    "label": "1920@100 · дерево 0",
    "cfg": "1920@100·tree0",
-   "shot": "img/gallery-2K-1920@100_tree0.jpg"
+   "shot": "img/gallery-1K-1920@100_tree0.jpg"
   },
   {
    "v": "6K",
@@ -4340,27 +4508,15 @@
   },
   {
    "v": "1K",
-   "label": "1920@100 · дерево 0",
-   "cfg": "1920@100·tree0",
-   "shot": "img/gallery-1K-1920@100_tree0.jpg"
-  },
-  {
-   "v": "2K",
    "label": "1920@100 · правая панель",
    "cfg": "1920@100·tree0·right",
-   "shot": "img/gallery-2K-1920@100_tree0_right.jpg"
+   "shot": "img/gallery-1K-1920@100_tree0_right.jpg"
   },
   {
    "v": "6K",
    "label": "1280@100 · дерево 280",
    "cfg": "1280@100·tree280",
    "shot": "img/gallery-6K-1280@100_tree280.jpg"
-  },
-  {
-   "v": "1K",
-   "label": "1920@100 · правая панель",
-   "cfg": "1920@100·tree0·right",
-   "shot": "img/gallery-1K-1920@100_tree0_right.jpg"
   },
   {
    "v": "6K",
@@ -4393,6 +4549,16 @@
    "after": "img/after-issue-2K-360@125_tree0-clip-1.png"
   },
   {
+   "v": "2K",
+   "cfg": "360@150·tree0",
+   "c": "clip",
+   "mod": "2K-03-practices-news-sections",
+   "sel": "a.k-pi > span > span.k-pi-c",
+   "msg": "текст шире своего блока: 93 > 91",
+   "before": "before/img/issue-2K-360@150_tree0-clip-4.png",
+   "after": "img/after-issue-2K-360@150_tree0-clip-4.png"
+  },
+  {
    "v": "1K",
    "cfg": "360@125·tree0",
    "c": "clip",
@@ -4411,16 +4577,6 @@
    "msg": "текст шире своего блока: 90 > 83",
    "before": "before/img/issue-6K-360@125_tree0-clip-2.png",
    "after": "img/after-issue-6K-360@125_tree0-clip-2.png"
-  },
-  {
-   "v": "2K",
-   "cfg": "360@150·tree0",
-   "c": "clip",
-   "mod": "2K-03-practices-news-sections",
-   "sel": "a.k-pi > span > span.k-pi-c",
-   "msg": "текст шире своего блока: 93 > 91",
-   "before": "before/img/issue-2K-360@150_tree0-clip-4.png",
-   "after": "img/after-issue-2K-360@150_tree0-clip-4.png"
   },
   {
    "v": "1K",
@@ -4533,127 +4689,57 @@
    }
   },
   {
-   "k": "1K1K-04-cta-sections-linkssection.k-cta.k-dark > div.k-cta-b > h2.k-cta-h",
+   "k": "1K1K-03-companiesdiv.k-cos > a.k-co > span.k-co-n",
    "v": "1K",
    "cfg": "360@100·tree0",
-   "mod": "1K-04-cta-sections-links",
+   "mod": "1K-03-companies",
+   "sel": "div.k-cos > a.k-co > span.k-co-n",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 41,
+    "y": 1147,
+    "w": 118,
+    "h": 12
+   }
+  },
+  {
+   "k": "1K1K-03-companiesa.k-co > span.k-co-s > span",
+   "v": "1K",
+   "cfg": "360@100·tree0",
+   "mod": "1K-03-companies",
+   "sel": "a.k-co > span.k-co-s > span",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 41,
+    "y": 1274,
+    "w": 94,
+    "h": 29
+   }
+  },
+  {
+   "k": "1K1K-05-cta-sections-linkssection.k-cta.k-dark > div.k-cta-b > h2.k-cta-h",
+   "v": "1K",
+   "cfg": "360@100·tree0",
+   "mod": "1K-05-cta-sections-links",
    "sel": "section.k-cta.k-dark > div.k-cta-b > h2.k-cta-h",
    "why": "градиент/фактура",
    "rect": {
     "x": 49,
-    "y": 3643,
+    "y": 3786,
     "w": 263,
     "h": 52
    }
   },
   {
-   "k": "1K1K-04-cta-sections-linkssection.k-cta.k-dark > div.k-cta-b > p.k-cta-p",
+   "k": "1K1K-05-cta-sections-linkssection.k-cta.k-dark > div.k-cta-b > p.k-cta-p",
    "v": "1K",
    "cfg": "360@100·tree0",
-   "mod": "1K-04-cta-sections-links",
+   "mod": "1K-05-cta-sections-links",
    "sel": "section.k-cta.k-dark > div.k-cta-b > p.k-cta-p",
    "why": "градиент/фактура",
    "rect": {
     "x": 49,
-    "y": 3707,
-    "w": 263,
-    "h": 90
-   }
-  },
-  {
-   "k": "6K6K-01-herodiv.k-hero.k-dark > div > span.k-kick",
-   "v": "6K",
-   "cfg": "360@100·tree0",
-   "mod": "6K-01-hero",
-   "sel": "div.k-hero.k-dark > div > span.k-kick",
-   "why": "градиент/фактура",
-   "rect": {
-    "x": 47,
-    "y": 198,
-    "w": 267,
-    "h": 16
-   }
-  },
-  {
-   "k": "6K6K-01-herodiv.k-hero.k-dark > div > h1.k-h1",
-   "v": "6K",
-   "cfg": "360@100·tree0",
-   "mod": "6K-01-hero",
-   "sel": "div.k-hero.k-dark > div > h1.k-h1",
-   "why": "градиент/фактура",
-   "rect": {
-    "x": 47,
-    "y": 222,
-    "w": 267,
-    "h": 78
-   }
-  },
-  {
-   "k": "6K6K-01-herodiv > h1.k-h1 > span",
-   "v": "6K",
-   "cfg": "360@100·tree0",
-   "mod": "6K-01-hero",
-   "sel": "div > h1.k-h1 > span",
-   "why": "градиент/фактура",
-   "rect": {
-    "x": 47,
-    "y": 274,
-    "w": 267,
-    "h": 26
-   }
-  },
-  {
-   "k": "6K6K-01-herodiv.k-hero.k-dark > div > p.k-sub",
-   "v": "6K",
-   "cfg": "360@100·tree0",
-   "mod": "6K-01-hero",
-   "sel": "div.k-hero.k-dark > div > p.k-sub",
-   "why": "градиент/фактура",
-   "rect": {
-    "x": 47,
-    "y": 318,
-    "w": 267,
-    "h": 72
-   }
-  },
-  {
-   "k": "6K6K-01-herodiv.k-glass > form.k-search > label.k-gl-t",
-   "v": "6K",
-   "cfg": "360@100·tree0",
-   "mod": "6K-01-hero",
-   "sel": "div.k-glass > form.k-search > label.k-gl-t",
-   "why": "стекло",
-   "rect": {
-    "x": 66,
-    "y": 431,
-    "w": 229,
-    "h": 23
-   }
-  },
-  {
-   "k": "6K6K-03-companies-news-ctasection.k-cta.k-dark > div.k-cta-b > h2.k-cta-h",
-   "v": "6K",
-   "cfg": "360@100·tree0",
-   "mod": "6K-03-companies-news-cta",
-   "sel": "section.k-cta.k-dark > div.k-cta-b > h2.k-cta-h",
-   "why": "градиент/фактура",
-   "rect": {
-    "x": 49,
-    "y": 3629,
-    "w": 263,
-    "h": 52
-   }
-  },
-  {
-   "k": "6K6K-03-companies-news-ctasection.k-cta.k-dark > div.k-cta-b > p.k-cta-p",
-   "v": "6K",
-   "cfg": "360@100·tree0",
-   "mod": "6K-03-companies-news-cta",
-   "sel": "section.k-cta.k-dark > div.k-cta-b > p.k-cta-p",
-   "why": "градиент/фактура",
-   "rect": {
-    "x": 49,
-    "y": 3693,
+    "y": 3850,
     "w": 263,
     "h": 90
    }
@@ -4827,10 +4913,136 @@
    }
   },
   {
-   "k": "1K1K-01-heroform.k-search > div.k-sf > span.k-kbd",
-   "v": "1K",
+   "k": "6K6K-01-herodiv.k-hero.k-dark > div > span.k-kick",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-01-hero",
+   "sel": "div.k-hero.k-dark > div > span.k-kick",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 47,
+    "y": 198,
+    "w": 267,
+    "h": 16
+   }
+  },
+  {
+   "k": "6K6K-01-herodiv.k-hero.k-dark > div > h1.k-h1",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-01-hero",
+   "sel": "div.k-hero.k-dark > div > h1.k-h1",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 47,
+    "y": 222,
+    "w": 267,
+    "h": 78
+   }
+  },
+  {
+   "k": "6K6K-01-herodiv > h1.k-h1 > span",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-01-hero",
+   "sel": "div > h1.k-h1 > span",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 47,
+    "y": 274,
+    "w": 267,
+    "h": 26
+   }
+  },
+  {
+   "k": "6K6K-01-herodiv.k-hero.k-dark > div > p.k-sub",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-01-hero",
+   "sel": "div.k-hero.k-dark > div > p.k-sub",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 47,
+    "y": 318,
+    "w": 267,
+    "h": 72
+   }
+  },
+  {
+   "k": "6K6K-01-herodiv.k-glass > form.k-search > label.k-gl-t",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-01-hero",
+   "sel": "div.k-glass > form.k-search > label.k-gl-t",
+   "why": "стекло",
+   "rect": {
+    "x": 66,
+    "y": 431,
+    "w": 229,
+    "h": 23
+   }
+  },
+  {
+   "k": "6K6K-03-companiesdiv.k-cos > a.k-co > span.k-co-n",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-03-companies",
+   "sel": "div.k-cos > a.k-co > span.k-co-n",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 41,
+    "y": 1974,
+    "w": 118,
+    "h": 12
+   }
+  },
+  {
+   "k": "6K6K-03-companiesa.k-co > span.k-co-s > span",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-03-companies",
+   "sel": "a.k-co > span.k-co-s > span",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 41,
+    "y": 2101,
+    "w": 94,
+    "h": 29
+   }
+  },
+  {
+   "k": "6K6K-04-news-ctasection.k-cta.k-dark > div.k-cta-b > h2.k-cta-h",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-04-news-cta",
+   "sel": "section.k-cta.k-dark > div.k-cta-b > h2.k-cta-h",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 49,
+    "y": 3772,
+    "w": 263,
+    "h": 52
+   }
+  },
+  {
+   "k": "6K6K-04-news-ctasection.k-cta.k-dark > div.k-cta-b > p.k-cta-p",
+   "v": "6K",
+   "cfg": "360@100·tree0",
+   "mod": "6K-04-news-cta",
+   "sel": "section.k-cta.k-dark > div.k-cta-b > p.k-cta-p",
+   "why": "градиент/фактура",
+   "rect": {
+    "x": 49,
+    "y": 3836,
+    "w": 263,
+    "h": 90
+   }
+  },
+  {
+   "k": "2K2K-01-heroform.k-search > div.k-sf > span.k-kbd",
+   "v": "2K",
    "cfg": "768@100·tree0",
-   "mod": "1K-01-hero",
+   "mod": "2K-01-hero",
    "sel": "form.k-search > div.k-sf > span.k-kbd",
    "why": "стекло",
    "rect": {
@@ -4841,10 +5053,10 @@
    }
   },
   {
-   "k": "2K2K-01-heroform.k-search > div.k-sf > span.k-kbd",
-   "v": "2K",
+   "k": "1K1K-01-heroform.k-search > div.k-sf > span.k-kbd",
+   "v": "1K",
    "cfg": "768@100·tree0",
-   "mod": "2K-01-hero",
+   "mod": "1K-01-hero",
    "sel": "form.k-search > div.k-sf > span.k-kbd",
    "why": "стекло",
    "rect": {
@@ -4882,29 +5094,38 @@
   },
   {
    "variant": "1K",
-   "module": "1K-02-kpi-companies",
-   "file": "1K-02-kpi-companies.html",
-   "bytes": 28176,
-   "selectors": 56,
+   "module": "1K-02-kpi",
+   "file": "1K-02-kpi.html",
+   "bytes": 25715,
+   "selectors": 45,
    "root": "bupk-1k02",
    "issues": []
   },
   {
    "variant": "1K",
-   "module": "1K-03-practices-news",
-   "file": "1K-03-practices-news.html",
-   "bytes": 32139,
-   "selectors": 67,
+   "module": "1K-03-companies",
+   "file": "1K-03-companies.html",
+   "bytes": 37864,
+   "selectors": 50,
    "root": "bupk-1k03",
    "issues": []
   },
   {
    "variant": "1K",
-   "module": "1K-04-cta-sections-links",
-   "file": "1K-04-cta-sections-links.html",
+   "module": "1K-04-practices-news",
+   "file": "1K-04-practices-news.html",
+   "bytes": 32139,
+   "selectors": 67,
+   "root": "bupk-1k04",
+   "issues": []
+  },
+  {
+   "variant": "1K",
+   "module": "1K-05-cta-sections-links",
+   "file": "1K-05-cta-sections-links.html",
    "bytes": 28545,
    "selectors": 58,
-   "root": "bupk-1k04",
+   "root": "bupk-1k05",
    "issues": []
   },
   {
@@ -4954,11 +5175,20 @@
   },
   {
    "variant": "6K",
-   "module": "6K-03-companies-news-cta",
-   "file": "6K-03-companies-news-cta.html",
-   "bytes": 34576,
-   "selectors": 83,
+   "module": "6K-03-companies",
+   "file": "6K-03-companies.html",
+   "bytes": 37864,
+   "selectors": 50,
    "root": "bupk-6k03",
+   "issues": []
+  },
+  {
+   "variant": "6K",
+   "module": "6K-04-news-cta",
+   "file": "6K-04-news-cta.html",
+   "bytes": 32115,
+   "selectors": 72,
+   "root": "bupk-6k04",
    "issues": []
   }
  ]
