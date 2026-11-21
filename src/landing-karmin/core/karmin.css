@@ -190,7 +190,7 @@
 /*@ avx */
 /* Секции варианта 1КА в духе «Авроры». Обёртка .k-avx не влияет на раскладку. */
 .k-avx{display:contents}
-.k-avx .k-cta{background:radial-gradient(60% 110% at 100% 100%,rgba(88,6,26,.85),transparent 70%),radial-gradient(45% 95% at 0% 120%,rgba(20,4,10,.6),transparent 70%),radial-gradient(50% 90% at 78% -20%,rgba(120,8,30,.7),transparent 70%),radial-gradient(40% 70% at 25% 0%,rgba(255,80,70,.25),transparent 70%),linear-gradient(150deg,#D81B22,#B8131A)}
+.k-avx .k-cta{background:radial-gradient(50% 95% at 94% -5%,rgba(10,6,10,.82),transparent 70%),radial-gradient(48% 100% at 28% 115%,rgba(96,6,30,.85),transparent 70%),radial-gradient(42% 90% at 80% 112%,rgba(14,6,10,.7),transparent 70%),radial-gradient(40% 80% at 0% 0%,rgba(110,8,26,.55),transparent 70%),linear-gradient(150deg,#DA1C23,#C3161D)}
 .k-avx .k-dia{display:none}
 .k-avx .k-ft.is-dark{background:radial-gradient(110% 90% at 0% 0%,rgba(150,20,40,.85),transparent 72%),radial-gradient(105% 100% at 100% 105%,rgba(80,26,120,.8),transparent 72%),#0B0D14;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 0 0 1px rgba(255,255,255,.06),0 10px 24px rgba(15,23,30,.22)}
 
