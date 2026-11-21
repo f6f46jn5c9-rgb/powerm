@@ -179,6 +179,13 @@
 .k-btn-white{background:#FFFFFF;color:var(--red-700);box-shadow:0 10px 24px rgba(0,0,0,.25)}
 .k-btn-white:hover{background:var(--red-50)}
 
+/*@ avx */
+/* Секции варианта 1КА в духе «Авроры». Обёртка .k-avx не влияет на раскладку. */
+.k-avx{display:contents}
+.k-avx .k-cta{background:radial-gradient(60% 110% at 100% 100%,rgba(88,6,26,.85),transparent 70%),radial-gradient(45% 95% at 0% 120%,rgba(20,4,10,.6),transparent 70%),radial-gradient(50% 90% at 78% -20%,rgba(120,8,30,.7),transparent 70%),radial-gradient(40% 70% at 25% 0%,rgba(255,80,70,.25),transparent 70%),linear-gradient(150deg,#D81B22,#B8131A)}
+.k-avx .k-dia{display:none}
+.k-avx .k-ft.is-dark{background:radial-gradient(100% 85% at 0% 0%,rgba(170,30,48,.42),transparent 70%),radial-gradient(95% 95% at 100% 110%,rgba(84,30,110,.42),transparent 70%),radial-gradient(60% 50% at 70% 10%,rgba(255,255,255,.08),transparent 70%),linear-gradient(160deg,#36424C,#1F2830);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 0 0 1px rgba(255,255,255,.06),0 10px 24px rgba(15,23,30,.22)}
+
 /*@ sections */
 .k-sxg{display:grid;gap:6px var(--gap);grid-template-columns:repeat(4,minmax(0,1fr))}
 @container (max-width:900px){.k-sxg{grid-template-columns:repeat(3,minmax(0,1fr))}}

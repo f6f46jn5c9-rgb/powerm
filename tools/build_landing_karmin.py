@@ -26,7 +26,7 @@ LIMIT = 38 * 1024
 
 VARIANTS = {
     '1K': ('Лаконичный', ['1K-01-hero', '1K-02-kpi', '1K-03-companies', '1K-04-practices-news', '1K-05-cta-sections-links']),
-    '1KA': ('Лаконичный · компании «Аврора» (копия 1К)', ['1K-01-hero', '1K-02-kpi', '1KA-03-companies', '1K-04-practices-news', '1K-05-cta-sections-links']),
+    '1KA': ('Лаконичный · компании «Аврора» (копия 1К)', ['1K-01-hero', '1K-02-kpi', '1KA-03-companies', '1KA-04-practices-news', '1KA-05-cta-sections-links']),
     '2K': ('Навигатор', ['2K-01-hero', '2K-02-navigator', '2K-03-practices-news-sections']),
     '6K': ('Полки практик', ['6K-01-hero', '6K-02-shelves', '6K-03-companies', '6K-04-news-cta']),
 }
@@ -165,7 +165,7 @@ def build():
             markup = re.sub(r'<!-- (uses|css-skip):[^>]+-->\s*', '', src)
             for _ in range(3):
                 markup = re.sub(r'\{\{> ([\w-]+)\}\}', lambda m: (SRC / 'parts' / (m.group(1) + '.html')).read_text().strip(), markup)
-            root = 'bupk-' + name[:5].replace('-', '').lower()
+            root = 'bupk-' + re.match(r'[^-]+-[^-]+', name).group(0).replace('-', '').lower()
             markup = markup.replace('{{root}}', root)
             markup = re.sub(r'\{\{ic:(\w+)\}\}', lambda m: '<svg class="k-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="%s"/></svg>' % icons[m.group(1)], markup)
             markup = re.sub(r'\{\{(\w+)\}\}', lambda m: html.escape(statics[m.group(1)]), markup)
