@@ -114,6 +114,14 @@
 .k-kpi.is-dark .k-kpi-n{color:#FFFFFF}
 .k-kpi.is-dark .k-kpi-l{color:var(--ink-on-dark)}
 
+/*@ kpiph */
+.k-kpi.is-ph{position:relative;overflow:hidden;isolation:isolate}
+.k-kpi-ph{position:absolute;z-index:-2;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:100% 50%;margin:0;border:0}
+.k-kpi.is-ph::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#FFFFFF 30%,rgba(255,255,255,0) 70%)}
+.k-kpi.is-dark.is-ph{background:#0F1218}
+.k-kpi.is-dark.is-ph::before{background:linear-gradient(90deg,#0F1218 30%,rgba(15,18,24,0) 70%)}
+@container (max-width:700px){.k-kpi.is-ph::before{background:linear-gradient(90deg,rgba(255,255,255,.95) 40%,rgba(255,255,255,.5))}.k-kpi.is-dark.is-ph::before{background:linear-gradient(90deg,rgba(15,18,24,.95) 40%,rgba(15,18,24,.5))}}
+
 /*@ companies */
 .k-cos{display:grid;gap:var(--gap);grid-template-columns:repeat(5,minmax(0,1fr))}
 @container (max-width:900px){.k-cos{grid-template-columns:repeat(3,minmax(0,1fr))}}

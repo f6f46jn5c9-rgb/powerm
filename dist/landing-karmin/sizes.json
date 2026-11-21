@@ -8,7 +8,7 @@
  {
   "variant": "1K",
   "module": "1K-02-kpi",
-  "bytes": 25715,
+  "bytes": 25869,
   "selectors": 45
  },
  {
@@ -37,9 +37,9 @@
  },
  {
   "variant": "1KA",
-  "module": "1K-02-kpi",
-  "bytes": 25715,
-  "selectors": 45
+  "module": "1KA-02-kpi",
+  "bytes": 35998,
+  "selectors": 52
  },
  {
   "variant": "1KA",

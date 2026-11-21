@@ -667,7 +667,7 @@ if (TODOS.length && window.console) console.info("[БУП] " + cls + ": не з�
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run); else run();
 }
 function initKpi(root) {
-var box = $(root, "kpi");
+var box = $(root, "kpi"), ph = typeof KPI_PHOTO === "undefined" ? {} : KPI_PHOTO;
 if (!box) return;
 var tiles = [
 { l: "Опубликованных практик", p: count('type = page AND label = "{practiceLabel}"').catch(function () { return CONFIG.stats.practicesManual; }) },
@@ -679,7 +679,8 @@ Promise.all(tiles.map(function (t) { return t.p; })).then(function (v) {
 var out = [];
 tiles.forEach(function (t, i) {
 if (typeof v[i] !== "number" || !isFinite(v[i])) return;
-out.push(h("div", "k-kpi" + (t.dark ? " is-dark" : ""), [
+var p = ph[t.l];
+out.push(h("div", "k-kpi" + (t.dark ? " is-dark" : "") + (p ? " is-ph" : ""), [p ? h("img", "k-kpi-ph", null, { src: p, alt: "" }) : null,
 h("span", "k-kpi-n", Math.round(v[i]).toLocaleString("ru-RU")), h("span", "k-kpi-l", t.l)]));
 });
 box.style.setProperty("--n", out.length || 1);
