@@ -12,7 +12,7 @@ const BEFORE = process.argv[3] && fs.existsSync(process.argv[3]) ? JSON.parse(fs
 const IMG = path.join(OUT, 'img');
 fs.mkdirSync(IMG, { recursive: true });
 const BASE = 'http://harness.local/';
-const VARIANTS = ['1K', '2K', '6K'];
+const VARIANTS = ['1K', '1KA', '2K', '6K'];
 
 // ---------- матрица ----------
 const WIDTHS = [360, 390, 768, 1024, 1280, 1366, 1440, 1920];

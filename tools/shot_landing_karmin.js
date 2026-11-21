@@ -4,7 +4,7 @@ const path = require('path');
 const out = process.argv[2];
 (async () => {
   const b = await chromium.launch();
-  for (const v of ['1K', '2K', '6K']) {
+  for (const v of ['1K', '1KA', '2K', '6K']) {
     const p = await b.newPage({ viewport: { width: 1164, height: 900 }, deviceScaleFactor: 2 });
     await p.goto('file://' + path.resolve(__dirname, 'landing_harness/page-' + v + '.html') + '?tree=0');
     const H = await p.evaluate(() => document.documentElement.scrollHeight);

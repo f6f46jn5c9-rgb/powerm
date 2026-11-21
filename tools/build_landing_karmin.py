@@ -26,6 +26,7 @@ LIMIT = 38 * 1024
 
 VARIANTS = {
     '1K': ('Лаконичный', ['1K-01-hero', '1K-02-kpi', '1K-03-companies', '1K-04-practices-news', '1K-05-cta-sections-links']),
+    '1KA': ('Лаконичный · компании «Аврора» (копия 1К)', ['1K-01-hero', '1K-02-kpi', '1KA-03-companies', '1K-04-practices-news', '1K-05-cta-sections-links']),
     '2K': ('Навигатор', ['2K-01-hero', '2K-02-navigator', '2K-03-practices-news-sections']),
     '6K': ('Полки практик', ['6K-01-hero', '6K-02-shelves', '6K-03-companies', '6K-04-news-cta']),
 }
