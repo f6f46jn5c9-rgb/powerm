@@ -143,26 +143,12 @@ return h("a", cls, kids, { href: url, target: blank ? "_blank" : null, rel: blan
 }
 function fill(e, kids) { while (e.firstChild) e.removeChild(e.firstChild); return add(e, kids); }
 function $(root, name) { return root.querySelector('[data-k="' + name + '"]'); }
-function sub(cql) {
-return cql.replace(/\{practiceLabel\}/g, lab(CONFIG.practiceLabel)).replace(/\{replicatedLabel\}/g, lab(CONFIG.replicatedLabel));
-}
 function clean(s) { return String(s || "").replace(/@@@(end)?hl@@@/g, "").trim(); }
-function dt(iso) {
-var d = new Date(iso);
-return isNaN(d) ? null : { d: d.getDate(), m: MON[d.getMonth()], s: d.getDate() + " " + MON[d.getMonth()] + " " + d.getFullYear() };
-}
 function linkOf(c, base) {
 var w = (c._links && c._links.webui) || c.url || "";
 if (!w) return null;
 if (/^[a-z]+:/i.test(w)) return w;
 return (base || "") + (w.charAt(0) === "/" ? "" : "/") + w;
-}
-function companyOf(c) {
-var an = c.ancestors || [], i, j;
-for (i = 0; i < an.length; i++)
-for (j = 0; j < CONFIG.companies.length; j++)
-if (String(an[i].id) === String(CONFIG.companies[j].pageId)) return CONFIG.companies[j].name;
-return "";
 }
 function lim(p) { return +((/limit=(\d+)/.exec(p) || [])[1] || 10); }
 function mockRoute(p) {
@@ -196,36 +182,7 @@ return fetch(path, { credentials: "same-origin", headers: { Accept: "application
 .then(function (r) { clearTimeout(t); if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); },
 function (e) { clearTimeout(t); throw e; });
 }
-function pages(cql, n, expand) {
-return api("/rest/api/content/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=" + n + "&expand=" + expand).then(function (r) {
-var base = r._links && r._links.base;
-return (r.results || []).map(function (c) {
-return { id: c.id, t: clean(c.title), u: linkOf(c, base), d: dt(c.history && c.history.createdDate), co: companyOf(c) };
-}).filter(function (x) { return x.t && x.u; });
-});
-}
-function count(cql) {
-return api("/rest/api/search?cql=" + encodeURIComponent(sub(cql)) + "&limit=1").then(function (r) {
-if (typeof r.totalSize !== "number") throw new Error("no totalSize");
-return r.totalSize;
-});
-}
-function skel(n) {
-var out = [];
-for (var i = 0; i < n; i++) out.push(h("span", "k-sk" + (i % 2 ? " k-sk-w" : ""), null, { "aria-hidden": "true" }));
-return out;
-}
-function allPractices() {
-var m = CONFIG.links && CONFIG.links.more && ok(CONFIG.links.more[0] && CONFIG.links.more[0].url);
-return m || "/label/" + encodeURIComponent(CONFIG.spaceKey) + "/" + encodeURIComponent(lab(CONFIG.practiceLabel));
-}
 function searchUrl(q) { return (ok(CONFIG.searchPageUrl) || "/dosearchsite.action?queryString=") + encodeURIComponent(q || ""); }
-function newsUrl() { return "/pages/viewrecentblogposts.action?key=" + encodeURIComponent(CONFIG.spaceKey); }
-function fallback(el, text, links) {
-fill(el, h("div", "k-msg", [h("p", null, text)].concat(links.map(function (l, i) {
-return A(l[1], "k-btn " + (i ? "k-btn-light" : "k-btn-dark"), l[0]);
-})), { role: "status" }));
-}
 function boot(cls, inits) {
 function run() {
 [].forEach.call(document.querySelectorAll("." + cls + ":not([data-k-ok])"), function (root) {

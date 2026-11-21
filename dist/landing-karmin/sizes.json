@@ -2,7 +2,7 @@
  {
   "variant": "1K",
   "module": "1K-01-hero",
-  "bytes": 38402,
+  "bytes": 36455,
   "selectors": 70
  },
  {
@@ -32,7 +32,7 @@
  {
   "variant": "1KA",
   "module": "1K-01-hero",
-  "bytes": 38402,
+  "bytes": 36455,
   "selectors": 70
  },
  {

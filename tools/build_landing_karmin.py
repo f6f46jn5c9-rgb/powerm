@@ -162,7 +162,9 @@ def build():
             uses = re.search(r'<!-- uses: ([^>]+) -->', src).group(1).split()
             skip = re.search(r'<!-- css-skip: ([^>]+) -->', src)
             skip = skip.group(1).split() if skip else []
-            markup = re.sub(r'<!-- (uses|css-skip):[^>]+-->\s*', '', src)
+            jskip = re.search(r'<!-- js-skip: ([^>]+) -->', src)
+            jskip = jskip.group(1).split() if jskip else []
+            markup = re.sub(r'<!-- (uses|css-skip|js-skip):[^>]+-->\s*', '', src)
             for _ in range(3):
                 markup = re.sub(r'\{\{> ([\w-]+)\}\}', lambda m: (SRC / 'parts' / (m.group(1) + '.html')).read_text().strip(), markup)
             root = 'bupk-' + re.match(r'[^-]+-[^-]+', name).group(0).replace('-', '').lower()
@@ -175,7 +177,7 @@ def build():
             css_names = [u for u in ['base', 'blocks'] + uses if u not in skip]
             stats = {'selectors': 0}
             css = scope_css(''.join(css_chunks[c] for c in css_names if c in css_chunks), root, stats)
-            js = '\n'.join(js_chunks[c] for c in ['base'] + uses if c in js_chunks)
+            js = '\n'.join(js_chunks[c] for c in ['base', 'blocks'] + uses if c in js_chunks and c not in jskip)
             inits = ', '.join(INITS[u] for u in uses if u in INITS)
             script = ('(function () {\n"use strict";\n'
                       '/* ==== CONFIG — одинаковый во всех модулях страницы; что заполнить — см. README.txt ==== */\n'
