@@ -159,7 +159,9 @@ def build():
         for name in mods:
             src = (SRC / 'modules' / (name + '.html')).read_text()
             uses = re.search(r'<!-- uses: ([^>]+) -->', src).group(1).split()
-            markup = re.sub(r'<!-- uses:[^>]+-->\s*', '', src)
+            skip = re.search(r'<!-- css-skip: ([^>]+) -->', src)
+            skip = skip.group(1).split() if skip else []
+            markup = re.sub(r'<!-- (uses|css-skip):[^>]+-->\s*', '', src)
             for _ in range(3):
                 markup = re.sub(r'\{\{> ([\w-]+)\}\}', lambda m: (SRC / 'parts' / (m.group(1) + '.html')).read_text().strip(), markup)
             root = 'bupk-' + name[:5].replace('-', '').lower()
@@ -169,7 +171,7 @@ def build():
             assert '{{' not in markup, name
             markup = '\n'.join(l.strip() for l in markup.split('\n') if l.strip())
 
-            css_names = ['base'] + uses
+            css_names = [u for u in ['base', 'blocks'] + uses if u not in skip]
             stats = {'selectors': 0}
             css = scope_css(''.join(css_chunks[c] for c in css_names if c in css_chunks), root, stats)
             js = '\n'.join(js_chunks[c] for c in ['base'] + uses if c in js_chunks)
