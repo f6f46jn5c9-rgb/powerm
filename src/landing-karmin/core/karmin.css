@@ -186,6 +186,12 @@
 .k-avx .k-dia{display:none}
 .k-avx .k-ft.is-dark{background:radial-gradient(100% 85% at 0% 0%,rgba(170,30,48,.42),transparent 70%),radial-gradient(95% 95% at 100% 110%,rgba(84,30,110,.42),transparent 70%),radial-gradient(60% 50% at 70% 10%,rgba(255,255,255,.08),transparent 70%),linear-gradient(160deg,#36424C,#1F2830);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),inset 0 0 0 1px rgba(255,255,255,.06),0 10px 24px rgba(15,23,30,.22)}
 
+/*@ ftph */
+.k-ft.is-ph{position:relative;overflow:hidden;isolation:isolate}
+.k-ft.is-ph::before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,#FFFFFF 24%,rgba(255,255,255,.6) 40%,rgba(255,255,255,0) 60%),linear-gradient(90deg,#FFFFFF 26%,rgba(255,255,255,0) 66%)}
+.k-ft-ph{position:absolute;z-index:-2;top:0;right:0;width:70%;height:100%;max-width:none;object-fit:cover;object-position:40% 85%;margin:0;border:0}
+.k-ft.is-ph .k-ic{box-sizing:content-box;padding:6px;border-radius:50%;background:#FFFFFF;box-shadow:0 2px 8px rgba(15,23,30,.18)}
+
 /*@ sections */
 .k-sxg{display:grid;gap:6px var(--gap);grid-template-columns:repeat(4,minmax(0,1fr))}
 @container (max-width:900px){.k-sxg{grid-template-columns:repeat(3,minmax(0,1fr))}}

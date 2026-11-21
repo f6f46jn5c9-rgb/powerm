@@ -310,10 +310,12 @@ function initNews(root) {
 var box = $(root, "news"), fts = $(root, "fts"), more = $(root, "news-more");
 if (more) more.setAttribute("href", newsUrl());
 if (fts) {
-var n = 0;
+var n = 0, ph = typeof FT_PHOTO === "undefined" ? {} : FT_PHOTO;
 fill(fts, CONFIG.featured.map(function (f) {
 if (!ok(f.url)) { todo("featured: " + f.name); return null; }
-return A(f.url, "k-ft" + (n++ % 3 === 0 ? " is-dark" : ""), [h("span", "k-ft-t", f.name), ic("ar")]);
+var p = ph[f.name], cls = "k-ft" + (p ? " is-ph" : n % 3 === 0 ? " is-dark" : "");
+n++;
+return A(f.url, cls, [p ? h("img", "k-ft-ph", null, { src: p, alt: "" }) : null, h("span", "k-ft-t", f.name), ic("ar")]);
 }));
 }
 if (!box) return;

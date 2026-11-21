@@ -20,7 +20,7 @@
  {
   "variant": "1K",
   "module": "1K-04-practices-news",
-  "bytes": 32139,
+  "bytes": 32301,
   "selectors": 67
  },
  {
@@ -49,13 +49,19 @@
  },
  {
   "variant": "1KA",
-  "module": "1KA-04-practices-news",
-  "bytes": 33144,
-  "selectors": 71
+  "module": "1KA-04-practices",
+  "bytes": 29530,
+  "selectors": 57
  },
  {
   "variant": "1KA",
-  "module": "1KA-05-cta-sections-links",
+  "module": "1KA-05-news",
+  "bytes": 37857,
+  "selectors": 57
+ },
+ {
+  "variant": "1KA",
+  "module": "1KA-06-cta-sections-links",
   "bytes": 29541,
   "selectors": 62
  },
@@ -74,7 +80,7 @@
  {
   "variant": "2K",
   "module": "2K-03-practices-news-sections",
-  "bytes": 35490,
+  "bytes": 35652,
   "selectors": 83
  },
  {
@@ -98,7 +104,7 @@
  {
   "variant": "6K",
   "module": "6K-04-news-cta",
-  "bytes": 32115,
+  "bytes": 32277,
   "selectors": 72
  }
 ]
